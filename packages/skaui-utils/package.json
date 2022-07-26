@@ -1,0 +1,22 @@
+{
+	"name": "@skaui/utils",
+	"version": "1.0.0",
+	"description": "",
+	"main": "./src/index.ts",
+	"scripts": {
+		"build": "tsup src/index.ts --format esm,cjs --dts --external react",
+		"dev": "tsup src/index.ts --format esm,cjs --watch --dts --external react",
+		"lint": "TIMING=1 eslint src/**/*.ts* --fix",
+		"clean": "rm -rf .turbo && rm -rf dist"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"react": "^18.2.0",
+		"tsconfig": "workspace:*",
+		"@types/react": "^18.0.15",
+		"eslint-config-custom": "workspace:*",
+		"tsup": "^6.2.0"
+	}
+}

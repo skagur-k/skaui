@@ -1,5 +1,5 @@
-const withTM = require("next-transpile-modules")(["ui"]);
+const withTM = require('next-transpile-modules')(['@skaui/button'])
 
 module.exports = withTM({
-  reactStrictMode: true,
-});
+	reactStrictMode: true,
+})
