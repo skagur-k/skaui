@@ -2,7 +2,7 @@ import '../styles/globals.css'
 // import '@skagur-k/ska-ui/dist/output.css'
 import type { AppProps } from 'next/app'
 
-function MyApp({ Component, pageProps }: AppProps) {
+const MyApp = ({ Component, pageProps }: AppProps) => {
 	return <Component {...pageProps} />
 }
 
