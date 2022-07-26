@@ -9,7 +9,7 @@
     "build:min": "tsup index.ts --format esm -d dist/min --external react --sourcemap inline --treeshake --minify",
     "build:types": "tsup index.ts --dts-only -d dist/types",
     "dev": "tsup index.ts --format esm,cjs --watch --dts --external react",
-    "lint": "TIMING=1 eslint src/**/*.{ts,tsx,js,jsx}* --fix",
+    "lint": "TIMING=1 eslint src/**/*.{ts,tsx,js,jsx} --fix",
     "clean": "rm -rf .turbo && rm -rf dist && rm -rf node_modules"
   },
   "keywords": [],
