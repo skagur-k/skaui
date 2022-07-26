@@ -1,4 +1,4 @@
-import cx from 'classnames'
+import clsx from 'clsx'
 import { ButtonProps } from './button.types'
 
 interface btnClassProps {
@@ -39,7 +39,7 @@ export const useButtonClass = ({
 		lg: 'btn-lg',
 	}
 
-	const classes = cx([
+	const classes = clsx([
 		'btn',
 		variant && variants[variant],
 		type && types[type],

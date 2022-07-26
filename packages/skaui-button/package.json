@@ -1,39 +1,36 @@
 {
-	"name": "@skaui/button",
-	"version": "1.0.0",
-	"description": "",
-	"main": "./dist/index.js",
-	"module": "./dist/index.mjs",
-	"types": "./dist/types/index.d.ts",
-	"files": [
-		"./dist"
-	],
-	"sideEffects": false,
-	"scripts": {
-		"build": "rm -rf dist && pnpm run build:full && pnpm run build:min && pnpm run build:types",
-		"build:full": "tsup index.ts --format esm,cjs --external react --sourcemap inline --treeshake",
-		"build:min": "tsup index.ts --format esm -d dist/min --external react --sourcemap inline --treeshake --minify",
-		"build:types": "tsup index.ts --dts-only -d dist/types",
-		"dev": "tsup index.ts --format esm,cjs --watch --dts --external react",
-		"lint": "TIMING=1 eslint src/**/*.{ts,tsx,js,jsx}* --fix",
-		"clean": "rm -rf .turbo && rm -rf dist && rm -rf node_modules"
-	},
-	"keywords": [],
-	"author": "",
-	"license": "ISC",
-	"devDependencies": {
-		"@react-aria/button": "^3.5.1",
-		"@react-aria/interactions": "^3.9.1",
-		"@react-aria/utils": "^3.13.1",
-		"@types/react": "^18.0.15",
-		"@types/react-dom": "^18.0.6",
-		"classnames": "^2.3.1",
-		"eslint-config-skaui": "workspace:*",
-		"react": "^18.2.0",
-		"tsconfig": "workspace:*",
-		"tsup": "^6.2.0",
-		"typescript": "^4.7.4",
-		"@skaui/utils": "workspace:*"
-	},
-	"dependencies": {}
+  "name": "@skaui/button",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/types/index.d.ts",
+  "files": [
+    "./dist"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "rm -rf dist && pnpm run build:full && pnpm run build:min && pnpm run build:types",
+    "build:full": "tsup index.ts --format esm,cjs --external react --sourcemap inline --treeshake",
+    "build:min": "tsup index.ts --format esm -d dist/min --external react --sourcemap inline --treeshake --minify",
+    "build:types": "tsup index.ts --dts-only -d dist/types",
+    "dev": "tsup index.ts --format esm,cjs --watch --dts --external react",
+    "lint": "TIMING=1 eslint src/**/*.{ts,tsx,js,jsx}* --fix",
+    "clean": "rm -rf .turbo && rm -rf dist && rm -rf node_modules"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@react-aria/button": "^3.5.1",
+    "@react-aria/interactions": "^3.9.1",
+    "@react-aria/utils": "^3.13.1",
+    "@skaui/utils": "workspace:*",
+    "clsx": "^1.2.1",
+    "eslint-config-skaui": "workspace:*",
+    "react": "^18.2.0",
+    "tsconfig": "workspace:*",
+    "tsup": "^6.2.0",
+    "typescript": "^4.7.4"
+  }
 }

@@ -1,118 +1,159 @@
-import React, { PropsWithChildren } from 'react'
-import { forwardRef, useState, useRef, useContext } from 'react'
 import { useButton } from '@react-aria/button'
-import { useHover, usePress } from '@react-aria/interactions'
-import { ButtonProps } from './button.types'
-import classNames from 'classnames'
+import { useHover } from '@react-aria/interactions'
+import { getValidChildren, mergeRefs } from '@skaui/utils'
+import clsx from 'clsx'
+import React, { forwardRef, PropsWithChildren, useRef, useState } from 'react'
+import { ButtonGroupProps, ButtonProps } from './button.types'
 import { useButtonClass } from './styles'
-import { mergeRefs } from '@react-aria/utils'
 
-const Button = forwardRef<HTMLButtonElement, PropsWithChildren<ButtonProps>>(
-	(props: ButtonProps, extRef: React.Ref<HTMLButtonElement | null>) => {
+export const Button = forwardRef<
+	HTMLButtonElement,
+	PropsWithChildren<ButtonProps>
+>((props: ButtonProps, extRef: React.Ref<HTMLButtonElement | null>) => {
+	const {
+		size,
+		rounded,
+		variant = 'solid',
+		type,
+		block,
+		color,
+		focusafterclick = true,
+		icon,
+		notification,
+		className,
+		children,
+		disabled,
+		loading,
+		onClick,
+		...rest
+	} = props
+	const buttonRef = useRef<HTMLButtonElement>(null)
+
+	const [isFocused, setFocused] = useState(false)
+	const { hoverProps, isHovered } = useHover({
+		isDisabled: disabled || loading,
+	})
+	const { buttonProps, isPressed } = useButton(
+		{
+			type: 'submit',
+			isDisabled: disabled || loading,
+			onFocusChange: setFocused,
+			onKeyDown: (e) => {
+				if (e.key === 'Enter' || e.key === ' ') {
+					onClick?.(e as any)
+					setFocused(true)
+				}
+				return e
+			},
+			onPressEnd: (e) => {
+				if (e.pointerType === 'touch') {
+				}
+				if (e.pointerType === 'mouse') {
+					focusafterclick ? '' : e.target.blur()
+				}
+				return e
+			},
+			onPressStart: (e) => {
+				if (e.pointerType === 'mouse') {
+					setFocused(true)
+				}
+				return e
+			},
+			onPress: (e) => {
+				onClick?.(e as any)
+			},
+		},
+		buttonRef
+	)
+
+	const classes = useButtonClass({
+		variant,
+		size,
+		type,
+		disabled,
+		loading,
+		rounded,
+	})
+
+	return (
+		<button
+			{...buttonProps}
+			{...hoverProps}
+			data-focus={isFocused ? '' : null}
+			data-active={isPressed ? '' : null}
+			data-hover={isHovered ? '' : null}
+			data-loading={loading ? '' : null}
+			data-color={color}
+			className={clsx(
+				[classes, !!icon ? (!!children ? '' : 'icononly') : ''],
+				className
+			)}
+			{...rest}
+			ref={mergeRefs(buttonRef, extRef)}>
+			{loading && (
+				<span>
+					{
+						<div
+							className={`btn-spinner ${
+								loading ? 'opacity-100' : 'opacity-0'
+							}`}></div>
+					}
+				</span>
+			)}
+			<span
+				className={`btn-content ${
+					loading ? 'opacity-0' : 'opacity-100'
+				}`}>
+				{icon && <span className={clsx('btn-icon')}>{icon}</span>}
+				{children}
+			</span>
+			{notification && <div className='btn-notification' />}
+		</button>
+	)
+})
+
+Button.displayName = 'Button'
+
+export const ButtonGroup = forwardRef<HTMLDivElement, ButtonGroupProps>(
+	(props, ref) => {
 		const {
 			size,
-			rounded,
-			variant = 'solid',
-			type,
-			block,
 			color,
-			focusafterclick = true,
-			icon,
-			notification,
-			className,
-			children,
+			variant,
+			attached,
+			rounded,
 			disabled,
-			loading,
-			onClick,
+			children,
+			className,
 			...rest
 		} = props
-		const buttonRef = useRef<HTMLButtonElement>(null)
 
-		const [isFocused, setFocused] = useState(false)
-		const { hoverProps, isHovered } = useHover({
-			isDisabled: disabled || loading,
-		})
-		const { buttonProps, isPressed } = useButton(
-			{
-				type: 'submit',
-				isDisabled: disabled || loading,
-				onFocusChange: setFocused,
-				onKeyDown: (e) => {
-					if (e.key === 'Enter' || e.key === ' ') {
-						onClick?.(e as any)
-						setFocused(true)
-					}
-					return e
-				},
-				onPressEnd: (e) => {
-					if (e.pointerType === 'touch') {
-					}
-					if (e.pointerType === 'mouse') {
-						focusafterclick ? '' : e.target.blur()
-					}
-					return e
-				},
-				onPressStart: (e) => {
-					if (e.pointerType === 'mouse') {
-						setFocused(true)
-					}
-					return e
-				},
-				onPress: (e) => {
-					onClick?.(e as any)
-				},
-			},
-			buttonRef
-		)
-
-		const classes = useButtonClass({
-			variant,
-			size,
-			type,
-			disabled,
-			loading,
-			rounded,
+		const validChildren = getValidChildren(children)
+		const copies = validChildren.map((child) => {
+			return React.cloneElement(child, {
+				size: size || child.props.size,
+				color: child.props.color || color,
+				variant: child.props.variant || variant,
+				disabled: child.props.disabled || disabled,
+				rounded: child.props.rounded || rounded,
+				focusafterclick: true,
+			})
 		})
 
 		return (
-			<button
-				{...buttonProps}
-				{...hoverProps}
-				data-focus={isFocused ? '' : null}
-				data-active={isPressed ? '' : null}
-				data-hover={isHovered ? '' : null}
-				data-loading={loading ? '' : null}
-				data-color={color}
-				className={classNames(
-					[classes, !!icon ? (!!children ? '' : 'icononly') : ''],
+			<div
+				ref={ref}
+				role='group'
+				className={clsx(
+					'btn-group',
+					attached && 'btn-group-attached',
+					rounded && 'btn-group-rounded',
 					className
 				)}
-				{...rest}
-				ref={mergeRefs(buttonRef, extRef)}>
-				{loading && (
-					<span>
-						{
-							<div
-								className={`btn-spinner ${
-									loading ? 'opacity-100' : 'opacity-0'
-								}`}></div>
-						}
-					</span>
-				)}
-				<span
-					className={`btn-content ${
-						loading ? 'opacity-0' : 'opacity-100'
-					}`}>
-					{icon && (
-						<span className={classNames('btn-icon')}>{icon}</span>
-					)}
-					{children}
-				</span>
-				{notification && <div className='btn-notification' />}
-			</button>
+				{...rest}>
+				{copies}
+			</div>
 		)
 	}
 )
-
-Button.displayName = 'Button'
-export default Button
+ButtonGroup.displayName = 'ButtonGroup'
