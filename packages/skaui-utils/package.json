@@ -4,10 +4,13 @@
 	"description": "",
 	"main": "./src/index.ts",
 	"scripts": {
-		"build": "tsup src/index.ts --format esm,cjs --dts --external react",
-		"dev": "tsup src/index.ts --format esm,cjs --watch --dts --external react",
-		"lint": "TIMING=1 eslint src/**/*.ts* --fix",
-		"clean": "rm -rf .turbo && rm -rf dist"
+		"build": "rm -rf dist && pnpm run build:full && pnpm run build:min && pnpm run build:types",
+		"build:full": "tsup index.ts --format esm,cjs --external react --sourcemap inline --treeshake",
+		"build:min": "tsup index.ts --format esm -d dist/min --external react --sourcemap inline --treeshake --minify",
+		"build:types": "tsup index.ts --dts-only -d dist/types",
+		"dev": "tsup index.ts --format esm,cjs --watch --dts --external react",
+		"lint": "TIMING=1 eslint src/**/*.{ts,tsx,js,jsx}* --fix",
+		"clean": "rm -rf .turbo && rm -rf dist && rm -rf node_modules"
 	},
 	"keywords": [],
 	"author": "",
@@ -16,7 +19,7 @@
 		"react": "^18.2.0",
 		"tsconfig": "workspace:*",
 		"@types/react": "^18.0.15",
-		"eslint-config-custom": "workspace:*",
+		"eslint-config-skaui": "workspace:*",
 		"tsup": "^6.2.0"
 	}
 }

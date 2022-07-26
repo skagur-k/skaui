@@ -23,12 +23,12 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
 ));
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
-// src/index.ts
-var src_exports = {};
-__export(src_exports, {
+// index.ts
+var skaui_utils_exports = {};
+__export(skaui_utils_exports, {
   getValidChildren: () => getValidChildren
 });
-module.exports = __toCommonJS(src_exports);
+module.exports = __toCommonJS(skaui_utils_exports);
 
 // src/getValidChildren.ts
 var import_react = __toESM(require("react"));

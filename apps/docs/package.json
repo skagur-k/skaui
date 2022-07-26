@@ -22,7 +22,7 @@
 		"@types/react-dom": "^18.0.6",
 		"autoprefixer": "^10.4.7",
 		"eslint": "7.32.0",
-		"eslint-config-custom": "workspace:*",
+		"eslint-config-skaui": "workspace:*",
 		"next-transpile-modules": "9.0.0",
 		"postcss": "^8.4.14",
 		"tailwindcss": "^3.1.6",

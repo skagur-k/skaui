@@ -5,7 +5,7 @@ const Home: NextPage = () => {
 	return (
 		<div className={'flex justify-center items-center h-screen'}>
 			<p className='text-3xl'>Hello World!</p>
-			<Button>Pretty slow</Button>
+			<Button>Is it slow?</Button>
 		</div>
 	)
 }

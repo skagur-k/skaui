@@ -14,11 +14,12 @@
 		"web": "turbo run dev --filter=web",
 		"build:docs": "turbo run build --filter=docs",
 		"build:web": "turbo run build --filter=web",
-		"format": "prettier --write \"**/*.{ts,tsx,md}\""
+		"format": "prettier --write \"**/*.{ts,tsx,md}\"",
+		"new": "plop && pnpm install"
 	},
 	"devDependencies": {
 		"@changesets/cli": "^2.24.1",
-		"eslint-config-custom": "workspace:*",
+		"eslint-config-skaui": "workspace:*",
 		"plop": "^3.1.1",
 		"prettier": "latest",
 		"turbo": "latest"
