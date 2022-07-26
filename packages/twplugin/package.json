@@ -1,0 +1,16 @@
+{
+	"name": "@skaui/twplugin",
+	"version": "1.0.0",
+	"description": "Tailwind Plugin for ska-ui",
+	"main": "./src/index.js",
+	"scripts": {
+		"lint": "TIMING=1 eslint src/**/*.js* --fix"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {},
+	"peerDependencies": {
+		"tailwindcss": ">3.0.0"
+	}
+}
