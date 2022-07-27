@@ -1,5 +1,5 @@
 import React from 'react'
 
 export const HelloWorld = () => {
-	return <div>HelloWorld</div>
+  return <div>HelloWorld  </div>
 }
