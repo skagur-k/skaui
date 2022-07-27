@@ -1,14 +1,22 @@
 {
-  "name": "@skaui/twplugin",
-  "version": "1.0.0",
-  "description": "Tailwind Plugin for ska-ui",
-  "main": "./src/index.js",
-  "scripts": {},
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {},
-  "peerDependencies": {
-    "tailwindcss": ">3.0.0"
-  }
+	"name": "@skaui/twplugin",
+	"version": "1.0.0",
+	"description": "Tailwind Plugin for ska-ui",
+	"main": "./src/index.js",
+	"scripts": {
+		"build": "rm -rf dist && pnpm run build:full && pnpm run build:min && pnpm run build:types",
+		"build:full": "tsup src/index.js --format esm,cjs --external react --sourcemap inline --treeshake",
+		"dev": "tsup src/index.js --format esm,cjs --watch --dts --external react",
+		"clean": "rm -rf .turbo && rm -rf dist && rm -rf node_modules"
+	},
+	"keywords": [],
+	"author": "Nam Hyuck Kim (skagur.dev)",
+	"license": "ISC",
+	"devDependencies": {
+		"tailwindcss": "^3.1.6",
+		"tsup": "^6.2.0"
+	},
+	"peerDependencies": {
+		"tailwindcss": ">3.0.0"
+	}
 }

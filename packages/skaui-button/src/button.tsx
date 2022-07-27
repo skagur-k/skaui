@@ -89,21 +89,18 @@ export const Button = forwardRef<
 				className
 			)}
 			{...rest}
-			ref={mergeRefs(buttonRef, extRef)}>
+			ref={mergeRefs(buttonRef, extRef)}
+		>
 			{loading && (
 				<span>
 					{
 						<div
-							className={`btn-spinner ${
-								loading ? 'opacity-100' : 'opacity-0'
-							}`}></div>
+							className={`btn-spinner ${loading ? 'opacity-100' : 'opacity-0'}`}
+						></div>
 					}
 				</span>
 			)}
-			<span
-				className={`btn-content ${
-					loading ? 'opacity-0' : 'opacity-100'
-				}`}>
+			<span className={`btn-content ${loading ? 'opacity-0' : 'opacity-100'}`}>
 				{icon && <span className={clsx('btn-icon')}>{icon}</span>}
 				{children}
 			</span>
@@ -150,7 +147,8 @@ export const ButtonGroup = forwardRef<HTMLDivElement, ButtonGroupProps>(
 					rounded && 'btn-group-rounded',
 					className
 				)}
-				{...rest}>
+				{...rest}
+			>
 				{copies}
 			</div>
 		)

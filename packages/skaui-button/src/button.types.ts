@@ -22,6 +22,7 @@ interface IButtonGroupProps {
 	attached?: boolean
 	disabled?: boolean
 	rounded?: boolean
+
 	size?: ButtonProps['size']
 	variant?: ButtonProps['variant']
 	color?: ButtonProps['color']
@@ -29,10 +30,7 @@ interface IButtonGroupProps {
 }
 
 interface ButtonGroupNativeAttrs
-	extends Omit<
-		React.HTMLAttributes<HTMLDivElement>,
-		keyof IButtonGroupProps
-	> {}
+	extends Omit<React.HTMLAttributes<HTMLDivElement>, keyof IButtonGroupProps> {}
 
 export interface ButtonProps extends ButtonNativeAttrs, IButtonProps {
 	ref?: any

@@ -5,6 +5,7 @@ module.exports = {
 	},
 	extends: [
 		'./eslint-base',
+		'plugin:tailwindcss',
 		'plugin:import/recommended',
 		'plugin:import/typescript',
 	],
@@ -41,10 +42,7 @@ module.exports = {
 			env: {
 				jest: true,
 			},
-			files: [
-				'**/__tests__/**/*.[jt]s?(x)',
-				'**/?(*.)+(spec|test).[jt]s?(x)',
-			],
+			files: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
 			extends: [
 				// 'plugin:testing-library/react',
 				// 'plugin:testing-library/jest-dom',

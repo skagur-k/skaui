@@ -76,6 +76,7 @@ importers:
       eslint-plugin-react: 7.28.0
       eslint-plugin-react-hooks: ^4.6.0
       eslint-plugin-testing-library: ^5.5.1
+      prettier-plugin-tailwindcss: ^0.1.13
       typescript: ^4.7.4
     dependencies:
       '@typescript-eslint/eslint-plugin': 5.31.0_6ha3eecbwr5cxnj72rgwwy3opa
@@ -93,6 +94,7 @@ importers:
       eslint-plugin-react: 7.28.0_eslint@7.32.0
       eslint-plugin-react-hooks: 4.6.0_eslint@7.32.0
       eslint-plugin-testing-library: 5.5.1_hxadhbs2xogijvk7vq4t2azzbu
+      prettier-plugin-tailwindcss: 0.1.13
     devDependencies:
       typescript: 4.7.4
 
@@ -136,7 +138,10 @@ importers:
     specifiers: {}
 
   packages/twplugin:
-    specifiers: {}
+    specifiers:
+      tailwindcss: ^3.1.6
+    devDependencies:
+      tailwindcss: 3.1.6
 
 packages:
 
@@ -4354,6 +4359,13 @@ packages:
   /prelude-ls/1.2.1:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
+
+  /prettier-plugin-tailwindcss/0.1.13:
+    resolution: {integrity: sha512-/EKQURUrxLu66CMUg4+1LwGdxnz8of7IDvrSLqEtDqhLH61SAlNNUSr90UTvZaemujgl3OH/VHg+fyGltrNixw==}
+    engines: {node: '>=12.17.0'}
+    peerDependencies:
+      prettier: '>=2.2.0'
+    dev: false
 
   /prettier/1.19.1:
     resolution: {integrity: sha512-s7PoyDv/II1ObgQunCbB9PdLmUcBZcnWOcxDh7O0N/UwDEsHyqkW+Qh28jW+mVuCdx7gLB0BotYI1Y6uI9iyew==}

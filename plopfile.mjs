@@ -26,12 +26,17 @@ export default function (plop) {
 			{
 				type: 'add',
 				path: './packages/{{folderName name}}/index.ts',
-				templateFile: '.template/index.ts',
+				templateFile: '.template/index.template.hbs',
 			},
 			{
 				type: 'add',
 				path: './packages/{{folderName name}}/tsconfig.json',
-				templateFile: '.template/tsconfig.json',
+				templateFile: '.template/tsconfig.template.hbs',
+			},
+			{
+				type: 'add',
+				path: './packages/{{folderName name}}/.eslintrc',
+				templateFile: '.template/eslintrc.template.hbs',
 			},
 			{
 				type: 'add',
