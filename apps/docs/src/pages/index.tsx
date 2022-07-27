@@ -3,8 +3,11 @@ import { Button } from '@skaui/button'
 
 const Home: NextPage = () => {
 	return (
-		<div className={'flex justify-center items-center h-screen'}>
-			<Button>Is it slow?</Button>
+		<div className={'flex h-screen items-center justify-center'}>
+			Hello World
+			<Button>Button</Button>
+			<Button disabled>Button</Button>
+			<Button type='secondary'>Button</Button>
 		</div>
 	)
 }

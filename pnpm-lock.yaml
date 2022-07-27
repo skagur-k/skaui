@@ -138,10 +138,10 @@ importers:
     specifiers: {}
 
   packages/twplugin:
-    specifiers:
-      tailwindcss: ^3.1.6
-    devDependencies:
-      tailwindcss: 3.1.6
+    specifiers: {}
+
+  packages/web-cypress:
+    specifiers: {}
 
 packages:
 
