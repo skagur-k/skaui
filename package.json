@@ -37,10 +37,10 @@
 	},
 	"lint-staged": {
 		"apps/**/*.{js,ts,jsx,tsx}": [
-			"TIMING=1 eslint --fix"
+			"eslint --fix"
 		],
 		"package/**/*.{js,ts,jsx,tsx}": [
-			"TIMING=1 eslint --fix"
+			"eslint --fix"
 		],
 		"*.json": [
 			"prettier --write"
