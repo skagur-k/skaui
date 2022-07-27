@@ -1,0 +1,9 @@
+.wrapper {
+	@apply flex flex-col;
+	@apply mx-auto h-full min-h-screen max-w-7xl;
+	@apply overflow-x-hidden;
+}
+
+.content {
+	@apply ml-0 block w-fit pl-12 pt-0 md:ml-72 md:pt-24;
+}

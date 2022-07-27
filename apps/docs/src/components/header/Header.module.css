@@ -1,0 +1,27 @@
+.header {
+	@apply grid grid-cols-3 md:hidden;
+	@apply py-8 px-8;
+	@apply justify-between;
+}
+
+.logo .text {
+	@apply grid justify-center text-2xl font-black;
+}
+
+.select,
+.logo,
+.menu {
+	@apply grid cursor-pointer items-center;
+}
+
+.select {
+	@apply justify-start;
+}
+
+.menu {
+	@apply justify-end;
+}
+
+.icon {
+	@apply h-8 w-8;
+}

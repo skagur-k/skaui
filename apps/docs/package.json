@@ -1,30 +1,32 @@
 {
-  "name": "docs",
-  "version": "0.0.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "test": "jest --coverage"
-  },
-  "dependencies": {
-    "@skaui/twplugin": "workspace:*",
-    "next": "12.2.3",
-    "react": "17.0.2",
-    "@skaui/button": "workspace:*",
-    "react-dom": "17.0.2"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.0.0",
-    "autoprefixer": "^10.4.7",
-    "eslint": "7.32.0",
-    "eslint-config-skaui": "workspace:*",
-    "next-transpile-modules": "9.0.0",
-    "postcss": "^8.4.14",
-    "tailwindcss": "^3.1.6",
-    "tsconfig": "workspace:*",
-    "typescript": "^4.5.3"
-  }
+	"name": "docs",
+	"version": "0.0.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint",
+		"test": "jest --coverage"
+	},
+	"dependencies": {
+		"@skaui/button": "workspace:*",
+		"@skaui/twplugin": "workspace:*",
+		"next": "12.2.3",
+		"react": "17.0.2",
+		"react-dom": "17.0.2",
+		"react-icons": "^4.4.0"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.0.0",
+		"autoprefixer": "^10.4.7",
+		"clsx": "^1.2.1",
+		"eslint": "7.32.0",
+		"eslint-config-skaui": "workspace:*",
+		"next-transpile-modules": "9.0.0",
+		"postcss": "^8.4.14",
+		"tailwindcss": "^3.1.6",
+		"tsconfig": "workspace:*",
+		"typescript": "^4.5.3"
+	}
 }

@@ -50,7 +50,9 @@ const skaui = plugin.withOptions(
 						width: '5px',
 						borderRight: '10px',
 					},
-					'::-webkit-scrollbar-track': {},
+					'::-webkit-scrollbar-track': {
+						backgroundColor: colors.neutral[100],
+					},
 					'::-webkit-scrollbar-thumb': {
 						backgroundColor: colors.neutral[200],
 					},

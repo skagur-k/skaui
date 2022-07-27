@@ -7,7 +7,9 @@
 	"keywords": [],
 	"author": "Nam Hyuck Kim (skagur.dev)",
 	"license": "ISC",
-	"devDependencies": {},
+	"devDependencies": {
+		"tailwindcss": "^3.1.6"
+	},
 	"peerDependencies": {
 		"tailwindcss": ">3.0.0"
 	}
