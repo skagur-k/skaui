@@ -1,6 +1,7 @@
 import { NextPage } from 'next'
 import { IDE } from '../components/ide'
 import { TreeView, Folder, File } from '@skaui/treeview'
+import { CSSTransition } from 'react-transition-group'
 
 const GettingStarted: NextPage = () => {
 	const code = `<TreeView title="TreeView">
@@ -15,7 +16,7 @@ const GettingStarted: NextPage = () => {
 	<File name="File1.js"/>
 	<File name="File2.js"/>
 </TreeView>`
-	const scope = { TreeView, Folder, File }
+	const scope = { TreeView, Folder, File, CSSTransition }
 	return (
 		<div className={'flex flex-col gap-20'}>
 			<div className='title flex flex-col gap-10'>

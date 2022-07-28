@@ -42,6 +42,5 @@
 }
 
 .editor {
-	& pre {
-	}
+	@apply overflow-auto font-mono;
 }

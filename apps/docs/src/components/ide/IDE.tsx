@@ -5,7 +5,12 @@ import { LiveEditor, LivePreview, LiveProvider, withLive } from 'react-live'
 import styles from './IDE.module.css'
 import { IDEProps } from './IDE.types'
 import { debounce } from 'lodash'
-import dracula from 'prism-react-renderer/themes/dracula'
+
+const noTheme = {
+	plain: {},
+	styles: [],
+}
+
 const Live = ({
 	live,
 	onEdit,
@@ -17,6 +22,7 @@ const Live = ({
 }) => {
 	live.error ? onError(true) : onError(false)
 	const delay = 0
+
 	function handleChange(code: string) {
 		debounce(() => {
 			onEdit(code)
@@ -25,7 +31,7 @@ const Live = ({
 
 	return (
 		<div className='px-2'>
-			<LiveEditor className={styles.editor} onChange={handleChange} />
+			<LiveEditor className={styles.editor} onChange={onEdit} />
 
 			{live.error ? (
 				<Collapsible
@@ -48,16 +54,23 @@ const IDE = (props: IDEProps) => {
 	const { heading } = props
 	const [error, setError] = React.useState(false)
 	const [code, setCode] = React.useState(props.code)
+
+	useEffect(() => {
+		setCode(code)
+		console.log('Rendered')
+	}, [code])
+
 	return (
 		<div className={styles.wrapper}>
 			<h1 className={styles.heading}>{heading}</h1>
 			{code}
 			<div className={styles.provider}>
 				{
-					<LiveProvider {...props} code={code}>
+					<LiveProvider {...props} code={code} theme={noTheme}>
 						<LivePreview
 							className={clsx(styles.preview, [error && styles.previewError])}
 						/>
+
 						<Collapsible
 							title={<p>Code Editor</p>}
 							className={clsx(styles.editorCollapsible, '')}

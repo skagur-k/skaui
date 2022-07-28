@@ -1,79 +1,72 @@
-// @flow
-// Converted automatically using ./tools/themeFromVsCode
-
-const theme = {
+export const skauiPrism = {
 	plain: {
-		color: '#000000',
-		backgroundColor: 'transparent',
+		color: '#e7d2ed',
 	},
 	styles: [
 		{
-			types: ['comment'],
+			types: ['prolog', 'comment', 'doctype', 'cdata'],
 			style: {
-				color: 'rgb(0, 128, 0)',
+				color: 'hsl(30, 20%, 50%)',
 			},
 		},
 		{
-			types: ['builtin'],
+			types: ['property', 'tag', 'boolean', 'number', 'constant', 'symbol'],
+			style: { color: '#f677e1' },
+		},
+		{
+			types: ['attr-name', 'string', 'char', 'builtin', 'insterted'],
 			style: {
-				color: 'rgb(0, 112, 193)',
+				color: 'hsl(75, 70%, 70%)',
 			},
 		},
 		{
-			types: ['number', 'variable', 'inserted'],
+			types: [
+				'operator',
+				'entity',
+				'url',
+				'string',
+				'variable',
+				'language-css',
+			],
 			style: {
-				color: 'rgb(9, 134, 88)',
+				color: 'hsl(40, 90%, 70%)',
 			},
 		},
 		{
-			types: ['operator'],
+			types: ['deleted'],
 			style: {
-				color: 'rgb(0, 0, 0)',
+				color: 'rgb(255, 85, 85)',
 			},
 		},
 		{
-			types: ['constant', 'char'],
+			types: ['italic'],
 			style: {
-				color: 'rgb(129, 31, 63)',
+				fontStyle: 'italic',
 			},
 		},
 		{
-			types: ['tag'],
+			types: ['important', 'bold'],
 			style: {
-				color: 'rgb(128, 0, 0)',
+				fontWeight: 'bold',
 			},
 		},
 		{
-			types: ['attr-name'],
+			types: ['regex', 'important'],
 			style: {
-				color: 'rgb(255, 0, 0)',
+				color: '#e90',
 			},
 		},
 		{
-			types: ['deleted', 'string'],
+			types: ['atrule', 'attr-value', 'keyword'],
 			style: {
-				color: 'rgb(163, 21, 21)',
+				color: '#f677e1',
 			},
 		},
 		{
-			types: ['changed', 'punctuation'],
+			types: ['punctuation', 'symbol'],
 			style: {
-				color: 'rgb(4, 81, 165)',
-			},
-		},
-		{
-			types: ['function', 'keyword'],
-			style: {
-				color: 'rgb(0, 0, 255)',
-			},
-		},
-		{
-			types: ['class-name'],
-			style: {
-				color: 'rgb(38, 127, 153)',
+				opacity: '0.7',
 			},
 		},
 	],
 }
-
-export default theme

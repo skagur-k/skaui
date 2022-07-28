@@ -66,6 +66,7 @@ const skaui = plugin.withOptions(
 				extend: {
 					fontFamily: {
 						sans: ['Inter', ...defaultTheme.fontFamily.sans],
+						mono: ['JetBrains Mono', ...defaultTheme.fontFamily.mono],
 					},
 					fontSize: {
 						tiny: [
