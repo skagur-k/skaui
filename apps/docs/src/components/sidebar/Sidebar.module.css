@@ -1,0 +1,53 @@
+.aside {
+	@apply fixed z-50 flex h-full w-fit flex-col;
+}
+
+.content {
+	@apply flex h-fit flex-col;
+}
+
+.header {
+	@apply flex justify-center pt-20 pb-16;
+	@apply text-2xl font-black;
+}
+
+.buttonGroup {
+	@apply grid grid-cols-2 px-2;
+}
+
+.button {
+	@apply grid justify-center;
+}
+
+.components {
+	@apply relative mb-8 flex flex-[1_1_auto] overflow-y-scroll;
+	@apply flex-col space-y-10 px-2;
+}
+
+.component {
+}
+.component::before {
+	@apply flex items-center;
+	@apply transition-colors duration-100;
+	@apply absolute left-0 h-[20px] w-[1px] -translate-x-1/2 pl-2 content-[''];
+}
+
+.componentTitle {
+	@apply font-medium underline-offset-4 hover:text-neutral-500 hover:underline;
+}
+
+.componentActive .componentTitle {
+	@apply font-bold text-blue-500 underline;
+}
+
+.componentActive.component::before {
+	@apply bg-blue-500;
+}
+
+.sectionHeading {
+	@apply mb-6 text-lg font-bold;
+}
+
+.componentList {
+	@apply ml-6 flex flex-col gap-6;
+}

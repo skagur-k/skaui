@@ -16,7 +16,7 @@
 		"build:docs": "turbo run build --filter=docs",
 		"build:web": "turbo run build --filter=web",
 		"format": "prettier --write \"**/*.{ts,tsx,md}\"",
-		"new": "plop && pnpm install",
+		"gen": "plop",
 		"prepare": "husky install"
 	},
 	"devDependencies": {

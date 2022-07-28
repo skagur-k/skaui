@@ -1,14 +1,14 @@
 function buttonBase() {
 	return {
 		'@apply cursor-pointer select-none relative': {},
-		'@apply text-sm font-medium max-w-fit': {},
+		'@apply text-sm font-medium max-w-full': {},
 
 		'@apply transition-all duration-100 ease-linear': {},
 		'@apply px-2 py-1 rounded-md': {},
 
 		'@apply outline-none': {},
 		'@apply border border-neutral-200': {},
-		'@apply w-fit h-fit': {},
+		'@apply h-fit': {},
 
 		'&-content': {
 			'@apply flex items-center justify-center': {},
@@ -38,8 +38,7 @@ function buttonSecondary() {
 			'@apply hover:bg-neutral-600 hover:border-neutral-800': {},
 
 			// Focus
-			'@apply focus:ring-[1px] focus:ring-neutral-700 focus:ring-offset-0':
-				{},
+			'@apply focus:ring-[1px] focus:ring-neutral-700 focus:ring-offset-0': {},
 
 			// Active
 			'@apply active:bg-neutral-700': {},
@@ -62,12 +61,10 @@ function buttonSolid(colors) {
 
 			// Hover
 			'@apply hover:border-neutral-400 hover:bg-neutral-100': {},
-			'@apply dark:hover:border-neutral-500 dark:hover:bg-neutral-200':
-				{},
+			'@apply dark:hover:border-neutral-500 dark:hover:bg-neutral-200': {},
 
 			// Focus
-			'@apply focus:ring-[1px] focus:ring-neutral-700 focus:ring-offset-0':
-				{},
+			'@apply focus:ring-[1px] focus:ring-neutral-700 focus:ring-offset-0': {},
 			'@apply dark:focus:ring-neutral-100': {},
 
 			// Active
@@ -85,8 +82,7 @@ function buttonSolid(colors) {
 						[`@apply border-${color}-500`]: {},
 
 						// Hover
-						[`@apply hover:border-${color}-400 hover:bg-${color}-400`]:
-							{},
+						[`@apply hover:border-${color}-400 hover:bg-${color}-400`]: {},
 
 						// Focus
 						[`@apply focus:ring-[1px] focus:ring-${color}-600 focus:ring-offset-0`]:
@@ -121,8 +117,7 @@ function buttonGhost(colors) {
 				{},
 
 			// Focus
-			'@apply focus:ring-[1px] focus:ring-neutral-800 focus:ring-offset-0':
-				{},
+			'@apply focus:ring-[1px] focus:ring-neutral-800 focus:ring-offset-0': {},
 
 			// Active
 			'@apply active:bg-neutral-600': {},
@@ -237,8 +232,7 @@ function buttonMisc(colors) {
 	return {
 		// Spinner
 		'&-spinner': {
-			[`@apply absolute w-4 h-4 left-0 right-0 top-0 bottom-0 m-auto`]:
-				{},
+			[`@apply absolute w-4 h-4 left-0 right-0 top-0 bottom-0 m-auto`]: {},
 			[`@apply border-2 rounded-full border-l-gray-300 border-r-gray-300 border-t-gray-300 border-b-gray-400`]:
 				{},
 			[`@apply animate-spin-slow`]: {},

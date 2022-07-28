@@ -1,0 +1,26 @@
+.navigation {
+	@apply flex flex-col overflow-hidden;
+	@apply mt-8 mb-12 space-y-2 px-2;
+}
+
+.navigationItem {
+	@apply flex items-center space-x-2;
+	@apply py-1 pl-2;
+	@apply transition-colors duration-200;
+	@apply bg-neutral-100 hover:bg-neutral-200;
+	@apply overflow-hidden rounded-md;
+}
+
+.navigationItem.navigationItemActive {
+	@apply bg-neutral-800 font-bold text-neutral-200;
+	@apply hover:bg-neutral-700;
+}
+
+.icon {
+	@apply mr-2 h-8 w-8;
+	@apply flex items-center justify-center;
+}
+
+.title {
+	@apply font-medium;
+}

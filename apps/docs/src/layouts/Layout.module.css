@@ -2,8 +2,9 @@
 	@apply flex flex-col;
 	@apply mx-auto h-full min-h-screen max-w-7xl;
 	@apply overflow-x-hidden;
+	@apply relative;
 }
 
-.content {
-	@apply ml-0 block w-fit pl-12 pt-0 md:ml-72 md:pt-24;
+.main {
+	@apply block w-fit pl-0 pt-0 md:pl-80 md:pt-24;
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Aside } from '../components/aside'
+import { Sidebar } from '../components/sidebar'
 import { Header } from '../components/header'
 import styles from './Layout.module.css'
 
@@ -11,9 +11,9 @@ export const Layout = ({ children }: { children: React.ReactElement }) => {
 			}
 		>
 			<div className={styles.wrapper}>
-				<Aside />
+				<Sidebar />
 				<Header />
-				<div className={styles.content}>{children}</div>
+				<main className={styles.main}>{children}</main>
 			</div>
 		</div>
 	)
