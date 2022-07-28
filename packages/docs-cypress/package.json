@@ -1,0 +1,24 @@
+{
+	"name": "@skaui/docs-cypress",
+	"version": "1.0.0",
+	"description": "Cypress for Docs",
+	"main": "index.js",
+	"scripts": {
+		"lint": "TIMING=1 eslint src/**/*.{ts,tsx,js,jsx} --fix",
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"test:cypress": "start-server-and-test \"(cd ../../apps/docs && next dev)\" http://localhost:3000",
+		"cypress": "cypress open"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"@skaui/docs": "workspace:*"
+	},
+	"devDependencies": {
+		"cypress": "^10.3.1",
+		"start-server-and-test": "^1.14.0",
+		"eslint-config-skaui": "workspace:*",
+		"tsconfig": "workspace:*"
+	}
+}
