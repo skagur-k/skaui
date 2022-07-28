@@ -7,6 +7,11 @@ function collapsible() {
 			'@apply items-center cursor-pointer text-lg font-bold flex justify-between':
 				{},
 		},
+
+		'&.collapsible-notransition .collapsible-content-wrapper': {
+			'@apply transition-none': {},
+		},
+
 		'&-content-wrapper': {
 			'@apply block transition-all duration-300 ease-in-out overflow-hidden':
 				{},

@@ -1,7 +1,7 @@
 {
-	"name": "{{packageName name}}",
+	"name": "@skaui/treeview",
 	"version": "1.0.0",
-	"description": "{{description}}",
+	"description": "SKA UI - TreeView",
 	"main": "./dist/index.js",
 	"module": "./dist/index.mjs",
 	"types": "./dist/types/index.d.ts",
@@ -21,16 +21,23 @@
 	"keywords": [],
 	"author": "Nam Hyuck Kim (skagur@gmail.com)",
 	"license": "ISC",
-	"devDependencies": {
-		"classnames": "^2.3.1",
-		"react": "^18.2.0",
-		"tsup": "^6.2.0",
-    "clsx": "^1.2.1",
-		"typescript": "^4.7.4",
-		"react-icons": "^4.4.0",
-		"eslint-config-skaui": "workspace:*",
-		"tsconfig": "workspace:*",
-		"@skaui/utils": "workspace:*"
+	"dependencies": {
+		"react-transition-group": "^4.4.2"
 	},
-	"dependencies": {}
+	"devDependencies": {
+		"@skaui/utils": "workspace:*",
+		"clsx": "^1.2.1",
+		"eslint-config-skaui": "workspace:*",
+		"react": "^18.2.0",
+		"react-aria": "^3.17.0",
+		"react-dom": "18.2.0",
+		"react-icons": "^4.4.0",
+		"tsconfig": "workspace:*",
+		"tsup": "^6.2.0",
+		"typescript": "^4.7.4"
+	},
+	"peerDependencies": {
+		"react": "^17.2.0",
+		"react-dom": "^17.2.0"
+	}
 }

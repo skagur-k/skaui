@@ -9,3 +9,7 @@
 	@apply w-full;
 	@apply block px-4 pt-12 md:pr-0 md:pl-80 md:pt-24;
 }
+
+.contentWrapper{
+	@apply flex min-h-screen flex-col justify-between
+}

@@ -35,12 +35,8 @@ export default function (plop) {
 			},
 			{
 				type: 'add',
-				path: './packages/{{folderName name}}/.eslintrc',
+				path: './packages/{{folderName name}}/.eslintrc.js',
 				templateFile: '.template/package/eslintrc.template.hbs',
-			},
-			{
-				type: 'add',
-				path: './packages/{{folderName name}}/src/index.ts',
 			},
 		], // array of actions
 	})
@@ -68,7 +64,7 @@ export default function (plop) {
 			},
 			{
 				type: 'add',
-				path: './apps/docs/src/components/{{pascalCase name}}/index.ts',
+				path: './apps/docs/src/components/{{lowerCase name}}/index.ts',
 				templateFile: '.template/component/index.template.hbs',
 			},
 		], // array of actions

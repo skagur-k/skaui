@@ -1,31 +1,21 @@
 import { NextPage } from 'next'
-import { Button } from '@skaui/button'
 import { IDE } from '../components/ide'
+import { TreeView, Folder, File } from '@skaui/treeview'
 
 const GettingStarted: NextPage = () => {
-	const code = `
-	() => (<h1>Hello World
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<h2>Hello</h2>
-	
-	</h1>
-	
-		)
-	`
-
+	const code = `<TreeView title="TreeView">
+<Folder name="Hello">
+	<File name="File1.js"/>
+	<File name="File2.js"/>
+</Folder>
+<Folder name="Hello">
+	<File name="File1.js"/>
+	<File name="File2.js"/>
+</Folder>
+	<File name="File1.js"/>
+	<File name="File2.js"/>
+</TreeView>`
+	const scope = { TreeView, Folder, File }
 	return (
 		<div className={'flex flex-col gap-20'}>
 			<div className='title flex flex-col gap-10'>
@@ -34,7 +24,7 @@ const GettingStarted: NextPage = () => {
 			</div>
 
 			<div>
-				<IDE code={code} />
+				<IDE heading='TreeView' code={code} scope={scope} />
 			</div>
 		</div>
 	)

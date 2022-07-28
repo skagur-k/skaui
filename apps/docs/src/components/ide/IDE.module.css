@@ -1,12 +1,47 @@
 .wrapper {
+	@apply flex flex-col space-y-8;
 	@apply w-full pr-4;
 }
 
-.preview {
-	@apply h-fit bg-gray-200;
-}
-.editor {
+.provider {
+	@apply flex flex-col;
 }
 
-.error {
+.preview {
+	@apply h-fit min-h-[200px] px-6 py-12;
+	@apply border border-neutral-200;
+	@apply rounded-none rounded-t-xl;
+}
+
+.previewError {
+	@apply border-red-500;
+}
+
+.heading {
+	@apply text-2xl font-bold;
+}
+
+.editorCollapsible {
+	@apply rounded-none rounded-b-xl px-6;
+	@apply border border-t-0 border-neutral-200;
+}
+.editorCollapsibleContent {
+	@apply flex flex-col gap-2;
+}
+
+.errorCollapsible {
+	@apply w-full border-none text-sm;
+
+	& .collapsible-content-wrapper {
+		@apply transition-none;
+	}
+
+	& .collapsible-content-content {
+		@apply text-5xl;
+	}
+}
+
+.editor {
+	& pre {
+	}
 }

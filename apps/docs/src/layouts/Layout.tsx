@@ -2,6 +2,7 @@ import React from 'react'
 import { Sidebar } from '../components/sidebar'
 import { Header } from '../components/header'
 import styles from './Layout.module.css'
+import { Footer } from '../components/footer/Footer'
 
 export const Layout = ({ children }: { children: React.ReactElement }) => {
 	return (
@@ -13,7 +14,10 @@ export const Layout = ({ children }: { children: React.ReactElement }) => {
 			<div className={styles.wrapper}>
 				<Sidebar />
 				<Header />
-				<main className={styles.main}>{children}</main>
+				<div className={styles.contentWrapper}>
+					<main className={styles.main}>{children}</main>
+					<Footer />
+				</div>
 			</div>
 		</div>
 	)

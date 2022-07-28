@@ -4,7 +4,7 @@ function treeview() {
 		'@apply list-none gap-0': {},
 		'@apply text-sm': {},
 		'@apply transition-all': {},
-		'@apply min-w-[250px] w-fit min-h-[400px]': {},
+		'@apply min-w-[250px] w-fit': {},
 
 		'&-title': {
 			'@apply text-center': {},

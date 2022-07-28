@@ -49,8 +49,8 @@ export const Sidebar = () => {
 
 				{/* Component List */}
 				<div className={styles.components}>
-					{components.map((section) => (
-						<div>
+					{components.map((section, idx) => (
+						<div key={idx}>
 							<h1 className={styles.sectionHeading}>{section.heading}</h1>
 							<ul className={styles.componentList}>
 								{section.components.map((component) => (
