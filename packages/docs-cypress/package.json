@@ -6,7 +6,7 @@
 	"scripts": {
 		"lint": "TIMING=1 eslint src/**/*.{ts,tsx,js,jsx} --fix",
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"test:cypress": "start-server-and-test \"(cd ../../apps/docs && next dev)\" http://localhost:3000",
+		"test:cypress": "start-server-and-test \"(pnpm -w dev --filter @skaui/docs)\" http://localhost:3000",
 		"cypress": "cypress open"
 	},
 	"keywords": [],
