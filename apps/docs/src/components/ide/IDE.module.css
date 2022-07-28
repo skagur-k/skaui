@@ -1,0 +1,12 @@
+.wrapper {
+	@apply w-full pr-4;
+}
+
+.preview {
+	@apply h-fit bg-gray-200;
+}
+.editor {
+}
+
+.error {
+}

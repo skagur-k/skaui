@@ -61,13 +61,12 @@ export const Sidebar = () => {
 										])}
 									>
 										<NavLink href={`/${component.key}`} passHref>
-											{(isActive: boolean) => {
-												return (
-													<a className={clsx(styles.componentTitle)}>
-														{component.title}
-													</a>
-												)
-											}}
+											<a
+												key={component.key}
+												className={clsx(styles.componentTitle)}
+											>
+												{component.title}
+											</a>
 										</NavLink>
 									</li>
 								))}

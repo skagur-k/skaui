@@ -58,17 +58,17 @@ export default function (plop) {
 		actions: [
 			{
 				type: 'add',
-				path: './apps/docs/src/components/{{lowerCase name}}/{{sentenceCase name}}.module.css',
+				path: './apps/docs/src/components/{{lowerCase name}}/{{pascalCase name}}.module.css',
 				templateFile: '.template/component/css.template.hbs',
 			},
 			{
 				type: 'add',
-				path: './apps/docs/src/components/{{lowerCase name}}/{{sentenceCase name}}.tsx',
+				path: './apps/docs/src/components/{{lowerCase name}}/{{pascalCase name}}.tsx',
 				templateFile: '.template/component/component.template.hbs',
 			},
 			{
 				type: 'add',
-				path: './apps/docs/src/components/{{lowerCase name}}/index.ts',
+				path: './apps/docs/src/components/{{pascalCase name}}/index.ts',
 				templateFile: '.template/component/index.template.hbs',
 			},
 		], // array of actions
