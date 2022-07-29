@@ -7,14 +7,28 @@
 	@apply flex flex-col;
 }
 
+.previewWrapper {
+	@apply relative;
+}
+
 .preview {
-	@apply h-fit min-h-[200px] px-6 py-12;
+	@apply h-fit px-6 py-12;
 	@apply border border-neutral-200;
 	@apply rounded-none rounded-t-xl;
 }
 
+.previewLoader {
+	@apply h-5 w-5;
+}
+
+.previewErrored {
+}
+
 .previewError {
-	@apply border-red-500;
+	@apply absolute top-0 bottom-0 right-0 left-0;
+	@apply mx-auto my-auto h-fit w-fit;
+	@apply flex items-center;
+	@apply text-sm text-neutral-800;
 }
 
 .heading {
@@ -23,24 +37,43 @@
 
 .editorCollapsible {
 	@apply rounded-none rounded-b-xl px-6;
-	@apply border border-t-0 border-neutral-200;
+	@apply relative border border-t-0 border-neutral-200;
 }
+
 .editorCollapsibleContent {
-	@apply flex flex-col gap-2;
+	@apply flex flex-col;
+}
+
+.copyToClipboard {
+	@apply h-5 w-5;
 }
 
 .errorCollapsible {
 	@apply w-full border-none text-sm;
 
-	& .collapsible-content-wrapper {
-		@apply transition-none;
+	& .collapsible-title {
+		@apply font-bold;
 	}
 
 	& .collapsible-content-content {
-		@apply text-5xl;
 	}
 }
 
+.errorMsg {
+	@apply text-base font-bold text-red-500;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
 .editor {
-	@apply overflow-auto font-mono;
+	@apply flex-1 overflow-auto;
+	@apply transition-all duration-200;
+
+	& textarea {
+		@apply outline-none;
+		@apply transition-all duration-200;
+	}
+	& .token {
+		@apply font-bold;
+	}
 }

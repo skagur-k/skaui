@@ -1,72 +1,79 @@
-export const skauiPrism = {
+// Converted automatically using ./tools/themeFromVsCode
+import colors from 'tailwindcss/colors'
+
+const theme = {
 	plain: {
-		color: '#e7d2ed',
+		color: '#000000',
+		backgroundColor: 'transparent',
 	},
 	styles: [
 		{
-			types: ['prolog', 'comment', 'doctype', 'cdata'],
+			types: ['comment'],
 			style: {
-				color: 'hsl(30, 20%, 50%)',
+				color: colors.neutral[500],
 			},
 		},
 		{
-			types: ['property', 'tag', 'boolean', 'number', 'constant', 'symbol'],
-			style: { color: '#f677e1' },
-		},
-		{
-			types: ['attr-name', 'string', 'char', 'builtin', 'insterted'],
+			types: ['builtin'],
 			style: {
-				color: 'hsl(75, 70%, 70%)',
+				color: 'rgb(0, 112, 193)',
 			},
 		},
 		{
-			types: [
-				'operator',
-				'entity',
-				'url',
-				'string',
-				'variable',
-				'language-css',
-			],
+			types: ['number', 'variable', 'inserted'],
 			style: {
-				color: 'hsl(40, 90%, 70%)',
+				color: 'rgb(9, 134, 88)',
 			},
 		},
 		{
-			types: ['deleted'],
+			types: ['operator'],
 			style: {
-				color: 'rgb(255, 85, 85)',
+				color: 'rgb(0, 0, 0)',
 			},
 		},
 		{
-			types: ['italic'],
+			types: ['constant', 'char'],
 			style: {
-				fontStyle: 'italic',
+				color: 'rgb(129, 31, 63)',
 			},
 		},
 		{
-			types: ['important', 'bold'],
+			types: ['tag'],
 			style: {
-				fontWeight: 'bold',
+				color: colors.green[800],
 			},
 		},
 		{
-			types: ['regex', 'important'],
+			types: ['attr-name'],
 			style: {
-				color: '#e90',
+				color: colors.red[500],
 			},
 		},
 		{
-			types: ['atrule', 'attr-value', 'keyword'],
+			types: ['deleted', 'string'],
 			style: {
-				color: '#f677e1',
+				color: 'rgb(163, 21, 21)',
 			},
 		},
 		{
-			types: ['punctuation', 'symbol'],
+			types: ['changed', 'punctuation'],
 			style: {
-				opacity: '0.7',
+				color: 'rgb(4, 81, 165)',
+			},
+		},
+		{
+			types: ['function', 'keyword'],
+			style: {
+				color: colors.blue[700],
+			},
+		},
+		{
+			types: ['class-name', 'function', 'punctuation'],
+			style: {
+				color: colors.neutral[800],
 			},
 		},
 	],
 }
+
+export default theme

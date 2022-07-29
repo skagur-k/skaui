@@ -46,7 +46,7 @@ module.exports = [
 	StatusDot,
 	Progress,
 	Tabs,
-	Tag,
+	// Tag,
 	TextArea,
 	TreeView,
 	Toast,
