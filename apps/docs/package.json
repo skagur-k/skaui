@@ -15,6 +15,7 @@
 		"@skaui/collapsible": "workspace:*",
 		"@skaui/treeview": "workspace:*",
 		"@skaui/twplugin": "workspace:*",
+		"framer-motion": "^6.5.1",
 		"next": "12.2.3",
 		"prism-react-renderer": "^1.3.5",
 		"react": "18.2.0",

@@ -1,0 +1,34 @@
+.treeview {
+	@apply flex flex-col;
+	@apply list-none gap-0;
+	@apply text-sm;
+	@apply transition-all;
+	@apply min-w-[250px] w-fit;
+
+	& &-title {
+		@apply text-center;
+		@apply pb-1 mb-4 border-b border-neutral-400;
+		@apply select-none;
+	}
+
+	& &-icons {
+		@apply w-4 h-4;
+		@apply align-middle;
+	}
+
+	& &-indent {
+		@apply inline-block;
+		@apply w-[24px] h-full;
+
+		& &-folder {
+		}
+
+		& &-file {
+			@apply bg-gradient-to-r from-neutral-200 to-neutral-200 bg-[length:1px_100%] bg-no-repeat bg-center;
+		}
+
+		& &-file:not(:last-child) {
+			@apply bg-none;
+		}
+	}
+}

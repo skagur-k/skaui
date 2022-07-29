@@ -8,13 +8,13 @@
 }
 
 .previewWrapper {
-	@apply relative;
+	@apply relative px-6 py-12;
+	@apply border border-neutral-200;
+	@apply rounded-none rounded-t-xl;
 }
 
 .preview {
-	@apply h-fit px-6 py-12;
-	@apply border border-neutral-200;
-	@apply rounded-none rounded-t-xl;
+	@apply h-fit w-fit;
 }
 
 .previewLoader {

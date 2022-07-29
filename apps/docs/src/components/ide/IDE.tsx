@@ -1,7 +1,7 @@
 import { Collapsible } from '@skaui/collapsible'
 import clsx from 'clsx'
 import React, { useEffect } from 'react'
-import { FiCopy } from 'react-icons/fi'
+import { AnimatePresence, motion } from 'framer-motion'
 import { LiveEditor, LivePreview, LiveProvider, withLive } from 'react-live'
 import styles from './IDE.module.css'
 import { IDEProps } from './IDE.types'
@@ -28,12 +28,7 @@ const Live = ({
 
 	return (
 		<div className='relative px-2'>
-			<div className='flex'>
-				<LiveEditor style={style} className={styles.editor} />
-				{/* <div className='flex-none'>
-					<FiCopy className='mr-[9px] h-5 w-5' />
-				</div> */}
-			</div>
+			<LiveEditor style={style} className={styles.editor} />
 			{live.error ? (
 				<Collapsible
 					title={
@@ -64,18 +59,36 @@ const IDE = (props: IDEProps) => {
 				{
 					<LiveProvider code={code} {...props} theme={theme}>
 						<div className={styles.previewWrapper}>
-							<LivePreview
-								className={clsx(styles.preview, [
-									error && styles.previewErrored,
-								])}
-							/>
-							{error && (
-								<div className={styles.previewError}>
-									<span>✨ Waiting for magic. ✨</span>
-								</div>
-							)}
-						</div>
+							<AnimatePresence>
+								{!error && (
+									<motion.div
+										initial={{ height: 0 }}
+										animate={{ height: 'auto' }}
+										exit={{ opacity: 0 }}
+									>
+										<LivePreview
+											className={clsx(styles.preview, [
+												error && styles.previewErrored,
+											])}
+										/>
+									</motion.div>
+								)}
+							</AnimatePresence>
 
+							<AnimatePresence>
+								{error && (
+									<motion.div
+										initial={{ opacity: 0 }}
+										animate={{ opacity: 1 }}
+										exit={{ opacity: 0 }}
+										transition={{ opacity: { duration: 0.3 } }}
+										className={styles.previewError}
+									>
+										<span>✨ Waiting for magic. ✨</span>
+									</motion.div>
+								)}
+							</AnimatePresence>
+						</div>
 						<Collapsible
 							open
 							title={<p>Code Editor</p>}

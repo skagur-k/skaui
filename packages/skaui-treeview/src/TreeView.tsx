@@ -7,17 +7,17 @@ import {
 	AiOutlinePlusSquare,
 } from 'react-icons/ai'
 import { BsFolder } from 'react-icons/bs'
-import { CSSTransition } from 'react-transition-group'
 import { useFocusKeyDown } from './useFocusKeyDown'
 import { TreeContextProvider, useTree } from './TreeContext'
 import { FileProps, FolderProps, TreeViewProps } from './TreeView.types'
+import { AnimatePresence, motion } from 'framer-motion'
 
 export const TreeView: React.ComponentType<TreeViewProps> = React.memo(
 	({ children, title }: TreeViewProps) => {
 		return (
 			<FocusScope>
 				<div className='treeview'>
-					{title && <div className='treeview-title'>{title}</div>}
+					{title && <div className='text-base font-bold mb-4'>{title}</div>}
 					{children}
 				</div>
 			</FocusScope>
@@ -80,22 +80,21 @@ export const Folder: React.ComponentType<FolderProps> = React.memo(
 						</div>
 					</a>
 
-					<CSSTransition
-						in={open || isOpen}
-						appear
-						unmountOnExit
-						nodeRef={ref}
-						timeout={{ enter: 0, exit: 250 }}
-						clsx={{
-							enter: 'max-h-0',
-							enterDone: 'max-h-[1000px] transition-all ease-in duration-500',
-							exit: 'max-h-0 transition-all ease-out duration-250',
-						}}
-					>
-						<ul ref={ref} className='treeview-folder-children overflow-hidden'>
-							{children}
-						</ul>
-					</CSSTransition>
+					<AnimatePresence>
+						{open ||
+							(isOpen && (
+								<motion.ul
+									initial={{ height: 0 }}
+									animate={{ height: 'auto' }}
+									exit={{ height: 0 }}
+									transition={{ duration: 0.1, ease: 'linear' }}
+									ref={ref}
+									className='treeview-folder-children overflow-hidden'
+								>
+									{children}
+								</motion.ul>
+							))}
+					</AnimatePresence>
 				</li>
 			</TreeContextProvider>
 		)
