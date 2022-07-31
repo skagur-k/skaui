@@ -1,0 +1,16 @@
+/* src/TreeView.module.css */
+.treeviewtemp {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  gap: 0px;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  min-width: 250px;
+}

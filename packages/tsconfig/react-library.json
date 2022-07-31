@@ -6,6 +6,7 @@
 		"jsx": "react-jsx",
 		"lib": ["ES2015", "ES2016", "DOM", "DOM.Iterable"],
 		"module": "ESNext",
-		"target": "es6"
+		"target": "es6",
+		"plugins": [{ "name": "typescript-plugin-css-modules" }]
 	}
 }

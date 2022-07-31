@@ -7,16 +7,16 @@ import {
 	AiOutlinePlusSquare,
 } from 'react-icons/ai'
 import { BsFolder } from 'react-icons/bs'
-import { useFocusKeyDown } from './useFocusKeyDown'
 import { TreeContextProvider, useTree } from './TreeContext'
 import { FileProps, FolderProps, TreeViewProps } from './TreeView.types'
 import { AnimatePresence, motion } from 'framer-motion'
+import styles from './TreeView.module.css'
 
 export const TreeView: React.ComponentType<TreeViewProps> = React.memo(
 	({ children, title }: TreeViewProps) => {
 		return (
 			<FocusScope>
-				<div className='treeview'>
+				<div className={styles.treeviewtemp}>
 					{title && <div className='text-base font-bold mb-4'>{title}</div>}
 					{children}
 				</div>
@@ -35,8 +35,14 @@ export const Folder: React.ComponentType<FolderProps> = React.memo(
 
 		const ref = React.useRef<HTMLUListElement>(null)
 		const { focusProps, isFocusVisible } = useFocusRing()
-		const onKeyDown = useFocusKeyDown()
 
+		const onKeyDown = (e: any) => {
+			switch (e.key) {
+				case 'Enter':
+					setIsOpen(!isOpen)
+					break
+			}
+		}
 		return (
 			<TreeContextProvider value={1 + depth}>
 				<li
@@ -109,7 +115,6 @@ export const File: React.ComponentType<FileProps> = React.memo(
 		const ref = React.useRef<HTMLLIElement>(null)
 		const [selected] = React.useState(isSelected)
 		const { focusProps, isFocusVisible } = useFocusRing()
-		const onKeyDown = useFocusKeyDown()
 
 		let iconClone
 
@@ -124,7 +129,6 @@ export const File: React.ComponentType<FileProps> = React.memo(
 				{...focusProps}
 				ref={ref}
 				tabIndex={0}
-				onKeyDown={onKeyDown}
 				className={clsx('treeview-file', {
 					'treeview-file-active': active,
 					'treeview-file-focused': isFocusVisible,
