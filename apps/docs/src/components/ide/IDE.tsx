@@ -8,7 +8,6 @@ import { IDEProps } from './IDE.types'
 import theme from './prism'
 const Live = ({
 	live,
-	onEdit,
 	onError,
 }: {
 	live?: any
@@ -17,7 +16,7 @@ const Live = ({
 }) => {
 	useEffect(() => {
 		live.error ? onError(true) : onError(false)
-	}, [live.error])
+	}, [live.error, onError])
 
 	const style = {
 		fontFamily: 'JetBrains Mono',
@@ -65,7 +64,6 @@ const IDE = (props: IDEProps) => {
 									<motion.div
 										initial={{ height: 0 }}
 										animate={{ height: 'auto' }}
-										exit={{ opacity: 0 }}
 									>
 										<LivePreview
 											className={clsx(styles.preview, [

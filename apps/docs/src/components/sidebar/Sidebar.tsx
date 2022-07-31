@@ -3,15 +3,12 @@ import React from 'react'
 import styles from './Sidebar.module.css'
 import { SiGithub } from 'react-icons/si'
 import { FiTriangle } from 'react-icons/fi'
-import { useRouter } from 'next/router'
 import { Navigation } from '../navigation/Navigation'
 import { NavLink } from '../navigation/NavLink'
 import { components } from '../../data'
 import clsx from 'clsx'
 
 export const Sidebar = () => {
-	const router = useRouter()
-
 	return (
 		<aside className='hidden md:flex'>
 			{/* Aside */}

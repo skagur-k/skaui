@@ -1,4 +1,3 @@
-import { Button } from '@skaui/button'
 import React from 'react'
 import styles from './Header.module.css'
 import { FiMenu } from 'react-icons/fi'

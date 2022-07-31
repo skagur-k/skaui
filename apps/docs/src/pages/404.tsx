@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from '../styles/404.module.css'
+// import styles from '../styles/404.module.css'
 const PageNotFound = () => {
 	return (
 		<div

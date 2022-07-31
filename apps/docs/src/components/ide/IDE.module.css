@@ -72,12 +72,15 @@
 .editor {
 	@apply flex-1 overflow-auto;
 	@apply transition-all duration-200;
+	@apply text-sm md:text-base;
 
 	& textarea {
 		@apply outline-none;
 		@apply transition-all duration-200;
 	}
-	& .token {
-		@apply font-bold;
+	& pre {
+		@apply outline-none;
+		@apply transition-all duration-200;
+		@apply selection:text-white;
 	}
 }

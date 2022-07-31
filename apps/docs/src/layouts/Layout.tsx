@@ -3,6 +3,7 @@ import { Sidebar } from '../components/sidebar'
 import { Header } from '../components/header'
 import styles from './Layout.module.css'
 import { Footer } from '../components/footer/Footer'
+import { AnimatePresence } from 'framer-motion'
 
 export const Layout = ({ children }: { children: React.ReactElement }) => {
 	return (

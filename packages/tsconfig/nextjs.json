@@ -3,7 +3,7 @@
 	"display": "Next.js",
 	"extends": "./base.json",
 	"compilerOptions": {
-		"target": "es6",
+		"target": "es5",
 		"lib": ["DOM", "DOM.Iterable", "ES2021"],
 		"allowJs": true,
 		"skipLibCheck": true,

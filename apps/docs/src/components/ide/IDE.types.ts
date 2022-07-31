@@ -1,4 +1,3 @@
-import { LiveProviderProps } from 'react-live'
 import { Language, PrismTheme } from 'prism-react-renderer'
 import React from 'react'
 

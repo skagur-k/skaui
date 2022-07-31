@@ -1,6 +1,6 @@
 import classNames from 'classnames'
 import React from 'react'
-import { FiChevronDown, FiChevronUp } from 'react-icons/fi'
+import { FiChevronDown } from 'react-icons/fi'
 import { CollapsibleProps } from './Collapsible.types'
 
 const Collapsible = (props: CollapsibleProps): JSX.Element => {

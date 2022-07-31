@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './Navigation.module.css'
-import { FiAnchor, FiHome, FiArchive } from 'react-icons/fi'
+import { FiAnchor, FiHome } from 'react-icons/fi'
 import { INavigation } from './Navigation.types'
 import clsx from 'clsx'
 import { NavLink } from './NavLink'

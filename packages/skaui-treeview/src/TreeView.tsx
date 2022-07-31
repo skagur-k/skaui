@@ -1,25 +1,25 @@
 import React from 'react'
 import clsx from 'clsx'
-import { FocusScope, useFocusRing } from 'react-aria'
 import {
 	AiOutlineFile,
 	AiOutlineMinusSquare,
 	AiOutlinePlusSquare,
 } from 'react-icons/ai'
-import { BsFolder } from 'react-icons/bs'
+import { BsFolder } from 'react-icons/all'
 import { TreeContextProvider, useTree } from './TreeContext'
 import { FileProps, FolderProps, TreeViewProps } from './TreeView.types'
 import { AnimatePresence, motion } from 'framer-motion'
+import styles from './TreeView.module.css'
 
 export const TreeView: React.ComponentType<TreeViewProps> = React.memo(
 	({ children, title }: TreeViewProps) => {
 		return (
-			<FocusScope>
-				<div className={'treeviewtemp'}>
-					{title && <div className='text-base font-bold mb-4'>{title}</div>}
-					{children}
-				</div>
-			</FocusScope>
+			// <FocusScope>
+			<div className={styles.treeview}>
+				{title && <div className={styles.title}>{title}</div>}
+				{children}
+			</div>
+			// </FocusScope>
 		)
 	}
 )
@@ -33,7 +33,6 @@ export const Folder: React.ComponentType<FolderProps> = React.memo(
 		const [isOpen, setIsOpen] = React.useState(defaultOpen)
 
 		const ref = React.useRef<HTMLUListElement>(null)
-		const { focusProps, isFocusVisible } = useFocusRing()
 
 		const onKeyDown = (e: any) => {
 			switch (e.key) {
@@ -45,12 +44,10 @@ export const Folder: React.ComponentType<FolderProps> = React.memo(
 		return (
 			<TreeContextProvider value={1 + depth}>
 				<li
-					{...focusProps}
 					tabIndex={0}
 					onKeyDown={onKeyDown}
 					className={clsx('treeview-folder', {
 						'treeview-folder-open': isOpen || open,
-						'treeview-folder-focused': isFocusVisible,
 					})}
 				>
 					<a
@@ -113,9 +110,8 @@ export const File: React.ComponentType<FileProps> = React.memo(
 		const depth = useTree()
 		const ref = React.useRef<HTMLLIElement>(null)
 		const [selected] = React.useState(isSelected)
-		const { focusProps, isFocusVisible } = useFocusRing()
 
-		let iconClone
+		let iconClone = null
 
 		if (icon) {
 			iconClone = React.cloneElement(icon!, {
@@ -125,12 +121,10 @@ export const File: React.ComponentType<FileProps> = React.memo(
 
 		return (
 			<li
-				{...focusProps}
 				ref={ref}
 				tabIndex={0}
 				className={clsx('treeview-file', {
 					'treeview-file-active': active,
-					'treeview-file-focused': isFocusVisible,
 					'treeview-file-selected': selected,
 				})}
 			>
