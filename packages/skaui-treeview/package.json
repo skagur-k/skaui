@@ -22,8 +22,7 @@
 	"author": "Nam Hyuck Kim (skagur@gmail.com)",
 	"license": "ISC",
 	"dependencies": {
-		"framer-motion": "^6.5.1",
-		"react-transition-group": "^4.4.2"
+		"framer-motion": "^6.5.1"
 	},
 	"devDependencies": {
 		"@skaui/utils": "workspace:*",

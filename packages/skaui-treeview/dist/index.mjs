@@ -1,3 +1,6 @@
+// src/TreeView.tsx
+import React3 from "react";
+
 // ../../node_modules/.pnpm/clsx@1.2.1/node_modules/clsx/dist/clsx.m.js
 function r(e) {
   var t, f, n = "";
@@ -18,9 +21,6 @@ function clsx() {
   return n;
 }
 var clsx_m_default = clsx;
-
-// src/TreeView.tsx
-import React3 from "react";
 
 // ../../node_modules/.pnpm/@react-aria+utils@3.13.1_react@18.2.0/node_modules/@react-aria/utils/dist/module.js
 import $12uGp$react, { useState as $12uGp$useState, useRef as $12uGp$useRef, useCallback as $12uGp$useCallback, useEffect as $12uGp$useEffect } from "react";
@@ -3006,15 +3006,10 @@ var useTree = () => useContext(TreeContext);
 
 // src/TreeView.tsx
 import { AnimatePresence, motion } from "framer-motion";
-
-// src/TreeView.module.css
-var _default = {};
-
-// src/TreeView.tsx
 var TreeView = React3.memo(
   ({ children, title }) => {
     return /* @__PURE__ */ React3.createElement($9bf71ea28793e738$export$20e40289641fbbb6, null, /* @__PURE__ */ React3.createElement("div", {
-      className: _default.treeviewtemp
+      className: "treeviewtemp"
     }, title && /* @__PURE__ */ React3.createElement("div", {
       className: "text-base font-bold mb-4"
     }, title), children));

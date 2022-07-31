@@ -33,6 +33,9 @@ __export(skaui_treeview_exports, {
 });
 module.exports = __toCommonJS(skaui_treeview_exports);
 
+// src/TreeView.tsx
+var import_react9 = __toESM(require("react"));
+
 // ../../node_modules/.pnpm/clsx@1.2.1/node_modules/clsx/dist/clsx.m.js
 function r(e) {
   var t, f, n = "";
@@ -53,9 +56,6 @@ function clsx() {
   return n;
 }
 var clsx_m_default = clsx;
-
-// src/TreeView.tsx
-var import_react9 = __toESM(require("react"));
 
 // ../../node_modules/.pnpm/@react-aria+utils@3.13.1_react@18.2.0/node_modules/@react-aria/utils/dist/module.js
 var import_react3 = __toESM(require("react"));
@@ -3041,15 +3041,10 @@ var useTree = () => (0, import_react8.useContext)(TreeContext);
 
 // src/TreeView.tsx
 var import_framer_motion = require("framer-motion");
-
-// src/TreeView.module.css
-var _default = {};
-
-// src/TreeView.tsx
 var TreeView = import_react9.default.memo(
   ({ children, title }) => {
     return /* @__PURE__ */ import_react9.default.createElement($9bf71ea28793e738$export$20e40289641fbbb6, null, /* @__PURE__ */ import_react9.default.createElement("div", {
-      className: _default.treeviewtemp
+      className: "treeviewtemp"
     }, title && /* @__PURE__ */ import_react9.default.createElement("div", {
       className: "text-base font-bold mb-4"
     }, title), children));

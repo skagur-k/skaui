@@ -48,13 +48,14 @@ const Live = ({
 const LiveComponent = withLive(Live)
 
 const IDE = (props: IDEProps) => {
-	const { heading } = props
+	const { heading, children } = props
 	const [error, setError] = React.useState(false)
 	const [code, setCode] = React.useState(props.code)
 
 	return (
 		<div className={styles.wrapper}>
 			<h1 className={styles.heading}>{heading}</h1>
+			<p className={styles.description}>{children}</p>
 			<div className={styles.provider}>
 				{
 					<LiveProvider code={code} {...props} theme={theme}>

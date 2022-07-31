@@ -1,5 +1,5 @@
 .wrapper {
-	@apply flex flex-col space-y-8;
+	@apply flex flex-col gap-6;
 	@apply w-full pr-4;
 }
 
@@ -33,6 +33,10 @@
 
 .heading {
 	@apply text-2xl font-bold;
+}
+
+.description {
+	@apply text-base text-neutral-500;
 }
 
 .editorCollapsible {

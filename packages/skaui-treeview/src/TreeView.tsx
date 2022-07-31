@@ -1,5 +1,5 @@
-import clsx from 'clsx'
 import React from 'react'
+import clsx from 'clsx'
 import { FocusScope, useFocusRing } from 'react-aria'
 import {
 	AiOutlineFile,
@@ -10,13 +10,12 @@ import { BsFolder } from 'react-icons/bs'
 import { TreeContextProvider, useTree } from './TreeContext'
 import { FileProps, FolderProps, TreeViewProps } from './TreeView.types'
 import { AnimatePresence, motion } from 'framer-motion'
-import styles from './TreeView.module.css'
 
 export const TreeView: React.ComponentType<TreeViewProps> = React.memo(
 	({ children, title }: TreeViewProps) => {
 		return (
 			<FocusScope>
-				<div className={styles.treeviewtemp}>
+				<div className={'treeviewtemp'}>
 					{title && <div className='text-base font-bold mb-4'>{title}</div>}
 					{children}
 				</div>

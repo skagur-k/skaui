@@ -33,7 +33,7 @@ const GettingStarted: NextPage = () => {
 			</div>
 
 			<div>
-				<IDE heading='TreeView' code={code} scope={scope} />
+				<IDE heading='TreeView' code={code} scope={scope}>Hello World</IDE>
 			</div>
 		</div>
 	)
