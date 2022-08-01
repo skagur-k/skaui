@@ -1,33 +1,25 @@
 import { Collapsible } from '@skaui/collapsible'
 import clsx from 'clsx'
-import React, { useEffect } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { LiveEditor, LivePreview, LiveProvider, withLive } from 'react-live'
 import styles from './IDE.module.css'
 import { IDEProps } from './IDE.types'
 import theme from './prism'
+import { FiClipboard, FiRefreshCw } from 'react-icons/fi'
 const Live = ({
 	live,
 	onError,
 }: {
 	live?: any
-	onEdit: (code: string | undefined) => void
 	onError: (error: boolean) => void
 }) => {
 	useEffect(() => {
 		live.error ? onError(true) : onError(false)
 	}, [live.error, onError])
 
-	const style = {
-		fontFamily: 'JetBrains Mono',
-		selection: {
-			color: '#ffffff',
-		},
-	}
-
 	return (
 		<div className='relative px-2'>
-			<LiveEditor style={style} className={styles.editor} />
 			{live.error ? (
 				<Collapsible
 					title={
@@ -46,10 +38,24 @@ const Live = ({
 
 const LiveComponent = withLive(Live)
 
-const IDE = (props: IDEProps) => {
+const IDE = ({ code: codeInit, ...props }: IDEProps) => {
 	const { heading, children } = props
 	const [error, setError] = React.useState(false)
-	const [code, setCode] = React.useState(props.code)
+	const [code, setCode] = React.useState(codeInit)
+	const style = {
+		fontFamily: 'JetBrains Mono',
+		selection: {
+			color: '#ffffff',
+		},
+	}
+
+	function handleReset() {
+		setCode(codeInit)
+	}
+
+	function handleCopy() {
+		navigator.clipboard.writeText(code!)
+	}
 
 	return (
 		<div className={styles.wrapper}>
@@ -57,7 +63,7 @@ const IDE = (props: IDEProps) => {
 			<p className={styles.description}>{children}</p>
 			<div className={styles.provider}>
 				{
-					<LiveProvider code={code} {...props} theme={theme}>
+					<LiveProvider {...props} code={code} theme={theme}>
 						<div className={styles.previewWrapper}>
 							<AnimatePresence>
 								{!error && (
@@ -94,7 +100,30 @@ const IDE = (props: IDEProps) => {
 							className={clsx(styles.editorCollapsible, '')}
 						>
 							<div className={styles.editorCollapsibleContent}>
-								<LiveComponent onError={setError} onEdit={setCode} />
+								<div className={styles.editorActionButtons}>
+									<button onClick={handleReset}>
+										<FiRefreshCw
+											className={clsx(
+												styles.editorActionButton,
+												styles.editorActionButtonReset
+											)}
+										/>
+									</button>
+									<button onClick={handleCopy}>
+										<FiClipboard
+											className={clsx(
+												styles.editorActionButton,
+												styles.editorActionButtonClipboard
+											)}
+										/>
+									</button>
+								</div>
+								<LiveEditor
+									style={style}
+									className={styles.editor}
+									onChange={setCode}
+								/>
+								<LiveComponent onError={setError} />
 							</div>
 						</Collapsible>
 					</LiveProvider>
