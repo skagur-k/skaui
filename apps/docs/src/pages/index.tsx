@@ -1,5 +1,4 @@
 import { NextPage } from 'next'
-import { motion } from 'framer-motion'
 import PageLayout from '../layouts/PageLayout'
 
 const Home: NextPage = () => {
