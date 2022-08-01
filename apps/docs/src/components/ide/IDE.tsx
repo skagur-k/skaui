@@ -1,12 +1,18 @@
 import { Collapsible } from '@skaui/collapsible'
 import clsx from 'clsx'
-import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { LiveEditor, LivePreview, LiveProvider, withLive } from 'react-live'
+import React, { useEffect } from 'react'
+import { FiClipboard, FiRefreshCw } from 'react-icons/fi'
+import {
+	LiveEditor,
+	LivePreview,
+	LiveProvider,
+	withLive,
+} from '@skagur-k/react-live'
 import styles from './IDE.module.css'
 import { IDEProps } from './IDE.types'
 import theme from './prism'
-import { FiClipboard, FiRefreshCw } from 'react-icons/fi'
+
 const Live = ({
 	live,
 	onError,

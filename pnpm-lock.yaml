@@ -39,6 +39,7 @@ importers:
   apps/docs:
     specifiers:
       '@babel/core': ^7.0.0
+      '@skagur-k/react-live': 2.4.2
       '@skaui/button': workspace:*
       '@skaui/collapsible': workspace:*
       '@skaui/treeview': workspace:*
@@ -55,11 +56,11 @@ importers:
       react: 18.2.0
       react-dom: 18.2.0
       react-icons: ^4.4.0
-      react-live: ^2.4.1
       tailwindcss: ^3.1.6
       tsconfig: workspace:*
       typescript: ^4.5.3
     dependencies:
+      '@skagur-k/react-live': 2.4.2_biqbaboplfbrettd7655fr4n2y
       '@skaui/button': link:../../packages/skaui-button
       '@skaui/collapsible': link:../../packages/skaui-collapsible
       '@skaui/treeview': link:../../packages/skaui-treeview
@@ -70,7 +71,6 @@ importers:
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       react-icons: 4.4.0_react@18.2.0
-      react-live: 2.4.1_biqbaboplfbrettd7655fr4n2y
     devDependencies:
       '@babel/core': 7.18.9
       autoprefixer: 10.4.7_postcss@8.4.14
@@ -179,6 +179,52 @@ importers:
       react-icons: 4.4.0_react@18.2.0
       tsconfig: link:../tsconfig
       tsup: 6.2.0_typescript@4.7.4
+      typescript: 4.7.4
+
+  packages/skaui-fileviewer:
+    specifiers:
+      '@rollup/plugin-commonjs': ^22.0.1
+      '@rollup/plugin-node-resolve': ^13.3.0
+      '@rollup/plugin-typescript': ^8.3.4
+      '@skaui/utils': workspace:*
+      autoprefixer: ^10.4.7
+      clsx: ^1.2.1
+      eslint-config-skaui: workspace:*
+      framer-motion: ^6.5.1
+      postcss: ^8.4.14
+      react: ^18.2.0
+      react-aria: ^3.17.0
+      react-dom: 18.2.0
+      react-icons: ^4.4.0
+      rollup: ^2.77.2
+      rollup-plugin-bundle-size: ^1.0.3
+      rollup-plugin-postcss: ^4.0.2
+      rollup-plugin-typescript2: ^0.32.1
+      rollup-plugin-visualizer: ^5.7.1
+      tailwindcss: ^3.1.6
+      tsconfig: workspace:*
+      typescript: ^4.7.4
+    devDependencies:
+      '@rollup/plugin-commonjs': 22.0.1_rollup@2.77.2
+      '@rollup/plugin-node-resolve': 13.3.0_rollup@2.77.2
+      '@rollup/plugin-typescript': 8.3.4_oo3i3f3qmqiztdz5qgxrrjmd5e
+      '@skaui/utils': link:../skaui-utils
+      autoprefixer: 10.4.7_postcss@8.4.14
+      clsx: 1.2.1
+      eslint-config-skaui: link:../eslint-config-skaui
+      framer-motion: 6.5.1_biqbaboplfbrettd7655fr4n2y
+      postcss: 8.4.14
+      react: 18.2.0
+      react-aria: 3.17.0_biqbaboplfbrettd7655fr4n2y
+      react-dom: 18.2.0_react@18.2.0
+      react-icons: 4.4.0_react@18.2.0
+      rollup: 2.77.2
+      rollup-plugin-bundle-size: 1.0.3
+      rollup-plugin-postcss: 4.0.2_postcss@8.4.14
+      rollup-plugin-typescript2: 0.32.1_oo3i3f3qmqiztdz5qgxrrjmd5e
+      rollup-plugin-visualizer: 5.7.1_rollup@2.77.2
+      tailwindcss: 3.1.6
+      tsconfig: link:../tsconfig
       typescript: 4.7.4
 
   packages/skaui-treeview:
@@ -2226,6 +2272,22 @@ packages:
     resolution: {integrity: sha512-RNiOoTPkptFtSVzQevY/yWtZwf/RxyVnPy/OcA9HBM3MlGDnBEYL5B41H0MTn0Uec8Hi+2qUtTfG2WWZBmMejQ==}
     dev: true
 
+  /@skagur-k/react-live/2.4.2_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-Mv972vOpZEM4gm0Rs+tHanjRGw40CH7BU9PjZ8MCzbmzovIJihuVEEvAN7EtL5knlT7AVZvzsFCZ98oeikBBQA==, tarball: download/@skagur-k/react-live/2.4.2/8b35e5f8f298a5d31056b632ca7fc402f485b059bcac21cc77c6b690cd09084d}
+    dependencies:
+      '@types/buble': 0.20.1
+      buble: 0.19.6
+      core-js: 3.24.1
+      dom-iterator: 1.0.0
+      prism-react-renderer: 1.3.5_react@18.2.0
+      prop-types: 15.8.1
+      react-simple-code-editor: 0.11.2_biqbaboplfbrettd7655fr4n2y
+      unescape: 1.0.1
+    transitivePeerDependencies:
+      - react
+      - react-dom
+    dev: false
+
   /@swc/helpers/0.4.3:
     resolution: {integrity: sha512-6JrF+fdUK2zbGpJIlN7G3v966PQjyx/dPt1T9km2wj+EUBqgrxCk3uX4Kct16MIm9gGxfKRcfax2hVf5jvlTzA==}
     dependencies:
@@ -3228,8 +3290,8 @@ packages:
     requiresBuild: true
     dev: false
 
-  /core-js/3.24.0:
-    resolution: {integrity: sha512-IeOyT8A6iK37Ep4kZDD423mpi6JfPRoPUdQwEWYiGolvn4o6j2diaRzNfDfpTdu3a5qMbrGUzKUpYpRY8jXCkQ==}
+  /core-js/3.24.1:
+    resolution: {integrity: sha512-0QTBSYSUZ6Gq21utGzkfITDylE8jWC9Ne1D2MrhvlsZBI1x39OdDIVbzSqtgMndIy6BlHxBXpMGqzZmnztg2rg==}
     requiresBuild: true
     dev: false
 
@@ -7298,25 +7360,6 @@ packages:
 
   /react-is/17.0.2:
     resolution: {integrity: sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==}
-    dev: false
-
-  /react-live/2.4.1_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-r+32f7oV/kBs3QZBRvaT+9vOkQW47UZrDpgwUe5FiIMOl7sdo5pmISgb7Zpj5PGHgY6XQaiXs3FEh+IWw3KbRg==}
-    engines: {node: '>= 0.12.0', npm: '>= 2.0.0'}
-    peerDependencies:
-      react: '*'
-      react-dom: '*'
-    dependencies:
-      '@types/buble': 0.20.1
-      buble: 0.19.6
-      core-js: 3.24.0
-      dom-iterator: 1.0.0
-      prism-react-renderer: 1.3.5_react@18.2.0
-      prop-types: 15.8.1
-      react: 18.2.0
-      react-dom: 18.2.0_react@18.2.0
-      react-simple-code-editor: 0.11.2_biqbaboplfbrettd7655fr4n2y
-      unescape: 1.0.1
     dev: false
 
   /react-simple-code-editor/0.11.2_biqbaboplfbrettd7655fr4n2y:

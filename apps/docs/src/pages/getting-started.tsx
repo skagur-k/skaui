@@ -9,14 +9,14 @@ const GettingStarted: NextPage = () => {
 <Folder name="Hello">
 	<File name="File1.js"/>
 	<File name="File2.js"/>
+	<Folder name="Hello">
+		<File name="File1.js"/>
+		<File name="File2.js"/>
 		<Folder name="Hello">
 			<File name="File1.js"/>
 			<File name="File2.js"/>
-			<Folder name="Hello">
-				<File name="File1.js"/>
-				<File name="File2.js"/>
-			</Folder>
 		</Folder>
+	</Folder>
 </Folder>
 <Folder name="Hello">
 	<File name="File1.js"/>
