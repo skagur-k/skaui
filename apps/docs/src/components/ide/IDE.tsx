@@ -2,7 +2,7 @@ import { Collapsible } from '@skaui/collapsible'
 import clsx from 'clsx'
 import { AnimatePresence, motion } from 'framer-motion'
 import React, { useEffect } from 'react'
-import { FiClipboard, FiRefreshCw } from 'react-icons/fi'
+import { FiCheckSquare, FiClipboard, FiRefreshCw } from 'react-icons/fi'
 import {
 	LiveEditor,
 	LivePreview,
@@ -30,7 +30,8 @@ const Live = ({
 				<Collapsible
 					title={
 						<h1 className={styles.errorMsg}>
-							There is something wrong with the code.
+							There is something wrong with the code : [
+							{live.error.split(/[:]/)[0]}]
 						</h1>
 					}
 					className={styles.errorCollapsible}
@@ -48,6 +49,8 @@ const IDE = ({ code: codeInit, ...props }: IDEProps) => {
 	const { heading, children } = props
 	const [error, setError] = React.useState(false)
 	const [code, setCode] = React.useState(codeInit)
+	const [isCopied, setIsCopied] = React.useState(false)
+
 	const style = {
 		fontFamily: 'JetBrains Mono',
 		selection: {
@@ -59,8 +62,17 @@ const IDE = ({ code: codeInit, ...props }: IDEProps) => {
 		setCode(codeInit)
 	}
 
+	let timer: NodeJS.Timeout
+
 	function handleCopy() {
+		clearTimeout(timer)
 		navigator.clipboard.writeText(code!)
+		setIsCopied(true)
+		console.log(window.setTimeout)
+
+		timer = setTimeout(() => {
+			setIsCopied(false)
+		}, 2000)
 	}
 
 	return (
@@ -71,11 +83,13 @@ const IDE = ({ code: codeInit, ...props }: IDEProps) => {
 				{
 					<LiveProvider {...props} code={code} theme={theme}>
 						<div className={styles.previewWrapper}>
-							<AnimatePresence>
+							<AnimatePresence exitBeforeEnter>
 								{!error && (
 									<motion.div
+										key='preview'
 										initial={{ height: 0 }}
 										animate={{ height: 'auto' }}
+										exit={{ height: 0 }}
 									>
 										<LivePreview
 											className={clsx(styles.preview, [
@@ -92,7 +106,7 @@ const IDE = ({ code: codeInit, ...props }: IDEProps) => {
 										initial={{ opacity: 0 }}
 										animate={{ opacity: 1 }}
 										exit={{ opacity: 0 }}
-										transition={{ opacity: { duration: 0.3 } }}
+										transition={{ opacity: { duration: 0.2 } }}
 										className={styles.previewError}
 									>
 										<span>✨ Waiting for magic. ✨</span>
@@ -115,14 +129,41 @@ const IDE = ({ code: codeInit, ...props }: IDEProps) => {
 											)}
 										/>
 									</button>
-									<button onClick={handleCopy}>
-										<FiClipboard
-											className={clsx(
-												styles.editorActionButton,
-												styles.editorActionButtonClipboard
-											)}
-										/>
-									</button>
+									<AnimatePresence exitBeforeEnter>
+										{isCopied ? (
+											<motion.div
+												key='copied'
+												initial={{ y: 3 }}
+												animate={{ y: 0, opacity: 1 }}
+												exit={{ opacity: 0 }}
+												transition={{ opacity: { duration: 0.1 } }}
+											>
+												<FiCheckSquare
+													className={clsx(
+														styles.editorActionButton,
+														styles.editorActionButtonCopied
+													)}
+												/>
+											</motion.div>
+										) : (
+											<button onClick={handleCopy}>
+												<motion.div
+													key='clipboard'
+													initial={{ opacity: 0 }}
+													animate={{ y: 0, opacity: 1 }}
+													exit={{ opacity: 0 }}
+													transition={{ opacity: { duration: 0.1 } }}
+												>
+													<FiClipboard
+														className={clsx(
+															styles.editorActionButton,
+															styles.editorActionButtonClipboard
+														)}
+													/>
+												</motion.div>
+											</button>
+										)}
+									</AnimatePresence>
 								</div>
 								<LiveEditor
 									style={style}

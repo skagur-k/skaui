@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"name": "✨ skaui",
+			"path": "../../.."
+		},
+		{
+			"name": "🚀 @skaui/docs",
+			"path": "../../../apps/docs"
+		},
+		{
+			"name": "📦 @skaui/fileviewer",
+			"path": ".."
+		}
+	],
+	"settings": {}
+}

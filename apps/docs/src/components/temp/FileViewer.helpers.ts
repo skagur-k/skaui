@@ -1,6 +1,6 @@
 import { Item, Items } from './FileViewer.types'
 
-export function getFile(files: Items, testFn: (item: Item) => boolean) {
+export function getFile(files: any, testFn: (item: Item) => boolean) {
 	let items = [...files]
 
 	while (items.length) {

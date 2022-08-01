@@ -1,4 +1,12 @@
-import { FileProps } from './FileViewer.types'
+import React from 'react'
+import { File } from './FileViewer.types'
+
+export type FileProps = {
+	file: File
+	slug: string
+	isExpanded: boolean
+	onClick: Function
+}
 
 const File = ({ file, slug, isExpanded, onClick }: FileProps) => {
 	return (

@@ -2,7 +2,7 @@
 	"name": "@skaui/fileviewer",
 	"version": "1.0.0",
 	"description": "SKA UI - File Viewer",
-	"main": "./dist/cjs/index.js",
+	"main": "./index.ts",
 	"module": "./dist/esm/index.mjs",
 	"types": "./dist/types/index.d.ts",
 	"files": [
@@ -44,5 +44,8 @@
 	"peerDependencies": {
 		"react": "^17.2.0",
 		"react-dom": "^17.2.0"
+	},
+	"dependencies": {
+		"immer": "^9.0.15"
 	}
 }
