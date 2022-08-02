@@ -5,7 +5,7 @@ export interface DirectoryProps {
 	slug: string
 	isExpanded: boolean
 	onClick: Function
-	children: React.ReactElement
+	children: React.ReactElement[]
 }
 
 const Directory = ({

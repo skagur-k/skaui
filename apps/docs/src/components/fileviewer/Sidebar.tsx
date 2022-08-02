@@ -10,11 +10,7 @@ interface generateChildrenProps {
 	isExpanded?: boolean
 }
 
-function generateChildren({
-	items,
-	slugPrefix,
-	...props
-}: generateChildrenProps) {
+function generateChildren(items: Array<IFile|IDirectory>, slugPrefix: string, props: any[]) {
 	return items.map((item) => {
 		const slug = `${slugPrefix}/${item.name}`
 
@@ -27,11 +23,10 @@ function generateChildren({
 					isExpanded={(item as IDirectory).isExpanded}
 					onClick={props.handleToggleDirectory!}
 				>
-					{generateChildren(
-						item.contents as IFile[],
-						{ ...props, isExpanded: item.isExpanded },
-						slug as string
-					)}
+					{generateChildren(item.contents as IFile[], slug, {
+						...rest,
+						isExpanded: item.isExpanded,
+					})}
 				</Directory>
 			)
 		} else {

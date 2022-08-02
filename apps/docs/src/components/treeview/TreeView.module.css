@@ -1,0 +1,19 @@
+.treeview {
+	@apply flex flex-col;
+	@apply list-none gap-0;
+	@apply text-sm;
+	@apply transition-all;
+	@apply w-fit min-w-[250px];
+}
+
+.title {
+	@apply mb-4 text-base font-bold;
+}
+
+.fileviewer {
+	@apply flex gap-2;
+}
+
+.filecontent {
+	@apply w-full bg-neutral-100 p-6;
+}
