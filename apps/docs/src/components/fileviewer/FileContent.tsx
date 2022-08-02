@@ -32,7 +32,7 @@ const FileContent = ({
 					className={styles.filecontent}
 				>
 					{slug && (
-						<div className='flex flex-col items-center justify-center gap-1'>
+						<div className='flex flex-col items-center justify-center gap-2'>
 							<span className={styles.filecontentSlug}>{slug}</span>
 							<span className={styles.filecontentLanguage}>
 								{language?.toUpperCase()}
@@ -49,7 +49,8 @@ const FileContent = ({
 						{!content && !slug ? (
 							<div className={styles.filecontentMsgWrapper}>
 								<FiEye className={styles.filecontentMsgIcon} />
-								<span className={styles.filecontentMsg}>
+								<span className={styles.filecontentMsg}>No file selected.</span>
+								<span className={styles.filecontentMsgDescription}>
 									Please select a file to view.
 								</span>
 							</div>
@@ -57,6 +58,9 @@ const FileContent = ({
 							<div className={styles.filecontentMsgWrapper}>
 								<FiFile className={styles.filecontentMsgIcon} />
 								<span className={styles.filecontentMsg}>File Empty</span>
+								<span className={styles.filecontentMsgDescription}>
+									Please provide the content for the file.
+								</span>
 							</div>
 						) : (
 							<CodeRenderer

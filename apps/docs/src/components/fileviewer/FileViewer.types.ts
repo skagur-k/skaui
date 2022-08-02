@@ -1,7 +1,7 @@
 import React from 'react'
 
 export interface FileViewerProps {
-	children: React.ReactElement[]
+	children: React.ReactElement | React.ReactElement[]
 	title?: string
 }
 
@@ -28,7 +28,7 @@ export interface FileProps extends BaseProps {
 	active?: boolean
 	type?: 'lambda'
 	slug?: string
-	children?: string
+	content?: string
 	icon?: React.ReactElement
 }
 

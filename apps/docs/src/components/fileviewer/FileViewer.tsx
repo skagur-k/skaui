@@ -24,6 +24,10 @@ import {
 	useFileViewer,
 } from './FileViewerContext'
 
+// TODO: Hightlight lines
+// TODO: Redo treeview styles
+// TODO: prism styles
+
 export const FileViewer: React.ComponentType<FileViewerProps> = React.memo(
 	({ children, title }: FileViewerProps) => {
 		const [selectedFile, setSelectedFile] = React.useState<IFile>({
@@ -105,7 +109,7 @@ export const FileViewer: React.ComponentType<FileViewerProps> = React.memo(
 						{selectedFile.content && (
 							<Clipboard
 								copyText={selectedFile.content}
-								className='absolute bottom-6 right-10'
+								className='absolute bottom-6 right-8'
 							/>
 						)}
 					</motion.div>
@@ -207,7 +211,7 @@ export const Folder: React.ComponentType<FolderProps> = React.memo(
 Folder.displayName = 'SKA UI - TreeView/Folder'
 
 export const File: React.ComponentType<FileProps> = React.memo(
-	({ name, active, slug = name, icon, children, language = 'jsx' }) => {
+	({ name, active, slug = name, icon, content, language = 'jsx' }) => {
 		const depth = useFileTree()
 		const ref = React.useRef<HTMLLIElement>(null)
 		const { selectedFile, setSelectedFile } = useFileViewer()
@@ -225,7 +229,7 @@ export const File: React.ComponentType<FileProps> = React.memo(
 		function handleSelect() {
 			const file = {
 				slug: slug,
-				content: children,
+				content: content,
 				language: language,
 			}
 			setSelectedFile(file)

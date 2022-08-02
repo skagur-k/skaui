@@ -1,6 +1,6 @@
 .wrapper {
 	@apply flex flex-col;
-	@apply mx-auto h-full min-h-screen max-w-7xl;
+	@apply mx-auto h-full min-h-screen max-w-[1248px];
 	@apply overflow-x-hidden;
 	@apply relative;
 }
