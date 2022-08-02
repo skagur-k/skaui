@@ -48,15 +48,23 @@ const exampleCode2 = `function someDemo() {
 return () => <App />;
 `
 
+const diff = `+ added this line
+- deleted this line
+`
+
 const Temp: NextPage = () => {
 	return (
 		<PageLayout>
 			<FileViewer title='Hello World'>
 				<Folder name='Components'>
-					<File name='File1' />
+					<File name='File1' language='diff'>
+						{diff}
+					</File>
 					<File name='File2' />
 					<Folder name='TreeView'>
-						<File name='File1'>{exampleCode1}</File>
+						<File name='File1' language='jsx'>
+							{exampleCode1}
+						</File>
 						<File name='File2'>{exampleCode2}</File>
 						<Folder name='src'>
 							<File name='File1'>Hello World</File>

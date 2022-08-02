@@ -1,4 +1,5 @@
 import { createContext, useContext } from 'react'
+import { Language } from './FileViewer.types'
 
 const FileContext = createContext<number>(0)
 
@@ -6,6 +7,7 @@ export interface IFileViewerContextValueProps {
 	selectedFile: {
 		slug?: string
 		content?: string
+		language?: Language
 	}
 	setSelectedFile: Function
 }

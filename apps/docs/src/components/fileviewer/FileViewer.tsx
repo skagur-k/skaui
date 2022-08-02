@@ -8,6 +8,7 @@ import {
 } from 'react-icons/ai'
 import { BsFolder } from 'react-icons/bs'
 import { FiSettings } from 'react-icons/fi'
+import Clipboard from '../clipboard/Clipboard'
 import FileContent from './FileContent'
 import styles from './FileViewer.module.css'
 import {
@@ -28,6 +29,7 @@ export const FileViewer: React.ComponentType<FileViewerProps> = React.memo(
 		const [selectedFile, setSelectedFile] = React.useState<IFile>({
 			slug: undefined,
 			content: undefined,
+			language: undefined,
 		})
 
 		const [optionOpened, setOptionOpened] = React.useState(false)
@@ -100,6 +102,12 @@ export const FileViewer: React.ComponentType<FileViewerProps> = React.memo(
 							</div>
 						</div>
 						<FileContent lineNumbers={lineNumbers} file={selectedFile} />
+						{selectedFile.content && (
+							<Clipboard
+								copyText={selectedFile.content}
+								className='absolute bottom-6 right-10'
+							/>
+						)}
 					</motion.div>
 				</AnimatePresence>
 			</FileViewerContextProvider>

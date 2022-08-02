@@ -1,9 +1,10 @@
-import React from 'react'
-import styles from './FileViewer.module.css'
-import { IFile, Language } from './FileViewer.types'
-import { AnimatePresence, motion } from 'framer-motion'
 import clsx from 'clsx'
+import { AnimatePresence, motion } from 'framer-motion'
+import { useEffect } from 'react'
+import { FiCompass, FiEye, FiFile, FiX } from 'react-icons/fi'
 import CodeRenderer from './CodeRenderer'
+import styles from './FileViewer.module.css'
+import { IFile } from './FileViewer.types'
 
 const FileContent = ({
 	file,
@@ -12,23 +13,32 @@ const FileContent = ({
 	file: IFile
 	lineNumbers: boolean
 }) => {
-	const { slug, content } = file
+	const { slug, content, language } = file
+
+	useEffect(() => {}, [content])
 	return (
-		<AnimatePresence exitBeforeEnter>
-			<div className={styles.filecontentWrapper}>
+		<div className={styles.filecontentWrapper}>
+			<AnimatePresence exitBeforeEnter>
 				<motion.div
 					key={file.slug}
 					initial={{ opacity: 0, height: 0 }}
 					animate={{ opacity: 1, height: 'auto' }}
 					exit={{ opacity: 0, height: 0 }}
 					transition={{
-						opacity: { duration: 0.5 },
+						opacity: { duration: 0.1 },
 						height: { duration: 0.2 },
 						ease: 'linear',
 					}}
 					className={styles.filecontent}
 				>
-					<div className={styles.filecontentSlug}>{slug && slug}</div>
+					{slug && (
+						<div className='flex flex-col items-center justify-center gap-1'>
+							<span className={styles.filecontentSlug}>{slug}</span>
+							<span className={styles.filecontentLanguage}>
+								{language?.toUpperCase()}
+							</span>
+						</div>
+					)}
 					<div
 						className={clsx([
 							content
@@ -37,18 +47,28 @@ const FileContent = ({
 						])}
 					>
 						{!content && !slug ? (
-							<span className={styles.filecontentMsg}>
-								Please select a file.
-							</span>
+							<div className={styles.filecontentMsgWrapper}>
+								<FiEye className={styles.filecontentMsgIcon} />
+								<span className={styles.filecontentMsg}>
+									Please select a file to view.
+								</span>
+							</div>
 						) : !content && slug ? (
-							<span className={styles.filecontentMsg}>File Empty</span>
+							<div className={styles.filecontentMsgWrapper}>
+								<FiFile className={styles.filecontentMsgIcon} />
+								<span className={styles.filecontentMsg}>File Empty</span>
+							</div>
 						) : (
-							<CodeRenderer code={content!} lineNumbers={lineNumbers} />
+							<CodeRenderer
+								code={content!}
+								lineNumbers={lineNumbers}
+								language={language}
+							/>
 						)}
 					</div>
 				</motion.div>
-			</div>
-		</AnimatePresence>
+			</AnimatePresence>
+		</div>
 	)
 }
 

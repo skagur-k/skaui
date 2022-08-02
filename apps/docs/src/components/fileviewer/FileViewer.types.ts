@@ -12,6 +12,7 @@ export interface BaseProps {
 export type IFile = {
 	slug?: string
 	content?: string
+	language?: Language
 }
 
 export interface FolderProps extends BaseProps {
