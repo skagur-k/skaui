@@ -1,9 +1,11 @@
 .treeview {
 	@apply flex flex-col;
 	@apply list-none gap-0;
-	@apply text-sm;
+	@apply text-base;
 	@apply transition-all;
-	@apply w-fit min-w-[250px];
+	@apply w-full min-w-[250px] md:w-fit;
+	@apply bg-neutral-100;
+	@apply p-4;
 }
 
 .title {
@@ -11,9 +13,37 @@
 }
 
 .fileviewer {
-	@apply flex gap-2;
+	@apply flex flex-col md:flex-row;
+}
+
+.filecontentWrapper {
+	@apply min-h-[400px] w-full;
+	@apply rounded-md bg-neutral-100;
+	@apply ml-0 md:ml-1 md:p-6;
 }
 
 .filecontent {
-	@apply w-full bg-neutral-100 p-6;
+	@apply h-full w-full;
+	@apply flex flex-col gap-4;
+}
+
+.filecontentSlug {
+	@apply py-4 text-center md:py-0;
+	@apply text-neutral-400;
+}
+
+.filecontentContent {
+	@apply p-4;
+}
+
+.filecontentContentNoFile {
+	@apply flex min-h-[200px] w-full items-center justify-center;
+}
+
+.filecontentMsg {
+	@apply text-lg font-medium text-neutral-400;
+}
+
+.filetree {
+	@apply w-fit md:w-full;
 }

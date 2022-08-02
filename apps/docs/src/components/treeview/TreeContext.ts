@@ -3,9 +3,12 @@ import React, { createContext, useContext } from 'react'
 const TreeContext = createContext<number>(0)
 
 export interface ITreeViewContextValueProps {
-	selectedFile?: string
+	selectedFile: {
+		slug?: string
+		content?: string
+	}
 	fileOpened: boolean
-	setSelectedFile?: Function
+	setSelectedFile: Function
 }
 
 export const TreeViewContext = createContext<

@@ -1,12 +1,17 @@
 import React from 'react'
 
 export interface TreeViewProps {
-	children: React.ReactNode
+	children: React.ReactElement[]
 	title?: string
 }
 
 export interface BaseProps {
 	name: string
+}
+
+export type IFile = {
+	slug?: string
+	content?: string
 }
 
 export interface FolderProps extends BaseProps {

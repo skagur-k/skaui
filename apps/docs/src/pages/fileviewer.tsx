@@ -10,7 +10,7 @@ const Temp: NextPage = () => {
 					<File name='File1' />
 					<File name='File2' />
 					<Folder name='TreeView'>
-						<File name='File1'>Hello World</File>
+						<File name='File1'>Hello this is content</File>
 						<File name='File2' />
 						<Folder name='src'>
 							<File name='File1' />

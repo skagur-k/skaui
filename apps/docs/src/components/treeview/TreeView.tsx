@@ -12,14 +12,17 @@ import {
 	useTree,
 	useTreeView,
 } from './TreeContext'
-import { FileProps, FolderProps, TreeViewProps } from './TreeView.types'
+import { FileProps, FolderProps, IFile, TreeViewProps } from './TreeView.types'
 import { AnimatePresence, motion } from 'framer-motion'
 import styles from './TreeView.module.css'
 import FileContent from './FileContent'
 
 export const TreeView: React.ComponentType<TreeViewProps> = React.memo(
 	({ children, title }: TreeViewProps) => {
-		const [selectedFile, setSelectedFile] = React.useState<string>('')
+		const [selectedFile, setSelectedFile] = React.useState<IFile>({
+			slug: undefined,
+			content: undefined,
+		})
 
 		const ctx = {
 			selectedFile: selectedFile,
@@ -27,15 +30,27 @@ export const TreeView: React.ComponentType<TreeViewProps> = React.memo(
 			fileOpened: false,
 		}
 
+		// let sluggedChildren
+
+		// if (children) {
+		// 	sluggedChildren = children.map((child) =>
+		// 		React.cloneElement(child, {
+		// 			slug: title + '/' + child.props.name,
+		// 		})
+		// 	)
+		// }
+
 		return (
 			<TreeViewContextProvider value={ctx}>
-				<div className={styles.fileviewer}>
-					<div className={styles.treeview}>
-						{title && <div className={styles.title}>{title}</div>}
-						{children}
+				<AnimatePresence exitBeforeEnter>
+					<div className={styles.fileviewer}>
+						<div className={styles.treeview}>
+							{title && <div className={styles.title}>{title}</div>}
+							{children}
+						</div>
+						<FileContent file={selectedFile} />
 					</div>
-					<FileContent content={selectedFile} />
-				</div>
+				</AnimatePresence>
 			</TreeViewContextProvider>
 		)
 	}
@@ -44,7 +59,7 @@ export const TreeView: React.ComponentType<TreeViewProps> = React.memo(
 TreeView.displayName = 'SKA UI - TreeView'
 
 export const Folder: React.ComponentType<FolderProps> = React.memo(
-	({ children, name, open, defaultOpen = false, slug = `./${name}` }) => {
+	({ children, name, open, defaultOpen = false, slug = `${name}` }) => {
 		const depth = useTree()
 		const [isExpanded, setIsExpanded] = React.useState(defaultOpen)
 
@@ -109,21 +124,19 @@ export const Folder: React.ComponentType<FolderProps> = React.memo(
 						</div>
 					</a>
 
-					<AnimatePresence>
-						{open ||
-							(isExpanded && (
-								<motion.ul
-									initial={{ height: 0 }}
-									animate={{ height: 'auto' }}
-									exit={{ height: 0 }}
-									transition={{ duration: 0.1, ease: 'linear' }}
-									ref={ref}
-									className='treeview-folder-children overflow-hidden'
-								>
-									{sluggedChildren}
-								</motion.ul>
-							))}
-					</AnimatePresence>
+					{open ||
+						(isExpanded && (
+							<motion.ul
+								initial={{ height: 0 }}
+								animate={{ height: 'auto' }}
+								exit={{ height: 0 }}
+								transition={{ duration: 0.1, ease: 'linear' }}
+								ref={ref}
+								className='treeview-folder-children overflow-hidden'
+							>
+								{sluggedChildren}
+							</motion.ul>
+						))}
 				</li>
 			</TreeContextProvider>
 		)
@@ -133,16 +146,16 @@ export const Folder: React.ComponentType<FolderProps> = React.memo(
 Folder.displayName = 'SKA UI - TreeView/Folder'
 
 export const File: React.ComponentType<FileProps> = React.memo(
-	({ name, active, slug = name, icon }) => {
+	({ name, active, slug = name, icon, children }) => {
 		const depth = useTree()
 		const ref = React.useRef<HTMLLIElement>(null)
 		const { selectedFile, setSelectedFile } = useTreeView()
 
-		const selected = selectedFile === slug
+		const selected = selectedFile.slug === slug
 
 		useEffect(() => {
-			console.log(slug)
-		})
+			console.log(children)
+		}, [children])
 
 		let iconClone = null
 
@@ -152,10 +165,18 @@ export const File: React.ComponentType<FileProps> = React.memo(
 			})
 		}
 
+		function handleSelect() {
+			const file = {
+				slug: slug,
+				content: children,
+			}
+			setSelectedFile(file)
+		}
+
 		return (
 			<li
 				ref={ref}
-				onClick={() => setSelectedFile!(slug)}
+				onClick={handleSelect}
 				tabIndex={0}
 				className={clsx('treeview-file', {
 					'treeview-file-active': active,
