@@ -1,5 +1,5 @@
 .header {
-	@apply grid grid-cols-3 md:hidden;
+	@apply grid grid-cols-3 lg:hidden;
 	@apply py-8 px-8;
 	@apply justify-between;
 }

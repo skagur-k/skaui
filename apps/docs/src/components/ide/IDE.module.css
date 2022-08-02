@@ -73,7 +73,7 @@
 .editor {
 	@apply flex-1 overflow-auto;
 	@apply transition-all duration-200;
-	@apply text-sm md:text-base;
+	@apply text-sm lg:text-base;
 
 	& textarea {
 		@apply outline-none;

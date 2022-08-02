@@ -11,7 +11,7 @@ import {
 } from '@skagur-k/react-live'
 import styles from './IDE.module.css'
 import { IDEProps } from './IDE.types'
-import theme from './prism'
+import theme from '../../styles/prism'
 
 const Live = ({
 	live,
@@ -68,7 +68,6 @@ const IDE = ({ code: codeInit, ...props }: IDEProps) => {
 		clearTimeout(timer)
 		navigator.clipboard.writeText(code!)
 		setIsCopied(true)
-		console.log(window.setTimeout)
 
 		timer = setTimeout(() => {
 			setIsCopied(false)

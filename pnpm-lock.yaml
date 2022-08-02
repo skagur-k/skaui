@@ -2281,6 +2281,7 @@ packages:
 
   /@skagur-k/react-live/2.4.2_biqbaboplfbrettd7655fr4n2y:
     resolution: {integrity: sha512-Mv972vOpZEM4gm0Rs+tHanjRGw40CH7BU9PjZ8MCzbmzovIJihuVEEvAN7EtL5knlT7AVZvzsFCZ98oeikBBQA==, tarball: download/@skagur-k/react-live/2.4.2/8b35e5f8f298a5d31056b632ca7fc402f485b059bcac21cc77c6b690cd09084d}
+    engines: {node: '>= 0.12.0', npm: '>= 2.0.0'}
     dependencies:
       '@types/buble': 0.20.1
       buble: 0.19.6

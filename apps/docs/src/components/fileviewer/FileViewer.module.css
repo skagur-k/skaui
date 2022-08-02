@@ -1,0 +1,84 @@
+.fileviewer {
+	@apply mx-2 flex flex-col gap-2 lg:mx-0 lg:flex-row;
+}
+
+.filecontentWrapper {
+	@apply relative min-h-[400px] w-full;
+	@apply rounded-md bg-neutral-50;
+	@apply p-4 lg:p-4;
+	@apply shadow-md;
+	@apply border border-neutral-300;
+}
+
+.filecontent {
+	@apply flex-col gap-1;
+	@apply relative h-full w-full;
+}
+
+.filetreeview {
+	@apply flex flex-col;
+	@apply list-none gap-0;
+	@apply text-base;
+	@apply transition-all;
+	@apply w-full min-w-[300px] lg:w-fit;
+	@apply bg-neutral-50;
+	@apply p-4;
+	@apply rounded-md border border-neutral-300;
+	@apply shadow-md;
+}
+
+.filetreetitle {
+	@apply py-2 text-base font-bold;
+}
+
+.filecontentSlug {
+	@apply mt-2 py-0 text-center lg:mt-0 lg:py-0;
+	@apply font-bold text-blue-500;
+	@apply select-none;
+}
+
+.filecontentContent {
+	@apply mt-4 h-full;
+}
+
+.filecontentContentNoFile {
+	@apply flex h-[300px] w-full items-center justify-center;
+}
+
+.filecontentMsg {
+	@apply text-lg font-medium text-neutral-400;
+}
+
+.filetree {
+	@apply w-fit lg:w-full;
+}
+
+.codePre {
+	@apply h-full max-h-[700px] w-full overflow-y-auto;
+	@apply bg-transparent pt-4 pl-2 font-mono font-semibold;
+}
+
+.codeLine {
+	@apply flex items-center;
+	@apply py-1;
+	@apply hover:bg-neutral-100;
+}
+
+.codeLineNumber {
+	@apply mr-2 w-6 text-sm text-neutral-300;
+	@apply select-none;
+}
+
+.codeTag {
+	@apply text-black;
+}
+
+.codeSetting {
+	@apply mt-auto w-full pt-4;
+	@apply flex items-center gap-4;
+}
+
+.codeSettingIcon {
+	@apply cursor-pointer transition-all duration-100 hover:text-neutral-500;
+	@apply h-6 w-6 text-neutral-400;
+}

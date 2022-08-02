@@ -3,7 +3,6 @@ import colors from 'tailwindcss/colors'
 
 const theme = {
 	plain: {
-		color: '#000000',
 		backgroundColor: 'transparent',
 	},
 	styles: [

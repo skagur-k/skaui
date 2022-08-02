@@ -1,19 +1,65 @@
 import { NextPage } from 'next'
-import { File, Folder, TreeView } from '../components/treeview'
+import { File, Folder, FileViewer } from '../components/fileviewer'
 import PageLayout from '../layouts/PageLayout'
+
+const exampleCode1 = `function someDemo() {
+  var test = "Hello World!";
+  console.log(test);
+}();
+
+return () => <App />;
+function someDemo() {
+  var test = "Hello World!";
+  console.log(test);
+}();
+
+return () => <App />;
+function someDemo() {
+  var test = "Hello World!";
+  console.log(test);
+}();
+
+return () => <App />;
+function someDemo() {
+  var test = "Hello World!";
+  console.log(test);
+}();
+
+return () => <App />;
+function someDemo() {
+  var test = "Hello World!";
+  console.log(test);
+}();
+
+return () => <App />;
+function someDemo() {
+  var test = "Hello World!";
+  console.log(test);
+}();
+
+return () => <App />;
+`
+
+const exampleCode2 = `function someDemo() {
+  var test = "Hello World!";
+  console.log(test);
+}();
+
+return () => <App />;
+`
 
 const Temp: NextPage = () => {
 	return (
 		<PageLayout>
-			<TreeView title='Hello World'>
+			<FileViewer title='Hello World'>
 				<Folder name='Components'>
 					<File name='File1' />
 					<File name='File2' />
 					<Folder name='TreeView'>
-						<File name='File1'>Hello this is content</File>
-						<File name='File2' />
+						<File name='File1'>{exampleCode1}</File>
+						<File name='File2'>{exampleCode2}</File>
 						<Folder name='src'>
-							<File name='File1' />
+							<File name='File1'>Hello World</File>
 							<File name='File2' />
 							<Folder name='src'>
 								<File name='File1' />
@@ -29,7 +75,7 @@ const Temp: NextPage = () => {
 				<File name='File3' />
 				<File name='File4' />
 				<File name='File5' />
-			</TreeView>
+			</FileViewer>
 		</PageLayout>
 	)
 }

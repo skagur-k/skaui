@@ -10,7 +10,7 @@ import clsx from 'clsx'
 
 export const Sidebar = () => {
 	return (
-		<aside className='hidden md:flex'>
+		<aside className='hidden lg:flex'>
 			{/* Aside */}
 			<div className={styles.aside}>
 				{/* Header + Component List */}
