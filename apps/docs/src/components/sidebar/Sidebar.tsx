@@ -1,4 +1,4 @@
-import { Button } from '@skaui/button'
+import { Button } from '@skaui/core'
 import React from 'react'
 import styles from './Sidebar.module.css'
 import { SiGithub } from 'react-icons/si'

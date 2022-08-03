@@ -1,4 +1,4 @@
-import { Collapsible } from '@skaui/collapsible'
+import { Collapsible } from '@skaui/core'
 import clsx from 'clsx'
 import { AnimatePresence, motion } from 'framer-motion'
 import React, { useEffect } from 'react'

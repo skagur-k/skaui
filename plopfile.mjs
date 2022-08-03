@@ -94,6 +94,24 @@ export default function (plop) {
 		], // array of actions
 	})
 
+	plop.setGenerator('SKA UI / CORE - Icon Component', {
+		description: 'This plop generates a new icon component for @skaui/core.',
+		prompts: [
+			{
+				type: 'input',
+				name: 'name',
+				message: 'Name of the Icon (i.e. Home)',
+			},
+		], // array of inquirer prompts
+		actions: [
+			{
+				type: 'add',
+				path: './packages/skaui-core/src/icons/{{iconName name}}.tsx',
+				templateFile: '.template/icon.template.hbs',
+			},
+		], // array of actions
+	})
+
 	plop.setGenerator('DOCS - UI Component', {
 		description:
 			'This plop generates a new component folder with template files.',
@@ -129,5 +147,9 @@ export default function (plop) {
 
 	plop.setHelper('folderName', (str) => {
 		return 'skaui-'.concat(str.toLowerCase())
+	})
+
+	plop.setHelper('iconName', (str) => {
+		return str.concat('Icon')
 	})
 }

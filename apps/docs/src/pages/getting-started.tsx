@@ -1,45 +1,42 @@
 import { NextPage } from 'next'
-import { IDE } from '../components/ide'
-import { TreeView, Folder, File } from '@skaui/treeview'
-import { CSSTransition } from 'react-transition-group'
+import { File, Folder, FileViewer } from '@skaui/core'
 import PageLayout from '../layouts/PageLayout'
+import * as ex from '../data/prismexample'
 
 const GettingStarted: NextPage = () => {
-	const code = `<TreeView title="TreeView">
-<Folder name="Hello">
-	<File name="File1.js"/>
-	<File name="File2.js"/>
-	<Folder name="Hello">
-		<File name="File1.js"/>
-		<File name="File2.js"/>
-		<Folder name="Hello">
-			<File name="File1.js"/>
-			<File name="File2.js"/>
-		</Folder>
-	</Folder>
-</Folder>
-<Folder name="Hello">
-	<File name="File1.js"/>
-	<File name="File2.js"/>
-</Folder>
-	<File name="File1.js"/>
-	<File name="File2.js"/>
-</TreeView>`
-	const scope = { TreeView, Folder, File, CSSTransition }
 	return (
 		<PageLayout>
-			<div className={'flex flex-col gap-20'}>
-				<div className='title flex flex-col gap-10'>
-					<h1 className='text-4xl font-black'>Getting Started</h1>
-					<p className='text-xl'>This is a description for the component</p>
-				</div>
-
-				<div>
-					<IDE heading='TreeView' code={code} scope={scope}>
-						Hello World
-					</IDE>
-				</div>
-			</div>
+			<FileViewer title='Hello World'>
+				<File
+					name='javascript.js'
+					language='javascript'
+					content={ex.js}
+					highlight={'4,6,8-10'}
+				/>
+				<File
+					name='index.html'
+					language='markup'
+					content={ex.html}
+					highlight={'4,6,8-10'}
+				/>
+				<Folder name='src'>
+					<File
+						name='Diff.diff'
+						language='diff'
+						content={ex.diff}
+						highlight={'4,6,8-10'}
+					/>
+					<File name='JSX.jsx' content={ex.jsx} />
+					<File name='.gitignore' language='git' content={ex.gitignore} />
+					<File name='package.json' language='json' content={ex.packagejson} />
+					<File
+						name='styles.css'
+						language='css'
+						content={ex.stylescss}
+						highlight={'4,6,8-10'}
+					/>
+				</Folder>
+			</FileViewer>
 		</PageLayout>
 	)
 }

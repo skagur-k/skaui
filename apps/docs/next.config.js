@@ -1,4 +1,4 @@
-const skaui = ['@skaui/button', '@skaui/collapsible', '@skaui/treeview']
+const skaui = ['@skaui/core']
 
 const withTM = require('next-transpile-modules')(skaui)
 
