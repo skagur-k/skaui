@@ -5,6 +5,7 @@ import { FiCompass, FiEye, FiFile, FiX } from 'react-icons/fi'
 import CodeRenderer from './CodeRenderer'
 import styles from './FileViewer.module.css'
 import { IFile } from './FileViewer.types'
+import { useFileTree, useFileViewer } from './FileViewerContext'
 
 const FileContent = ({
 	file,
@@ -13,7 +14,8 @@ const FileContent = ({
 	file: IFile
 	lineNumbers: boolean
 }) => {
-	const { slug, content, language } = file
+	const { selectedFile } = useFileViewer()
+	const { slug, content, language, highlight } = selectedFile
 
 	useEffect(() => {}, [content])
 	return (
@@ -67,6 +69,7 @@ const FileContent = ({
 								code={content!}
 								lineNumbers={lineNumbers}
 								language={language}
+								highlight={highlight}
 							/>
 						)}
 					</div>

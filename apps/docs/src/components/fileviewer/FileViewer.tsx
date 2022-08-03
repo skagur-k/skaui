@@ -24,23 +24,24 @@ import {
 	useFileViewer,
 } from './FileViewerContext'
 
-// TODO: Hightlight lines
 // TODO: Redo treeview styles
-// TODO: prism styles
 
 export const FileViewer: React.ComponentType<FileViewerProps> = React.memo(
-	({ children, title }: FileViewerProps) => {
+	({ children, title, nocontent = false }: FileViewerProps) => {
 		const [selectedFile, setSelectedFile] = React.useState<IFile>({
 			slug: undefined,
 			content: undefined,
 			language: undefined,
+			highlight: undefined,
 		})
 
 		const [optionOpened, setOptionOpened] = React.useState(false)
+		const [showContent, setShowContent] = React.useState(!nocontent)
 		const [lineNumbers, setLineNumbers] = React.useState(false)
+
 		React.useEffect(() => {
 			console.log('mount')
-		}, [])
+		}, [showContent])
 
 		function handleOptionToggle() {
 			setOptionOpened(!optionOpened)
@@ -48,6 +49,10 @@ export const FileViewer: React.ComponentType<FileViewerProps> = React.memo(
 
 		function handleLineNumbersToggle() {
 			setLineNumbers(!lineNumbers)
+		}
+
+		function handleShowContentToggle() {
+			setShowContent(!showContent)
 		}
 
 		const ctx = {
@@ -67,7 +72,11 @@ export const FileViewer: React.ComponentType<FileViewerProps> = React.memo(
 						animate={{ height: 'auto' }}
 						className={styles.fileviewer}
 					>
-						<div className={styles.filetreeview}>
+						<div
+							className={clsx(styles.filetreeview, [
+								!showContent && styles.filetreeviewOnly,
+							])}
+						>
 							{title && <div className={styles.filetreetitle}>{title}</div>}
 							{children}
 							<div className={styles.codeSetting}>
@@ -85,28 +94,47 @@ export const FileViewer: React.ComponentType<FileViewerProps> = React.memo(
 												duration: 0.1,
 												ease: 'linear',
 											}}
-											className='flex items-center gap-2'
+											className={clsx(styles.fileviewoptions)}
 										>
-											<input
-												type='checkbox'
-												id='linenumbers'
-												name='linenumbers'
-												checked={lineNumbers}
-												onChange={handleLineNumbersToggle}
-											/>
-											<label
-												htmlFor='linenumbers'
-												className='text-sm text-neutral-600'
-											>
-												Line numbers
-											</label>
+											<div className='flex gap-1'>
+												<input
+													type='checkbox'
+													id='linenumbers'
+													name='linenumbers'
+													checked={lineNumbers}
+													onChange={handleLineNumbersToggle}
+												/>
+												<label
+													htmlFor='linenumbers'
+													className='text-sm text-neutral-600'
+												>
+													Line numbers
+												</label>
+											</div>
+											<div className='flex gap-1'>
+												<input
+													type='checkbox'
+													id='showcontent'
+													name='showcontent'
+													checked={showContent}
+													onChange={handleShowContentToggle}
+												/>
+												<label
+													htmlFor='showcontent'
+													className='text-sm text-neutral-600'
+												>
+													Show Content
+												</label>
+											</div>
 										</motion.div>
 									)}
 								</AnimatePresence>
 							</div>
 						</div>
-						<FileContent lineNumbers={lineNumbers} file={selectedFile} />
-						{selectedFile.content && (
+						{showContent && (
+							<FileContent lineNumbers={lineNumbers} file={selectedFile} />
+						)}
+						{selectedFile.content && showContent && (
 							<Clipboard
 								copyText={selectedFile.content}
 								className='absolute bottom-6 right-8'
@@ -211,7 +239,15 @@ export const Folder: React.ComponentType<FolderProps> = React.memo(
 Folder.displayName = 'SKA UI - TreeView/Folder'
 
 export const File: React.ComponentType<FileProps> = React.memo(
-	({ name, active, slug = name, icon, content, language = 'jsx' }) => {
+	({
+		name,
+		active,
+		slug = name,
+		icon,
+		content,
+		language = 'jsx',
+		highlight,
+	}) => {
 		const depth = useFileTree()
 		const ref = React.useRef<HTMLLIElement>(null)
 		const { selectedFile, setSelectedFile } = useFileViewer()
@@ -231,6 +267,7 @@ export const File: React.ComponentType<FileProps> = React.memo(
 				slug: slug,
 				content: content,
 				language: language,
+				highlight: highlight,
 			}
 			setSelectedFile(file)
 		}

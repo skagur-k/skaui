@@ -1,109 +1,40 @@
 import { NextPage } from 'next'
 import { File, Folder, FileViewer } from '../components/fileviewer'
 import PageLayout from '../layouts/PageLayout'
-
-const diff = `+ added this line
-- deleted this line
-`
-
-const gitignore = `node_modules
-./dist
-.turbo
-.next
-`
-
-const jsx = `export * from './FileViewer'`
-
-const packagejson = `{
-	"name": "@skaui/docs",
-	"version": "0.0.0",
-	"private": true,
-	"scripts": {
-		"dev": "next dev",
-		"build": "next build",
-		"start": "next start",
-		"lint": "next lint",
-		"test": "jest --coverage",
-		"clean": "rm -rf .turbo && rm -rf .next && rm -rf node_modules"
-	},
-}
-`
-
-const stylescss = `body {
-  background-color: powderblue;
-}
-h1 {
-  color: blue;
-}
-p {
-  color: red;
-}
-body {
-  background-color: powderblue;
-}
-h1 {
-  color: blue;
-}
-p {
-  color: red;
-}
-body {
-  background-color: powderblue;
-}
-h1 {
-  color: blue;
-}
-p {
-  color: red;
-}
-body {
-  background-color: powderblue;
-}
-h1 {
-  color: blue;
-}
-p {
-  color: red;
-}
-body {
-  background-color: powderblue;
-}
-h1 {
-  color: blue;
-}
-p {
-  color: red;
-}
-body {
-  background-color: powderblue;
-}
-h1 {
-  color: blue;
-}
-p {
-  color: red;
-}
-body {
-  background-color: powderblue;
-}
-h1 {
-  color: blue;
-}
-p {
-  color: red;
-}
-`
+import * as ex from '../data/prismexample'
 
 const Temp: NextPage = () => {
 	return (
 		<PageLayout>
 			<FileViewer title='Hello World'>
+				<File
+					name='javascript.js'
+					language='javascript'
+					content={ex.js}
+					highlight={'4,6,8-10'}
+				/>
+				<File
+					name='index.html'
+					language='markup'
+					content={ex.html}
+					highlight={'4,6,8-10'}
+				/>
 				<Folder name='src'>
-					<File name='File1.diff' language='diff' content={diff} />
-					<File name='File2.jsx' content={jsx} />
-					<File name='.gitignore' language='git' content={gitignore} />
-					<File name='package.json' language='json' content={packagejson} />
-					<File name='styles.css' language='css' content={stylescss} />
+					<File
+						name='Diff.diff'
+						language='diff'
+						content={ex.diff}
+						highlight={'4,6,8-10'}
+					/>
+					<File name='JSX.jsx' content={ex.jsx} />
+					<File name='.gitignore' language='git' content={ex.gitignore} />
+					<File name='package.json' language='json' content={ex.packagejson} />
+					<File
+						name='styles.css'
+						language='css'
+						content={ex.stylescss}
+						highlight={'4,6,8-10'}
+					/>
 				</Folder>
 			</FileViewer>
 		</PageLayout>

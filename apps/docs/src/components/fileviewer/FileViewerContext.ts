@@ -8,6 +8,7 @@ export interface IFileViewerContextValueProps {
 		slug?: string
 		content?: string
 		language?: Language
+		highlight?: string
 	}
 	setSelectedFile: Function
 }

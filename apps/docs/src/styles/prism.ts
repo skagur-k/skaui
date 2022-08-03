@@ -1,7 +1,8 @@
 // Converted automatically using ./tools/themeFromVsCode
+import { PrismTheme } from 'prism-react-renderer'
 import colors from 'tailwindcss/colors'
 
-const theme = {
+const theme: PrismTheme = {
 	plain: {
 		backgroundColor: 'transparent',
 	},
@@ -9,7 +10,8 @@ const theme = {
 		{
 			types: ['comment'],
 			style: {
-				color: colors.neutral[500],
+				color: colors.neutral[400],
+				fontWeight: '400',
 			},
 		},
 		{
@@ -19,9 +21,15 @@ const theme = {
 			},
 		},
 		{
-			types: ['number', 'variable', 'inserted'],
+			types: ['inserted'],
 			style: {
-				color: 'rgb(9, 134, 88)',
+				color: 'rgb(1, 146, 103)',
+			},
+		},
+		{
+			types: ['number'],
+			style: {
+				color: 'rgb(209, 81, 45)',
 			},
 		},
 		{
@@ -33,7 +41,8 @@ const theme = {
 		{
 			types: ['constant', 'char'],
 			style: {
-				color: 'rgb(129, 31, 63)',
+				color: 'rgb(25, 33, 94)',
+				fontWeight: '800',
 			},
 		},
 		{
@@ -45,13 +54,13 @@ const theme = {
 		{
 			types: ['attr-name'],
 			style: {
-				color: colors.red[500],
+				color: colors.blue[500],
 			},
 		},
 		{
 			types: ['deleted', 'string'],
 			style: {
-				color: 'rgb(163, 21, 21)',
+				color: 'rgb(255, 26, 26)',
 			},
 		},
 		{
@@ -61,15 +70,33 @@ const theme = {
 			},
 		},
 		{
-			types: ['function', 'keyword'],
+			types: ['function', 'keyword', 'punctuation'],
 			style: {
-				color: colors.blue[700],
+				color: 'rgb(44, 51, 51)',
 			},
 		},
 		{
-			types: ['class-name', 'function', 'punctuation'],
+			types: ['class-name'],
 			style: {
 				color: colors.neutral[800],
+			},
+		},
+		{
+			types: ['selector'],
+			style: {
+				color: colors.blue[800],
+			},
+		},
+		{
+			types: ['property'],
+			style: {
+				color: colors.red[800],
+			},
+		},
+		{
+			types: ['boolean'],
+			style: {
+				color: colors.green[800],
 			},
 		},
 	],

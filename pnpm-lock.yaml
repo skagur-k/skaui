@@ -53,6 +53,7 @@ importers:
       lodash: ^4.17.21
       next: 12.2.3
       next-transpile-modules: 9.0.0
+      parse-numeric-range: ^1.3.0
       postcss: ^8.4.14
       prism-react-renderer: ^1.3.5
       react: 18.2.0
@@ -82,6 +83,7 @@ importers:
       eslint-config-skaui: link:../../packages/eslint-config-skaui
       lodash: 4.17.21
       next-transpile-modules: 9.0.0
+      parse-numeric-range: 1.3.0
       postcss: 8.4.14
       tailwindcss: 3.1.6
       tsconfig: link:../../packages/tsconfig
@@ -6617,6 +6619,10 @@ packages:
       error-ex: 1.3.2
       json-parse-even-better-errors: 2.3.1
       lines-and-columns: 1.2.4
+    dev: true
+
+  /parse-numeric-range/1.3.0:
+    resolution: {integrity: sha512-twN+njEipszzlMJd4ONUYgSfZPDxgHhT9Ahed5uTigpQn90FggW4SA/AIPq/6a149fTbE9qBEcSwE3FAEp6wQQ==}
     dev: true
 
   /parse-passwd/1.0.0:

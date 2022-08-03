@@ -3,6 +3,7 @@ import React from 'react'
 export interface FileViewerProps {
 	children: React.ReactElement | React.ReactElement[]
 	title?: string
+	nocontent?: boolean
 }
 
 export interface BaseProps {
@@ -13,6 +14,7 @@ export type IFile = {
 	slug?: string
 	content?: string
 	language?: Language
+	highlight?: string
 }
 
 export interface FolderProps extends BaseProps {
@@ -23,12 +25,9 @@ export interface FolderProps extends BaseProps {
 	onToggle?: () => void
 }
 
-export interface FileProps extends BaseProps {
-	language?: Language
+export interface FileProps extends BaseProps, IFile {
 	active?: boolean
 	type?: 'lambda'
-	slug?: string
-	content?: string
 	icon?: React.ReactElement
 }
 

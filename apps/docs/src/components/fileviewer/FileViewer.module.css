@@ -1,10 +1,10 @@
 .fileviewer {
 	@apply relative;
-	@apply mx-2 flex flex-col gap-1 lg:mx-0 lg:flex-row lg:gap-2;
+	@apply mx-2 flex flex-col gap-1 lg:mx-2 lg:flex-row lg:gap-2;
 }
 
 .filecontentWrapper {
-	@apply relative min-h-[500px] flex-1;
+	@apply relative min-h-[500px] flex-1 overflow-x-auto;
 	@apply rounded-md bg-neutral-50;
 	@apply p-4 lg:p-4;
 	@apply shadow-md;
@@ -21,11 +21,17 @@
 	@apply list-none gap-0;
 	@apply text-base;
 	@apply transition-all;
-	@apply w-full min-w-[250px] lg:w-fit;
+	@apply w-full min-w-[280px] lg:w-fit;
 	@apply bg-neutral-50;
 	@apply p-4;
 	@apply rounded-md border border-neutral-300;
 	@apply shadow-md;
+}
+
+.filetreeviewOnly {
+	@apply w-full lg:w-full;
+	@apply min-h-fit;
+	@apply shadow-none;
 }
 
 .filetreetitle {
@@ -78,13 +84,21 @@
 	@apply h-full max-h-[640px] w-full;
 	@apply overflow-y-auto;
 	@apply bg-transparent pt-0 pl-2 font-mono font-semibold;
-	@apply text-sm;
+	@apply text-sm tracking-wide;
 }
 
 .codeLine {
 	@apply flex items-center;
-	@apply py-1;
+	@apply py-1 px-2;
 	@apply hover:bg-neutral-100;
+}
+
+.codeHighlight {
+	@apply bg-neutral-200/40 hover:bg-neutral-200;
+
+	& .codeLineNumber {
+		@apply font-bold text-neutral-500;
+	}
 }
 
 .codeLineNumber {
@@ -99,9 +113,15 @@
 .codeSetting {
 	@apply mt-auto w-full pt-4;
 	@apply flex items-center gap-4;
+	@apply relative;
 }
 
 .codeSettingIcon {
 	@apply cursor-pointer transition-all duration-100 hover:text-neutral-500;
 	@apply h-6 w-6 text-neutral-400;
+}
+
+.fileviewoptions {
+	@apply absolute left-10;
+	@apply flex flex-row gap-2;
 }
