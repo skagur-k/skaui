@@ -20,8 +20,8 @@ export default {
 			sourcemap: devMode ? 'inline' : false,
 		},
 		{
-			file: pkg.module,
-			format: './dist/esm/index.mjs',
+			file: './dist/esm/index.mjs',
+			format: 'es',
 			sourcemap: devMode ? 'inline' : false,
 		},
 	],

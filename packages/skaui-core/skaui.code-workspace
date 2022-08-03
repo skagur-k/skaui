@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"name": "✨ skaui",
+			"path": "../.."
+		},
+		{
+			"name": "🚀 @skaui/docs",
+			"path": "../../apps/docs"
+		},
+		{
+			"name": "📦 @skaui/core",
+			"path": "."
+		}
+	],
+	"settings": {
+		"typescript.tsdk": "📦 @skaui/core/node_modules/typescript/lib",
+		"liveServer.settings.multiRootWorkspaceName": "✨ skaui"
+	}
+}
