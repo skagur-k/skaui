@@ -1,11 +1,11 @@
 import clsx from 'clsx'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useEffect } from 'react'
-import { FiCompass, FiEye, FiFile, FiX } from 'react-icons/fi'
+import { FiEye, FiFile } from 'react-icons/fi'
 import CodeRenderer from './CodeRenderer'
 import styles from './FileViewer.module.css'
 import { IFile } from './FileViewer.types'
-import { useFileTree, useFileViewer } from './FileViewerContext'
+import { useFileViewer } from './FileViewerContext'
 
 const FileContent = ({
 	file,

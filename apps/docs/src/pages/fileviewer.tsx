@@ -1,5 +1,5 @@
 import { NextPage } from 'next'
-import { File, Folder, FileViewer } from '../components/fileviewer'
+import { File, Folder, FileViewer } from '@skaui/fileviewer'
 import PageLayout from '../layouts/PageLayout'
 import * as ex from '../data/prismexample'
 

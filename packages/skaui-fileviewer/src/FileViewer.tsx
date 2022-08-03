@@ -8,7 +8,7 @@ import {
 } from 'react-icons/ai'
 import { BsFolder } from 'react-icons/bs'
 import { FiSettings } from 'react-icons/fi'
-import Clipboard from '../clipboard/Clipboard'
+import { Clipboard } from './clipboard'
 import FileContent from './FileContent'
 import styles from './styles/FileViewer.module.css'
 import {
