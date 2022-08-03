@@ -76,24 +76,6 @@ export default function (plop) {
 		], // array of actions
 	})
 
-	plop.setGenerator('DOCS - Page Component', {
-		description: 'This plop generates a new page component for Docs.',
-		prompts: [
-			{
-				type: 'input',
-				name: 'name',
-				message: 'Name for the Page (i.e. Home)',
-			},
-		], // array of inquirer prompts
-		actions: [
-			{
-				type: 'add',
-				path: './apps/docs/src/pages/{{kebabCase name}}.tsx',
-				templateFile: '.template/next/Page.template.hbs',
-			},
-		], // array of actions
-	})
-
 	plop.setGenerator('SKA UI / CORE - Icon Component', {
 		description: 'This plop generates a new icon component for @skaui/core.',
 		prompts: [
@@ -108,6 +90,31 @@ export default function (plop) {
 				type: 'add',
 				path: './packages/skaui-core/src/icons/{{iconName name}}.tsx',
 				templateFile: '.template/icon.template.hbs',
+			},
+			{
+				type: 'append',
+				path: './packages/skaui-core/src/icons/index.ts',
+				pattern: /(\/\/ -- APPEND EXPORTS HERE --)/gi,
+				template:
+					"export { default as {{iconName name}} } from './{{iconName name}}' ",
+			},
+		], // array of actions
+	})
+
+	plop.setGenerator('DOCS - Page Component', {
+		description: 'This plop generates a new page component for Docs.',
+		prompts: [
+			{
+				type: 'input',
+				name: 'name',
+				message: 'Name for the Page (i.e. Home)',
+			},
+		], // array of inquirer prompts
+		actions: [
+			{
+				type: 'add',
+				path: './apps/docs/src/pages/{{kebabCase name}}.tsx',
+				templateFile: '.template/next/Page.template.hbs',
 			},
 		], // array of actions
 	})

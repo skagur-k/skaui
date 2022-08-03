@@ -1,3 +1,4 @@
+// -- APPEND EXPORTS HERE --
 export { default as CheckIcon } from './CheckIcon'
 export { default as ChevronDownIcon } from './ChevronDownIcon'
 export { default as ClipboardIcon } from './ClipboardIcon'
