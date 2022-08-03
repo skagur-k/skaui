@@ -1,0 +1,127 @@
+.fileviewer {
+	@apply relative;
+	@apply mx-2 flex flex-col gap-1 lg:mx-2 lg:flex-row lg:gap-2;
+}
+
+.filecontentWrapper {
+	@apply relative min-h-[500px] flex-1 overflow-x-auto;
+	@apply rounded-md bg-neutral-50;
+	@apply p-4 lg:p-4;
+	@apply shadow-sm;
+	@apply border border-neutral-300;
+}
+
+.filecontent {
+	@apply flex-col gap-1;
+	@apply relative h-full w-full;
+}
+
+.filetreeview {
+	@apply flex flex-col;
+	@apply list-none gap-0;
+	@apply text-base;
+	@apply transition-all;
+	@apply w-full min-w-[280px] lg:w-fit;
+	@apply bg-neutral-50;
+	@apply p-4;
+	@apply rounded-md border border-neutral-300;
+	@apply shadow-sm;
+}
+
+.filetreeviewOnly {
+	@apply w-full lg:w-full;
+	@apply min-h-fit;
+	@apply shadow-sm;
+}
+
+.filetreetitle {
+	@apply py-2 text-center text-base font-bold lg:text-left;
+}
+
+.filecontentSlug {
+	@apply text-center align-middle;
+	@apply font-bold text-blue-500;
+	@apply select-none;
+}
+
+.filecontentLanguage {
+	@apply rounded-md border border-neutral-300 bg-neutral-50 px-2 text-xs;
+	@apply cursor-pointer select-none;
+	@apply tracking-widest text-neutral-400;
+}
+
+.filecontentContent {
+	@apply mt-4 h-full;
+}
+
+.filecontentContentNoFile {
+	@apply absolute top-0 bottom-0 right-0 left-0 h-[200px];
+	@apply translate-y-1/2;
+	@apply flex items-center justify-center;
+}
+
+.filecontentMsgWrapper {
+	@apply flex flex-col items-center gap-4;
+}
+
+.filecontentMsg {
+	@apply text-lg font-medium text-neutral-400;
+}
+
+.filecontentMsgIcon {
+	@apply h-8 w-8 text-neutral-400;
+}
+
+.filecontentMsgDescription {
+	@apply text-base text-neutral-400;
+}
+
+.filetree {
+	@apply w-fit lg:w-full;
+}
+
+.codePre {
+	@apply h-full max-h-[640px] w-full;
+	@apply overflow-y-auto;
+	@apply bg-transparent pt-0 pl-2 font-mono font-semibold;
+	@apply text-sm tracking-wide;
+}
+
+.codeLine {
+	@apply flex items-center;
+	@apply py-1 px-2;
+	@apply hover:bg-neutral-100;
+}
+
+.codeHighlight {
+	@apply bg-blue-500/5 hover:bg-blue-500/20;
+
+	& .codeLineNumber {
+		@apply font-bold text-neutral-500;
+	}
+}
+
+.codeLineNumber {
+	@apply mr-2 w-6 text-sm text-neutral-300;
+	@apply select-none;
+}
+
+.codeTag {
+	@apply text-black;
+}
+
+.codeSetting {
+	@apply mt-auto w-full pt-4;
+	@apply flex items-center gap-4;
+	@apply relative;
+}
+
+.codeSettingIcon {
+	@apply cursor-pointer transition-all duration-100 hover:text-neutral-500;
+	@apply h-6 w-6 text-neutral-400;
+}
+
+.fileviewoptions {
+	@apply absolute left-10;
+	@apply flex flex-row gap-2;
+}

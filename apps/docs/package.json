@@ -15,6 +15,7 @@
 		"@skaui/button": "workspace:*",
 		"@skaui/collapsible": "workspace:*",
 		"@skaui/treeview": "workspace:*",
+		"@skaui/fileviewer": "workspace:*",
 		"@skaui/twplugin": "workspace:*",
 		"framer-motion": "^6.5.1",
 		"immer": "^9.0.15",
