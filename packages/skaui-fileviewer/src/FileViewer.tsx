@@ -1,20 +1,10 @@
 import React from 'react'
-import FileContent from './FileContent'
-import { getFile } from './FileViewer.helpers'
-import { FileViewerProps } from './FileViewer.types'
-import Sidebar from './Sidebar'
+import styles from './FileViewer.module.css'
 
-const FileViewer = ({ initialFiles }: FileViewerProps) => {
-	const [files, setFiles] = React.useState(initialFiles)
-
-	const activeFile = getFile(files, (file) => !!file.isSelected)
-
+export const FileViewer = () => {
 	return (
 		<div>
-			<Sidebar files={files} setFiles={setFiles} />
-			<FileContent contents={activeFile!.contents} />
+			
 		</div>
 	)
 }
-
-export default FileViewer

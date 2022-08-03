@@ -25,11 +25,6 @@ export default function (plop) {
 			},
 			{
 				type: 'add',
-				path: './packages/{{folderName name}}/index.ts',
-				templateFile: '.template/package/index.template.hbs',
-			},
-			{
-				type: 'add',
 				path: './packages/{{folderName name}}/tsconfig.json',
 				templateFile: '.template/package/tsconfig.template.hbs',
 			},
@@ -37,6 +32,64 @@ export default function (plop) {
 				type: 'add',
 				path: './packages/{{folderName name}}/.eslintrc.js',
 				templateFile: '.template/package/eslintrc.template.hbs',
+			},
+			{
+				type: 'add',
+				path: './packages/{{folderName name}}/tailwind.config.js',
+				templateFile: '.template/package/tailwind.config.js',
+			},
+			{
+				type: 'add',
+				path: './packages/{{folderName name}}/postcss.config.js',
+				templateFile: '.template/package/postcss.config.js',
+			},
+			{
+				type: 'add',
+				path: './packages/{{folderName name}}/src/global.d.ts',
+				templateFile: '.template/package/src/global.d.ts',
+			},
+			{
+				type: 'add',
+				path: './packages/{{folderName name}}/index.ts',
+				templateFile: '.template/package/index.ts',
+			},
+			{
+				type: 'add',
+				path: './packages/{{folderName name}}/src/{{pascalCase name}}.module.css',
+				templateFile: '.template/package/src/css.template.hbs',
+			},
+			{
+				type: 'add',
+				path: './packages/{{folderName name}}/src/{{pascalCase name}}.tsx',
+				templateFile: '.template/package/src/component.template.hbs',
+			},
+			{
+				type: 'add',
+				path: './packages/{{folderName name}}/src/index.ts',
+				templateFile: '.template/package/src/index.template.hbs',
+			},
+			{
+				type: 'add',
+				path: './packages/{{folderName name}}/rollup.config.js',
+				templateFile: '.template/package/rollup.config.js',
+			},
+		], // array of actions
+	})
+
+	plop.setGenerator('DOCS - Page Component', {
+		description: 'This plop generates a new page component for Docs.',
+		prompts: [
+			{
+				type: 'input',
+				name: 'name',
+				message: 'Name for the Page (i.e. Home)',
+			},
+		], // array of inquirer prompts
+		actions: [
+			{
+				type: 'add',
+				path: './apps/docs/src/pages/{{kebabCase name}}.tsx',
+				templateFile: '.template/next/Page.template.hbs',
 			},
 		], // array of actions
 	})

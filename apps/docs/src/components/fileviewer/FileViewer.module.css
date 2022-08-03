@@ -7,7 +7,7 @@
 	@apply relative min-h-[500px] flex-1 overflow-x-auto;
 	@apply rounded-md bg-neutral-50;
 	@apply p-4 lg:p-4;
-	@apply shadow-md;
+	@apply shadow-sm;
 	@apply border border-neutral-300;
 }
 
@@ -25,13 +25,13 @@
 	@apply bg-neutral-50;
 	@apply p-4;
 	@apply rounded-md border border-neutral-300;
-	@apply shadow-md;
+	@apply shadow-sm;
 }
 
 .filetreeviewOnly {
 	@apply w-full lg:w-full;
 	@apply min-h-fit;
-	@apply shadow-none;
+	@apply shadow-sm;
 }
 
 .filetreetitle {
@@ -94,7 +94,7 @@
 }
 
 .codeHighlight {
-	@apply bg-neutral-200/40 hover:bg-neutral-200;
+	@apply bg-blue-500/5 hover:bg-blue-500/20;
 
 	& .codeLineNumber {
 		@apply font-bold text-neutral-500;

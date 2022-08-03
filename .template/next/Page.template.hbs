@@ -1,0 +1,17 @@
+import { NextPage } from 'next'
+import PageLayout from '../layouts/PageLayout'
+
+const {{pascalCase name}}: NextPage = () => {
+	return (
+		<PageLayout>
+			<div className={'flex flex-col'}>
+				<div className='title flex flex-col gap-10'>
+					<h1 className='text-4xl font-black'>Title</h1>
+					<p className='text-xl'>This is a description for the component</p>
+				</div>
+			</div>
+		</PageLayout>
+	)
+}
+
+export default {{pascalCase name}}

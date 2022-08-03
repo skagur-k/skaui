@@ -42,7 +42,6 @@ importers:
       '@skagur-k/react-live': ^2.4.2
       '@skaui/button': workspace:*
       '@skaui/collapsible': workspace:*
-      '@skaui/fileviewer': workspace:*
       '@skaui/treeview': workspace:*
       '@skaui/twplugin': workspace:*
       autoprefixer: ^10.4.7
@@ -66,7 +65,6 @@ importers:
       '@skagur-k/react-live': 2.4.2_biqbaboplfbrettd7655fr4n2y
       '@skaui/button': link:../../packages/skaui-button
       '@skaui/collapsible': link:../../packages/skaui-collapsible
-      '@skaui/fileviewer': link:../../packages/skaui-fileviewer
       '@skaui/treeview': link:../../packages/skaui-treeview
       '@skaui/twplugin': link:../../packages/twplugin
       framer-motion: 6.5.1_biqbaboplfbrettd7655fr4n2y
@@ -196,8 +194,6 @@ importers:
       autoprefixer: ^10.4.7
       clsx: ^1.2.1
       eslint-config-skaui: workspace:*
-      framer-motion: ^6.5.1
-      immer: ^9.0.15
       postcss: ^8.4.14
       react: ^18.2.0
       react-aria: ^3.17.0
@@ -211,8 +207,6 @@ importers:
       tailwindcss: ^3.1.6
       tsconfig: workspace:*
       typescript: ^4.7.4
-    dependencies:
-      immer: 9.0.15
     devDependencies:
       '@rollup/plugin-commonjs': 22.0.1_rollup@2.77.2
       '@rollup/plugin-node-resolve': 13.3.0_rollup@2.77.2
@@ -221,7 +215,6 @@ importers:
       autoprefixer: 10.4.7_postcss@8.4.14
       clsx: 1.2.1
       eslint-config-skaui: link:../eslint-config-skaui
-      framer-motion: 6.5.1_biqbaboplfbrettd7655fr4n2y
       postcss: 8.4.14
       react: 18.2.0
       react-aria: 3.17.0_biqbaboplfbrettd7655fr4n2y

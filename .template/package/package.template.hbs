@@ -2,19 +2,16 @@
 	"name": "{{packageName name}}",
 	"version": "1.0.0",
 	"description": "{{description}}",
-	"main": "./dist/index.js",
-	"module": "./dist/index.mjs",
+	"main": "./dist/cjs/index.js",
+	"module": "./dist/esm/index.mjs",
 	"types": "./dist/types/index.d.ts",
 	"files": [
 		"./dist"
 	],
 	"sideEffects": false,
 	"scripts": {
-		"build": "rm -rf dist && pnpm run build:full && pnpm run build:min && pnpm run build:types",
-		"build:full": "tsup index.ts --format esm,cjs --external react --sourcemap inline --treeshake",
-		"build:min": "tsup index.ts --format esm -d dist/min --external react --sourcemap inline --treeshake --minify",
-		"build:types": "tsup index.ts --dts-only -d dist/types",
-		"dev": "tsup index.ts --format esm,cjs --watch --dts --external react",
+		"build": "rm -rf dist && rollup -c",
+		"dev": "rm -rf ./dist && rollup -c -w",
 		"lint": "TIMING=1 eslint src/**/*.{ts,tsx,js,jsx}* --fix",
 		"clean": "rm -rf .turbo && rm -rf dist && rm -rf node_modules"
 	},
@@ -22,15 +19,29 @@
 	"author": "Nam Hyuck Kim (skagur@gmail.com)",
 	"license": "ISC",
 	"devDependencies": {
-		"classnames": "^2.3.1",
-		"react": "^18.2.0",
-		"tsup": "^6.2.0",
-    "clsx": "^1.2.1",
-		"typescript": "^4.7.4",
-		"react-icons": "^4.4.0",
+		"@rollup/plugin-commonjs": "^22.0.1",
+		"@rollup/plugin-node-resolve": "^13.3.0",
+		"@rollup/plugin-typescript": "^8.3.4",
+		"@skaui/utils": "workspace:*",
+		"autoprefixer": "^10.4.7",
+		"clsx": "^1.2.1",
 		"eslint-config-skaui": "workspace:*",
+		"postcss": "^8.4.14",
+		"react": "^18.2.0",
+		"react-aria": "^3.17.0",
+		"react-dom": "18.2.0",
+		"react-icons": "^4.4.0",
+		"rollup": "^2.77.2",
+		"rollup-plugin-bundle-size": "^1.0.3",
+		"rollup-plugin-postcss": "^4.0.2",
+		"rollup-plugin-typescript2": "^0.32.1",
+		"rollup-plugin-visualizer": "^5.7.1",
+		"tailwindcss": "^3.1.6",
 		"tsconfig": "workspace:*",
-		"@skaui/utils": "workspace:*"
+		"typescript": "^4.7.4"
 	},
-	"dependencies": {}
+	"peerDependencies": {
+		"react": "^17.2.0",
+		"react-dom": "^17.2.0"
+	}
 }

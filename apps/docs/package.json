@@ -14,7 +14,6 @@
 		"@skagur-k/react-live": "^2.4.2",
 		"@skaui/button": "workspace:*",
 		"@skaui/collapsible": "workspace:*",
-		"@skaui/fileviewer": "workspace:*",
 		"@skaui/treeview": "workspace:*",
 		"@skaui/twplugin": "workspace:*",
 		"framer-motion": "^6.5.1",
