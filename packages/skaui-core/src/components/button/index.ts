@@ -1,7 +1,7 @@
 import React from 'react'
-import { Button as InternalButton } from './button'
-import { ButtonProps } from './button.types'
-import { ButtonGroup } from './button'
+import { Button as InternalButton } from './Button'
+import { ButtonProps } from './Button.types'
+import { ButtonGroup } from './Button'
 
 interface Button extends React.ForwardRefExoticComponent<ButtonProps> {
 	Group: typeof ButtonGroup

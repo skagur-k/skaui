@@ -2,7 +2,7 @@ import { useButton, useHover } from 'react-aria'
 import { getValidChildren, mergeRefs } from '../../utils'
 import clsx from 'clsx'
 import React, { forwardRef, PropsWithChildren, useRef, useState } from 'react'
-import { ButtonGroupProps, ButtonProps } from './button.types'
+import { ButtonGroupProps, ButtonProps } from './Button.types'
 import { useButtonClass } from './styles'
 
 export const Button = forwardRef<

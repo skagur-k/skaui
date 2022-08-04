@@ -9,6 +9,8 @@ const IconContext = createContext<IIconContext>({
 	size: 8,
 })
 
+IconContext.displayName = 'SKA UI - Icon Context'
+
 export const IconContextProvider = IconContext.Provider
 
 export const useIcon = (): IIconContext => {

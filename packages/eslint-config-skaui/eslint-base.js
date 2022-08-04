@@ -9,7 +9,7 @@ module.exports = {
 		'node_modules',
 		'.turbo',
 		'.next',
-		'dist',
+		'**/dist',
 		'coverage',
 		'public',
 	],
