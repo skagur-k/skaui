@@ -1,10 +1,11 @@
+import { File, FileViewer, Folder, useToast } from '@skaui/core'
 import { NextPage } from 'next'
-import { File, Folder, FileViewer } from '@skaui/core'
-import PageLayout from '../layouts/PageLayout'
 import * as ex from '../data/prismexample'
-import { Button } from '@skaui/core'
+import PageLayout from '../layouts/PageLayout'
 
 const GettingStarted: NextPage = () => {
+	const toast = useToast()
+
 	return (
 		<PageLayout>
 			<div>
@@ -43,7 +44,13 @@ const GettingStarted: NextPage = () => {
 						/>
 					</Folder>
 				</FileViewer>
-				<Button>Hello World</Button>
+				<button
+					onClick={() =>
+						toast({ type: 'SUCCESS', message: 'This is a toast!' })
+					}
+				>
+					TOAST!
+				</button>
 			</div>
 		</PageLayout>
 	)

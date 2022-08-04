@@ -1,6 +1,7 @@
 import { NextPage } from 'next'
 import PageLayout from '../layouts/PageLayout'
 
+
 const Theming: NextPage = () => {
 	return (
 		<PageLayout>

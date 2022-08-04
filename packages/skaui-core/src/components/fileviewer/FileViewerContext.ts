@@ -23,7 +23,7 @@ export const FileViewerContextProvider = FileViewerContext.Provider
 export const useFileViewer = (): IFileViewerContextValueProps => {
 	const ctx = useContext(FileViewerContext)
 	if (!ctx) {
-		throw Error('useFileViewer must be used inside useFileViewerProvider.')
+		throw Error('useFileViewer must be used inside FileViewer Provider.')
 	}
 	return ctx
 }
