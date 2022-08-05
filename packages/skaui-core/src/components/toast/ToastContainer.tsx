@@ -1,11 +1,12 @@
 import { useToastStateContext } from '../../contexts/ToastContext'
+import Portal from '../../hooks/usePortal'
 import Toast from './Toast'
 
 const ToastContainer = () => {
 	const { toasts } = useToastStateContext()
 
 	return (
-		<div className='absolute w-full z-50'>
+		<Portal className='toast-container'>
 			<div className='max-w-xl mx-auto '>
 				{toasts &&
 					toasts.map((toast) => {
@@ -19,7 +20,7 @@ const ToastContainer = () => {
 						)
 					})}
 			</div>
-		</div>
+		</Portal>
 	)
 }
 
