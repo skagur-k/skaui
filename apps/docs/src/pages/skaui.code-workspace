@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"name": "✨ skaui",
+			"path": "../../../.."
+		},
+		{
+			"name": "🚀 @skaui/docs",
+			"path": "../.."
+		},
+		{
+			"name": "📦 @skaui/core",
+			"path": "../../../../packages/skaui-core"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "✨ skaui"
+	}
+}

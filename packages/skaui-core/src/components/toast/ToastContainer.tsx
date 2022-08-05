@@ -1,13 +1,25 @@
+import clsx from 'clsx'
 import { useToastStateContext } from '../../contexts/ToastContext'
 import { usePortal } from '../../hooks'
 import Toast from './Toast'
+import styles from './Toast.module.css'
 
 const ToastContainer = () => {
-	const { toasts } = useToastStateContext()
+	const { toasts, position } = useToastStateContext()
+
 	const ToastPortal = usePortal('skaui-toastbox')
+
+	const positions = {
+		'top-right': styles.containerWrapperTR,
+		'bottom-right': styles.containerWrapperBR,
+		'top-left': styles.containerWrapperTL,
+		'bottom-left': styles.containerWrapperBL,
+	}
+
+	const WrapperPosition = positions[position]
 	return (
-		<ToastPortal>
-			<div className='absolute bottom-4 right-10 max-w-xl mx-auto '>
+		<ToastPortal className={clsx(styles.containerWrapper, WrapperPosition)}>
+			<div>
 				{toasts &&
 					toasts.map((toast) => {
 						return (

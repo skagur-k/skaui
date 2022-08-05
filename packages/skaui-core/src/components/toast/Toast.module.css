@@ -1,0 +1,20 @@
+.containerWrapper {
+	@apply fixed;
+}
+
+.containerWrapperTR {
+	@apply top-0 right-0;
+}
+.containerWrapperBR {
+	@apply bottom-0 right-0;
+}
+.containerWrapperTL {
+	@apply top-0 left-0;
+}
+.containerWrapperBL {
+	@apply bottom-0 left-0;
+}
+
+.wrapper {
+	@apply bg-red-500;
+}

@@ -4,7 +4,7 @@ import * as ex from '../data/prismexample'
 import PageLayout from '../layouts/PageLayout'
 
 const GettingStarted: NextPage = () => {
-	const toast = useToast()
+	const toast = useToast({ position: 'bottom-right' })
 
 	return (
 		<PageLayout>

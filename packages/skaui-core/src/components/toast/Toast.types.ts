@@ -3,21 +3,31 @@ export interface IToast {
 	id: string
 	title?: string
 	icon?: Renderable
-	message: Message
+	message: ToastMessage
 	type: ToastType
 }
 
-export type Message = string
+export type ToastMessage = string
 export type ToastType = 'success' | 'error' | 'info' | 'loading'
-export type ToastHandler = (message: Message) => string
+export type ToastHandler = (message: ToastMessage) => string
 
-export interface IToasts {
+export type TOAST_POSITION =
+	| 'top-right'
+	| 'top-left'
+	| 'bottom-right'
+	| 'bottom-left'
+
+export interface IToaster {
 	toasts: IToast[]
+	position: TOAST_POSITION
+	maxToasts: number
 }
 
 export enum ActionType {
 	ADD_TOAST,
 	REMOVE_TOAST,
+	SET_POSITION,
+	SET_MAXTOASTS,
 }
 
 export type Action =
@@ -29,7 +39,11 @@ export type Action =
 			type: ActionType.REMOVE_TOAST
 			toastId?: string
 	  }
-
-// export type DefaultToastOptions = ToastOptions & {
-// 	[key in ToastType]: ToastOptions
-// }
+	| {
+			type: ActionType.SET_POSITION
+			position: TOAST_POSITION
+	  }
+	| {
+			type: ActionType.SET_MAXTOASTS
+			position: number
+	  }

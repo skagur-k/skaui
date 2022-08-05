@@ -7,7 +7,7 @@ import ThemeContext, { ITheme } from './ThemeContext'
 
 const STORAGE_KEY = 'theme'
 
-export const ThemeProvider = ({ children }: any) => {
+const ThemeProvider = ({ children }: any) => {
 	const prefersDark = useMediaQuery('(prefers-color-schemes: dark')
 
 	const [theme, setTheme] = useState<ITheme>(() => {

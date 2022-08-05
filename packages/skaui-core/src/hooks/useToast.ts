@@ -1,19 +1,29 @@
 import { useToastDispatchContext } from './../contexts/ToastContext'
-import { nanoid } from 'nanoid'
+import { nanoid } from '../utils'
 import {
 	ActionType,
 	IToast,
-	Message,
+	ToastMessage,
 	ToastHandler,
 	ToastType,
+	TOAST_POSITION,
 } from './../components/toast/Toast.types'
+import React from 'react'
 
-const useToast = () => {
+interface useToastProps {
+	position?: TOAST_POSITION
+}
+
+const useToast = ({ position = 'bottom-right' }: useToastProps) => {
 	const dispatch = useToastDispatchContext()
+
+	React.useEffect(() => {
+		dispatch({ type: ActionType.SET_POSITION, position }), []
+	})
 
 	const generateToast = (
 		title: string,
-		message: Message,
+		message: ToastMessage,
 		type: ToastType = 'info'
 	): IToast => {
 		const toast = {
@@ -34,7 +44,7 @@ const useToast = () => {
 			return toast.id
 		}
 
-	const toast = (message: Message) => createHandler('info')(message)
+	const toast = (message: ToastMessage) => createHandler('info')(message)
 
 	toast.errror = createHandler('error')
 	toast.success = createHandler('success')

@@ -1,24 +1,27 @@
-import { createContext, useReducer, useContext } from 'react'
-import { Action, ActionType, IToasts } from '../components/toast/Toast.types'
+import { createContext, useContext, useReducer } from 'react'
+import { Action, ActionType, IToaster } from '../components/toast/Toast.types'
 
-const ToastStateContext = createContext<IToasts>({ toasts: [] })
+const ToastStateContext = createContext<IToaster | null>(null)
+
 const ToastDispatchContext = createContext<any>(null)
 
-const TOAST_LIMIT = 10
-
-function ToastReducer(state: IToasts, action: Action) {
+function ToastReducer(state: IToaster, action: Action) {
 	switch (action.type) {
-		case ActionType.ADD_TOAST: {
-			console.log('Toast Added!')
+		case ActionType.SET_POSITION: {
 			return {
 				...state,
-				toasts: [action.toast, ...state.toasts].slice(0, TOAST_LIMIT),
+				position: action.position,
+			}
+		}
+
+		case ActionType.ADD_TOAST: {
+			return {
+				...state,
+				toasts: [action.toast, ...state.toasts].slice(0, state.maxToasts),
 			}
 		}
 
 		case ActionType.REMOVE_TOAST: {
-			console.log('Toast Removed!!')
-
 			// Remove all toasts if no id is provided.
 			if (action.toastId === undefined) {
 				return {
@@ -46,6 +49,8 @@ function ToastReducer(state: IToasts, action: Action) {
 export const ToastProvider = ({ children }: any) => {
 	const [state, dispatch] = useReducer(ToastReducer, {
 		toasts: [],
+		position: 'bottom-right',
+		maxToasts: 10,
 	})
 
 	return (
