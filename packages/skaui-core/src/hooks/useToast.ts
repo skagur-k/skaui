@@ -1,25 +1,47 @@
-import { IToast } from '../components/toast/Toast.types'
-import { useToastDispatchContext } from '../contexts/ToastContext'
-import { nanoid } from '../utils'
+import { useToastDispatchContext } from './../contexts/ToastContext'
+import { nanoid } from 'nanoid'
+import {
+	ActionType,
+	IToast,
+	Message,
+	ToastHandler,
+	ToastType,
+} from './../components/toast/Toast.types'
 
-export function useToast() {
+const useToast = () => {
 	const dispatch = useToastDispatchContext()
 
-	function toast({ type, message }: Partial<IToast>) {
-		const id = nanoid(8)
-		dispatch({
-			type: 'ADD_TOAST',
-			toast: {
-				type,
-				message,
-				id,
-			},
-		})
+	const generateToast = (
+		title: string,
+		message: Message,
+		type: ToastType = 'info'
+	): IToast => {
+		const toast = {
+			id: nanoid(6),
+			title,
+			message,
+			type,
+		}
 
-		setTimeout(() => {
-			dispatch({ type: 'DELETE_TOAST', id })
-		}, 4000)
+		return toast
 	}
+
+	const createHandler =
+		(type: ToastType): ToastHandler =>
+		(message) => {
+			const toast = generateToast(message, type)
+			dispatch({ type: ActionType.ADD_TOAST, toast })
+			return toast.id
+		}
+
+	const toast = (message: Message) => createHandler('info')(message)
+
+	toast.errror = createHandler('error')
+	toast.success = createHandler('success')
+	toast.remove = (toastId?: string) =>
+		dispatch({ type: ActionType.REMOVE_TOAST, toastId })
 
 	return toast
 }
+
+export default useToast

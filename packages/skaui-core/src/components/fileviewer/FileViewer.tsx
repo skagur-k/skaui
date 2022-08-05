@@ -39,10 +39,6 @@ export const FileViewer: React.ComponentType<FileViewerProps> = React.memo(
 		const [showContent, setShowContent] = React.useState(!nocontent)
 		const [lineNumbers, setLineNumbers] = React.useState(false)
 
-		React.useEffect(() => {
-			console.log('mount')
-		}, [showContent])
-
 		function handleOptionToggle() {
 			setOptionOpened(!optionOpened)
 		}

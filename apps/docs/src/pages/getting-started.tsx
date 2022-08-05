@@ -44,13 +44,7 @@ const GettingStarted: NextPage = () => {
 						/>
 					</Folder>
 				</FileViewer>
-				<button
-					onClick={() =>
-						toast({ type: 'SUCCESS', message: 'This is a toast!' })
-					}
-				>
-					TOAST!
-				</button>
+				<button onClick={() => toast('hello world')}>TOAST!</button>
 			</div>
 		</PageLayout>
 	)

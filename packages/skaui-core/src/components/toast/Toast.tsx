@@ -1,10 +1,9 @@
-import React from 'react'
 import { IToast } from './Toast.types'
 
 const Toast = (props: IToast) => {
 	return (
-		<div className='m-1 p-2 bg-green-500 rounded-md'>
-			<div className='flex flex-col'>
+		<div className=''>
+			<div className='flex border-2 text-red-500 m-4'>
 				<div>{props.id}</div>
 				<div>{props.title}</div>
 				<div>{props.message}</div>
@@ -12,7 +11,5 @@ const Toast = (props: IToast) => {
 		</div>
 	)
 }
-
-// const dispatch = useToastDispatch() -> onClick "DELETE_POST" -> id
 
 export default Toast

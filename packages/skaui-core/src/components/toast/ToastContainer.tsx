@@ -5,7 +5,7 @@ const ToastContainer = () => {
 	const { toasts } = useToastStateContext()
 
 	return (
-		<div className='w-full z-50'>
+		<div className='absolute w-full z-50'>
 			<div className='max-w-xl mx-auto '>
 				{toasts &&
 					toasts.map((toast) => {

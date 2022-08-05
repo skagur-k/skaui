@@ -41,7 +41,7 @@ export const FileViewer: React.ComponentType<FileViewerProps> = React.memo(
 
 		React.useEffect(() => {
 			console.log('mount')
-		}, [showContent])
+		}, [])
 
 		function handleOptionToggle() {
 			setOptionOpened(!optionOpened)

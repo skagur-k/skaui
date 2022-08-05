@@ -1,23 +1,35 @@
 import { createContext, useReducer, useContext } from 'react'
-import { IToastList } from '../components/toast/Toast.types'
+import { Action, ActionType, IToasts } from '../components/toast/Toast.types'
 
-const ToastStateContext = createContext<IToastList>({ toasts: [] })
+const ToastStateContext = createContext<IToasts>({ toasts: [] })
 const ToastDispatchContext = createContext<any>(null)
 
-function ToastReducer(state: any, action: any) {
+const TOAST_LIMIT = 10
+
+function ToastReducer(state: IToasts, action: Action) {
 	switch (action.type) {
-		case 'ADD_TOAST': {
+		case ActionType.ADD_TOAST: {
 			console.log('Toast Added!')
 			return {
 				...state,
-				toasts: [...state.toasts, action.toast],
+				toasts: [action.toast, ...state.toasts].slice(0, TOAST_LIMIT),
 			}
 		}
-		case 'DELETE_TOAST': {
+
+		case ActionType.REMOVE_TOAST: {
 			console.log('Toast Removed!!')
 
+			// Remove all toasts if no id is provided.
+			if (action.toastId === undefined) {
+				return {
+					...state,
+					toasts: [],
+				}
+			}
+
+			// Filter toast that has the provided id.
 			const updatedToasts = state.toasts.filter(
-				(toast: any) => toast.id != action.id
+				(toast: any) => toast.id != action.toastId
 			)
 
 			return {
