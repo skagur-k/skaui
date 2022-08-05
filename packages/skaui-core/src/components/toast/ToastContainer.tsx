@@ -1,13 +1,13 @@
 import { useToastStateContext } from '../../contexts/ToastContext'
-import Portal from '../../hooks/usePortal'
+import { usePortal } from '../../hooks'
 import Toast from './Toast'
 
 const ToastContainer = () => {
 	const { toasts } = useToastStateContext()
-
+	const ToastPortal = usePortal('skaui-toastbox')
 	return (
-		<Portal className='toast-container'>
-			<div className='max-w-xl mx-auto '>
+		<ToastPortal>
+			<div className='absolute bottom-4 right-10 max-w-xl mx-auto '>
 				{toasts &&
 					toasts.map((toast) => {
 						return (
@@ -20,7 +20,7 @@ const ToastContainer = () => {
 						)
 					})}
 			</div>
-		</Portal>
+		</ToastPortal>
 	)
 }
 

@@ -1,43 +1,36 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React, { useLayoutEffect } from 'react'
+import ReactDOM, { createPortal } from 'react-dom'
 
 interface PortalProps {
 	children: React.ReactElement
 	parent?: any
-	className: string
 }
 
-const Portal = ({ children, parent, className }: PortalProps) => {
-	const [element, setElement] = React.useState<HTMLElement | null>(null)
+function createWrapperAndAppendToBody(wrapperId: string) {
+	if (document.getElementById(wrapperId))
+		return document.getElementById(wrapperId) as HTMLDivElement
+	else {
+		const wrapperElement = document.createElement('div')
+		wrapperElement.setAttribute('id', wrapperId)
+		document.body.appendChild(wrapperElement)
+		return wrapperElement
+	}
+}
 
-	React.useEffect(() => {
-		setElement(document.createElement('div'))
-		const target = parent && parent.appendChild ? parent : document.body
+const usePortal =
+	(wrapperId: string) =>
+	({ children }: PortalProps) => {
+		const [wrapperElement, setWrapperElement] =
+			React.useState<HTMLDivElement | null>(null)
 
-		const classList = ['portal']
-		console.log()
+		React.useLayoutEffect(() => {
+			setWrapperElement(createWrapperAndAppendToBody(wrapperId))
+			return () => {
+				createWrapperAndAppendToBody(wrapperId).remove()
+			}
+		}, [wrapperId])
 
-		if (className) {
-			className.split(' ').forEach((item) => {
-				classList.push(item)
-			})
-		}
-		console.log(element)
-
-		classList.forEach((item) => element?.classList.add(item))
-
-		target.appendChild(element)
-
-		return () => {
-			target.removeChild(element)
-		}
-	}, [])
-
-	if (!element) {
-		return <></>
+		return wrapperElement ? createPortal(children, wrapperElement) : null
 	}
 
-	return ReactDOM.createPortal(children, element)
-}
-
-export default Portal
+export default usePortal
