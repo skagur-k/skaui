@@ -1,8 +1,7 @@
-import { ActionType, IToast } from './Toast.types'
-import styles from './Toast.module.css'
 import clsx from 'clsx'
 import { useToastDispatchContext } from '../../contexts'
-import { useMediaQuery } from '../../hooks'
+import styles from './Toast.module.css'
+import { ActionType, IToast } from './Toast.types'
 
 const Toast = (props: IToast) => {
 	const { title, message, type, id, icon } = props
@@ -14,10 +13,6 @@ const Toast = (props: IToast) => {
 	}
 
 	const dispatch = useToastDispatchContext()
-
-	const isMobile = useMediaQuery('(max-width: 768px)')
-
-	console.log(isMobile)
 
 	function handleClick() {
 		dispatch({ type: ActionType.REMOVE_TOAST, toastId: id })

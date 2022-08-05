@@ -32,8 +32,6 @@ function ToastReducer(state: IToaster, action: Action) {
 
 		case ActionType.REMOVE_TOAST: {
 			// Remove all toasts if no id is provided.
-			console.log(action.toastId)
-
 			if (action.toastId === undefined) {
 				return {
 					...state,
