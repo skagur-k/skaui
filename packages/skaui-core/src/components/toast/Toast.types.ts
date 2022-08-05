@@ -7,9 +7,9 @@ export interface IToast {
 	type: ToastType
 }
 
-export type ToastMessage = string
+export type ToastMessage = Renderable
 export type ToastType = 'success' | 'error' | 'info' | 'loading'
-export type ToastHandler = (message: ToastMessage) => string
+export type ToastHandler = (message: ToastMessage, title?: string) => string
 
 export type TOAST_POSITION =
 	| 'top-right'
@@ -45,5 +45,5 @@ export type Action =
 	  }
 	| {
 			type: ActionType.SET_MAXTOASTS
-			position: number
+			maxToasts: number
 	  }

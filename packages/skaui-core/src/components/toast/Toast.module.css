@@ -1,20 +1,57 @@
 .containerWrapper {
-	@apply fixed;
+	@apply fixed z-[9999];
 }
 
 .containerWrapperTR {
-	@apply top-0 right-0;
+	@apply bottom-4 left-1/2 -translate-x-1/2 lg:bottom-auto lg:left-auto lg:translate-x-0;
+	@apply lg:top-6 lg:right-6;
 }
 .containerWrapperBR {
-	@apply bottom-0 right-0;
+	@apply bottom-4 left-1/2 -translate-x-1/2 lg:left-auto lg:translate-x-0;
+	@apply lg:bottom-6 lg:right-6;
 }
 .containerWrapperTL {
-	@apply top-0 left-0;
+	@apply bottom-4 left-1/2 -translate-x-1/2 lg:translate-x-0;
+	@apply lg:top-6 lg:left-6;
 }
 .containerWrapperBL {
-	@apply bottom-0 left-0;
+	@apply bottom-4 left-1/2 -translate-x-1/2 lg:translate-x-0;
+	@apply lg:bottom-6 lg:left-6;
 }
 
-.wrapper {
-	@apply bg-red-500;
+.toastContainer {
+	@apply flex flex-col gap-2;
+}
+
+.toast {
+	@apply flex justify-between items-center gap-2;
+	@apply w-[90vw] md:w-[600px];
+	@apply shadow-md px-6 py-5;
+	@apply border rounded-xl;
+}
+
+.toastInfo {
+	@apply bg-neutral-100 border-neutral-200 text-neutral-700;
+}
+.toastSuccess {
+	@apply bg-blue-500 border-neutral-50 text-white;
+}
+.toastError {
+	@apply bg-red-500 border-neutral-50 text-white;
+}
+
+.toastContentWrapper {
+	@apply flex flex-col space-y-2;
+}
+
+.toastMessage {
+	@apply text-sm;
+}
+
+.toastTitle {
+	@apply font-bold;
+}
+
+.toastDismissButton {
+	@apply font-medium;
 }

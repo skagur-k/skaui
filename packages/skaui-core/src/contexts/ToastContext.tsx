@@ -5,24 +5,35 @@ const ToastStateContext = createContext<IToaster | null>(null)
 
 const ToastDispatchContext = createContext<any>(null)
 
+// TODO: Toast transitions
+
 function ToastReducer(state: IToaster, action: Action) {
 	switch (action.type) {
 		case ActionType.SET_POSITION: {
 			return {
 				...state,
-				position: action.position,
+				position: action.position || state.position,
+			}
+		}
+
+		case ActionType.SET_MAXTOASTS: {
+			return {
+				...state,
+				maxToasts: action.maxToasts || state.maxToasts,
 			}
 		}
 
 		case ActionType.ADD_TOAST: {
 			return {
 				...state,
-				toasts: [action.toast, ...state.toasts].slice(0, state.maxToasts),
+				toasts: [action.toast, ...state.toasts],
 			}
 		}
 
 		case ActionType.REMOVE_TOAST: {
 			// Remove all toasts if no id is provided.
+			console.log(action.toastId)
+
 			if (action.toastId === undefined) {
 				return {
 					...state,
@@ -50,7 +61,7 @@ export const ToastProvider = ({ children }: any) => {
 	const [state, dispatch] = useReducer(ToastReducer, {
 		toasts: [],
 		position: 'bottom-right',
-		maxToasts: 10,
+		maxToasts: 5,
 	})
 
 	return (

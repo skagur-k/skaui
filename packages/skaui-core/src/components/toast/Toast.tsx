@@ -1,14 +1,37 @@
-import { IToast } from './Toast.types'
+import { ActionType, IToast } from './Toast.types'
 import styles from './Toast.module.css'
+import clsx from 'clsx'
+import { useToastDispatchContext } from '../../contexts'
+import { useMediaQuery } from '../../hooks'
 
 const Toast = (props: IToast) => {
+	const { title, message, type, id, icon } = props
+
+	const types = {
+		info: styles.toastInfo,
+		success: styles.toastSuccess,
+		error: styles.toastError,
+	}
+
+	const dispatch = useToastDispatchContext()
+
+	const isMobile = useMediaQuery('(max-width: 768px)')
+
+	console.log(isMobile)
+
+	function handleClick() {
+		dispatch({ type: ActionType.REMOVE_TOAST, toastId: id })
+	}
+
 	return (
-		<div className={styles.wrapper}>
-			<div className='flex border-2 text-red-500 m-4'>
-				<div>{props.id}</div>
-				<div>{props.title}</div>
-				<div>{props.message}</div>
+		<div className={clsx(styles.toast, types[type])}>
+			<div className={styles.toastContentWrapper}>
+				{title && <div className={styles.toastTitle}>{title}</div>}
+				<div className={styles.toastMessage}>{message}</div>
 			</div>
+			<button className={styles.toastDismissButton} onClick={handleClick}>
+				Dismiss
+			</button>
 		</div>
 	)
 }

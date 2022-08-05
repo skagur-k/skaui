@@ -1,11 +1,12 @@
 import clsx from 'clsx'
+import { useEffect } from 'react'
 import { useToastStateContext } from '../../contexts/ToastContext'
 import { usePortal } from '../../hooks'
 import Toast from './Toast'
 import styles from './Toast.module.css'
 
 const ToastContainer = () => {
-	const { toasts, position } = useToastStateContext()
+	const { toasts, position, maxToasts } = useToastStateContext()
 
 	const ToastPortal = usePortal('skaui-toastbox')
 
@@ -19,18 +20,22 @@ const ToastContainer = () => {
 	const WrapperPosition = positions[position]
 	return (
 		<ToastPortal className={clsx(styles.containerWrapper, WrapperPosition)}>
-			<div>
+			<div className={styles.toastContainer}>
 				{toasts &&
-					toasts.map((toast) => {
-						return (
-							<Toast
-								id={toast.id}
-								key={toast.id}
-								type={toast.type}
-								message={toast.message}
-							/>
-						)
-					})}
+					toasts
+						.slice(0, maxToasts)
+						.reverse()
+						.map((toast) => {
+							return (
+								<Toast
+									id={toast.id}
+									title={toast.title}
+									key={toast.id}
+									type={toast.type}
+									message={toast.message}
+								/>
+							)
+						})}
 			</div>
 		</ToastPortal>
 	)
