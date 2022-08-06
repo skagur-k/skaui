@@ -1,10 +1,5 @@
 import clsx from 'clsx'
-import {
-	AnimatePresence,
-	motion,
-	useIsPresent,
-	usePresence,
-} from 'framer-motion'
+import { AnimatePresence } from 'framer-motion'
 import { useToastStateContext } from '../../contexts/ToastContext'
 import Toast from './Toast'
 import styles from './Toast.module.css'
@@ -33,7 +28,7 @@ const ToastContainer = () => {
 								<Toast
 									id={toast.id}
 									key={toast.id}
-									title={toast.title}
+									options={toast.options}
 									type={toast.type}
 									message={toast.message}
 								/>

@@ -5,13 +5,15 @@ import { ActionType, IToast } from './Toast.types'
 import { motion } from 'framer-motion'
 
 const Toast = (props: IToast) => {
-	const { title, message, type, id } = props
-
+	const { message, type, id, options } = props
 	const types = {
 		info: styles.toastInfo,
 		success: styles.toastSuccess,
 		error: styles.toastError,
 	}
+
+	const title = options?.title
+	const action = options?.action
 
 	const dispatch = useToastDispatchContext()
 
@@ -54,9 +56,16 @@ const Toast = (props: IToast) => {
 				{title && <div className={styles.toastTitle}>{title}</div>}
 				<div className={styles.toastMessage}>{message}</div>
 			</div>
-			<button className={styles.toastDismissButton} onClick={handleClick}>
-				Dismiss
-			</button>
+			<div className={styles.toastActions}>
+				<button className={styles.toastDismissButton} onClick={handleClick}>
+					Dismiss
+				</button>
+				{action && (
+					<button className={styles.toastActionButton} onClick={action.onClick}>
+						{action.name}
+					</button>
+				)}
+			</div>
 		</motion.div>
 	)
 }

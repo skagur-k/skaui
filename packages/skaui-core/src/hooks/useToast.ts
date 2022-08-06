@@ -7,6 +7,7 @@ import {
 	ToastHandler,
 	ToastType,
 	TOAST_POSITION,
+	ToastOptions,
 } from './../components/toast/Toast.types'
 import React from 'react'
 
@@ -26,19 +27,19 @@ const useToast = (props?: useToastProps) => {
 	}, [position, maxToasts, dispatch])
 
 	const generateToast = ({
-		title,
 		message,
 		type,
+		options,
 	}: {
-		title?: string
-		message: ToastMessage
-		type: ToastType
+		message: IToast['message']
+		type: IToast['type']
+		options?: ToastOptions
 	}): IToast => {
-		const toast = {
+		const toast: IToast = {
 			id: nanoid(6),
-			title,
 			message,
 			type,
+			options,
 		}
 
 		return toast
@@ -46,16 +47,16 @@ const useToast = (props?: useToastProps) => {
 
 	const createHandler =
 		(type: ToastType): ToastHandler =>
-		(message, title) => {
-			const toast = generateToast({ title, message, type })
+		(message, options) => {
+			const toast = generateToast({ message, type, options })
 			console.log(toast)
 
 			dispatch({ type: ActionType.ADD_TOAST, toast })
 			return toast.id
 		}
 
-	const toast = (message: ToastMessage, title?: string) =>
-		createHandler('info')(message, title)
+	const toast = (message: ToastMessage, options?: ToastOptions) =>
+		createHandler('info')(message, options)
 
 	toast.error = createHandler('error')
 	toast.success = createHandler('success')
