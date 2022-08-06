@@ -1,6 +1,7 @@
 import clsx from 'clsx'
 import { AnimatePresence, motion } from 'framer-motion'
 import React from 'react'
+import { useToast } from '../../hooks'
 import { CheckIcon, ClipboardIcon } from '../../icons'
 import styles from './Clipboard.module.css'
 
@@ -13,12 +14,13 @@ const Clipboard = ({
 }) => {
 	let timer: NodeJS.Timeout
 	const [isCopied, setIsCopied] = React.useState(false)
+	const toast = useToast()
 
 	function handleCopy() {
 		clearTimeout(timer)
 		navigator.clipboard.writeText(copyText || '')
 		setIsCopied(true)
-
+		toast('Copied')
 		timer = setTimeout(() => {
 			setIsCopied(false)
 		}, 2000)

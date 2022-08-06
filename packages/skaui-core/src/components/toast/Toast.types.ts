@@ -1,15 +1,26 @@
 export type Renderable = JSX.Element | string | null
-export interface IToast {
-	id: string
-	title?: string
-	icon?: Renderable
-	message: ToastMessage
-	type: ToastType
-}
-
 export type ToastMessage = Renderable
 export type ToastType = 'success' | 'error' | 'info' | 'loading'
-export type ToastHandler = (message: ToastMessage, title?: string) => string
+export interface IToast {
+	id: string
+	message: ToastMessage
+	type: ToastType
+	options?: ToastOptions
+}
+
+export interface ToastOptions {
+	icon?: Renderable
+	title?: string
+	action?: {
+		name: string
+		onClick: () => void
+	}
+}
+
+export type ToastHandler = (
+	message: IToast['message'],
+	options?: ToastOptions
+) => string
 
 export type TOAST_POSITION =
 	| 'top-right'

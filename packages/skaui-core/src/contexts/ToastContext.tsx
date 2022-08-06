@@ -60,7 +60,7 @@ export const ToastProvider = ({ children }: any) => {
 	const [state, dispatch] = useReducer(ToastReducer, {
 		toasts: [],
 		position: 'bottom-right',
-		maxToasts: 5,
+		maxToasts: 3,
 	})
 
 	return (
