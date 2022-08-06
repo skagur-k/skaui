@@ -1,14 +1,17 @@
 import clsx from 'clsx'
-import { AnimatePresence, motion } from 'framer-motion'
+import {
+	AnimatePresence,
+	motion,
+	useIsPresent,
+	usePresence,
+} from 'framer-motion'
 import { useToastStateContext } from '../../contexts/ToastContext'
-import { usePortal } from '../../hooks'
 import Toast from './Toast'
 import styles from './Toast.module.css'
+import ToastPortal from './ToastPortal'
 
 const ToastContainer = () => {
 	const { toasts, position, maxToasts } = useToastStateContext()
-
-	const ToastPortal = usePortal('skaui-toastbox')
 
 	const positions = {
 		'top-right': styles.containerWrapperTR,
@@ -21,39 +24,21 @@ const ToastContainer = () => {
 	return (
 		<ToastPortal className={clsx(styles.containerWrapper, WrapperPosition)}>
 			<ul className={styles.toastContainer}>
-				<AnimatePresence exitBeforeEnter>
+				<AnimatePresence>
 					{toasts
 						.slice(0, maxToasts)
 						.reverse()
-						.map((toast) => (
-							<div>
-								<motion.li
-									initial={{
-										y: 100,
-										x: 0,
-									}}
-									animate={{
-										y: 0,
-										x: 0,
-									}}
-									exit={{
-										opacity: 0,
-									}}
-									transition={{
-										duration: 0.5,
-									}}
+						.map((toast) => {
+							return (
+								<Toast
+									id={toast.id}
 									key={toast.id}
-									layout
-								>
-									<Toast
-										id={toast.id}
-										title={toast.title}
-										type={toast.type}
-										message={toast.message}
-									/>
-								</motion.li>
-							</div>
-						))}
+									title={toast.title}
+									type={toast.type}
+									message={toast.message}
+								/>
+							)
+						})}
 				</AnimatePresence>
 			</ul>
 		</ToastPortal>

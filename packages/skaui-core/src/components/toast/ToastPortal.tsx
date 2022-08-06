@@ -5,6 +5,7 @@ interface PortalProps extends React.HTMLAttributes<HTMLDivElement> {
 	children: React.ReactElement
 	parent?: any
 	className?: string
+	wrapperId?: string
 }
 
 function createWrapperAndAppendToBody(wrapperId: string, className?: string) {
@@ -25,21 +26,23 @@ function createWrapperAndAppendToBody(wrapperId: string, className?: string) {
 	}
 }
 
-const usePortal =
-	(wrapperId: string) =>
-	({ children, className }: PortalProps) => {
-		const [wrapperElement, setWrapperElement] =
-			React.useState<HTMLDivElement | null>(null)
+const ToastPortal = ({
+	children,
+	className,
+	wrapperId = 'skaui-toast-portal',
+}: PortalProps) => {
+	const [wrapperElement, setWrapperElement] =
+		React.useState<HTMLDivElement | null>(null)
 
-		// This snippet only runs on the client; hence the useLayoutEffect() !!ignore warning
-		React.useEffect(() => {
-			setWrapperElement(createWrapperAndAppendToBody(wrapperId, className))
-			return () => {
-				createWrapperAndAppendToBody(wrapperId).remove()
-			}
-		}, [])
+	// This snippet only runs on the client; hence the useLayoutEffect() !!ignore warning
+	React.useEffect(() => {
+		setWrapperElement(createWrapperAndAppendToBody(wrapperId, className))
+		return () => {
+			createWrapperAndAppendToBody(wrapperId).remove()
+		}
+	}, [wrapperId, className])
 
-		return wrapperElement ? createPortal(children, wrapperElement) : null
-	}
+	return wrapperElement ? createPortal(children, wrapperElement) : null
+}
 
-export default usePortal
+export default ToastPortal

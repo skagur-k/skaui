@@ -23,7 +23,7 @@ const useToast = (props?: useToastProps) => {
 	React.useEffect(() => {
 		dispatch({ type: ActionType.SET_POSITION, position })
 		dispatch({ type: ActionType.SET_MAXTOASTS, maxToasts })
-	}, [])
+	}, [position, maxToasts, dispatch])
 
 	const generateToast = ({
 		title,

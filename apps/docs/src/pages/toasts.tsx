@@ -1,6 +1,5 @@
-import { File, FileViewer, Folder, useToast } from '@skaui/core'
+import { useToast } from '@skaui/core'
 import { NextPage } from 'next'
-import * as ex from '../data/prismexample'
 import PageLayout from '../layouts/PageLayout'
 
 const GettingStarted: NextPage = () => {

@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react'
-import ToastContainer from '../../components/toast/ToastContainer'
 import { useMediaQuery } from '../../hooks'
 import { isBrowser } from '../../utils'
-import { ToastProvider } from '../ToastContext'
 import ThemeContext, { ITheme } from './ThemeContext'
 
 const STORAGE_KEY = 'theme'
@@ -35,10 +33,7 @@ const ThemeProvider = ({ children }: any) => {
 
 	return (
 		<ThemeContext.Provider value={{ theme, setTheme }}>
-			<ToastProvider>
-				{children}
-				<ToastContainer />
-			</ToastProvider>
+			{children}
 		</ThemeContext.Provider>
 	)
 }

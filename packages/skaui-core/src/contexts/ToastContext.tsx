@@ -1,5 +1,6 @@
 import { createContext, useContext, useReducer } from 'react'
 import { Action, ActionType, IToaster } from '../components/toast/Toast.types'
+import ToastContainer from '../components/toast/ToastContainer'
 
 const ToastStateContext = createContext<IToaster | null>(null)
 
@@ -26,7 +27,7 @@ function ToastReducer(state: IToaster, action: Action) {
 		case ActionType.ADD_TOAST: {
 			return {
 				...state,
-				toasts: [action.toast, ...state.toasts],
+				toasts: [action.toast, ...state.toasts].slice(0, state.maxToasts),
 			}
 		}
 
@@ -66,6 +67,7 @@ export const ToastProvider = ({ children }: any) => {
 		<ToastStateContext.Provider value={state}>
 			<ToastDispatchContext.Provider value={dispatch}>
 				{children}
+				<ToastContainer />
 			</ToastDispatchContext.Provider>
 		</ToastStateContext.Provider>
 	)
