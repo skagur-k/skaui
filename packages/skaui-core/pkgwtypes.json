@@ -4,9 +4,8 @@
 	"description": "SKA UI - Core",
 	"main": "./index.ts",
 	"module": "./index.ts",
-	"files": [
-		"./dist"
-	],
+	"types": "./dist/types/index.d.ts",
+	"files": ["./dist"],
 	"sideEffects": false,
 	"scripts": {
 		"build": "rm -rf dist && NODE_ENV=production rollup -c",

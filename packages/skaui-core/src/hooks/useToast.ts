@@ -1,4 +1,4 @@
-import { useToastDispatchContext } from './../contexts/ToastContext'
+import { useToastDispatchContext } from '../contexts/ToastContext'
 import { nanoid } from '../utils'
 import {
 	ActionType,

@@ -1,5 +1,4 @@
 import '../styles/globals.css'
-// import '@skagur-k/ska-ui/dist/output.css'
 import { ThemeProvider, ToastProvider } from '@skaui/core'
 import type { AppProps } from 'next/app'
 import { Layout } from '../layouts'

@@ -1,4 +1,4 @@
-import { useToast } from '@skaui/core'
+import { useToast, Button } from '@skaui/core'
 import { NextPage } from 'next'
 import PageLayout from '../layouts/PageLayout'
 
@@ -25,8 +25,12 @@ const GettingStarted: NextPage = () => {
 	return (
 		<PageLayout>
 			<div className='flex flex-col gap-4'>
-				<button onClick={() => toast('Hello')}>Success!</button>
-				<button
+				<Button size='sm' onClick={() => toast('Hello')}>
+					Success!
+				</Button>
+				<Button
+					size='md'
+					variant='ghost'
 					onClick={() =>
 						toast(renderable, {
 							title: 'info',
@@ -40,8 +44,9 @@ const GettingStarted: NextPage = () => {
 					}
 				>
 					Info!
-				</button>
-				<button
+				</Button>
+				<Button
+					size='lg'
 					onClick={() =>
 						toast.success('Success', {
 							title: 'Success!!',
@@ -55,8 +60,8 @@ const GettingStarted: NextPage = () => {
 					}
 				>
 					Success!
-				</button>
-				<button
+				</Button>
+				<Button
 					onClick={() =>
 						toast.error(
 							'This is a kind of long error message that may span message that may span message that may span message that may span message that may span multiple lines. Doing this to test how it works with long toast messages',
@@ -73,7 +78,7 @@ const GettingStarted: NextPage = () => {
 					}
 				>
 					lorem
-				</button>
+				</Button>
 			</div>
 		</PageLayout>
 	)
