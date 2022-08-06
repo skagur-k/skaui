@@ -1,40 +1,10 @@
-import React from 'react'
+import {AriaButtonProps} from 'react'
 
-interface IButtonProps {
-	size?: 'xs' | 'sm' | 'md' | 'lg' | 'block'
-	color?: string
-	block?: boolean
-	type?: 'secondary' | 'success' | 'error' | 'warning' | 'alert'
-	rounded?: boolean
-	icon?: JSX.Element | string
-	notification?: boolean
-	focusafterclick?: boolean
-	iconRight?: boolean
-	variant?: 'solid' | 'ghost'
-	disabled?: boolean
-	loading?: boolean
+export interface IButtonProps extends AriaButtonProps {
+	children?: string
+	variant?: IButtonVariant
+	type?: IButtonType
 }
 
-interface ButtonNativeAttrs
-	extends Omit<React.ButtonHTMLAttributes<any>, keyof IButtonProps> {}
-
-interface IButtonGroupProps {
-	attached?: boolean
-	disabled?: boolean
-	rounded?: boolean
-
-	size?: ButtonProps['size']
-	variant?: ButtonProps['variant']
-	color?: ButtonProps['color']
-	children?: React.ReactNode
-}
-
-interface ButtonGroupNativeAttrs
-	extends Omit<React.HTMLAttributes<HTMLDivElement>, keyof IButtonGroupProps> {}
-
-export interface ButtonProps extends ButtonNativeAttrs, IButtonProps {
-	ref?: any
-}
-export interface ButtonGroupProps
-	extends ButtonGroupNativeAttrs,
-		IButtonGroupProps {}
+export type IButtonVariant = 'solid' | 'ghost'
+export type IButtonType = 'default' | 'success' | 'error'

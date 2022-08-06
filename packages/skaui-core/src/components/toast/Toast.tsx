@@ -49,7 +49,7 @@ const Toast = (props: IToast) => {
 			{...transiton}
 			layout
 			className={clsx(styles.toast, types[type])}
-		>
+		>	
 			<div className={styles.toastContentWrapper}>
 				{title && <div className={styles.toastTitle}>{title}</div>}
 				<div className={styles.toastMessage}>{message}</div>
