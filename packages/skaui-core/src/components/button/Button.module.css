@@ -1,17 +1,27 @@
 .button_base {
-	@apply relative inline-block;
-	@apply rounded-md outline-none;
-	@apply disabled:cursor-not-allowed select-none;
+	@apply relative inline-flex overflow-hidden;
+	@apply items-center justify-center;
+	@apply outline-none;
+	@apply select-none;
 	@apply transition-all duration-300;
+	@apply tracking-normal;
+	@apply font-semibold;
+
+	@apply disabled:cursor-not-allowed;
 }
 
 .button_solid {
+	@apply focus:ring-1 ring-offset-1;
 	@apply border;
+	@apply min-h-[40px];
 
 	&.button_default {
 		@apply bg-neutral-50 text-neutral-800 border-neutral-200;
-		@apply hover:bg-neutral-100 hover:border-neutral-400;
+		@apply hover:bg-neutral-100 hover:border-neutral-500;
 		@apply active:bg-neutral-50;
+		@apply ring-neutral-800;
+
+		@apply disabled:bg-neutral-100 disabled:text-neutral-200;
 	}
 
 	&.button_success {
@@ -19,6 +29,10 @@
 		@apply bg-blue-500 border-blue-500;
 		@apply hover:bg-white hover:text-blue-500;
 		@apply active:bg-neutral-100;
+		@apply ring-blue-500;
+
+		@apply disabled:bg-neutral-100 disabled:text-neutral-200;
+		@apply hover:disabled:bg-neutral-100 disabled:text-neutral-200;
 	}
 
 	&.button_error {
@@ -26,22 +40,30 @@
 		@apply bg-red-500 border-red-500;
 		@apply hover:bg-white hover:text-red-500;
 		@apply active:bg-neutral-100;
+		@apply ring-red-500;
 	}
 
 	&.button_secondary {
 		@apply bg-neutral-800 text-white;
 		@apply hover:bg-white hover:text-neutral-800 hover:border-neutral-800;
 		@apply active:bg-neutral-100;
+		@apply ring-neutral-500;
 	}
 }
 
 .button_ghost {
 	@apply border border-transparent;
+	@apply focus:ring-1 ring-offset-1;
+	@apply min-h-[40px];
 
 	&.button_default {
 		@apply bg-transparent text-neutral-800 border-neutral-200;
 		@apply hover:bg-neutral-800 hover:text-neutral-100;
 		@apply active:bg-neutral-600;
+		@apply ring-neutral-500;
+
+		@apply disabled:bg-neutral-50 disabled:text-neutral-200;
+		@apply hover:disabled:bg-neutral-50;
 	}
 
 	&.button_success {
@@ -49,6 +71,11 @@
 		@apply bg-transparent border-blue-500;
 		@apply hover:bg-blue-500 hover:text-white;
 		@apply active:bg-blue-400;
+		@apply ring-blue-500;
+
+		@apply disabled:bg-neutral-50 disabled:text-blue-300;
+		@apply disabled:border-blue-200;
+		@apply hover:disabled:bg-neutral-50;
 	}
 
 	&.button_error {
@@ -56,31 +83,131 @@
 		@apply bg-transparent border-red-500;
 		@apply hover:bg-red-500 hover:text-white;
 		@apply active:bg-red-400;
+		@apply ring-red-500;
+
+		@apply disabled:bg-neutral-50 disabled:text-red-300;
+		@apply disabled:border-red-200;
+		@apply hover:disabled:bg-neutral-50;
 	}
 
 	&.button_secondary {
 		@apply text-neutral-800;
-		@apply bg-transparent border-neutral-800;
+		@apply bg-transparent border-neutral-500;
 		@apply hover:bg-neutral-800 hover:text-white;
 		@apply active:bg-neutral-600;
+		@apply ring-neutral-500;
+
+		@apply disabled:bg-neutral-50 disabled:text-neutral-300;
+		@apply disabled:border-neutral-200;
+		@apply hover:disabled:bg-neutral-50;
+	}
+}
+
+.button_text {
+	@apply border border-transparent;
+	@apply focus:ring-1 ring-offset-1;
+
+	&.button_default {
+		@apply bg-transparent text-neutral-800;
+		@apply hover:bg-neutral-100;
+		@apply active:bg-neutral-200;
+		@apply ring-neutral-500;
+	}
+
+	&.button_success {
+		@apply text-blue-500;
+		@apply bg-transparent;
+		@apply hover:bg-blue-100;
+		@apply active:bg-blue-200;
+		@apply ring-blue-500;
+	}
+
+	&.button_error {
+		@apply text-red-500;
+		@apply bg-transparent;
+		@apply hover:bg-red-100;
+		@apply active:bg-red-200;
+		@apply ring-red-500;
+	}
+
+	&.button_secondary {
+		@apply text-neutral-800;
+		@apply bg-transparent;
+		@apply hover:bg-neutral-300;
+		@apply active:bg-neutral-200;
+		@apply ring-neutral-500;
 	}
 }
 
 .button_sm {
-	@apply h-6;
-	@apply text-sm;
-	@apply w-fit px-4;
+	@apply text-[0.875rem];
+	@apply w-fit px-3 py-[2px];
+	@apply rounded-sm;
 }
 .button_md {
-	@apply text-sm;
-	@apply w-fit px-6 py-1;
+	@apply text-[0.875rem];
+	@apply w-fit px-4 py-1;
+	@apply rounded-md;
 }
 .button_lg {
-	@apply text-base;
-	@apply w-fit px-6 py-2;
+	@apply text-[1rem];
+	@apply w-fit px-4 py-[6px];
+	@apply rounded-md;
 }
 .button_block {
-	@apply h-10;
-	@apply text-base;
-	@apply max-w-full px-4 py-1;
+	@apply min-h-[28px];
+	@apply text-[0.875rem] rounded-md;
+	@apply px-4 py-1;
+}
+
+.button_prefix {
+	@apply flex justify-center items-center;
+	@apply w-6 h-6;
+	@apply mr-2;
+}
+
+.button_suffix {
+	@apply flex justify-center items-center;
+	@apply w-6 h-6;
+	@apply ml-2;
+}
+
+.button_suffix {
+	@apply flex justify-center items-center;
+	@apply w-6 h-6;
+	@apply ml-2;
+}
+
+.button_start {
+	@apply flex;
+	@apply mr-auto;
+}
+
+.button_grow {
+	@apply flex;
+	@apply mx-auto;
+}
+
+.button_end {
+	@apply flex;
+	@apply ml-auto;
+}
+
+.iconbutton {
+	@apply rounded-md overflow-hidden;
+	@apply focus:ring-2;
+}
+
+.iconbutton_wrapper {
+	@apply p-10;
+}
+
+.iconbutton_sm {
+	@apply w-6 h-6;
+}
+.iconbutton_md {
+	@apply w-8 h-8;
+}
+.iconbutton_lg {
+	@apply w-10 h-10;
 }

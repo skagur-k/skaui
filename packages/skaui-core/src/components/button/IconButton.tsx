@@ -1,20 +1,17 @@
+import clsx from 'clsx'
 import React from 'react'
 import { useButton } from 'react-aria'
-import { IButtonProps } from './Button.types'
-import styles from './Button.module.css'
-import clsx from 'clsx'
 import { mergeRefs } from '../../utils'
+import styles from './Button.module.css'
+import { IIconButtonProps } from './Button.types'
 
-const Button = React.forwardRef<HTMLButtonElement, IButtonProps>(
+const IconButton = React.forwardRef<HTMLButtonElement, IIconButtonProps>(
 	(
 		{
 			children,
 			variant = 'solid',
 			type = 'default',
 			size = 'md',
-			prefix,
-			suffix,
-			align = 'center',
 			className,
 			...props
 		},
@@ -37,36 +34,30 @@ const Button = React.forwardRef<HTMLButtonElement, IButtonProps>(
 		}
 
 		const sizes = {
-			sm: styles.button_sm,
-			md: styles.button_md,
-			lg: styles.button_lg,
-			block: styles.button_block,
+			sm: styles.iconbutton_sm,
+			md: styles.iconbutton_md,
+			lg: styles.iconbutton_lg,
 		}
 
-		const alignments = {
-			start: styles.button_start,
-			grow: styles.button_grow,
-			end: styles.button_end,
-		}
-
-		const buttonClasses = clsx(
+		const iconbuttonClasses = clsx(
 			styles.button_base,
+			styles.iconbutton,
 			[variant && variants[variant], type && types[type], size && sizes[size]],
 			className
 		)
 
+		const styledChildren = React.cloneElement(children, {
+			className: clsx(size && sizes[size]),
+		})
+
 		const mergedRefs = mergeRefs(ref, externalRef)
 
 		return (
-			<button {...buttonProps} ref={mergedRefs} className={buttonClasses}>
-				{prefix && <span className={styles.button_prefix}>{prefix}</span>}
-				{children && (
-					<span className={clsx(alignments[align])}> {children}</span>
-				)}
-				{suffix && <span className={styles.button_suffix}>{suffix}</span>}
+			<button {...buttonProps} ref={mergedRefs} className={iconbuttonClasses}>
+				{children && <span> {styledChildren}</span>}
 			</button>
 		)
 	}
 )
 
-export default Button
+export default IconButton

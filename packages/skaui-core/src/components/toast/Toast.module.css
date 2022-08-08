@@ -34,17 +34,9 @@
 	@apply bg-neutral-50 border-neutral-200 text-neutral-700;
 
 	.toastDismissButton {
-		@apply px-2 py-1;
-		@apply font-medium text-sm;
-		@apply rounded-md;
 	}
 
 	.toastActionButton {
-		@apply px-2 py-1;
-		@apply font-medium text-sm;
-		@apply rounded-md;
-		@apply text-neutral-800;
-		@apply bg-neutral-200 hover:bg-neutral-300;
 	}
 }
 
@@ -52,27 +44,17 @@
 	@apply bg-blue-500 border-blue-500 text-white;
 
 	.toastDismissButton {
-		@apply font-medium px-2 py-1;
 	}
 
 	.toastActionButton {
-		@apply font-medium px-2 py-1;
-		@apply rounded-md;
-		@apply text-neutral-800;
-		@apply bg-white hover:bg-neutral-100;
 	}
 }
 .toastError {
 	@apply bg-red-500 border-red-500 text-white;
 
 	.toastDismissButton {
-		@apply font-medium px-2 py-1;
 	}
 	.toastActionButton {
-		@apply font-medium px-2 py-1;
-		@apply rounded-md;
-		@apply text-neutral-800;
-		@apply bg-white hover:bg-neutral-100;
 	}
 }
 

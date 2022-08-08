@@ -4,6 +4,7 @@ import styles from './Toast.module.css'
 import { ActionType, IToast } from './Toast.types'
 import { motion } from 'framer-motion'
 import { FocusScope } from 'react-aria'
+import { Button } from '../button'
 
 const Toast = (props: IToast) => {
 	const { message, type, id, options } = props
@@ -59,16 +60,21 @@ const Toast = (props: IToast) => {
 					<div className={styles.toastMessage}>{message}</div>
 				</div>
 				<div className={styles.toastActions}>
-					<button className={styles.toastDismissButton} onClick={handleClick}>
+					<Button
+						size='block'
+						className={styles.toastDismissButton}
+						onClick={handleClick}
+					>
 						Dismiss
-					</button>
+					</Button>
 					{action && (
-						<button
+						<Button
+							size='block'
 							className={styles.toastActionButton}
 							onClick={action.onClick}
 						>
 							{action.name}
-						</button>
+						</Button>
 					)}
 				</div>
 			</FocusScope>

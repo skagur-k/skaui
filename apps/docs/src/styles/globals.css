@@ -2,11 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-	box-sizing: border-box;
-}
-*,
-*:before,
-*:after {
-	box-sizing: inherit;
+@layer base {
+	html {
+		box-sizing: border-box;
+		font-family: 'Inter', sans-serif;
+	}
+	*,
+	*:before,
+	*:after {
+		box-sizing: inherit;
+	}
 }
