@@ -7,7 +7,7 @@ import { mergeRefs } from '../../utils'
 
 const Button = React.forwardRef<HTMLButtonElement, IButtonProps>(
 	(
-		{ children, variant = 'solid', type = 'default', size = 'md', ...props },
+		{ children, variant = 'solid', type = 'default', size = 'block', ...props },
 		externalRef
 	) => {
 		const ref = React.useRef<HTMLButtonElement>(null)
@@ -23,15 +23,14 @@ const Button = React.forwardRef<HTMLButtonElement, IButtonProps>(
 			default: styles.button_default,
 			success: styles.button_success,
 			error: styles.button_error,
-			secodary: styles.button_secondary,
+			secondary: styles.button_secondary,
 		}
 
 		const sizes = {
-			xs: styles.button_xs,
 			sm: styles.button_sm,
 			md: styles.button_md,
 			lg: styles.button_lg,
-			xl: styles.button_xl,
+			block: styles.button_block,
 		}
 
 		const buttonClasses = clsx(styles.button_base, [

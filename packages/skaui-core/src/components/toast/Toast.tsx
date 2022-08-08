@@ -3,6 +3,7 @@ import { useToastDispatchContext } from '../../contexts'
 import styles from './Toast.module.css'
 import { ActionType, IToast } from './Toast.types'
 import { motion } from 'framer-motion'
+import { FocusScope } from 'react-aria'
 
 const Toast = (props: IToast) => {
 	const { message, type, id, options } = props
@@ -51,21 +52,26 @@ const Toast = (props: IToast) => {
 			{...transiton}
 			layout
 			className={clsx(styles.toast, types[type])}
-		>	
-			<div className={styles.toastContentWrapper}>
-				{title && <div className={styles.toastTitle}>{title}</div>}
-				<div className={styles.toastMessage}>{message}</div>
-			</div>
-			<div className={styles.toastActions}>
-				<button className={styles.toastDismissButton} onClick={handleClick}>
-					Dismiss
-				</button>
-				{action && (
-					<button className={styles.toastActionButton} onClick={action.onClick}>
-						{action.name}
+		>
+			<FocusScope contain>
+				<div className={styles.toastContentWrapper}>
+					{title && <div className={styles.toastTitle}>{title}</div>}
+					<div className={styles.toastMessage}>{message}</div>
+				</div>
+				<div className={styles.toastActions}>
+					<button className={styles.toastDismissButton} onClick={handleClick}>
+						Dismiss
 					</button>
-				)}
-			</div>
+					{action && (
+						<button
+							className={styles.toastActionButton}
+							onClick={action.onClick}
+						>
+							{action.name}
+						</button>
+					)}
+				</div>
+			</FocusScope>
 		</motion.div>
 	)
 }

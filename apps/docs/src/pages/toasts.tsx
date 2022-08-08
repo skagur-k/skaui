@@ -79,6 +79,25 @@ const GettingStarted: NextPage = () => {
 				>
 					lorem
 				</Button>
+
+				<p>Solid</p>
+				<Button type='success'>Success</Button>
+				<Button type='error'>Error</Button>
+				<Button type='default'>Default</Button>
+				<Button type='secondary'>Secondary</Button>
+				<p>Ghost</p>
+				<Button type='success' size='block'>
+					Success
+				</Button>
+				<Button type='error' size='block'>
+					Error
+				</Button>
+				<Button type='default' size='block'>
+					Default
+				</Button>
+				<Button type='secondary' size='block'>
+					Secondary
+				</Button>
 			</div>
 		</PageLayout>
 	)

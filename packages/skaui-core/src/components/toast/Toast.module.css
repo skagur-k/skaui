@@ -26,7 +26,7 @@
 .toast {
 	@apply flex justify-between items-center gap-2;
 	@apply w-[90vw] md:w-[600px];
-	@apply shadow-md px-6 py-5;
+	@apply shadow-lg px-6 py-5;
 	@apply border rounded-xl;
 }
 
@@ -49,7 +49,7 @@
 }
 
 .toastSuccess {
-	@apply bg-blue-500 border-neutral-50 text-white;
+	@apply bg-blue-500 border-blue-500 text-white;
 
 	.toastDismissButton {
 		@apply font-medium px-2 py-1;
@@ -63,7 +63,7 @@
 	}
 }
 .toastError {
-	@apply bg-red-500 border-neutral-50 text-white;
+	@apply bg-red-500 border-red-500 text-white;
 
 	.toastDismissButton {
 		@apply font-medium px-2 py-1;

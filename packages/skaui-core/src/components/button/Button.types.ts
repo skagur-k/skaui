@@ -8,6 +8,6 @@ export interface IButtonProps extends Omit<AriaButtonProps, 'type'> {
 	onClick?: () => void
 }
 
-export type IButtonSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+export type IButtonSize = 'sm' | 'md' | 'lg' | 'block'
 export type IButtonVariant = 'solid' | 'ghost'
 export type IButtonType = 'default' | 'success' | 'error' | 'secondary'

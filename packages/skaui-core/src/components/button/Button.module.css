@@ -1,39 +1,86 @@
 .button_base {
 	@apply relative inline-block;
-	@apply rounded-md;
+	@apply rounded-md outline-none;
 	@apply disabled:cursor-not-allowed select-none;
-	@apply transition-all duration-200;
+	@apply transition-all duration-300;
 }
 
 .button_solid {
-	@apply bg-neutral-800 text-white;
-	@apply hover:bg-white hover:text-neutral-800;
-	@apply border border-neutral-800;
+	@apply border;
+
+	&.button_default {
+		@apply bg-neutral-50 text-neutral-800 border-neutral-200;
+		@apply hover:bg-neutral-100 hover:border-neutral-400;
+		@apply active:bg-neutral-50;
+	}
+
+	&.button_success {
+		@apply text-white;
+		@apply bg-blue-500 border-blue-500;
+		@apply hover:bg-white hover:text-blue-500;
+		@apply active:bg-neutral-100;
+	}
+
+	&.button_error {
+		@apply text-white;
+		@apply bg-red-500 border-red-500;
+		@apply hover:bg-white hover:text-red-500;
+		@apply active:bg-neutral-100;
+	}
+
+	&.button_secondary {
+		@apply bg-neutral-800 text-white;
+		@apply hover:bg-white hover:text-neutral-800 hover:border-neutral-800;
+		@apply active:bg-neutral-100;
+	}
 }
+
 .button_ghost {
-	@apply bg-transparent border border-neutral-800;
-	@apply hover:bg-neutral-800 hover:text-white;
+	@apply border border-transparent;
+
+	&.button_default {
+		@apply bg-transparent text-neutral-800 border-neutral-200;
+		@apply hover:bg-neutral-800 hover:text-neutral-100;
+		@apply active:bg-neutral-600;
+	}
+
+	&.button_success {
+		@apply text-blue-500;
+		@apply bg-transparent border-blue-500;
+		@apply hover:bg-blue-500 hover:text-white;
+		@apply active:bg-blue-400;
+	}
+
+	&.button_error {
+		@apply text-red-500;
+		@apply bg-transparent border-red-500;
+		@apply hover:bg-red-500 hover:text-white;
+		@apply active:bg-red-400;
+	}
+
+	&.button_secondary {
+		@apply text-neutral-800;
+		@apply bg-transparent border-neutral-800;
+		@apply hover:bg-neutral-800 hover:text-white;
+		@apply active:bg-neutral-600;
+	}
 }
 
-.button_default {
-}
-.button_success {
-}
-.button_error {
-}
-.button_secondary {
-}
-
-.button_xs {
-}
 .button_sm {
-}
-.button_md {
-	@apply h-8;
+	@apply h-6;
 	@apply text-sm;
 	@apply w-fit px-4;
 }
-.button_lg {
+.button_md {
+	@apply text-sm;
+	@apply w-fit px-6 py-1;
 }
-.button_xl {
+.button_lg {
+	@apply text-base;
+	@apply w-fit px-6 py-2;
+}
+.button_block {
+	@apply h-10;
+	@apply text-base;
+	@apply max-w-full px-4 py-1;
 }
