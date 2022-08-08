@@ -23,7 +23,7 @@ const IconButton = React.forwardRef<HTMLButtonElement, IIconButtonProps>(
 		const variants = {
 			solid: styles.button_solid,
 			ghost: styles.button_ghost,
-			text: styles.button_text,
+			iconOnly: styles.button_iconOnly,
 		}
 
 		const types = {
@@ -42,7 +42,7 @@ const IconButton = React.forwardRef<HTMLButtonElement, IIconButtonProps>(
 		const iconbuttonClasses = clsx(
 			styles.button_base,
 			styles.iconbutton,
-			[variant && variants[variant], type && types[type], size && sizes[size]],
+			[variant && variants[variant], type && types[type]],
 			className
 		)
 
@@ -54,7 +54,7 @@ const IconButton = React.forwardRef<HTMLButtonElement, IIconButtonProps>(
 
 		return (
 			<button {...buttonProps} ref={mergedRefs} className={iconbuttonClasses}>
-				{children && <span> {styledChildren}</span>}
+				{children && <div> {styledChildren}</div>}
 			</button>
 		)
 	}

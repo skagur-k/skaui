@@ -1,10 +1,9 @@
 import clsx from 'clsx'
+import { motion } from 'framer-motion'
 import { useToastDispatchContext } from '../../contexts'
+import { Button } from '../button'
 import styles from './Toast.module.css'
 import { ActionType, IToast } from './Toast.types'
-import { motion } from 'framer-motion'
-import { FocusScope } from 'react-aria'
-import { Button } from '../button'
 
 const Toast = (props: IToast) => {
 	const { message, type, id, options } = props
@@ -54,30 +53,28 @@ const Toast = (props: IToast) => {
 			layout
 			className={clsx(styles.toast, types[type])}
 		>
-			<FocusScope contain>
-				<div className={styles.toastContentWrapper}>
-					{title && <div className={styles.toastTitle}>{title}</div>}
-					<div className={styles.toastMessage}>{message}</div>
-				</div>
-				<div className={styles.toastActions}>
+			<div className={styles.toastContentWrapper}>
+				{title && <div className={styles.toastTitle}>{title}</div>}
+				<div className={styles.toastMessage}>{message}</div>
+			</div>
+			<div className={styles.toastActions}>
+				<Button
+					size='block'
+					className={styles.toastDismissButton}
+					onClick={handleClick}
+				>
+					Dismiss
+				</Button>
+				{action && (
 					<Button
 						size='block'
-						className={styles.toastDismissButton}
-						onClick={handleClick}
+						className={styles.toastActionButton}
+						onClick={action.onClick}
 					>
-						Dismiss
+						{action.name}
 					</Button>
-					{action && (
-						<Button
-							size='block'
-							className={styles.toastActionButton}
-							onClick={action.onClick}
-						>
-							{action.name}
-						</Button>
-					)}
-				</div>
-			</FocusScope>
+				)}
+			</div>
 		</motion.div>
 	)
 }

@@ -16,12 +16,23 @@ export interface IButtonProps extends Omit<AriaButtonProps, 'type'> {
 export interface IIconButtonProps extends Omit<AriaButtonProps, 'type'> {
 	children: React.ReactElement
 	size?: IButtonSize
-	variant?: IButtonVariant
+	variant?: IIconButtonVariant
 	type?: IButtonType
 	onClick?: () => void
 	className?: string
 }
 
+export interface IButtonGroupProps {
+	attached?: boolean
+	disabled?: boolean
+	rounded?: boolean
+	size?: IButtonProps['size']
+	variant?: IButtonProps['variant']
+	type?: IButtonType
+	children?: React.ReactNode
+}
+
 export type IButtonSize = 'sm' | 'md' | 'lg' | 'block'
 export type IButtonVariant = 'solid' | 'ghost' | 'text'
+export type IIconButtonVariant = 'solid' | 'ghost' | 'iconOnly'
 export type IButtonType = 'default' | 'success' | 'error' | 'secondary'

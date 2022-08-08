@@ -1,4 +1,4 @@
-import { useToast, Button, IconButton } from '@skaui/core'
+import { useToast, Button, IconButton, ButtonGroup } from '@skaui/core'
 import { NextPage } from 'next'
 import { FiAnchor } from 'react-icons/fi'
 import { SiAdobe, SiGithub } from 'react-icons/si'
@@ -97,7 +97,6 @@ const GettingStarted: NextPage = () => {
 				<Button
 					isDisabled
 					size='block'
-					variant='ghost'
 					align='start'
 					prefix={<FiAnchor className='h-5 w-5' />}
 					suffix={<FiAnchor className='h-5 w-5' />}
@@ -108,7 +107,6 @@ const GettingStarted: NextPage = () => {
 					type='secondary'
 					isDisabled
 					size='block'
-					variant='ghost'
 					align='start'
 					prefix={<FiAnchor className='h-5 w-5' />}
 					suffix={<FiAnchor className='h-5 w-5' />}
@@ -119,7 +117,6 @@ const GettingStarted: NextPage = () => {
 					type='success'
 					isDisabled
 					size='block'
-					variant='ghost'
 					align='start'
 					prefix={<FiAnchor className='h-5 w-5' />}
 					suffix={<FiAnchor className='h-5 w-5' />}
@@ -128,7 +125,6 @@ const GettingStarted: NextPage = () => {
 				</Button>
 				<Button
 					type='error'
-					variant='ghost'
 					isDisabled
 					size='block'
 					align='grow'
@@ -162,27 +158,47 @@ const GettingStarted: NextPage = () => {
 				>
 					Success
 				</Button>
-				<Button variant='text' type='error'>
-					Error
-				</Button>
-				<Button variant='text' type='default'>
-					Default
-				</Button>
-				<Button variant='text' type='secondary'>
-					Secondary
-				</Button>
-				<IconButton>
-					<SiGithub />
-				</IconButton>
-				<IconButton size='sm' type='success'>
-					<SiGithub />
-				</IconButton>
-				<IconButton size='md' type='error'>
-					<SiGithub />
-				</IconButton>
-				<IconButton size='lg' type='secondary'>
-					<SiGithub />
-				</IconButton>
+
+				<div className='flex gap-2'>
+					<div className='flex flex-col gap-4'>
+						<IconButton size='sm' type='success'>
+							<SiGithub />
+						</IconButton>
+						<IconButton size='md' type='error'>
+							<SiGithub />
+						</IconButton>
+						<IconButton size='lg' type='secondary'>
+							<SiGithub />
+						</IconButton>
+					</div>
+					<div className='flex flex-col gap-4'>
+						<IconButton variant='ghost' size='sm' type='success'>
+							<SiGithub />
+						</IconButton>
+						<IconButton variant='ghost' size='md' type='error'>
+							<SiGithub />
+						</IconButton>
+						<IconButton variant='ghost' size='lg' type='secondary'>
+							<SiGithub />
+						</IconButton>
+					</div>
+					<div className='flex flex-col gap-4'>
+						<IconButton variant='iconOnly' size='sm' type='success'>
+							<SiGithub />
+						</IconButton>
+						<IconButton variant='iconOnly' size='md' type='error'>
+							<SiGithub />
+						</IconButton>
+						<IconButton variant='iconOnly' size='lg' type='secondary'>
+							<SiGithub />
+						</IconButton>
+					</div>
+				</div>
+				<ButtonGroup variant='solid'>
+					<Button variant='text'>Error</Button>
+					<Button variant='text'>Default</Button>
+					<Button variant='text'>Secondary</Button>
+				</ButtonGroup>
 			</div>
 		</PageLayout>
 	)

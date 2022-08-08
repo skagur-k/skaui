@@ -21,7 +21,12 @@ const Button = React.forwardRef<HTMLButtonElement, IButtonProps>(
 		externalRef
 	) => {
 		const ref = React.useRef<HTMLButtonElement>(null)
-		const { buttonProps } = useButton(props, ref)
+		const { buttonProps } = useButton(
+			{
+				...props,
+			},
+			ref
+		)
 
 		const variants = {
 			solid: styles.button_solid,
