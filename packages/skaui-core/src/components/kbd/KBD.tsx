@@ -35,7 +35,7 @@ const KBD = (props: KBDProps) => {
 	} = props
 
 	return (
-		<kbd className={clsx(styles.kbd)} {...rest}>
+		<div className={clsx(styles.kbd)} {...rest}>
 			{meta &&
 				(mac ? (
 					<Key>{kbdIcons['command']}</Key>
@@ -51,12 +51,12 @@ const KBD = (props: KBDProps) => {
 			{deletekey && kbdIcons['deletekey']}
 			{/* {children && !noModifiers && <span>+</span>} */}
 			{children && <span className=''>{children}</span>}
-		</kbd>
+		</div>
 	)
 }
 
 const Key = ({ children }: { children: React.ReactElement | string }) => {
-	return <kbd className='flex justify-center items-center'>{children}</kbd>
+	return <span className='flex justify-center items-center'>{children}</span>
 }
 
 export default KBD

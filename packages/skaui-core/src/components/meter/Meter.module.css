@@ -1,0 +1,47 @@
+.meter {
+	@apply flex flex-col gap-2;
+}
+
+.meter_labels {
+	@apply flex justify-between items-center;
+}
+
+.meter_labels_label,
+.meter_labels_value {
+	@apply text-sm;
+}
+
+.meter_bar {
+	@apply overflow-hidden rounded-md;
+	@apply h-1;
+}
+
+.meter_bar_track {
+	@apply h-full bg-neutral-100;
+}
+
+.meter_bar_fill {
+	@apply h-full bg-neutral-800;
+	@apply transition-all duration-300;
+}
+
+.meter_success {
+	& .meter_bar_fill {
+		@apply bg-blue-500;
+	}
+}
+.meter_warning {
+	& .meter_bar_fill {
+		@apply bg-yellow-500;
+	}
+}
+.meter_error {
+	& .meter_bar_fill {
+		@apply bg-red-500;
+	}
+}
+.meter_secondary {
+	& .meter_bar_fill {
+		@apply bg-neutral-500;
+	}
+}

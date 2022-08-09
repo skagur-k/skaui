@@ -1,0 +1,55 @@
+.progress {
+	@apply flex flex-col gap-2;
+}
+
+.progress_labels {
+	@apply flex justify-between items-center;
+}
+
+.progress_labels_label,
+.progress_labels_value {
+	@apply text-sm;
+}
+
+.progress_bar {
+	@apply relative overflow-hidden rounded-md;
+}
+
+.progress_bar_track {
+	@apply h-full bg-neutral-100;
+}
+
+.progress_bar_fill {
+	@apply h-full bg-neutral-800;
+	@apply transition-all duration-500;
+}
+
+.progress_bar_indeterminate {
+	@apply h-full bg-neutral-800;
+	@apply opacity-80 rounded-full;
+}
+
+.progress_success {
+	& .progress_bar_fill,
+	.progress_bar_indeterminate {
+		@apply bg-blue-500;
+	}
+}
+.progress_warning {
+	& .progress_bar_fill,
+	.progress_bar_indeterminate {
+		@apply bg-yellow-500;
+	}
+}
+.progress_error {
+	& .progress_bar_fill,
+	.progress_bar_indeterminate {
+		@apply bg-red-500;
+	}
+}
+.progress_secondary {
+	& .progress_bar_fill,
+	.progress_bar_indeterminate {
+		@apply bg-neutral-500;
+	}
+}

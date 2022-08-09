@@ -1,0 +1,38 @@
+.statusdot {
+	@apply flex gap-3 p-1 items-center;
+}
+
+.statusdot_dot {
+	@apply w-[7px] h-[7px];
+	@apply rounded-full;
+}
+
+.statusdot_label {
+	@apply text-sm font-medium;
+}
+
+.statusdot_positive {
+	& .statusdot_dot {
+		@apply bg-blue-500;
+	}
+}
+.statusdot_negative {
+	& .statusdot_dot {
+		@apply bg-red-500;
+	}
+}
+.statusdot_info {
+	& .statusdot_dot {
+		@apply bg-cyan-500;
+	}
+}
+.statusdot_notice {
+	& .statusdot_dot {
+		@apply bg-amber-500;
+	}
+}
+.statusdot_neutral {
+	& .statusdot_dot {
+		@apply bg-neutral-300;
+	}
+}

@@ -1,0 +1,56 @@
+.tabs {
+	@apply relative rounded-md;
+	@apply w-fit max-w-[100%];
+	@apply rounded-md overflow-hidden;
+	@apply p-4;
+	@apply transition-all duration-500;
+}
+
+.tabs_list {
+	@apply flex mb-2 py-2 justify-center;
+}
+
+.tabs_list_tab {
+	@apply text-sm truncate;
+	@apply outline-none cursor-pointer;
+	@apply px-2 py-1;
+	@apply transition-all duration-300;
+	@apply border-2 border-transparent border-b-neutral-300;
+}
+
+.tabs_list_tab_selected {
+	text-shadow: 0px 0px 1px black;
+	@apply mx-3 px-4;
+	@apply border-b-2 border-b-neutral-500;
+	@apply text-neutral-500;
+	@apply flex-nowrap overflow-visible;
+}
+
+.tabs_list_tab_disabled {
+	@apply border-b-0 text-neutral-300;
+	@apply cursor-not-allowed;
+}
+
+.tabs_panel {
+	@apply px-4 py-4;
+	@apply transition-all duration-300;
+
+	animation: fadein 0.5s;
+}
+
+.tabs_panel_focused {
+	@apply ring-1 ring-neutral-500 ring-inset;
+}
+
+.tabs_list_tab_focused {
+	@apply ring-1 ring-neutral-500 ring-inset;
+}
+
+@keyframes fadein {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}

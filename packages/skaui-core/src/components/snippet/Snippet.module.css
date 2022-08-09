@@ -1,0 +1,31 @@
+.snippet {
+	@apply inline-flex flex-col relative;
+	@apply outline-none max-w-[75%];
+	@apply font-mono text-sm;
+	@apply pl-4 py-4 rounded-md;
+	@apply ring-1 ring-inset ring-neutral-400;
+	@apply hover:ring-neutral-500;
+	@apply transition duration-300;
+}
+
+.snippet_dark {
+	@apply bg-neutral-800 text-neutral-100;
+	@apply ring-neutral-100;
+	@apply hover:ring-neutral-400;
+}
+
+.snippet_clipboard_single {
+	@apply absolute top-1/2 right-3 -translate-y-1/2;
+}
+
+.snippet_clipboard_multi {
+	@apply absolute top-3 right-3;
+}
+
+.snippet_prompt {
+	@apply mr-2 select-none font-bold;
+}
+
+.snippet_text {
+	@apply select-all;
+}

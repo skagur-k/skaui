@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useMediaQuery } from '../../hooks'
 import { isBrowser } from '../../utils'
 import ThemeContext, { ITheme } from './ThemeContext'
+import { SSRProvider } from 'react-aria'
 
 const STORAGE_KEY = 'theme'
 
@@ -33,7 +34,7 @@ const ThemeProvider = ({ children }: any) => {
 
 	return (
 		<ThemeContext.Provider value={{ theme, setTheme }}>
-			{children}
+			<SSRProvider>{children}</SSRProvider>
 		</ThemeContext.Provider>
 	)
 }

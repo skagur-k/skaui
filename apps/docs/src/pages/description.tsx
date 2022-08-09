@@ -2,7 +2,7 @@ import { Toggle } from '@skaui/core'
 import { NextPage } from 'next'
 import PageLayout from '../layouts/PageLayout'
 
-const Accordion: NextPage = () => {
+const Description: NextPage = () => {
 	return (
 		<PageLayout>
 			<div className='flex flex-col gap-5'>
@@ -14,4 +14,4 @@ const Accordion: NextPage = () => {
 	)
 }
 
-export default Accordion
+export default Description

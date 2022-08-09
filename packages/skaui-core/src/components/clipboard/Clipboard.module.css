@@ -1,21 +1,28 @@
 .wrapper {
 	@apply z-10 flex items-center justify-center bg-white;
 	@apply rounded-lg p-1;
-	@apply border-2 border-neutral-200;
+	@apply ring-1 ring-inset ring-neutral-300;
 	@apply transition-all;
 }
 
 .icons {
 	@apply cursor-pointer;
 	@apply transition-all;
-	@apply text-neutral-500;
-	@apply h-7 w-7;
+	@apply text-neutral-700;
 }
 
 .clipboard {
-	@apply hover:scale-105 hover:animate-pulse;
+	@apply hover:animate-pulse;
 }
 
 .copied {
 	@apply text-blue-500;
+}
+
+.sm {
+	@apply h-5 w-5;
+}
+
+.md {
+	@apply h-7 w-7;
 }

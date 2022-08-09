@@ -8,9 +8,11 @@ import styles from './Clipboard.module.css'
 const Clipboard = ({
 	copyText,
 	className,
+	size = 'md',
 }: {
 	copyText?: string
 	className?: string
+	size?: 'sm' | 'md'
 }) => {
 	let timer: NodeJS.Timeout
 	const [isCopied, setIsCopied] = React.useState(false)
@@ -31,6 +33,11 @@ const Clipboard = ({
 		show: { opacity: 1 },
 	}
 
+	const sizes = {
+		sm: styles.sm,
+		md: styles.md,
+	}
+
 	return (
 		<div className={clsx(className, styles.wrapper)}>
 			<AnimatePresence exitBeforeEnter>
@@ -43,7 +50,11 @@ const Clipboard = ({
 						exit='hidden'
 						transition={{ duration: 0.2 }}
 					>
-						<CheckIcon className={clsx(styles.icons, styles.copied)} />
+						<CheckIcon
+							className={clsx(styles.icons, styles.copied, [
+								size && sizes[size],
+							])}
+						/>
 					</motion.button>
 				) : (
 					<motion.button
@@ -55,7 +66,11 @@ const Clipboard = ({
 						exit='hidden'
 						transition={{ duration: 0.2 }}
 					>
-						<ClipboardIcon className={clsx(styles.icons, styles.clipboard)} />
+						<ClipboardIcon
+							className={clsx(styles.icons, styles.clipboard, [
+								size && sizes[size],
+							])}
+						/>
 					</motion.button>
 				)}
 			</AnimatePresence>
