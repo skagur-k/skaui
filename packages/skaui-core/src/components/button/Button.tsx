@@ -52,6 +52,7 @@ const Button = React.forwardRef<HTMLButtonElement, IButtonProps>(
 			start: styles.button_start,
 			grow: styles.button_grow,
 			end: styles.button_end,
+			center: styles.button_center,
 		}
 
 		const buttonClasses = clsx(
@@ -73,5 +74,6 @@ const Button = React.forwardRef<HTMLButtonElement, IButtonProps>(
 		)
 	}
 )
+Button.displayName = 'SKA UI - Button'
 
 export default Button

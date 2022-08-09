@@ -7,7 +7,7 @@
 
 .main {
 	@apply w-full;
-	@apply block px-4 pt-12 lg:pr-0 lg:pl-80 lg:pt-24;
+	@apply block px-4 pt-12 lg:pr-0 lg:pl-96 lg:pt-24;
 }
 
 .contentWrapper {

@@ -59,5 +59,6 @@ const IconButton = React.forwardRef<HTMLButtonElement, IIconButtonProps>(
 		)
 	}
 )
+IconButton.displayName = 'SKA UI - IconButton'
 
 export default IconButton

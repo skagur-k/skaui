@@ -1,0 +1,27 @@
+.badge {
+	@apply relative rounded-md box-content truncate;
+	@apply max-w-[20ch] w-fit;
+	@apply inline-flex shrink-0 items-center justify-start;
+	@apply bg-neutral-800 text-neutral-100 shadow-sm;
+	@apply cursor-pointer;
+	@apply font-medium;
+	@apply ring-1 ring-white;
+}
+
+.badge_contrast {
+	@apply bg-neutral-300 ring-neutral-800 text-neutral-800;
+}
+
+.badge_outline {
+	@apply bg-transparent ring-neutral-800 text-neutral-800;
+}
+
+.badge_sm {
+	@apply text-sm leading-4 px-1 py-0 rounded-sm;
+}
+.badge_md {
+	@apply text-sm leading-4 px-2 py-[2px] rounded-sm;
+}
+.badge_lg {
+	@apply text-base leading-4 px-2 py-[2px] rounded-sm;
+}

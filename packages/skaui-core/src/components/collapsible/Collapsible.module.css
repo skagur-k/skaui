@@ -1,0 +1,26 @@
+.collapsible {
+	@apply flex flex-col max-w-[95%];
+	@apply px-2 py-4 overflow-hidden;
+	@apply border-t border-b border-neutral-100;
+}
+
+.collapsible_title {
+	@apply flex justify-between;
+	@apply items-center cursor-pointer text-lg font-bold;
+}
+
+.collapsible_content_wrapper {
+	@apply block overflow-hidden;
+	@apply transition-all duration-300 ease-in-out;
+}
+
+.collapsible_content {
+	@apply mt-8 h-auto box-content;
+}
+
+.collapsible_chevron {
+	@apply w-5 h-5 transition-transform duration-300;
+}
+.collapsible_chevron_open {
+	@apply -rotate-180;
+}

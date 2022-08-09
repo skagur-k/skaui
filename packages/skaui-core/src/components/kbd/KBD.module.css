@@ -1,0 +1,12 @@
+.kbd {
+	@apply inline-flex gap-2 px-3 py-1 items-center;
+	@apply rounded-sm w-fit h-fit;
+	@apply border-0 ring-1 ring-neutral-300;
+	@apply bg-neutral-50 shadow-sm;
+	@apply cursor-pointer;
+	@apply text-sm leading-3;
+}
+
+.kbd_icons {
+	@apply w-3 h-3 flex items-center justify-center;
+}

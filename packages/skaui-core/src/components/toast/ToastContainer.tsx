@@ -1,6 +1,5 @@
 import clsx from 'clsx'
 import { AnimatePresence } from 'framer-motion'
-import { FocusScope } from 'react-aria'
 import { useToastStateContext } from '../../contexts/ToastContext'
 import Toast from './Toast'
 import styles from './Toast.module.css'

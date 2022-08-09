@@ -1,7 +1,7 @@
-import { useToast, Button, IconButton, ButtonGroup } from '@skaui/core'
+import { Button, ButtonGroup, IconButton, useToast } from '@skaui/core'
 import { NextPage } from 'next'
 import { FiAnchor } from 'react-icons/fi'
-import { SiAdobe, SiGithub } from 'react-icons/si'
+import { SiGithub } from 'react-icons/si'
 import PageLayout from '../layouts/PageLayout'
 
 const GettingStarted: NextPage = () => {
@@ -98,6 +98,7 @@ const GettingStarted: NextPage = () => {
 					isDisabled
 					size='block'
 					align='start'
+					variant='ghost'
 					prefix={<FiAnchor className='h-5 w-5' />}
 					suffix={<FiAnchor className='h-5 w-5' />}
 				>
@@ -107,6 +108,7 @@ const GettingStarted: NextPage = () => {
 					type='secondary'
 					isDisabled
 					size='block'
+					variant='ghost'
 					align='start'
 					prefix={<FiAnchor className='h-5 w-5' />}
 					suffix={<FiAnchor className='h-5 w-5' />}
@@ -114,6 +116,7 @@ const GettingStarted: NextPage = () => {
 					Success
 				</Button>
 				<Button
+					variant='ghost'
 					type='success'
 					isDisabled
 					size='block'
@@ -124,6 +127,7 @@ const GettingStarted: NextPage = () => {
 					Success
 				</Button>
 				<Button
+					variant='ghost'
 					type='error'
 					isDisabled
 					size='block'

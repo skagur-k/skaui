@@ -1,0 +1,18 @@
+.description {
+	@apply relative rounded-md box-border;
+	@apply max-w-2xl;
+}
+
+.description_wrapper {
+	@apply flex items-center gap-2 mb-2;
+}
+
+.description_title {
+	@apply flex items-center gap-2;
+	@apply font-bold text-base text-neutral-800;
+	@apply border-b border-neutral-800;
+}
+
+.description_content {
+	@apply text-base leading-6;
+}

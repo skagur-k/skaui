@@ -1,32 +1,22 @@
 import clsx from 'clsx'
 import React from 'react'
 import { ChevronDownIcon } from '../../icons'
-import { CollapsibleProps } from './Collapsible.types'
-import styles from './Collapsible.module.css'
+import { AccordionItemProps } from './Accordion.types'
+import styles from './Accordion.module.css'
 
-const Collapsible = (props: CollapsibleProps): JSX.Element => {
-	const {
-		className,
-		children,
-		open: _open = false,
-		title,
-		transition,
-		...rest
-	} = props
-	const [open, setOpen] = React.useState<boolean>(_open)
+const AccordionItem = (props: AccordionItemProps): JSX.Element => {
+	const { className, children, open, title, onToggle, ...rest } = props
+	// const [open, setOpen] = React.useState<boolean>(_open!)
 	const [height, setHeight] = React.useState<number | undefined>(
 		open ? undefined : 0
 	)
-	function handleToggle() {
-		setOpen(!open)
-	}
 
 	const ref = React.useRef<HTMLDivElement>(null)
 
 	React.useEffect(() => {
 		if (!height || !open || !ref.current) return undefined
 		const resizeObserver = new ResizeObserver((el) => {
-			setHeight(el[0].contentRect.height + 32)
+			setHeight(el[0].contentRect.height + 48)
 		})
 
 		resizeObserver.observe(ref.current)
@@ -42,22 +32,22 @@ const Collapsible = (props: CollapsibleProps): JSX.Element => {
 	}, [open])
 
 	return (
-		<div {...rest} className={clsx(styles.collapsible, className)}>
-			<div onClick={handleToggle} className={styles.collapsible_title}>
+		<div className={clsx(styles.accordion_item, className)} {...rest}>
+			<div onClick={onToggle} className={styles.accordion_item_title}>
 				<span>{title}</span>
 				<span>
 					<ChevronDownIcon
-						className={clsx(styles.collapsible_chevron, [
-							open && styles.collapsible_chevron_open,
+						className={clsx(styles.accordion_item_title_chevron, [
+							open && styles.accordion_item_title_chevron_open,
 						])}
 					/>
 				</span>
 			</div>
 			<div
-				className={clsx(styles.collapsible_content_wrapper)}
+				className={clsx(styles.accordion_item_content_wrapper)}
 				style={{ height }}
 			>
-				<div ref={ref} className={styles.collapsible_content}>
+				<div ref={ref} className={styles.accordion_item_content_content}>
 					{children}
 				</div>
 			</div>
@@ -65,4 +55,4 @@ const Collapsible = (props: CollapsibleProps): JSX.Element => {
 	)
 }
 
-export default Collapsible
+export default AccordionItem

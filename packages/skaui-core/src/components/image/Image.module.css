@@ -1,0 +1,9 @@
+.image_wrapper {
+	@apply flex flex-col items-center;
+}
+.image {
+	@apply rounded-xl;
+}
+.image_caption {
+	@apply text-right text-sm mt-4 text-gray-500 font-medium;
+}

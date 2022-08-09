@@ -10,12 +10,12 @@ export interface IButtonProps extends Omit<AriaButtonProps, 'type'> {
 	className?: string
 	prefix?: React.ReactElement
 	suffix?: React.ReactElement
-	align?: 'start' | 'grow' | 'end'
+	align?: 'start' | 'grow' | 'end' | 'center'
 }
 
 export interface IIconButtonProps extends Omit<AriaButtonProps, 'type'> {
 	children: React.ReactElement
-	size?: IButtonSize
+	size?: 'sm' | 'md' | 'lg'
 	variant?: IIconButtonVariant
 	type?: IButtonType
 	onClick?: () => void

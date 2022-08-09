@@ -1,0 +1,34 @@
+.accordion {
+	@apply border-y border-neutral-200 flex flex-col gap-3;
+	@apply max-w-[95%];
+
+	& > .accordion-item:not(:last-child) {
+		@apply border-b border-neutral-200;
+	}
+}
+
+.accordion_item {
+	@apply px-2 py-4 overflow-hidden;
+}
+
+.accordion_item_title {
+	@apply flex justify-between;
+	@apply items-center cursor-pointer text-lg font-bold;
+}
+
+.accordion_item_content_wrapper {
+	@apply overflow-hidden block;
+	@apply transition-all duration-300 ease-in-out;
+}
+
+.accordion_item_content_content {
+	@apply mt-8 h-auto box-content;
+}
+
+.accordion_item_title_chevron {
+	@apply w-5 h-5 transition-transform duration-300;
+}
+
+.accordion_item_title_chevron_open {
+	@apply -rotate-180;
+}

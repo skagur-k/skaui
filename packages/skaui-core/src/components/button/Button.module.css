@@ -6,30 +6,28 @@
 	@apply transition-all duration-200;
 	@apply tracking-normal;
 	@apply font-semibold;
-
 	@apply disabled:cursor-not-allowed;
 }
 
 .button_solid {
-	@apply border;
+	@apply ring-1 focus:ring-offset-2;
 
 	&.button_default {
-		@apply bg-neutral-50 text-neutral-800 border-neutral-200;
-		@apply hover:bg-neutral-100 hover:border-neutral-500;
+		@apply bg-neutral-50 text-neutral-800 ring-neutral-400;
+		@apply hover:bg-neutral-100 hover:ring-neutral-500;
 		@apply active:bg-neutral-200;
-		@apply border-neutral-800 ring-neutral-800;
 
 		@apply disabled:opacity-20;
 		@apply disabled:hover:bg-neutral-50 disabled:hover:text-neutral-800;
-		@apply disabled:border-neutral-400 disabled:hover:border-neutral-400;
+		@apply disabled:hover:ring-neutral-50;
 	}
 
 	&.button_success {
 		@apply text-white;
-		@apply bg-blue-500 border-blue-500;
+		@apply bg-blue-500;
 		@apply hover:bg-white hover:text-blue-500;
 		@apply active:bg-neutral-100;
-		@apply border-blue-500 ring-blue-500;
+		@apply ring-blue-500;
 
 		@apply disabled:opacity-20;
 		@apply disabled:hover:bg-blue-500 disabled:hover:text-white;
@@ -37,10 +35,10 @@
 
 	&.button_error {
 		@apply text-white;
-		@apply bg-red-500 border-red-500;
+		@apply bg-red-500;
 		@apply hover:bg-white hover:text-red-500;
 		@apply active:bg-neutral-100 ring-red-500;
-		@apply border-red-500;
+		@apply ring-red-500;
 
 		@apply disabled:opacity-20;
 		@apply disabled:hover:bg-red-500 disabled:hover:text-white;
@@ -48,49 +46,49 @@
 
 	&.button_secondary {
 		@apply bg-neutral-800 text-white;
-		@apply hover:bg-white hover:text-neutral-800 hover:border-neutral-800;
+		@apply hover:bg-white hover:text-neutral-800 hover:ring-neutral-800;
 		@apply active:bg-neutral-200 ring-neutral-800;
-		@apply border-neutral-800 focus:border-neutral-800;
 
-		@apply disabled:bg-neutral-100 disabled:text-neutral-300;
-		@apply hover:disabled:bg-neutral-100 hover:disabled:border-neutral-200;
+		@apply disabled:opacity-20;
+		@apply hover:disabled:bg-neutral-800 hover:disabled:text-white;
 	}
 }
 
 .button_ghost {
-	@apply border-2;
+	@apply ring-1 focus:ring-offset-2;
 
 	&.button_default {
 		@apply bg-transparent text-neutral-800;
 		@apply hover:bg-neutral-800 hover:text-neutral-100;
 		@apply active:bg-neutral-600;
-		@apply border-neutral-400 ring-neutral-800;
+		@apply ring-neutral-800;
 
-		@apply disabled:bg-neutral-50 disabled:text-neutral-200;
+		@apply disabled:bg-neutral-50 disabled:text-neutral-300;
+		@apply disabled:ring-neutral-200;
 		@apply hover:disabled:bg-neutral-50;
 	}
 
 	&.button_success {
 		@apply text-blue-500;
-		@apply bg-transparent border-blue-500;
+		@apply bg-transparent;
 		@apply hover:bg-blue-500 hover:text-white;
 		@apply active:bg-blue-400;
-		@apply border-blue-500 ring-blue-500;
+		@apply ring-blue-500;
 
 		@apply disabled:bg-neutral-50 disabled:text-blue-300;
-		@apply disabled:border-blue-200;
+		@apply disabled:ring-blue-200;
 		@apply hover:disabled:bg-neutral-50;
 	}
 
 	&.button_error {
 		@apply text-red-500;
-		@apply bg-transparent border-red-500;
+		@apply bg-transparent;
 		@apply hover:bg-red-500 hover:text-white;
 		@apply active:bg-red-400;
-		@apply border-red-500 ring-red-500;
+		@apply ring-red-500;
 
 		@apply disabled:bg-neutral-50 disabled:text-red-300;
-		@apply disabled:border-red-200;
+		@apply disabled:ring-red-200;
 		@apply hover:disabled:bg-neutral-50;
 	}
 
@@ -99,15 +97,16 @@
 		@apply bg-transparent;
 		@apply hover:bg-neutral-800 hover:text-white;
 		@apply active:bg-neutral-600;
-		@apply border-neutral-800 ring-neutral-800;
+		@apply ring-neutral-800;
 
 		@apply disabled:bg-neutral-50 disabled:text-neutral-300;
-		@apply disabled:border-neutral-200;
+		@apply disabled:ring-neutral-200;
 		@apply hover:disabled:bg-neutral-50;
 	}
 }
 
 .button_text {
+	@apply rounded-md;
 	&.button_default {
 		@apply bg-transparent text-neutral-800;
 		@apply hover:bg-neutral-100;
@@ -175,17 +174,17 @@
 .button_md {
 	@apply text-[0.875rem];
 	@apply w-fit px-4 py-1;
-	@apply rounded-md;
+	@apply rounded-sm;
 }
 .button_lg {
 	@apply text-[1rem];
 	@apply w-fit px-4 py-[6px];
-	@apply rounded-md;
+	@apply rounded-sm;
 }
 .button_block {
-	@apply min-h-[28px];
-	@apply text-[0.875rem] rounded-md;
-	@apply px-4 py-1;
+	@apply inline-flex min-h-[28px] max-w-2xl;
+	@apply text-[0.875rem] rounded-sm;
+	@apply px-2 py-1;
 }
 
 .button_prefix {
@@ -221,25 +220,33 @@
 	@apply ml-auto;
 }
 
+.button_center {
+	@apply flex;
+}
+
 .iconbutton {
 	@apply rounded-md overflow-hidden;
 	@apply w-fit h-fit;
-	@apply p-1;
+	@apply p-2;
 }
 
 .iconbutton_sm {
-	@apply w-4 h-4;
+	@apply w-5 h-5;
 }
 .iconbutton_md {
 	@apply w-6 h-6;
 }
 .iconbutton_lg {
-	@apply w-8 h-8;
+	@apply w-7 h-7;
 }
 
 .button_group {
 	@apply inline-flex whitespace-nowrap items-center box-border;
-	@apply min-h-[36px];
+	@apply min-h-[36px] w-fit;
+
+	& > .iconbutton {
+		@apply mr-4 rounded-full;
+	}
 
 	& > .button_base {
 		@apply mr-4 rounded-sm min-h-[36px];
@@ -253,17 +260,18 @@
 	}
 
 	&.button_group_attached {
-		@apply space-x-1;
+		@apply space-x-0 shadow-md;
 
 		& > .button_base {
 			@apply mr-0 rounded-none;
-			@apply focus:z-50 focus:ring-1 ring-inset;
+			@apply focus:ring-offset-0 focus:ring-1;
+			@apply focus:z-50;
 
 			&:first-child {
-				@apply rounded-l-md;
+				@apply rounded-l-sm;
 			}
 			&:last-child {
-				@apply rounded-r-md;
+				@apply rounded-r-sm;
 			}
 		}
 	}

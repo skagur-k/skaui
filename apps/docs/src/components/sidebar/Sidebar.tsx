@@ -1,12 +1,9 @@
 import { Button } from '@skaui/core'
-import React from 'react'
-import styles from './Sidebar.module.css'
-import { SiGithub } from 'react-icons/si'
-import { FiTriangle } from 'react-icons/fi'
+import clsx from 'clsx'
+import { components } from '../../data'
 import { Navigation } from '../navigation/Navigation'
 import { NavLink } from '../navigation/NavLink'
-import { components } from '../../data'
-import clsx from 'clsx'
+import styles from './Sidebar.module.css'
 
 export const Sidebar = () => {
 	return (
@@ -21,21 +18,12 @@ export const Sidebar = () => {
 					</div>
 					<div className={styles.buttonGroup}>
 						<div className={styles.button}>
-							<Button
-								size='md'
-								icon={<SiGithub className='h-6 w-6' />}
-								className='shadow-sm'
-							>
+							<Button size='block' className='shadow-sm'>
 								GitHub
 							</Button>
 						</div>
 						<div className={styles.button}>
-							<Button
-								size='md'
-								type='secondary'
-								icon={<FiTriangle className='h-6 w-6' />}
-								className='shadow-sm'
-							>
+							<Button size='block' type='secondary' className='shadow-sm'>
 								skagur.dev
 							</Button>
 						</div>

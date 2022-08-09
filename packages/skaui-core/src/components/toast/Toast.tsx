@@ -11,6 +11,7 @@ const Toast = (props: IToast) => {
 		info: styles.toastInfo,
 		success: styles.toastSuccess,
 		error: styles.toastError,
+		loading: styles.toastLoading,
 	}
 
 	const title = options?.title
