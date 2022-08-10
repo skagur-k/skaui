@@ -17,5 +17,6 @@ export * from './components/tabs' // Tabs
 export * from './components/toast' // Toast
 export * from './components/toggle' // Toggle
 export * from './components/text' // Text
+export * from './components/tag' // Tag
 export * from './contexts'
 export * from './hooks'
