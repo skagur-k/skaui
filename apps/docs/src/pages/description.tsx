@@ -3,7 +3,6 @@ import { NextPage } from 'next'
 import PageLayout from '../layouts/PageLayout'
 
 const Description: NextPage = () => {
-
 	return (
 		<PageLayout>
 			<div className='flex flex-col gap-5'>
