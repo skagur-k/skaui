@@ -1,0 +1,96 @@
+.text {
+	@apply leading-6 tracking-normal;
+	@apply inline-block overflow-hidden;
+}
+
+.text_truncate {
+	@apply truncate;
+}
+
+.text_lineclamp {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+
+.text_xs {
+	@apply text-xs;
+}
+.text_sm {
+	@apply text-sm;
+}
+.text_base {
+	@apply text-base;
+}
+.text_lg {
+	@apply text-lg;
+	@apply leading-normal;
+}
+.text_xl {
+	@apply text-xl;
+	@apply leading-normal;
+}
+.text_2xl {
+	@apply text-2xl;
+	@apply font-bold;
+	@apply leading-normal;
+}
+.text_3xl {
+	@apply text-3xl;
+	@apply font-bold;
+	@apply leading-relaxed;
+}
+.text_4xl {
+	@apply text-4xl;
+	@apply font-bold;
+	@apply leading-relaxed;
+	@apply tracking-wide;
+}
+.text_5xl {
+	@apply text-5xl;
+	@apply font-bold;
+	@apply leading-relaxed;
+	@apply tracking-wide;
+}
+
+.text_inlinecode {
+	@apply bg-neutral-500 text-neutral-100 px-2;
+}
+
+.text_wght_100_thin {
+	@apply font-thin;
+}
+.text_wght_200_extralight {
+	@apply font-extralight;
+}
+.text_wght_300_light {
+	@apply font-light;
+}
+.text_wght_400_normal {
+	@apply font-normal;
+}
+.text_wght_500_medium {
+	@apply font-medium;
+}
+.text_wght_600_semibold {
+	@apply font-semibold;
+}
+.text_wght_700_bold {
+	@apply font-bold;
+}
+.text_wght_800_extrabold {
+	@apply font-extrabold;
+}
+.text_wght_900_black {
+	@apply font-black;
+}
+
+.text_align_left {
+	@apply text-left;
+}
+.text_align_center {
+	@apply text-center;
+}
+.text_align_right {
+	@apply text-right;
+}

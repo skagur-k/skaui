@@ -5,8 +5,10 @@
 @layer base {
 	html {
 		box-sizing: border-box;
-		font-family: 'Inter', sans-serif;
 		font-size: 14px;
+	}
+	body {
+		font-family: Inter, sans-serif;
 	}
 	*,
 	*:before,

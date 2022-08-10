@@ -9,5 +9,6 @@ export * from './components/description' // Description
 export * from './components/fileviewer' // FileViewer
 export * from './components/image' // Image
 export * from './components/toast' // Toast
+export * from './components/text' // Text
 export * from './contexts'
 export * from './hooks'
