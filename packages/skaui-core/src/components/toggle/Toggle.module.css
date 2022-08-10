@@ -1,0 +1,85 @@
+.toggle {
+	@apply relative inline-flex cursor-pointer;
+	@apply gap-4 w-fit;
+}
+
+.toggle_sm {
+	& .toggle_switch {
+		@apply min-w-[36px] min-h-[20px];
+		& .toggle_switch_switch {
+			@apply min-w-[12px] min-h-[12px];
+		}
+	}
+}
+.toggle_md {
+	& .toggle_switch {
+		@apply min-w-[42px] min-h-[22px];
+		& .toggle_switch_switch {
+			@apply min-w-[14px] min-h-[14px];
+		}
+	}
+}
+.toggle_lg {
+	& .toggle_switch {
+		@apply min-w-[48px] min-h-[24px];
+		& .toggle_switch_switch {
+			@apply min-w-[16px] min-h-[16px];
+		}
+	}
+}
+
+.toggle_label {
+	@apply text-base;
+}
+.toggle_label_focused {
+}
+.toggle_label_selected {
+}
+.toggle_label_disabled {
+}
+
+.toggle_label_top {
+	@apply flex flex-col;
+}
+.toggle_label_bottom {
+	@apply flex flex-col-reverse;
+}
+.toggle_label_left {
+	@apply flex items-center;
+}
+.toggle_label_right {
+	@apply flex flex-row-reverse justify-end items-center;
+}
+
+.toggle_switch {
+	@apply relative;
+	@apply bg-neutral-200 shadow-md;
+	@apply rounded-full;
+	@apply transition-all duration-200;
+}
+.toggle_switch_selected {
+	@apply bg-blue-500;
+
+	& .toggle_switch_switch {
+		@apply translate-x-full;
+	}
+}
+.toggle_switch_focused {
+	@apply ring-[2px] ring-neutral-300 ring-offset-2;
+}
+
+.toggle_switch_selected.toggle_switch_focused {
+	@apply ring-blue-500;
+}
+
+.toggle_switch_disabled {
+}
+
+.toggle_switch_switch {
+	@apply absolute bg-white;
+	@apply rounded-full;
+	@apply flex justify-center items-center;
+	@apply text-neutral-800;
+	@apply right-1/2 top-1/2 -translate-y-1/2;
+	@apply transition-all duration-200;
+}

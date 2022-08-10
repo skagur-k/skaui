@@ -20,3 +20,5 @@ export interface TextProps
 
 export interface InlineCodeProps extends SharedProps {}
 export interface CodeBlockProps extends SharedProps {}
+export interface ListProps extends SharedProps {}
+export interface LIProps extends SharedProps {}

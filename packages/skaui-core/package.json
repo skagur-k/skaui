@@ -18,12 +18,13 @@
 	"author": "Nam Hyuck Kim (skagur@gmail.com)",
 	"license": "ISC",
 	"dependencies": {
-		"@react-types/button": "^3.6.0",
 		"clsx": "^1.2.1",
 		"framer-motion": "^6.5.1",
 		"react-aria": "^3.17.0"
 	},
 	"devDependencies": {
+		"@react-types/button": "^3.6.0",
+		"@react-types/switch": "^3.2.2",
 		"@rollup/plugin-commonjs": "^22.0.1",
 		"@rollup/plugin-node-resolve": "^13.3.0",
 		"@rollup/plugin-typescript": "^8.3.4",
@@ -34,6 +35,7 @@
 		"prism-react-renderer": "^1.3.5",
 		"react": "^18.2.0",
 		"react-dom": "18.2.0",
+		"react-stately": "^3.16.0",
 		"rollup": "^2.77.2",
 		"rollup-plugin-bundle-size": "^1.0.3",
 		"rollup-plugin-dts": "^4.2.2",

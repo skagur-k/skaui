@@ -1,8 +1,15 @@
 import clsx from 'clsx'
 import { useTextClass } from './styles'
-import { CodeBlockProps, InlineCodeProps, TextProps } from './Text.types'
 import styles from './Text.module.css'
-const Text = ({
+import {
+	CodeBlockProps,
+	InlineCodeProps,
+	LIProps,
+	ListProps,
+	TextProps,
+} from './Text.types'
+
+export const Text = ({
 	size = 'base',
 	weight,
 	transform,
@@ -34,6 +41,8 @@ const Text = ({
 	)
 }
 
+Text.displayName = 'SKA UI - Text'
+
 export const InlineCode = (props: InlineCodeProps) => {
 	const { children, className, ...rest } = props
 
@@ -45,10 +54,12 @@ export const InlineCode = (props: InlineCodeProps) => {
 	)
 }
 
+InlineCode.displayName = 'SKA UI - InlineCode'
+
 export const CodeBlock = (props: CodeBlockProps) => {
 	const { children, className, ...rest } = props
 
-	const codeBlockClasses = clsx('block whitespace-pre-wrap', className)
+	const codeBlockClasses = clsx(styles.text_codeblock, className)
 	return (
 		<pre {...rest} className={codeBlockClasses}>
 			{children}
@@ -56,4 +67,46 @@ export const CodeBlock = (props: CodeBlockProps) => {
 	)
 }
 
-export default Text
+CodeBlock.displayName = 'SKA UI - CodeBlock'
+
+export const UL = (props: ListProps) => {
+	const { children, className, ...rest } = props
+
+	const ulClasses = clsx(styles.ul, className)
+
+	return (
+		<ul {...rest} className={ulClasses}>
+			{children}
+		</ul>
+	)
+}
+
+UL.displayName = 'SKA UI - UL'
+
+export const OL = (props: ListProps) => {
+	const { children, className, ...rest } = props
+
+	const olClasses = clsx(styles.ol, className)
+
+	return (
+		<ol {...rest} className={olClasses}>
+			{children}
+		</ol>
+	)
+}
+
+OL.displayName = 'SKA UI - OL'
+
+export const LI = (props: LIProps) => {
+	const { children, className, ...rest } = props
+
+	const liClasses = clsx(styles.li, className)
+
+	return (
+		<li {...rest} className={liClasses}>
+			{children}
+		</li>
+	)
+}
+
+LI.displayName = 'SKA UI - LI'

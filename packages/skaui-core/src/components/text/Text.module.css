@@ -57,6 +57,13 @@
 	@apply bg-neutral-500 text-neutral-100 px-2;
 }
 
+.text_codeblock {
+	@apply inline-block bg-neutral-100;
+	@apply rounded-md;
+	@apply p-4 font-medium;
+	@apply text-neutral-800 text-lg;
+}
+
 .text_wght_100_thin {
 	@apply font-thin;
 }
@@ -93,4 +100,14 @@
 }
 .text_align_right {
 	@apply text-right;
+}
+
+.ul {
+	@apply list-outside;
+}
+
+.ol {
+	@apply list-outside;
+}
+.li {
 }
