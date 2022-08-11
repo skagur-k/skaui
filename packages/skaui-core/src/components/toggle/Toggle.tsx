@@ -2,16 +2,16 @@ import clsx from 'clsx'
 import React from 'react'
 import { useFocusRing, useLabel, useSwitch, VisuallyHidden } from 'react-aria'
 import { useToggleState } from 'react-stately'
-import { ToggleProps } from './Toggle.types'
 import styles from './Toggle.module.css'
+import { ToggleProps } from './Toggle.types'
 
 const Toggle = (props: ToggleProps): JSX.Element => {
 	const {
 		size = 'md',
 		labelPosition = 'right',
-		rounded = true,
-		disabled,
+		isDisabled,
 		children,
+		type,
 	} = props
 	const state = useToggleState(props)
 	const ref = React.useRef(null)
@@ -32,16 +32,28 @@ const Toggle = (props: ToggleProps): JSX.Element => {
 		lg: styles.toggle_lg,
 	}
 
+	const types = {
+		success: styles.toggle_success,
+		error: styles.toggle_error,
+	}
+
 	return (
 		<label
-			{...labelProps}
 			className={clsx(styles.toggle, [
 				labelPosition && labelPositions[labelPosition],
 				size && toggleSizes[size],
+				type && types[type],
+				isDisabled && styles.toggle_disabled,
 			])}
+			{...labelProps}
 		>
 			<VisuallyHidden>
-				<input {...inputProps} {...focusProps} disabled={disabled} ref={ref} />
+				<input
+					disabled={isDisabled}
+					ref={ref}
+					{...inputProps}
+					{...focusProps}
+				/>
 			</VisuallyHidden>
 
 			{children && (
@@ -49,7 +61,6 @@ const Toggle = (props: ToggleProps): JSX.Element => {
 					className={clsx(styles.toggle_label, [
 						isFocusVisible && styles.toggle_label_focused,
 						state.isSelected && styles.toggle_label_selected,
-						disabled && styles.toggle_label_disabled,
 					])}
 				>
 					{children}
@@ -60,11 +71,9 @@ const Toggle = (props: ToggleProps): JSX.Element => {
 				className={clsx(styles.toggle_switch, [
 					state.isSelected && styles.toggle_switch_selected,
 					isFocusVisible && styles.toggle_switch_focused,
-					disabled && styles.toggle_disabled,
 					size && toggleSizes[size],
 				])}
 			>
-				{/* <div className={classNames('toggle-switch-label')}>Label</div> */}
 				<div className={clsx(styles.toggle_switch_switch)}></div>
 				<div />
 			</div>

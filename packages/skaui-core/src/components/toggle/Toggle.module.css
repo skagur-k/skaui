@@ -5,7 +5,7 @@
 
 .toggle_sm {
 	& .toggle_switch {
-		@apply min-w-[36px] min-h-[20px];
+		@apply min-w-[32px] min-h-[20px];
 		& .toggle_switch_switch {
 			@apply min-w-[12px] min-h-[12px];
 		}
@@ -13,7 +13,7 @@
 }
 .toggle_md {
 	& .toggle_switch {
-		@apply min-w-[42px] min-h-[22px];
+		@apply min-w-[38px] min-h-[22px];
 		& .toggle_switch_switch {
 			@apply min-w-[14px] min-h-[14px];
 		}
@@ -21,7 +21,7 @@
 }
 .toggle_lg {
 	& .toggle_switch {
-		@apply min-w-[48px] min-h-[24px];
+		@apply min-w-[42px] min-h-[24px];
 		& .toggle_switch_switch {
 			@apply min-w-[16px] min-h-[16px];
 		}
@@ -53,12 +53,12 @@
 
 .toggle_switch {
 	@apply relative;
-	@apply bg-neutral-200 shadow-md;
+	@apply bg-neutral-300 shadow-sm;
 	@apply rounded-full;
 	@apply transition-all duration-200;
 }
 .toggle_switch_selected {
-	@apply bg-blue-500;
+	@apply bg-neutral-800;
 
 	& .toggle_switch_switch {
 		@apply translate-x-full;
@@ -69,10 +69,25 @@
 }
 
 .toggle_switch_selected.toggle_switch_focused {
-	@apply ring-blue-500;
+	@apply ring-neutral-800;
 }
 
-.toggle_switch_disabled {
+.toggle_disabled {
+	& .toggle_switch {
+		@apply cursor-not-allowed;
+		@apply opacity-60 shadow-none;
+	}
+	& .toggle_switch_switch {
+		@apply bg-neutral-100;
+	}
+
+	& .toggle_switch_selected.toggle_switch_focused {
+		@apply ring-blue-500;
+	}
+}
+
+.toggle_switch_disabled_bar {
+	@apply w-3 h-3;
 }
 
 .toggle_switch_switch {
@@ -82,4 +97,24 @@
 	@apply text-neutral-800;
 	@apply right-1/2 top-1/2 -translate-y-1/2;
 	@apply transition-all duration-200;
+}
+
+.toggle_success {
+	& .toggle_switch_selected {
+		@apply bg-blue-500;
+	}
+
+	& .toggle_switch_selected.toggle_switch_focused {
+		@apply ring-blue-500;
+	}
+}
+
+.toggle_error {
+	& .toggle_switch_selected {
+		@apply bg-red-500;
+	}
+
+	& .toggle_switch_selected.toggle_switch_focused {
+		@apply ring-red-500;
+	}
 }

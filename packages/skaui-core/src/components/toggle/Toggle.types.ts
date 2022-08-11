@@ -1,10 +1,12 @@
-import { AriaSwitchProps as _ToggleProps } from '@react-types/switch'
+import { AriaSwitchProps } from '@react-types/switch'
 import React from 'react'
 
-export interface ToggleProps extends _ToggleProps {
+export interface ToggleProps extends AriaSwitchProps {
+	defaultSelected?: boolean
+	type?: 'success' | 'error'
 	size?: 'sm' | 'md' | 'lg'
 	rounded?: boolean
-	disabled?: boolean
+	isDisabled?: boolean
 	labelPosition?: 'top' | 'bottom' | 'left' | 'right'
 	children?: React.ReactNode
 }

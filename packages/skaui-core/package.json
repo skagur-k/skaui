@@ -23,11 +23,14 @@
 		"react-aria": "^3.17.0"
 	},
 	"devDependencies": {
+		"@react-aria/listbox": "^3.6.0",
 		"@react-types/button": "^3.6.0",
-		"@react-types/switch": "^3.2.2",
+		"@react-types/listbox": "^3.3.2",
 		"@react-types/meter": "^3.2.2",
 		"@react-types/progress": "^3.2.2",
+		"@react-types/select": "^3.6.2",
 		"@react-types/shared": "^3.14.0",
+		"@react-types/switch": "^3.2.2",
 		"@react-types/tabs": "^3.1.2",
 		"@rollup/plugin-commonjs": "^22.0.1",
 		"@rollup/plugin-node-resolve": "^13.3.0",

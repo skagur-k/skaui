@@ -1,0 +1,7 @@
+.popover {
+	@apply absolute z-10;
+	@apply w-full top-full;
+	@apply bg-white outline-none rounded-sm;
+	@apply ring-1 ring-inset ring-neutral-200;
+	@apply p-2 mt-2;
+}

@@ -1,0 +1,25 @@
+.textarea {
+	@apply block w-full outline-none;
+	@apply rounded-md px-6 py-4;
+	@apply text-base font-normal leading-6;
+	@apply ring-1 ring-neutral-500 ring-offset-2;
+	@apply bg-neutral-50;
+	@apply resize-none;
+	@apply transition duration-200;
+
+	&::placeholder {
+		@apply text-neutral-300;
+	}
+}
+
+.textarea_disabled {
+	@apply cursor-not-allowed;
+	@apply ring-neutral-400;
+	@apply opacity-50;
+}
+.textarea_focused {
+	@apply ring-2;
+}
+.textarea_error {
+	@apply ring-red-500 text-red-500;
+}

@@ -1,0 +1,38 @@
+.listbox {
+	@apply flex flex-col outline-none overflow-auto;
+}
+
+.listbox_content {
+	@apply flex items-center gap-2;
+}
+
+.listbox_options {
+}
+
+.listbox_options_items {
+	@apply flex flex-col gap-2 max-h-[300px];
+}
+
+.listbox_option {
+	@apply flex items-center justify-between;
+	@apply px-3 py-2;
+	@apply text-neutral-500 text-base;
+	@apply hover:bg-neutral-100;
+	@apply outline-none rounded-sm;
+	@apply transition-all duration-300;
+	@apply cursor-pointer;
+}
+
+.listbox_option_disabled {
+	@apply text-neutral-200;
+}
+
+.listbox_option_selected {
+	@apply text-neutral-800 font-bold;
+}
+
+.listbox_section_heading {
+	@apply text-sm text-neutral-800;
+	@apply font-bold;
+	@apply px-1 py-2;
+}
