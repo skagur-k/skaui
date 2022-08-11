@@ -83,7 +83,7 @@
 .codePre {
 	@apply h-full max-h-[640px] w-full;
 	@apply overflow-y-auto;
-	@apply bg-transparent pt-0 pl-2 font-mono font-semibold;
+	@apply bg-transparent pt-0 pl-2 font-['JetBrains_Mono'] font-semibold;
 	@apply text-sm tracking-wide;
 }
 

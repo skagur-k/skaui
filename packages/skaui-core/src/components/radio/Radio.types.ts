@@ -6,16 +6,9 @@ interface SharedProps {
 	className?: string
 }
 
-export interface RadioProps extends SharedProps, AriaRadioProps {
-	caption?: string
-	disabled?: boolean
-	rounded?: boolean
-}
+export interface RadioProps extends SharedProps, AriaRadioProps {}
 
 export interface RadioGroupProps extends SharedProps {
 	label?: string
-	row?: boolean
 	disabled?: boolean
-	rounded?: boolean
-	description?: string
 }

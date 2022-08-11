@@ -1,87 +1,40 @@
-import { mergeRefs } from '../..//utils'
-import { useToggleState } from 'react-stately'
 import React, { forwardRef, PropsWithChildren, useRef } from 'react'
 import { useCheckbox, useFocusRing } from 'react-aria'
+import { useToggleState } from 'react-stately'
+import { mergeRefs } from '../..//utils'
+import styles from './Checkbox.module.css'
 import { CheckboxProps } from './Checkbox.types'
-import { useCheckboxClass, useCheckboxLabelClass } from './styles'
 
 import clsx from 'clsx'
 
 const Checkbox = forwardRef<HTMLInputElement, PropsWithChildren<CheckboxProps>>(
 	(props, extRef: React.Ref<HTMLInputElement>) => {
-		const {
-			name,
-			value,
-			id,
-			caption,
-			defaultSelected,
-			selected,
-			size,
-			color,
-			rounded,
-			invalid,
-			readOnly,
-			required,
-			disabled,
-			indeterminate,
-			className,
-			children,
-			onChange,
-			...rest
-		} = props
-
+		const { isDisabled, children } = props
 		const ref = useRef<HTMLInputElement>(null)
-		const state = useToggleState({
-			name,
-			value,
-			isReadOnly: readOnly,
-			isRequired: required,
-			isSelected: selected,
-			defaultSelected,
-			children,
-			onChange,
-			...rest,
-		})
+		const state = useToggleState(props)
 		const { inputProps } = useCheckbox(props, state, ref)
 		const { focusProps, isFocused } = useFocusRing()
 
-		const checkboxClasses = useCheckboxClass({
-			isSelected: state.isSelected,
-			disabled,
-			isFocused,
-			size,
-			rounded,
-		})
-
-		const checkboxLabelClasses = useCheckboxLabelClass({ size })
+		const isSelected = state.isSelected
 
 		return (
-			<label
-				className={clsx(
-					'checkbox-wrapper group',
-					disabled && 'cursor-not-allowed',
-					readOnly || disabled ? 'opacity-60' : 'opacity-100'
-				)}
-			>
+			<label className={clsx(styles.checkbox)}>
 				<input
 					{...inputProps}
 					{...focusProps}
 					type='checkbox'
-					id={id}
-					readOnly={readOnly}
-					disabled={disabled}
-					aria-readonly={readOnly}
-					aria-disabled={disabled}
-					className={clsx('sr-only')}
+					disabled={isDisabled}
+					className={clsx(styles.sr_only)}
 					ref={mergeRefs(ref, extRef)}
-					{...rest}
 				/>
 				<div
-					className={checkboxClasses}
-					data-color={color ? color : undefined}
-					aria-hidden='true'
+					className={clsx(styles.checkbox_button, [
+						isFocused && styles.checkbox_button_focused,
+						isSelected && styles.checkbox_button_selected,
+						isDisabled && styles.checkbox_disabled,
+					])}
 				>
-					<svg className='stroke-current checkbox-check' viewBox='0 0 18 18'>
+					<svg className={styles.checkbox_button_check} viewBox='0 0 18 18'>
 						<polyline
 							points='1 9 7 14 15 4'
 							fill='none'
@@ -94,9 +47,8 @@ const Checkbox = forwardRef<HTMLInputElement, PropsWithChildren<CheckboxProps>>(
 						/>
 					</svg>
 				</div>
-				<div className={clsx(checkboxLabelClasses, className)}>
-					<span>{children}</span>
-					<div className={clsx('checkbox-caption')}>{caption}</div>
+				<div className={clsx(styles.checkbox_content)}>
+					<span className={styles.checkbox_text}>{children}</span>
 				</div>
 			</label>
 		)

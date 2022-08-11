@@ -1,4 +1,13 @@
-import { ComboBox, Item, Section, Select } from '@skaui/core'
+import {
+	Checkbox,
+	CheckboxGroup,
+	ComboBox,
+	Item,
+	Radio,
+	RadioGroup,
+	Section,
+	Select,
+} from '@skaui/core'
 import { NextPage } from 'next'
 import PageLayout from '../layouts/PageLayout'
 
@@ -22,6 +31,30 @@ const Description: NextPage = () => {
 						<Item key='option2'>Hello World!</Item>
 					</Section>
 				</Select>
+				<RadioGroup>
+					<Radio value='dogs'>Dogs</Radio>
+					<Radio value='cats'>Cats</Radio>
+					<Radio value='ducks'>Ducks</Radio>
+					<Radio value='chicken'>Chickens</Radio>
+				</RadioGroup>
+				<RadioGroup label='Choose your animal'>
+					<Radio isDisabled value='dogs'>
+						Dogs
+					</Radio>
+					<Radio value='cats'>Cats</Radio>
+					<Radio value='ducks'>Ducks</Radio>
+					<Radio value='chicken'>Chickens</Radio>
+					<Radio value='rabbit'>Rabbit</Radio>
+					<Radio value='horse'>Horse</Radio>
+					<Radio value='turtle'>Turtle</Radio>
+				</RadioGroup>
+				<CheckboxGroup value={['one']} label='Hello World!'>
+					<Checkbox value='one'>1</Checkbox>
+					<Checkbox value='two'>2</Checkbox>
+					<Checkbox defaultSelected value='three'>
+						3
+					</Checkbox>
+				</CheckboxGroup>
 			</div>
 		</PageLayout>
 	)

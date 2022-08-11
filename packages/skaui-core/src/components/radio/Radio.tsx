@@ -1,12 +1,14 @@
 import clsx from 'clsx'
 import { RadioProps } from './Radio.types'
 
-import { useFocusRing, useRadio } from 'react-aria'
 import React from 'react'
+import { useFocusRing, useRadio } from 'react-aria'
 import { RadioContext } from './RadioGroup'
 
+import styles from './Radio.module.css'
+
 const Radio = (props: RadioProps) => {
-	const { children, rounded, className, disabled, caption, ...rest } = props
+	const { children, isDisabled } = props
 	const state = React.useContext(RadioContext)
 	const ref = React.useRef(null)
 	const { inputProps } = useRadio(props, state, ref)
@@ -17,26 +19,16 @@ const Radio = (props: RadioProps) => {
 
 	return (
 		<label
-			className={clsx('radio group', [
-				disabled && 'radio-disabled',
-				{ ...rest },
-			])}>
-			<input
-				{...inputProps}
-				{...focusProps}
-				disabled={disabled}
-				className={clsx('sr-only')}
-			/>
+			className={clsx(styles.radio, [isDisabled && styles.radio_disabled])}
+		>
+			<input {...inputProps} {...focusProps} className={clsx(styles.sr_only)} />
 			<div
-				className={clsx('radio-button', [
-					isFocused && 'radio-button-focused',
-					isSelected && 'radio-button-selected',
-					disabled && 'radio-button-disabled',
-					rounded && 'radio-button-rounded',
-				])}>
-				<svg
-					className='stroke-current radio-button-check'
-					viewBox='0 0 18 18'>
+				className={clsx(styles.radio_button, [
+					isFocused && styles.radio_button_focused,
+					isSelected && styles.radio_button_selected,
+				])}
+			>
+				<svg className={styles.radio_button_check} viewBox='0 0 18 18'>
 					<polyline
 						points='1 9 7 14 15 4'
 						fill='none'
@@ -49,9 +41,8 @@ const Radio = (props: RadioProps) => {
 					/>
 				</svg>
 			</div>
-			<div className={clsx('radio-content')}>
-				<div className='radio-text'>{children}</div>
-				{caption && <div className='radio-caption'>{caption}</div>}
+			<div className={clsx(styles.radio_content)}>
+				<div className={styles.radio_text}>{children}</div>
 			</div>
 		</label>
 	)
