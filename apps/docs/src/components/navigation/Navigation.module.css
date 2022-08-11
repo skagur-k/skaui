@@ -5,7 +5,7 @@
 
 .navigationItem {
 	@apply flex items-center space-x-2;
-	@apply py-1 pl-2;
+	@apply mx-1 py-2 pl-4;
 	@apply transition-colors duration-200;
 	@apply bg-neutral-100 hover:bg-neutral-200;
 	@apply overflow-hidden rounded-md;
@@ -17,10 +17,10 @@
 }
 
 .icon {
-	@apply mr-2 h-8 w-8;
+	@apply mr-2 h-4 w-4;
 	@apply flex items-center justify-center;
 }
 
 .title {
-	@apply font-medium;
+	@apply text-sm font-medium;
 }

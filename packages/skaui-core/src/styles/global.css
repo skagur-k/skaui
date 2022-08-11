@@ -9,6 +9,7 @@ body {
 	background-color: var(--geist-background);
 	color: var(--geist-foreground);
 	scroll-padding-top: var(--header-height);
+	font-size: 14px;
 }
 
 body {

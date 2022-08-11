@@ -8,7 +8,7 @@ const PageNotFound = () => {
 			}
 		>
 			<div className='title flex flex-col gap-10'>
-				<h1 className='text-4xl font-black'>404 | Page Not Found</h1>
+				<h1 className='text-2xl font-black'>404 | Page Not Found</h1>
 				<p className='text-xl'>
 					Sorry. Page you are looking for is not found.{' '}
 				</p>

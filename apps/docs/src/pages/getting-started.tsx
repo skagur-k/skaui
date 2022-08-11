@@ -1,27 +1,13 @@
-import { File, FileViewer, Folder, useToast } from '@skaui/core'
+import { File, FileViewer, Folder } from '@skaui/core'
 import { NextPage } from 'next'
 import * as ex from '../data/prismexample'
 import PageLayout from '../layouts/PageLayout'
 
 const GettingStarted: NextPage = () => {
-	const toast = useToast({ position: 'bottom-right' })
-
 	return (
 		<PageLayout>
 			<div>
 				<FileViewer title='Hello World'>
-					<File
-						name='javascript.js'
-						language='javascript'
-						content={ex.js}
-						highlight={'4,6,8-10'}
-					/>
-					<File
-						name='index.html'
-						language='markup'
-						content={ex.html}
-						highlight={'4,6,8-10'}
-					/>
 					<Folder name='src'>
 						<File
 							name='Diff.diff'
@@ -42,9 +28,36 @@ const GettingStarted: NextPage = () => {
 							content={ex.stylescss}
 							highlight={'4,6,8-10'}
 						/>
+						<Folder name='src'>
+							<File
+								name='Diff.diff'
+								language='diff'
+								content={ex.diff}
+								highlight={'4,6,8-10'}
+							/>
+
+							<File
+								name='styles.css'
+								language='css'
+								content={ex.stylescss}
+								highlight={'4,6,8-10'}
+							/>
+						</Folder>
 					</Folder>
+					<File
+						name='javascript.js'
+						language='javascript'
+						content={ex.js}
+						highlight={'4,6,8-10'}
+					/>
+					<File
+						name='index.html'
+						language='markup'
+						content={ex.html}
+						highlight={'4,6,8-10'}
+					/>
+					<File name='nocontent.html' language='markup' />
 				</FileViewer>
-				<button onClick={() => toast('hello world')}>TOAST!</button>
 			</div>
 		</PageLayout>
 	)

@@ -36,7 +36,7 @@
 }
 
 .description {
-	@apply text-base text-neutral-500;
+	@apply text-sm text-neutral-500;
 }
 
 .editorCollapsible {
@@ -65,7 +65,7 @@
 }
 
 .errorMsg {
-	@apply text-base font-bold text-red-500;
+	@apply text-sm font-bold text-red-500;
 }
 
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
@@ -73,7 +73,7 @@
 .editor {
 	@apply flex-1 overflow-auto;
 	@apply transition-all duration-200;
-	@apply text-sm lg:text-base;
+	@apply text-sm lg:text-sm;
 
 	& textarea {
 		@apply outline-none;

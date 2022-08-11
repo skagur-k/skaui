@@ -1,5 +1,5 @@
 .aside {
-	@apply fixed z-50 flex h-full min-w-[250px] flex-col;
+	@apply fixed z-50 flex h-full flex-col;
 }
 
 .content {
@@ -7,16 +7,17 @@
 }
 
 .header {
-	@apply flex justify-center pt-20 pb-16;
-	@apply text-2xl font-black;
+	@apply flex justify-center pt-14 pb-16;
+	@apply text-lg font-black;
 }
 
 .buttonGroup {
-	@apply grid grid-cols-2 px-2;
+	@apply grid grid-cols-2 px-4;
 }
 
 .button {
 	@apply grid justify-center;
+	@apply mx-1 text-sm;
 }
 
 .components {
@@ -26,14 +27,10 @@
 
 .component {
 }
-.component::before {
-	@apply flex items-center;
-	@apply transition-colors duration-100;
-	@apply absolute left-0 h-[20px] w-[1px] -translate-x-1/2 pl-2 content-[''];
-}
 
 .componentTitle {
 	@apply font-medium underline-offset-4 hover:text-neutral-500 hover:underline;
+	@apply text-base;
 }
 
 .componentActive .componentTitle {
@@ -45,9 +42,9 @@
 }
 
 .sectionHeading {
-	@apply mb-6 text-lg font-bold;
+	@apply mb-6 text-base font-bold;
 }
 
 .componentList {
-	@apply ml-6 flex flex-col gap-6;
+	@apply ml-2 flex flex-col gap-3;
 }

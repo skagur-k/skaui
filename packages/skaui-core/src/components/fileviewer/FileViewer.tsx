@@ -2,12 +2,13 @@ import clsx from 'clsx'
 import { AnimatePresence, motion } from 'framer-motion'
 import React, { useEffect } from 'react'
 import {
-	SettingsIcon,
-	FolderIcon,
+	ChevronDownIcon,
 	FileIcon,
-	SquarePlusIcon,
-	SquareMinusIcon,
+	FolderIcon,
+	SettingsIcon,
 } from '../../icons'
+import ChevronRightIcon from '../../icons/ChevronRightIcon'
+import XIcon from '../../icons/XIcon'
 import { Clipboard } from '../clipboard'
 import FileContent from './FileContent'
 import styles from './FileViewer.module.css'
@@ -102,7 +103,7 @@ export const FileViewer: React.ComponentType<FileViewerProps> = React.memo(
 												/>
 												<label
 													htmlFor='linenumbers'
-													className='text-sm text-neutral-600'
+													className={styles.fileviewoptions_option}
 												>
 													Line numbers
 												</label>
@@ -117,7 +118,7 @@ export const FileViewer: React.ComponentType<FileViewerProps> = React.memo(
 												/>
 												<label
 													htmlFor='showcontent'
-													className='text-sm text-neutral-600'
+													className={styles.fileviewoptions_option}
 												>
 													Show Content
 												</label>
@@ -132,6 +133,7 @@ export const FileViewer: React.ComponentType<FileViewerProps> = React.memo(
 						)}
 						{selectedFile.content && showContent && (
 							<Clipboard
+								size={'sm'}
 								copyText={selectedFile.content}
 								className='absolute bottom-6 right-8'
 							/>
@@ -176,12 +178,13 @@ export const Folder: React.ComponentType<FolderProps> = React.memo(
 				<li
 					tabIndex={0}
 					onKeyDown={onKeyDown}
-					className={clsx('treeview-folder', {
-						'treeview-folder-open': isExpanded || open,
-					})}
+					className={clsx(
+						styles.treeview_folder,
+						(isExpanded || open) && styles.treeview_folder_open
+					)}
 				>
 					<a
-						className={clsx('treeview-folder-label')}
+						className={clsx(styles.treeview_folder_label)}
 						title={name}
 						onClick={() => setIsExpanded((open) => !open)}
 					>
@@ -189,26 +192,29 @@ export const Folder: React.ComponentType<FolderProps> = React.memo(
 							return (
 								<span
 									key={i}
-									className='treeview-indent treeview-indent-folder'
+									className={clsx(
+										styles.treeview_indent,
+										styles.treeview_indent_folder
+									)}
 								/>
 							)
 						})}
-						<div className='treeview-folder-label'>
+						<div className={styles.treeview_folder_label}>
 							<span
-								className={clsx('treeview-folder-label-status', {
-									'treeview-folder-label-status-disabled': open,
-								})}
+								className={clsx(styles.treeview_folder_label_status, [
+									open && styles.treeview_folder_label_status_disabled,
+								])}
 							>
 								{open || isExpanded ? (
-									<SquareMinusIcon className='align-middle' />
+									<ChevronDownIcon className={styles.treeview_icons} />
 								) : (
-									<SquarePlusIcon />
+									<ChevronRightIcon className={styles.treeview_icons} />
 								)}
 							</span>
-							<span className='treeview-folder-label-icon'>
-								<FolderIcon className='treeview-icons' />
+							<span className={styles.treeview_folder_label_icon}>
+								<FolderIcon className={styles.treeview_icons} />
 							</span>
-							<span className='treeview-folder-label-name'>{name}</span>
+							<span className={styles.treeview_folder_label_name}>{name}</span>
 						</div>
 					</a>
 					<AnimatePresence>
@@ -220,7 +226,7 @@ export const Folder: React.ComponentType<FolderProps> = React.memo(
 									exit={{ height: 0 }}
 									transition={{ duration: 0.1, ease: 'linear' }}
 									ref={ref}
-									className='treeview-folder-children overflow-hidden'
+									className={styles.treeview_folder_children}
 								>
 									{sluggedChildren}
 								</motion.ul>
@@ -273,23 +279,29 @@ export const File: React.ComponentType<FileProps> = React.memo(
 				ref={ref}
 				onClick={handleSelect}
 				tabIndex={0}
-				className={clsx('treeview-file', {
-					'treeview-file-active': active,
-					'treeview-file-selected': selected,
-				})}
+				className={clsx(styles.treeview_file, [
+					active && styles.treeview_file_active,
+					selected && styles.treeview_file_selected,
+				])}
 			>
 				<a title={name}>
 					{Array.from(Array(depth)).map((_e, i) => {
 						return (
-							<span className='treeview-indent treeview-indent-file' key={i} />
+							<span
+								className={clsx(
+									styles.treeview_indent,
+									styles.treeview_indent_file
+								)}
+								key={i}
+							/>
 						)
 					})}
 				</a>
-				<div className={clsx('treeview-file-label')}>
-					<span className='treeview-file-label-icon '>
-						{icon ? iconClone : <FileIcon className='treeview-icons' />}
+				<div className={clsx(styles.treeview_file_label)}>
+					<span className={styles.treeview_file_label_icon}>
+						{icon ? iconClone : <FileIcon className={styles.treeview_icons} />}
 					</span>
-					<span className='treeview-file-label-name'>{name}</span>
+					<span className={styles.treeview_file_label_name}>{name}</span>
 				</div>
 			</li>
 		)

@@ -16,6 +16,7 @@ const CodeRenderer = ({
 	language?: Language
 	highlight?: string
 }) => {
+	
 	const highlights = rangeParser(highlight || '')
 
 	return (

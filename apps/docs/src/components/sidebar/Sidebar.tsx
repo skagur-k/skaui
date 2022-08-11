@@ -17,16 +17,12 @@ export const Sidebar = () => {
 						<NavLink href='/'>SKA-UI</NavLink>
 					</div>
 					<div className={styles.buttonGroup}>
-						<div className={styles.button}>
-							<Button size='block' className='shadow-sm'>
-								GitHub
-							</Button>
-						</div>
-						<div className={styles.button}>
-							<Button size='block' type='secondary' className='shadow-sm'>
-								skagur.dev
-							</Button>
-						</div>
+						<Button size='block' className={styles.button}>
+							GitHub
+						</Button>
+						<Button size='block' type='secondary' className={styles.button}>
+							skagur.dev
+						</Button>
 					</div>
 				</div>
 

@@ -3,6 +3,6 @@ const skaui = ['@skaui/core']
 const withTM = require('next-transpile-modules')(skaui)
 
 module.exports = withTM({
-	// reactStrictMode: true,
+	reactStrictMode: false,
 	// swcMinify: true,
 })

@@ -1,12 +1,12 @@
 .fileviewer {
 	@apply relative;
-	@apply mx-2 flex flex-col gap-1 lg:mx-2 lg:flex-row lg:gap-2;
+	@apply mx-2 flex flex-col gap-1 lg:mx-12 lg:flex-row lg:gap-[2px];
 }
 
 .filecontentWrapper {
-	@apply relative min-h-[500px] flex-1 overflow-x-auto;
+	@apply relative min-h-[300px] flex-1 overflow-y-hidden;
 	@apply rounded-md bg-neutral-50;
-	@apply p-4 lg:p-4;
+	@apply p-4 lg:py-4 lg:px-1;
 	@apply shadow-sm;
 	@apply border border-neutral-300;
 }
@@ -21,9 +21,9 @@
 	@apply list-none gap-0;
 	@apply text-base;
 	@apply transition-all;
-	@apply w-full min-w-[280px] lg:w-fit;
+	@apply w-full min-w-[200px] lg:w-fit;
 	@apply bg-neutral-50;
-	@apply p-4;
+	@apply p-1;
 	@apply rounded-md border border-neutral-300;
 	@apply shadow-sm;
 }
@@ -35,28 +35,29 @@
 }
 
 .filetreetitle {
-	@apply py-2 text-center text-base font-bold lg:text-left;
+	@apply py-2 text-center text-sm font-bold lg:text-left;
 }
 
 .filecontentSlug {
 	@apply text-center align-middle;
+	@apply text-sm;
 	@apply font-bold text-blue-500;
 	@apply select-none;
 }
 
 .filecontentLanguage {
-	@apply rounded-md border border-neutral-300 bg-neutral-50 px-2 text-xs;
+	@apply rounded-sm border border-neutral-300 bg-neutral-50 px-2 text-xs;
 	@apply cursor-pointer select-none;
 	@apply tracking-widest text-neutral-400;
 }
 
 .filecontentContent {
-	@apply mt-4 h-full;
+	@apply mt-2 h-full;
 }
 
 .filecontentContentNoFile {
-	@apply absolute top-0 bottom-0 right-0 left-0 h-[200px];
-	@apply translate-y-1/2;
+	@apply absolute top-12 bottom-0 right-0 left-0;
+	/* @apply translate-y-1/2; */
 	@apply flex items-center justify-center;
 }
 
@@ -65,7 +66,7 @@
 }
 
 .filecontentMsg {
-	@apply text-lg font-medium text-neutral-400;
+	@apply text-sm font-medium text-neutral-400;
 }
 
 .filecontentMsgIcon {
@@ -73,7 +74,7 @@
 }
 
 .filecontentMsgDescription {
-	@apply text-base text-neutral-400;
+	@apply text-sm text-neutral-400;
 }
 
 .filetree {
@@ -81,33 +82,47 @@
 }
 
 .codePre {
-	@apply h-full max-h-[640px] w-full;
-	@apply overflow-y-auto;
-	@apply bg-transparent pt-0 pl-2 font-['JetBrains_Mono'] font-semibold;
-	@apply text-sm tracking-wide;
+	@apply h-full max-h-[380px] w-full;
+	@apply bg-transparent pt-0 pl-0 font-['JetBrains_Mono'];
+	@apply text-sm font-medium tracking-wide;
+	@apply overflow-auto;
+	/* @apply overflow-y-auto overflow-x-auto; */
+}
+
+.codePre::-webkit-scrollbar {
+	@apply w-5 bg-neutral-100;
+	width: 3px;
+	height: 3px;
+}
+
+.codePre::-webkit-scrollbar-thumb {
+	@apply bg-neutral-300;
 }
 
 .codeLine {
 	@apply flex items-center;
-	@apply py-1 px-2;
-	@apply hover:bg-neutral-100;
+	@apply py-1 px-4;
+	@apply hover:bg-neutral-200;
+	@apply text-xs font-semibold;
 }
 
 .codeHighlight {
-	@apply bg-blue-500/5 hover:bg-blue-500/20;
+	@apply w-full bg-neutral-500/10 hover:bg-neutral-200;
 
 	& .codeLineNumber {
-		@apply font-bold text-neutral-500;
+		@apply font-medium text-neutral-500;
 	}
 }
 
 .codeLineNumber {
-	@apply mr-2 w-6 text-sm text-neutral-300;
+	@apply mr-1 w-6 text-xs text-neutral-300;
 	@apply select-none;
 }
 
 .codeTag {
-	@apply text-black;
+}
+
+.codeTag {
 }
 
 .codeSetting {
@@ -118,10 +133,208 @@
 
 .codeSettingIcon {
 	@apply cursor-pointer transition-all duration-100 hover:text-neutral-500;
-	@apply h-6 w-6 text-neutral-400;
+	@apply h-5 w-5 text-neutral-400;
 }
 
 .fileviewoptions {
-	@apply absolute left-10;
+	@apply absolute left-8;
 	@apply flex flex-row gap-2;
+}
+
+.fileviewoptions_option {
+	@apply text-xs text-neutral-500;
+}
+.fileviewer {
+	@apply relative;
+	@apply mx-2 flex flex-col gap-1 lg:mx-12 lg:flex-row lg:gap-[2px];
+}
+
+.filecontentWrapper {
+	@apply relative min-h-[300px] flex-1 overflow-y-hidden;
+	@apply rounded-md bg-neutral-50;
+	@apply p-4 lg:py-4 lg:px-1;
+	@apply shadow-sm;
+	@apply border border-neutral-300;
+}
+
+.filecontent {
+	@apply flex-col gap-1;
+	@apply relative h-full w-full;
+}
+
+.filetreeview {
+	@apply flex flex-col;
+	@apply list-none gap-0;
+	@apply text-base;
+	@apply transition-all;
+	@apply w-full min-w-[200px] lg:w-fit;
+	@apply bg-neutral-50;
+	@apply py-2 px-4;
+	@apply rounded-md border border-neutral-300;
+	@apply shadow-sm;
+}
+
+.filetreeviewOnly {
+	@apply w-full lg:w-full;
+	@apply min-h-fit;
+	@apply shadow-sm;
+}
+
+.filetreetitle {
+	@apply py-2 text-center text-sm font-bold lg:text-left;
+}
+
+.filecontentSlug {
+	@apply text-center align-middle;
+	@apply text-sm;
+	@apply font-bold text-blue-500;
+	@apply select-none;
+}
+
+.filecontentLanguage {
+	@apply rounded-sm border border-neutral-300 bg-neutral-50 px-2 text-xs;
+	@apply cursor-pointer select-none;
+	@apply tracking-widest text-neutral-400;
+}
+
+.filecontentContent {
+	@apply mt-2 h-full;
+}
+
+.filecontentContentNoFile {
+	@apply absolute top-12 bottom-0 right-0 left-0;
+	/* @apply translate-y-1/2; */
+	@apply flex items-center justify-center;
+}
+
+.filecontentMsgWrapper {
+	@apply flex flex-col items-center gap-4;
+}
+
+.filecontentMsg {
+	@apply text-sm font-medium text-neutral-400;
+}
+
+.filecontentMsgIcon {
+	@apply h-8 w-8 text-neutral-400;
+}
+
+.filecontentMsgDescription {
+	@apply text-sm text-neutral-400;
+}
+
+.filetree {
+	@apply w-fit lg:w-full;
+}
+
+.codeSetting {
+	@apply mt-auto w-full pt-4;
+	@apply flex items-center gap-4;
+	@apply relative;
+}
+
+.codeSettingIcon {
+	@apply cursor-pointer transition-all duration-100 hover:text-neutral-500;
+	@apply h-5 w-5 text-neutral-400;
+}
+
+.fileviewoptions {
+	@apply absolute left-8;
+	@apply flex flex-row gap-2;
+}
+
+.fileviewoptions_option {
+	@apply text-xs text-neutral-500;
+}
+
+.treeview_folder {
+	@apply flex flex-col;
+	@apply cursor-pointer outline-none;
+	@apply list-none gap-0;
+	@apply text-xs;
+	@apply overflow-hidden transition-all;
+}
+
+.treeview_folder_open {
+	/* @apply bg-neutral-50; */
+}
+
+.treeview_folder_label {
+	@apply flex items-center hover:text-blue-700;
+	@apply py-[2px];
+}
+
+.treeview_indent {
+	@apply inline-block;
+	@apply w-[8px] h-full;
+}
+
+.treeview_indent_folder {
+}
+
+.treeview_folder_label_icon {
+	@apply mr-2;
+}
+
+.treeview_folder_label_name {
+}
+
+.treeview_folder_label_status {
+	@apply flex justify-center items-center h-full;
+	@apply bg-gradient-to-r from-neutral-100 to-neutral-100 bg-[length:2px_100%] bg-no-repeat bg-center;
+
+	@apply mr-1;
+}
+
+.treeview_folder_label_status_disabled {
+	@apply cursor-not-allowed;
+}
+
+.treeview_icons {
+	@apply w-3 h-3 stroke-[3px];
+}
+
+.treeview_folder_children {
+	@apply flex flex-col gap-0;
+	@apply ml-5;
+	@apply overflow-hidden;
+
+	& .treeview_file {
+		@apply ml-0;
+	}
+
+	& .treeview_folder {
+		@apply -ml-3;
+	}
+}
+
+.treeview_file {
+	@apply flex ml-[10px];
+	@apply cursor-default outline-none;
+	@apply overflow-hidden transition-all;
+	@apply text-xs;
+}
+
+.treeview_file_active {
+}
+
+.treeview_file_selected {
+	& .treeview_file_label {
+		@apply bg-neutral-800 text-neutral-100;
+		@apply transition-all duration-200;
+	}
+}
+
+.treeview_file_label {
+	@apply flex relative items-center py-[3px] px-[4px] flex-1;
+	@apply ml-[0px];
+	@apply rounded-md;
+}
+
+.treeview_file_label_icon {
+	@apply mr-1;
+}
+
+.treeview_file_label_name {
+	@apply py-[2px] flex flex-1 select-none;
 }

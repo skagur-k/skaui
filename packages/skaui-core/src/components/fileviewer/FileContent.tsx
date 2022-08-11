@@ -14,8 +14,19 @@ const FileContent = ({
 	file: IFile
 	lineNumbers: boolean
 }) => {
-	const { selectedFile } = useFileViewer()
+	const { selectedFile, setSelectedFile } = useFileViewer()
 	const { slug, content, language, highlight } = selectedFile
+
+	function handleUnselectFile() {
+		console.log('clicked')
+
+		setSelectedFile({
+			slug: undefined,
+			content: undefined,
+			language: undefined,
+			highlight: undefined,
+		})
+	}
 
 	useEffect(() => {}, [content])
 	return (
@@ -52,7 +63,7 @@ const FileContent = ({
 								<EyeIcon className={styles.filecontentMsgIcon} />
 								<span className={styles.filecontentMsg}>No file selected.</span>
 								<span className={styles.filecontentMsgDescription}>
-									Please select a file to view.
+									Please select file to view.
 								</span>
 							</div>
 						) : !content && slug ? (
@@ -60,7 +71,7 @@ const FileContent = ({
 								<FileIcon className={styles.filecontentMsgIcon} />
 								<span className={styles.filecontentMsg}>File Empty</span>
 								<span className={styles.filecontentMsgDescription}>
-									Please provide the content for the file.
+									Please provide content for the file.
 								</span>
 							</div>
 						) : (
