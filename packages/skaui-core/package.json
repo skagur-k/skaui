@@ -25,6 +25,7 @@
 	"devDependencies": {
 		"@react-aria/listbox": "^3.6.0",
 		"@react-types/button": "^3.6.0",
+		"@react-types/combobox": "^3.5.2",
 		"@react-types/listbox": "^3.3.2",
 		"@react-types/meter": "^3.2.2",
 		"@react-types/progress": "^3.2.2",

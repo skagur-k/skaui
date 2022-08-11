@@ -16,8 +16,7 @@
 .listbox_option {
 	@apply flex items-center justify-between;
 	@apply px-3 py-2;
-	@apply text-neutral-500 text-base;
-	@apply hover:bg-neutral-100;
+	@apply text-neutral-500 text-base font-medium;
 	@apply outline-none rounded-sm;
 	@apply transition-all duration-300;
 	@apply cursor-pointer;
@@ -29,6 +28,10 @@
 
 .listbox_option_selected {
 	@apply text-neutral-800 font-bold;
+}
+
+.listbox_option_focused {
+	@apply bg-neutral-100;
 }
 
 .listbox_section_heading {

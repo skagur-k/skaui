@@ -1,7 +1,17 @@
 .popover {
 	@apply absolute z-10;
 	@apply w-full top-full;
-	@apply bg-white outline-none rounded-sm;
-	@apply ring-1 ring-inset ring-neutral-200;
+	@apply bg-neutral-50 outline-none rounded-sm;
+	@apply ring-1 ring-inset ring-neutral-300;
 	@apply p-2 mt-2;
+	animation: fadein 0.3s;
+}
+
+@keyframes fadein {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
 }

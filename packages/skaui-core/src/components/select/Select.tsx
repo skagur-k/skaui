@@ -9,7 +9,7 @@ import {
 	useSelect,
 } from 'react-aria'
 import { useSelectState } from 'react-stately'
-import { SettingsIcon } from '../../icons'
+import { ChevronDownIcon } from '../../icons'
 import { ListBox } from '../listbox'
 import { Popover } from '../popover'
 import styles from './Select.module.css'
@@ -50,8 +50,8 @@ const Select = <T extends object>(props: SelectProps<T>) => {
 				ref={ref}
 				disabled={props.isDisabled}
 				className={clsx(styles.select_button, [
-					isFocused && styles.select_button_focused,
 					isHovered && styles.select_button_hovered,
+					isFocused && styles.select_button_focused,
 					isDisabled && styles.select_button_disabled,
 					state.isOpen && styles.select_button_opened,
 				])}
@@ -61,7 +61,11 @@ const Select = <T extends object>(props: SelectProps<T>) => {
 						? state.selectedItem.rendered
 						: 'Select an Option'}
 				</div>
-				<SettingsIcon />
+				<ChevronDownIcon
+					className={clsx(styles.select_button_icon, [
+						state.isOpen && styles.select_button_icon_opened,
+					])}
+				/>
 			</button>
 
 			{state.isOpen && (

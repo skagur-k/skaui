@@ -1,0 +1,147 @@
+.input {
+	@apply relative w-full;
+	@apply flex flex-col;
+	@apply justify-center items-start;
+}
+
+.input_disabled {
+	& .input_wrapper {
+		@apply opacity-50;
+	}
+
+	& .input_field {
+		@apply cursor-not-allowed;
+	}
+}
+
+.input_unstyled {
+	& .input_field {
+		@apply focus:ring-0;
+	}
+
+	& .input_field_w_prefix {
+		@apply border-l-0;
+	}
+	& .input_field_w_suffix {
+		@apply border-r-0;
+	}
+
+	& .input_prefix {
+		@apply bg-white text-neutral-400 pr-1;
+	}
+
+	& .input_suffix {
+		@apply bg-white text-neutral-400;
+	}
+
+	& .input_focused .input_wrapper {
+		@apply ring-1 ring-neutral-500 rounded-sm;
+	}
+
+	& .inpput_disabled {
+		@apply cursor-not-allowed;
+
+		& .input_prefix,
+		.input_suffix {
+			@apply bg-neutral-50;
+		}
+	}
+}
+
+.input_sm {
+	& .input_label {
+		@apply text-sm;
+	}
+
+	& .input_field {
+		@apply py-1;
+	}
+}
+.input_md {
+	& .input_label {
+		@apply text-base;
+	}
+
+	& .input_field {
+		@apply py-[5px];
+	}
+}
+.input_lg {
+	& .input_label {
+		@apply text-base;
+	}
+
+	& .input_field {
+		@apply py-[8px];
+	}
+}
+
+.input_label {
+	@apply block mb-2;
+	@apply font-medium text-neutral-800;
+}
+
+.input_wrapper {
+	@apply transition-all duration-300;
+	@apply table justify-center mb-2;
+}
+
+.input_focused .input_wrapper {
+	@apply ring-1 ring-neutral-500 rounded-sm;
+}
+
+.input_invalid {
+	& .input_wrapper {
+		@apply ring-1 ring-red-300;
+	}
+
+	& .input_label {
+		@apply text-red-400;
+	}
+}
+
+.input_invalid.input_focused .input_wrapper {
+	@apply ring-red-500 rounded-sm;
+}
+
+.input_prefix,
+.input_suffix {
+	@apply transition-all duration-300;
+	@apply bg-neutral-50 text-neutral-500;
+	@apply table-cell px-4 align-middle;
+	@apply border px-4;
+}
+
+.input_prefix {
+	@apply border-r-0;
+}
+
+.input_suffix {
+	@apply border-l-0;
+}
+
+.input_field {
+	@apply w-full px-3 py-1 z-50;
+	@apply border appearance-none align-middle;
+	@apply text-neutral-800 bg-white;
+	@apply outline-none;
+
+	&::placeholder {
+		@apply text-neutral-300 font-light;
+	}
+}
+
+.input_field_w_prefix {
+}
+.input_field_w_suffix {
+}
+
+.input_errormsg {
+	@apply flex items-center gap-2;
+	@apply ml-1 text-sm text-red-500;
+}
+.input_description {
+	@apply ml-1 text-sm text-neutral-400;
+}
+.input_erricon {
+}
