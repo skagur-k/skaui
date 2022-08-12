@@ -62,7 +62,7 @@ const Toast = (props: IToast) => {
 				<Button
 					size='block'
 					className={styles.toastDismissButton}
-					onClick={handleClick}
+					onPress={handleClick}
 				>
 					Dismiss
 				</Button>
@@ -70,7 +70,7 @@ const Toast = (props: IToast) => {
 					<Button
 						size='block'
 						className={styles.toastActionButton}
-						onClick={action.onClick}
+						onPress={action.onPress}
 					>
 						{action.name}
 					</Button>

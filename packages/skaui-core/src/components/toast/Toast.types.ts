@@ -13,7 +13,7 @@ export interface ToastOptions {
 	title?: string
 	action?: {
 		name: string
-		onClick: () => void
+		onPress: () => void
 	}
 }
 

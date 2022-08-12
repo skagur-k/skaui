@@ -1,4 +1,4 @@
-import { File, FileViewer, Folder } from '@skaui/core'
+import { File, TreeView, Folder } from '@skaui/core'
 import { NextPage } from 'next'
 import * as ex from '../data/prismexample'
 import PageLayout from '../layouts/PageLayout'
@@ -7,7 +7,7 @@ const GettingStarted: NextPage = () => {
 	return (
 		<PageLayout>
 			<div>
-				<FileViewer title='Hello World'>
+				<TreeView title='Hello World'>
 					<Folder name='src'>
 						<File
 							name='Diff.diff'
@@ -57,7 +57,7 @@ const GettingStarted: NextPage = () => {
 						highlight={'4,6,8-10'}
 					/>
 					<File name='nocontent.html' language='markup' />
-				</FileViewer>
+				</TreeView>
 			</div>
 		</PageLayout>
 	)

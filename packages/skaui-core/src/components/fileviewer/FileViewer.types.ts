@@ -6,6 +6,8 @@ export interface FileViewerProps {
 	nocontent?: boolean
 }
 
+export interface TreeViewProps extends FileViewerProps {}
+
 export interface BaseProps {
 	name: string
 }

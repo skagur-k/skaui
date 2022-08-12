@@ -9,6 +9,7 @@ import {
 } from '../../icons'
 import ChevronRightIcon from '../../icons/ChevronRightIcon'
 import XIcon from '../../icons/XIcon'
+import { Checkbox } from '../checkbox'
 import { Clipboard } from '../clipboard'
 import FileContent from './FileContent'
 import styles from './FileViewer.module.css'
@@ -109,19 +110,13 @@ export const FileViewer: React.ComponentType<FileViewerProps> = React.memo(
 												</label>
 											</div>
 											<div className='flex gap-1'>
-												<input
-													type='checkbox'
-													id='showcontent'
-													name='showcontent'
-													checked={showContent}
+												<Checkbox
+													isSelected={showContent}
+													
 													onChange={handleShowContentToggle}
-												/>
-												<label
-													htmlFor='showcontent'
-													className={styles.fileviewoptions_option}
 												>
 													Show Content
-												</label>
+												</Checkbox>
 											</div>
 										</motion.div>
 									)}
@@ -132,11 +127,14 @@ export const FileViewer: React.ComponentType<FileViewerProps> = React.memo(
 							<FileContent lineNumbers={lineNumbers} file={selectedFile} />
 						)}
 						{selectedFile.content && showContent && (
-							<Clipboard
-								size={'sm'}
-								copyText={selectedFile.content}
-								className='absolute bottom-6 right-8'
-							/>
+							<>
+								<Clipboard
+									size={'sm'}
+									copyText={selectedFile.content}
+									className={styles.clipboard}
+								/>
+								<XIcon className={styles.xicon} />
+							</>
 						)}
 					</motion.div>
 				</AnimatePresence>
@@ -260,7 +258,7 @@ export const File: React.ComponentType<FileProps> = React.memo(
 
 		if (icon) {
 			iconClone = React.cloneElement(icon!, {
-				className: 'treeview-icons',
+				className: styles.treeview_icon,
 			})
 		}
 
