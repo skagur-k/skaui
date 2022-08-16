@@ -1,12 +1,16 @@
-import { File, TreeView, Folder } from '@skaui/core'
+import { Button, File, Folder, OverlayContainer, TreeView } from '@skaui/core'
+import Modal from '@skaui/core/src/components/modal/Modal'
 import { NextPage } from 'next'
+import { useState } from 'react'
 import * as ex from '../data/prismexample'
 import PageLayout from '../layouts/PageLayout'
 
 const GettingStarted: NextPage = () => {
+	const [isOpen, setOpen] = useState(false)
+
 	return (
 		<PageLayout>
-			<div>
+			<div className='flex flex-col justify-center gap-10'>
 				<TreeView title='Hello World'>
 					<Folder name='src'>
 						<File
@@ -58,6 +62,23 @@ const GettingStarted: NextPage = () => {
 					/>
 					<File name='nocontent.html' language='markup' />
 				</TreeView>
+				<div>
+					<Button onPress={() => setOpen(true)}>Open Dialog</Button>
+					<OverlayContainer>
+						<Modal
+							title='Title for the dialog'
+							isOpen={isOpen}
+							onClose={() => setOpen(false)}
+							confirmAction={() => setOpen(false)}
+							confirmLabel='Delete'
+						>
+							<div>
+								Are you sure you want to delete Documents? All contents will
+								be perminately destroyed.
+							</div>
+						</Modal>
+					</OverlayContainer>
+				</div>
 			</div>
 		</PageLayout>
 	)

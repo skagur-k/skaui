@@ -1,5 +1,5 @@
 .aside {
-	@apply fixed z-50 flex h-full flex-col;
+	@apply fixed flex h-full flex-col;
 }
 
 .content {

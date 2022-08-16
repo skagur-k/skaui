@@ -135,6 +135,7 @@ importers:
       '@react-types/button': ^3.6.0
       '@react-types/checkbox': ^3.3.2
       '@react-types/combobox': ^3.5.2
+      '@react-types/dialog': ^3.4.2
       '@react-types/listbox': ^3.3.2
       '@react-types/meter': ^3.2.2
       '@react-types/progress': ^3.2.2
@@ -176,6 +177,7 @@ importers:
       '@react-types/button': 3.6.0_react@18.2.0
       '@react-types/checkbox': 3.3.2_react@18.2.0
       '@react-types/combobox': 3.5.2_react@18.2.0
+      '@react-types/dialog': 3.4.2_react@18.2.0
       '@react-types/listbox': 3.3.2_react@18.2.0
       '@react-types/meter': 3.2.2_react@18.2.0
       '@react-types/progress': 3.2.2_react@18.2.0
@@ -1153,7 +1155,7 @@ packages:
       '@react-types/button': 3.6.0_react@18.2.0
       '@react-types/calendar': 3.0.0_react@18.2.0
       '@react-types/datepicker': 3.0.0_react@18.2.0
-      '@react-types/dialog': 3.4.1_react@18.2.0
+      '@react-types/dialog': 3.4.2_react@18.2.0
       '@react-types/shared': 3.14.0_react@18.2.0
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -1168,7 +1170,7 @@ packages:
       '@react-aria/focus': 3.6.1_react@18.2.0
       '@react-aria/utils': 3.13.1_react@18.2.0
       '@react-stately/overlays': 3.3.1_react@18.2.0
-      '@react-types/dialog': 3.4.1_react@18.2.0
+      '@react-types/dialog': 3.4.2_react@18.2.0
       react: 18.2.0
     dev: false
 
@@ -2345,15 +2347,14 @@ packages:
       react: 18.2.0
     dev: true
 
-  /@react-types/dialog/3.4.1_react@18.2.0:
-    resolution: {integrity: sha512-tB/zDF4sR0l8GhTz0hl6bZGAYyxbF7UtTHRVVPW1XSDgjM7nuZiJrWb300S8KICj4933+ZmB5DCuzCzEKjIV6g==}
+  /@react-types/dialog/3.4.2_react@18.2.0:
+    resolution: {integrity: sha512-ub5KrXuN0VELqIKDKuj+ySalcliIneuVnwnX83XbW+xSs9/zFo5WwALU0YxP77rzwIyuu6ziQ8CUZ7rHhLa0hQ==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
     dependencies:
-      '@react-types/overlays': 3.6.1_react@18.2.0
+      '@react-types/overlays': 3.6.2_react@18.2.0
       '@react-types/shared': 3.14.0_react@18.2.0
       react: 18.2.0
-    dev: false
 
   /@react-types/grid/3.1.1_react@18.2.0:
     resolution: {integrity: sha512-YyukFuEcrJR+TcsTpGl5a6boBaQ6T+ashhLv/7c1RIWjNtlIZjYV0s+VaQoo2n2UpgIBY3tv4zBH6Tjg6jG5aA==}
@@ -2471,7 +2472,6 @@ packages:
     dependencies:
       '@react-types/shared': 3.14.0_react@18.2.0
       react: 18.2.0
-    dev: true
 
   /@react-types/progress/3.2.2_react@18.2.0:
     resolution: {integrity: sha512-bCt5kubeIrjU+NRODJjarBqynKaIEwfo14ndX/6z9eXsYiGpH9o08bdIk0gS249y7ExtOSUzdRn1s92DOYVmjQ==}

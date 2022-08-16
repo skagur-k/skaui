@@ -1,0 +1,23 @@
+.modal_underlay {
+	@apply flex justify-center items-center;
+	@apply fixed top-0 left-0 bottom-0 right-0 z-50;
+	@apply bg-neutral-500/20;
+}
+
+.modal_overlay {
+	@apply relative outline-none;
+	@apply shadow-lg;
+	@apply max-w-md lg:max-w-xl max-h-[70vh];
+	@apply bg-white/90 px-8 py-10;
+
+	@apply flex flex-col gap-4;
+}
+
+.modal_buttons {
+	@apply flex items-center gap-4;
+	@apply self-end mt-4;
+}
+
+.modal_title {
+	@apply text-lg font-bold;
+}
