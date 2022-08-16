@@ -1,11 +1,17 @@
 import { Button } from '@skaui/core'
 import clsx from 'clsx'
+import { useRouter } from 'next/router'
 import { components } from '../../data'
 import { Navigation } from '../navigation/Navigation'
 import { NavLink } from '../navigation/NavLink'
 import styles from './Sidebar.module.css'
 
 export const Sidebar = () => {
+	const router = useRouter()
+	const path = router.asPath
+
+	console.log(path)
+
 	return (
 		<aside className='hidden lg:flex'>
 			{/* Aside */}
@@ -38,7 +44,7 @@ export const Sidebar = () => {
 									<li
 										key={component.key}
 										className={clsx(styles.component, [
-											component.key === 'select' && styles.componentActive,
+											component.key === path && styles.componentActive,
 										])}
 									>
 										<NavLink href={`/${component.key}`} passHref>

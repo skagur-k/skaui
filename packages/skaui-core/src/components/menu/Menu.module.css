@@ -1,3 +1,47 @@
 .menu_popover {
-	@apply w-fit pr-20;
+	@apply max-w-[200px] px-2;
+	@apply rounded-sm shadow-md;
+}
+
+.menu_item {
+	@apply flex rounded-sm;
+	@apply justify-between items-center;
+	@apply px-2 py-1 my-1;
+	@apply text-sm select-none;
+	@apply cursor-pointer;
+	@apply outline-none;
+}
+
+.menu_item_focused {
+	@apply bg-neutral-300;
+}
+
+.menu_item_selected {
+	@apply bg-neutral-800;
+	@apply text-neutral-100;
+}
+
+.menu_item_disabled {
+	@apply text-neutral-300;
+	@apply cursor-not-allowed;
+}
+
+.menu_section {
+	@apply flex flex-col;
+	@apply pb-1 px-2;
+}
+
+.menu_section_heading {
+	@apply text-sm font-bold;
+	@apply text-neutral-800;
+	@apply py-1;
+}
+
+.menu_section_separator {
+	@apply border-b border-b-neutral-300;
+	@apply mb-1;
+}
+
+.menu_item_check {
+	@apply stroke-[3px];
 }

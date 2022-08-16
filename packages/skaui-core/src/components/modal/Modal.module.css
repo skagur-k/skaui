@@ -8,8 +8,7 @@
 	@apply relative outline-none;
 	@apply shadow-lg z-50;
 	@apply max-w-md lg:max-w-xl max-h-[70vh];
-	@apply bg-white/90 px-8 py-10;
-
+	@apply bg-white/90 px-8 py-10 mb-40;
 	@apply flex flex-col gap-4;
 }
 

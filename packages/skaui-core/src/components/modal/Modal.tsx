@@ -46,9 +46,10 @@ const Modal = (props: ModalProps) => {
 						<div className={styles.modal_underlay} {...underlayProps}>
 							<FocusScope contain restoreFocus autoFocus>
 								<motion.div
-									initial={{ y: 40 }}
+									initial={{ y: 5 }}
 									animate={{ y: 0 }}
-									exit={{ y: 20 }}
+									exit={{ y: 5 }}
+									transition={{ ease: 'easeInOut' }}
 								>
 									<div
 										className={styles.modal_overlay}
