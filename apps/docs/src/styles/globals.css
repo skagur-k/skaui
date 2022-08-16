@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face @layer base {
+@layer base {
 	html {
 		box-sizing: border-box;
 		font-size: 14px;
@@ -14,5 +14,15 @@
 	*:before,
 	*:after {
 		box-sizing: inherit;
+	}
+
+	body::-webkit-scrollbar {
+		@apply w-5 bg-neutral-100;
+		width: 3px;
+		height: 3px;
+	}
+
+	body::-webkit-scrollbar-thumb {
+		@apply bg-neutral-300;
 	}
 }

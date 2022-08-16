@@ -9,7 +9,7 @@ import {
 } from '../../icons'
 import ChevronRightIcon from '../../icons/ChevronRightIcon'
 import XIcon from '../../icons/XIcon'
-import { Checkbox } from '../checkbox'
+import { Checkbox, CheckboxGroup } from '../checkbox'
 import { Clipboard } from '../clipboard'
 import FileContent from './FileContent'
 import styles from './FileViewer.module.css'
@@ -43,6 +43,15 @@ export const FileViewer: React.ComponentType<FileViewerProps> = React.memo(
 
 		function handleOptionToggle() {
 			setOptionOpened(!optionOpened)
+		}
+
+		function handleUnselectFile() {
+			setSelectedFile({
+				slug: undefined,
+				content: undefined,
+				language: undefined,
+				highlight: undefined,
+			})
 		}
 
 		function handleLineNumbersToggle() {
@@ -94,30 +103,20 @@ export const FileViewer: React.ComponentType<FileViewerProps> = React.memo(
 											}}
 											className={clsx(styles.fileviewoptions)}
 										>
-											<div className='flex gap-1'>
-												<input
-													type='checkbox'
-													id='linenumbers'
-													name='linenumbers'
-													checked={lineNumbers}
-													onChange={handleLineNumbersToggle}
-												/>
-												<label
-													htmlFor='linenumbers'
-													className={styles.fileviewoptions_option}
-												>
-													Line numbers
-												</label>
-											</div>
-											<div className='flex gap-1'>
+											<CheckboxGroup size='sm' row className='gap-4'>
 												<Checkbox
 													isSelected={showContent}
-													
 													onChange={handleShowContentToggle}
 												>
 													Show Content
 												</Checkbox>
-											</div>
+												<Checkbox
+													isSelected={lineNumbers}
+													onChange={handleLineNumbersToggle}
+												>
+													Line Numbers
+												</Checkbox>
+											</CheckboxGroup>
 										</motion.div>
 									)}
 								</AnimatePresence>
@@ -133,7 +132,7 @@ export const FileViewer: React.ComponentType<FileViewerProps> = React.memo(
 									copyText={selectedFile.content}
 									className={styles.clipboard}
 								/>
-								<XIcon className={styles.xicon} />
+								<XIcon onClick={handleUnselectFile} className={styles.xicon} />
 							</>
 						)}
 					</motion.div>

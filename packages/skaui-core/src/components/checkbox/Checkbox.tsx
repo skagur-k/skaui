@@ -9,7 +9,7 @@ import clsx from 'clsx'
 
 const Checkbox = forwardRef<HTMLInputElement, PropsWithChildren<CheckboxProps>>(
 	(props, extRef: React.Ref<HTMLInputElement>) => {
-		const { isDisabled, children } = props
+		const { isDisabled, size, className, children } = props
 		const ref = useRef<HTMLInputElement>(null)
 		const state = useToggleState(props)
 		const { inputProps } = useCheckbox(props, state, ref)
@@ -17,8 +17,14 @@ const Checkbox = forwardRef<HTMLInputElement, PropsWithChildren<CheckboxProps>>(
 
 		const isSelected = state.isSelected
 
+		const sizes = {
+			sm: styles.checkbox_sm,
+			md: styles.checkbox_md,
+			lg: styles.checkbox_lg,
+		}
+
 		return (
-			<label className={clsx(styles.checkbox)}>
+			<label className={clsx(styles.checkbox, [size && sizes[size]])}>
 				<input
 					{...inputProps}
 					{...focusProps}
@@ -38,11 +44,11 @@ const Checkbox = forwardRef<HTMLInputElement, PropsWithChildren<CheckboxProps>>(
 						<polyline
 							points='1 9 7 14 15 4'
 							fill='none'
-							strokeWidth={4}
+							strokeWidth={3}
 							strokeDasharray={22}
 							strokeDashoffset={state.isSelected ? 44 : 66}
 							style={{
-								transition: 'all 400ms',
+								transition: 'all 200ms',
 							}}
 						/>
 					</svg>

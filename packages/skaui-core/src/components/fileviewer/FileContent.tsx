@@ -14,19 +14,8 @@ const FileContent = ({
 	file: IFile
 	lineNumbers: boolean
 }) => {
-	const { selectedFile, setSelectedFile } = useFileViewer()
+	const { selectedFile } = useFileViewer()
 	const { slug, content, language, highlight } = selectedFile
-
-	function handleUnselectFile() {
-		console.log('clicked')
-
-		setSelectedFile({
-			slug: undefined,
-			content: undefined,
-			language: undefined,
-			highlight: undefined,
-		})
-	}
 
 	useEffect(() => {}, [content])
 	return (
@@ -51,38 +40,31 @@ const FileContent = ({
 							</span>
 						</div>
 					)}
-					<div
-						className={clsx([
-							content
-								? styles.filecontentContent
-								: styles.filecontentContentNoFile,
-						])}
-					>
-						{!content && !slug ? (
-							<div className={styles.filecontentMsgWrapper}>
-								<EyeIcon className={styles.filecontentMsgIcon} />
-								<span className={styles.filecontentMsg}>No file selected.</span>
-								<span className={styles.filecontentMsgDescription}>
-									Please select file to view.
-								</span>
-							</div>
-						) : !content && slug ? (
-							<div className={styles.filecontentMsgWrapper}>
-								<FileIcon className={styles.filecontentMsgIcon} />
-								<span className={styles.filecontentMsg}>File Empty</span>
-								<span className={styles.filecontentMsgDescription}>
-									Please provide content for the file.
-								</span>
-							</div>
-						) : (
-							<CodeRenderer
-								code={content!}
-								lineNumbers={lineNumbers}
-								language={language}
-								highlight={highlight}
-							/>
-						)}
-					</div>
+					{!content && !slug ? (
+						<div className={styles.filecontentMsgWrapper}>
+							<EyeIcon className={styles.filecontentMsgIcon} />
+							<span className={styles.filecontentMsg}>No file selected.</span>
+							<span className={styles.filecontentMsgDescription}>
+								Please select file to view.
+							</span>
+						</div>
+					) : !content && slug ? (
+						<div className={styles.filecontentMsgWrapper}>
+							<FileIcon className={styles.filecontentMsgIcon} />
+							<span className={styles.filecontentMsg}>File Empty</span>
+							<span className={styles.filecontentMsgDescription}>
+								Please provide content for the file.
+							</span>
+						</div>
+					) : (
+						<CodeRenderer
+							code={content!}
+							lineNumbers={lineNumbers}
+							language={language}
+							highlight={highlight}
+							className={styles.filecontent_renderer}
+						/>
+					)}
 				</motion.div>
 			</AnimatePresence>
 		</div>

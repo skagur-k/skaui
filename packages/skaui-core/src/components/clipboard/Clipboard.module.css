@@ -1,14 +1,15 @@
 .wrapper {
 	@apply z-10 flex items-center justify-center bg-white;
-	@apply rounded-lg p-1;
+	@apply rounded-md p-1;
 	@apply ring-1 ring-inset ring-neutral-300;
-	@apply transition-all;
+	@apply hover:ring-neutral-600 hover:ring-2;
+	@apply transition-all duration-200;
 }
 
 .icons {
 	@apply cursor-pointer;
 	@apply transition-all;
-	@apply text-neutral-700;
+	@apply text-neutral-800;
 }
 
 .clipboard {

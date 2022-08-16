@@ -1,3 +1,4 @@
+import clsx from 'clsx'
 import React from 'react'
 import { useCheckboxGroup } from 'react-aria'
 import { useCheckboxGroupState } from 'react-stately'
@@ -9,7 +10,7 @@ import { CheckboxGroupProps } from './Checkbox.types'
 const CheckboxGroupContext = React.createContext<any>(null)
 
 export const CheckboxGroup = (props: CheckboxGroupProps) => {
-	const { children, isDisabled } = props
+	const { children, isDisabled, row, className, size, label } = props
 	const state = useCheckboxGroupState(props)
 	const { groupProps, labelProps } = useCheckboxGroup(props, state)
 
@@ -17,16 +18,33 @@ export const CheckboxGroup = (props: CheckboxGroupProps) => {
 	const copies = validChildren.map((child) => {
 		return React.cloneElement(child, {
 			isDisabled: child.props.isDisabled || isDisabled,
+			size: child.props.size || size,
 		})
 	})
 
+	const sizes = {
+		sm: styles.checboxgroup_sm,
+		md: styles.checboxgroup_md,
+		lg: styles.checboxgroup_lg,
+	}
+
 	return (
-		<div className={styles.checkboxgroup} {...groupProps}>
-			<div {...labelProps} className={styles.checkboxgroup_label}>
-				<div>{props.label}</div>
-			</div>
+		<div
+			className={clsx(styles.checkboxgroup, [
+				row && styles.checkboxgroup_row,
+				size && sizes[size],
+			])}
+			{...groupProps}
+		>
+			{label && (
+				<div {...labelProps} className={styles.checkboxgroup_label}>
+					<div>{label}</div>
+				</div>
+			)}
 			<CheckboxGroupContext.Provider value={state}>
-				<div className={styles.checkboxgroup_items}>{copies}</div>
+				<div className={clsx(styles.checkboxgroup_items, className)}>
+					{copies}
+				</div>
 			</CheckboxGroupContext.Provider>
 		</div>
 	)

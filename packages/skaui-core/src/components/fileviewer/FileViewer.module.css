@@ -42,7 +42,6 @@
 	@apply text-center align-middle;
 	@apply text-sm;
 	@apply font-bold text-blue-500;
-	@apply select-none;
 }
 
 .filecontentLanguage {
@@ -51,17 +50,17 @@
 	@apply tracking-widest text-neutral-400;
 }
 
-.filecontentContent {
+.filecontent_renderer {
 	@apply mt-2 h-full;
 }
 
 .filecontentContentNoFile {
-	@apply absolute top-12 bottom-0 right-0 left-0;
-	/* @apply translate-y-1/2; */
 	@apply flex items-center justify-center;
 }
 
 .filecontentMsgWrapper {
+	@apply absolute right-0 left-0;
+	@apply translate-y-full;
 	@apply flex flex-col items-center gap-4;
 }
 
@@ -85,8 +84,7 @@
 	@apply h-full max-h-[380px] w-full;
 	@apply bg-transparent pt-0 pl-0 font-['JetBrains_Mono'];
 	@apply text-sm font-medium tracking-wide;
-	@apply overflow-auto;
-	/* @apply overflow-y-auto overflow-x-auto; */
+	@apply overflow-y-auto overflow-x-auto;
 }
 
 .codePre::-webkit-scrollbar {
@@ -265,4 +263,8 @@
 
 .xicon {
 	@apply absolute top-4 right-4;
+	@apply w-5 h-5 stroke-[2px];
+	@apply hover:ring-2 ring-neutral-500;
+	@apply rounded-md cursor-pointer;
+	@apply transition-all duration-200;
 }

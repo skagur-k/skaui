@@ -22,7 +22,17 @@
 
 .components {
 	@apply relative mb-8 flex flex-[1_1_auto] overflow-y-scroll;
-	@apply flex-col space-y-10 px-2;
+	@apply flex-col space-y-10 px-6;
+}
+
+.components::-webkit-scrollbar {
+	@apply w-5 bg-neutral-50;
+	width: 3px;
+	height: 3px;
+}
+
+.components::-webkit-scrollbar-thumb {
+	@apply bg-neutral-300;
 }
 
 .component {
