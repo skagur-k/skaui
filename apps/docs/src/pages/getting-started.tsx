@@ -1,4 +1,12 @@
-import { Button, File, Folder, OverlayContainer, TreeView } from '@skaui/core'
+import {
+	Button,
+	File,
+	Folder,
+	Item,
+	OverlayContainer,
+	TreeView,
+} from '@skaui/core'
+import MenuButton from '@skaui/core/src/components/menu/MenuButton'
 import Modal from '@skaui/core/src/components/modal/Modal'
 import { NextPage } from 'next'
 import { useState } from 'react'
@@ -64,21 +72,22 @@ const GettingStarted: NextPage = () => {
 				</TreeView>
 				<div>
 					<Button onPress={() => setOpen(true)}>Open Dialog</Button>
-					<OverlayContainer>
-						<Modal
-							title='Title for the dialog'
-							isOpen={isOpen}
-							onClose={() => setOpen(false)}
-							confirmAction={() => setOpen(false)}
-							confirmLabel='Delete'
-						>
-							<div>
-								Are you sure you want to delete Documents? All contents will
-								be perminately destroyed.
-							</div>
-						</Modal>
-					</OverlayContainer>
+					<Modal
+						title='Title for the dialog'
+						isOpen={isOpen}
+						onClose={() => setOpen(false)}
+						confirmAction={() => setOpen(false)}
+						confirmLabel='Delete'
+					>
+						<div>
+							Are you sure you want to delete Documents? All contents will be
+							perminately destroyed.
+						</div>
+					</Modal>
 				</div>
+				<MenuButton menuButton={<Button>Hello</Button>}>
+					<Item key='hello'>Hello</Item>
+				</MenuButton>
 			</div>
 		</PageLayout>
 	)

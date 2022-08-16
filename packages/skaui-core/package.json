@@ -20,7 +20,7 @@
 	"dependencies": {
 		"clsx": "^1.2.1",
 		"framer-motion": "^6.5.1",
-		"react-aria": "^3.17.0"
+		"react-aria": "^3.18.0"
 	},
 	"devDependencies": {
 		"@react-aria/listbox": "^3.6.0",
@@ -29,6 +29,7 @@
 		"@react-types/combobox": "^3.5.2",
 		"@react-types/dialog": "^3.4.2",
 		"@react-types/listbox": "^3.3.2",
+		"@react-types/menu": "^3.7.0",
 		"@react-types/meter": "^3.2.2",
 		"@react-types/progress": "^3.2.2",
 		"@react-types/radio": "^3.2.2",

@@ -17,6 +17,7 @@ export * from './components/note' // Note
 export * from './components/popover' // Popover
 export * from './components/progress' // Progress
 export * from './components/radio' // Radio
+export * from './components/menu' // Menu
 export * from './components/select' // Select
 export * from './components/shared' // Shared
 export * from './components/snippet' // Snippet

@@ -1,5 +1,5 @@
 .popover {
-	@apply absolute z-10;
+	@apply absolute;
 	@apply w-full top-full;
 	@apply bg-neutral-50 outline-none rounded-sm;
 	@apply ring-1 ring-inset ring-neutral-300;
