@@ -1,15 +1,13 @@
-import '../styles/globals.css'
-import { ThemeProvider, ToastProvider } from '@skaui/core'
+import { ThemeProvider } from '@skaui/core'
 import type { AppProps } from 'next/app'
 import { Layout } from '../layouts'
+import '../styles/globals.css'
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
 	return (
 		<Layout>
 			<ThemeProvider>
-				<ToastProvider>
-					<Component {...pageProps} />
-				</ToastProvider>
+				<Component {...pageProps} />
 			</ThemeProvider>
 		</Layout>
 	)

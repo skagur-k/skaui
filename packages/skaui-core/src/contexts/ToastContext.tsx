@@ -3,7 +3,6 @@ import { Action, ActionType, IToaster } from '../components/toast/Toast.types'
 import ToastContainer from '../components/toast/ToastContainer'
 
 const ToastStateContext = createContext<IToaster | null>(null)
-
 const ToastDispatchContext = createContext<any>(null)
 
 // TODO: Toast transitions
@@ -60,8 +59,10 @@ export const ToastProvider = ({ children }: any) => {
 	const [state, dispatch] = useReducer(ToastReducer, {
 		toasts: [],
 		position: 'bottom-right',
-		maxToasts: 3,
+		maxToasts: 4,
 	})
+
+	console.log(dispatch)
 
 	return (
 		<ToastStateContext.Provider value={state}>

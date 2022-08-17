@@ -1,5 +1,5 @@
 .accordion {
-	@apply border-y border-neutral-200 flex flex-col gap-3;
+	@apply flex flex-col gap-3;
 	@apply max-w-[95%];
 
 	& > .accordion-item:not(:last-child) {

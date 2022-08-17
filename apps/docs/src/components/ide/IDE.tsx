@@ -1,4 +1,4 @@
-import { Collapsible } from '@skaui/core'
+import { Collapsible, useToast } from '@skaui/core'
 import clsx from 'clsx'
 import { AnimatePresence, motion } from 'framer-motion'
 import React, { useEffect } from 'react'
@@ -46,6 +46,7 @@ const Live = ({
 const LiveComponent = withLive(Live)
 
 const IDE = ({ code: codeInit, ...props }: IDEProps) => {
+	const toast = useToast()
 	const { heading, children } = props
 	const [error, setError] = React.useState(false)
 	const [code, setCode] = React.useState(codeInit)
@@ -60,6 +61,7 @@ const IDE = ({ code: codeInit, ...props }: IDEProps) => {
 
 	function handleReset() {
 		setCode(codeInit)
+		toast('Code Reset')
 	}
 
 	let timer: NodeJS.Timeout
@@ -68,6 +70,7 @@ const IDE = ({ code: codeInit, ...props }: IDEProps) => {
 		clearTimeout(timer)
 		navigator.clipboard.writeText(code!)
 		setIsCopied(true)
+		toast('Code Copied')
 
 		timer = setTimeout(() => {
 			setIsCopied(false)
@@ -114,7 +117,6 @@ const IDE = ({ code: codeInit, ...props }: IDEProps) => {
 							</AnimatePresence>
 						</div>
 						<Collapsible
-							open
 							title={<p>Code Editor</p>}
 							className={clsx(styles.editorCollapsible, '')}
 						>

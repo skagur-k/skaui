@@ -1,6 +1,6 @@
 .wrapper {
-	@apply flex flex-col gap-6;
-	@apply w-full pr-4;
+	@apply flex flex-col;
+	@apply w-full max-w-4xl;
 }
 
 .provider {
@@ -10,7 +10,7 @@
 .previewWrapper {
 	@apply relative px-6 py-12;
 	@apply border border-neutral-200;
-	@apply rounded-none rounded-t-xl;
+	@apply rounded-none rounded-t-md;
 }
 
 .preview {
@@ -40,7 +40,8 @@
 }
 
 .editorCollapsible {
-	@apply rounded-none rounded-b-xl px-6;
+	@apply flex max-w-full;
+	@apply rounded-none rounded-b-md px-6;
 	@apply relative border border-t-0 border-neutral-200;
 }
 
@@ -95,7 +96,7 @@
 	@apply cursor-pointer;
 	@apply transition-all;
 	@apply text-neutral-600 hover:text-neutral-400;
-	@apply h-6 w-6;
+	@apply h-5 w-5;
 }
 
 .editorActionButtonReset {

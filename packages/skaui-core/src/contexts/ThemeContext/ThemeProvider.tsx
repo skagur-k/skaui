@@ -3,6 +3,7 @@ import { useMediaQuery } from '../../hooks'
 import { isBrowser } from '../../utils'
 import ThemeContext, { ITheme } from './ThemeContext'
 import { OverlayProvider, SSRProvider } from 'react-aria'
+import { ToastProvider } from '..'
 
 const STORAGE_KEY = 'theme'
 
@@ -35,7 +36,9 @@ const ThemeProvider = ({ children }: any) => {
 	return (
 		<ThemeContext.Provider value={{ theme, setTheme }}>
 			<SSRProvider>
-				<OverlayProvider>{children}</OverlayProvider>
+				<ToastProvider>
+					<OverlayProvider>{children}</OverlayProvider>
+				</ToastProvider>
 			</SSRProvider>
 		</ThemeContext.Provider>
 	)

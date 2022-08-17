@@ -1,10 +1,11 @@
+import { Snippet } from '@skaui/core'
 import { NextPage } from 'next'
 import PageLayout from '../../layouts/PageLayout'
 
 const SnippetPage: NextPage = () => {
 	return (
 		<PageLayout>
-			<div>Hello World</div>
+			<Snippet text={['hello']} />
 		</PageLayout>
 	)
 }

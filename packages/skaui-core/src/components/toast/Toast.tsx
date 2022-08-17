@@ -1,12 +1,13 @@
 import clsx from 'clsx'
 import { motion } from 'framer-motion'
+import { useEffect } from 'react'
 import { useToastDispatchContext } from '../../contexts'
 import { Button } from '../button'
 import styles from './Toast.module.css'
 import { ActionType, IToast } from './Toast.types'
 
 const Toast = (props: IToast) => {
-	const { message, type, id, options } = props
+	const { message, type, id, options, duration = 3000 } = props
 	const types = {
 		info: styles.toastInfo,
 		success: styles.toastSuccess,
@@ -23,26 +24,33 @@ const Toast = (props: IToast) => {
 		dispatch({ type: ActionType.REMOVE_TOAST, toastId: id })
 	}
 
+	useEffect(() => {
+		setTimeout(() => {
+			dispatch({ type: ActionType.REMOVE_TOAST, toastId: id })
+		}, duration)
+	}, [])
+
 	const transiton = {
 		initial: {
 			y: 200,
-			x: 0,
 		},
 		animate: {
+			z: 99,
 			y: 0,
-			x: 0,
+			opacity: 1,
 		},
 		exit: {
-			x: 800,
-			y: 0,
+			z: -99,
+			y: 200,
+			opacity: 0,
 		},
 		transition: {
 			y: {
-				duration: 0.4,
+				duration: 0.1,
 				ease: 'easeInOut',
 			},
 			x: {
-				duration: 0.05,
+				duration: 0.1,
 				ease: 'linear',
 			},
 		},

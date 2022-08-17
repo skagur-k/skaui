@@ -6,6 +6,7 @@ export interface IToast {
 	message: ToastMessage
 	type: ToastType
 	options?: ToastOptions
+	duration?: number
 }
 
 export interface ToastOptions {

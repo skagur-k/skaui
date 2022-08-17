@@ -4,7 +4,7 @@ import type { IAccordionItem, AccordionProps } from './Accordion.types'
 import AccordionItem from './AccordionItem'
 import styles from './Accordion.module.css'
 
-const Accordian = (props: AccordionProps): JSX.Element => {
+const Accordion = (props: AccordionProps): JSX.Element => {
 	const { items: _items, defaultExpanded } = props
 	const [selected, setSelected] = React.useState<number | null>(
 		defaultExpanded || null
@@ -38,4 +38,4 @@ const Accordian = (props: AccordionProps): JSX.Element => {
 	)
 }
 
-export default Accordian
+export default Accordion
