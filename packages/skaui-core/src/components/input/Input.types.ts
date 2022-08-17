@@ -1,34 +1,17 @@
 import React from 'react'
+import { AriaTextFieldOptions } from 'react-aria'
 
-interface IInputProps<T = HTMLInputElement> {
-	disabled?: React.InputHTMLAttributes<T>['disabled']
+export interface InputProps<T extends TextFieldIntrinsicElements>
+	extends AriaTextFieldOptions<T> {
 	value?: string
-	label?: string
 	prefix?: React.ReactNode
 	suffix?: React.ReactNode
-	description?: string
-	errorMessage?: string
 	size?: 'sm' | 'md' | 'lg'
 	as?: React.ElementType
 	type?: string
 	invalid?: boolean
+	className?: string
 	unstyled?: boolean
 }
 
-type InputNativeProps = Omit<
-	React.InputHTMLAttributes<HTMLInputElement>,
-	| 'size'
-	| 'type'
-	| 'aria-label'
-	| 'onFocus'
-	| 'onBlur'
-	| 'value'
-	| 'defaultValue'
-	| 'onChange'
-	| keyof IInputProps
->
-
-export interface InputProps<T = HTMLElement>
-	extends IInputProps,
-		InputNativeProps,
-		React.RefAttributes<T> {}
+type TextFieldIntrinsicElements = 'input' | 'textarea'

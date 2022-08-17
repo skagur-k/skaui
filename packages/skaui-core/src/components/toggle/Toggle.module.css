@@ -59,6 +59,7 @@
 }
 .toggle_switch_selected {
 	@apply bg-neutral-800;
+	@apply transition-all duration-200;
 
 	& .toggle_switch_switch {
 		@apply translate-x-full;

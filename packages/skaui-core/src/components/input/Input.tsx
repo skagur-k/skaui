@@ -1,26 +1,26 @@
 import clsx from 'clsx'
 import React, { forwardRef } from 'react'
-import { useFocusRing, useTextField } from 'react-aria'
+import { mergeProps, useFocusRing, useTextField } from 'react-aria'
 import XIcon from '../../icons/XIcon'
 import { mergeRefs } from '../../utils'
+import styles from './Input.module.css'
 import { InputProps } from './Input.types'
 import { useInputClass } from './styles'
-import styles from './Input.module.css'
 
-const Input = forwardRef<HTMLElement, InputProps>((props: InputProps, ref) => {
+const Input = forwardRef<HTMLElement, InputProps<'input'>>((props, ref) => {
 	const {
 		size,
 		description,
 		errorMessage,
 		label,
-		disabled,
+		isDisabled,
 		invalid,
 		value,
 		as: Comp = 'input',
 		type = 'text',
-		className,
 		prefix,
 		suffix,
+		className,
 		unstyled,
 		...rest
 	} = props
@@ -31,9 +31,9 @@ const Input = forwardRef<HTMLElement, InputProps>((props: InputProps, ref) => {
 
 	const inputClasses = useInputClass({
 		size,
-		disabled,
 		unstyled,
 		invalid,
+		isDisabled,
 	})
 
 	const { focusProps, isFocused } = useFocusRing()
@@ -50,17 +50,14 @@ const Input = forwardRef<HTMLElement, InputProps>((props: InputProps, ref) => {
 			<div className={clsx(styles.input_wrapper)}>
 				{prefix && <div className={styles.input_prefix}>{prefix}</div>}
 				<Comp
-					{...inputProps}
-					{...focusProps}
 					aria-label={label}
-					value={value}
-					disabled={disabled}
 					className={clsx(styles.input_field, [
 						prefix && styles.input_field_w_prefix,
 						suffix && styles.input_field_w_suffix,
 					])}
 					{...rest}
 					ref={mergeRefs(ref, _ref)}
+					{...mergeProps(focusProps, inputProps)}
 				/>
 				{suffix && <div className={styles.input_suffix}>{suffix}</div>}
 			</div>

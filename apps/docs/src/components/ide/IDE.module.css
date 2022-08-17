@@ -7,6 +7,13 @@
 	@apply flex w-full flex-col;
 }
 
+.console {
+	@apply flex flex-col;
+	@apply mt-8 p-2;
+	@apply border border-neutral-200;
+	@apply border border-neutral-200;
+}
+
 .previewWrapper {
 	@apply relative px-6 py-12;
 	@apply border border-neutral-200;

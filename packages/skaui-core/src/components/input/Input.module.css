@@ -27,11 +27,11 @@
 	}
 
 	& .input_prefix {
-		@apply bg-white text-neutral-400 pr-1;
+		@apply bg-neutral-50 text-neutral-400 pr-1;
 	}
 
 	& .input_suffix {
-		@apply bg-white text-neutral-400;
+		@apply bg-neutral-50 text-neutral-400;
 	}
 
 	& .input_focused .input_wrapper {
@@ -123,7 +123,7 @@
 .input_field {
 	@apply w-full px-3 py-1 z-50;
 	@apply border appearance-none align-middle;
-	@apply text-neutral-800 bg-white;
+	@apply text-neutral-800 bg-neutral-50;
 	@apply outline-none;
 
 	&::placeholder {

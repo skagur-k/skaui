@@ -2,12 +2,12 @@ import clsx from 'clsx'
 import { InputProps } from './Input.types'
 import styles from './Input.module.css'
 
-interface InputClassProps extends Partial<InputProps> {}
+interface InputClassProps extends Partial<InputProps<'input'>> {}
 
 function useInputClass({
 	size,
-	disabled,
-	required,
+	isDisabled,
+	isRequired,
 	invalid,
 	unstyled,
 }: InputClassProps) {
@@ -20,8 +20,8 @@ function useInputClass({
 	const classes = clsx(
 		styles.input,
 		size && sizes[size],
-		disabled && styles.input_disabled,
-		required && styles.input_required,
+		isDisabled && styles.input_disabled,
+		isRequired && styles.input_required,
 		unstyled && styles.input_unstyled,
 		invalid && styles.input_invalid
 	)

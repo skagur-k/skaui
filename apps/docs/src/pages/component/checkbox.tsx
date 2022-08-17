@@ -1,5 +1,6 @@
-import { Checkbox, CheckboxGroup, KBD, Toggle } from '@skaui/core'
+import { Checkbox, KBD } from '@skaui/core'
 import { NextPage } from 'next'
+import { useState } from 'react'
 import { Container } from '../../components/container'
 import { IDE } from '../../components/ide'
 import PageLayout from '../../layouts/PageLayout'
@@ -21,26 +22,60 @@ const disabledCode = `<Container>
 const disabledScope = { Checkbox, Container }
 
 const groupCode = `<Container>
-<CheckboxGroup size='sm' label='Checkbox Group'>
-	<Checkbox>Option 1</Checkbox>
-	<Checkbox>Option 2</Checkbox>
-	<Checkbox>Option 3</Checkbox>
-</CheckboxGroup>
-<CheckboxGroup size='md' label='Checkbox Group'>
-	<Checkbox>Option 1</Checkbox>
-	<Checkbox>Option 2</Checkbox>
-	<Checkbox>Option 3</Checkbox>
-</CheckboxGroup>
-<CheckboxGroup size='lg' label='Checkbox Group'>
-	<Checkbox>Option 1</Checkbox>
-	<Checkbox>Option 2</Checkbox>
-	<Checkbox>Option 3</Checkbox>
-</CheckboxGroup>
+<Checkbox.Group size='sm' label='Checkbox Group'>
+	<Checkbox.GroupItem value="option1">Option 1</Checkbox.GroupItem>
+	<Checkbox.GroupItem value="option2">Option 2</Checkbox.GroupItem>
+	<Checkbox.GroupItem value="option3">Option 3</Checkbox.GroupItem>
+</Checkbox.Group>
+<Checkbox.Group size='md' label='Checkbox Group'>
+	<Checkbox.GroupItem value="option1">Option 1</Checkbox.GroupItem>
+	<Checkbox.GroupItem value="option2">Option 2</Checkbox.GroupItem>
+	<Checkbox.GroupItem value="option3">Option 3</Checkbox.GroupItem>
+</Checkbox.Group>
+<Checkbox.Group size='lg' label='Checkbox Group'>
+	<Checkbox.GroupItem value="option1">Option 1</Checkbox.GroupItem>
+	<Checkbox.GroupItem value="option2">Option 2</Checkbox.GroupItem>
+	<Checkbox.GroupItem value="option3">Option 3</Checkbox.GroupItem>
+</Checkbox.Group>
 </Container>
 `
-const groupScope = { Checkbox, Container, CheckboxGroup }
+const groupScope = { Checkbox, Container }
+
+const grouporientationCode = `<Container>
+<Checkbox.Group label='Row'>
+	<Checkbox.GroupItem value="option1">Option 1</Checkbox.GroupItem>
+	<Checkbox.GroupItem value="option2">Option 2</Checkbox.GroupItem>
+	<Checkbox.GroupItem value="option3">Option 3</Checkbox.GroupItem>
+</Checkbox.Group>
+<Checkbox.Group row label='Column'>
+	<Checkbox.GroupItem value="option1">Option 1</Checkbox.GroupItem>
+	<Checkbox.GroupItem value="option2">Option 2</Checkbox.GroupItem>
+	<Checkbox.GroupItem value="option3">Option 3</Checkbox.GroupItem>
+</Checkbox.Group>
+</Container>
+`
+const grouporientationScope = { Checkbox, Container }
 
 const TogglePage: NextPage = () => {
+	const [selected, setSelected] = useState([])
+	const controlledScope = { Checkbox, Container, selected, setSelected }
+	const controlledCode = `() => {
+return (
+<Container>
+<Checkbox.Group value={selected} onChange={setSelected} label='Controlled'>
+	<Checkbox.GroupItem value="option1">Option 1</Checkbox.GroupItem>
+	<Checkbox.GroupItem value="option2">Option 2</Checkbox.GroupItem>
+	<Checkbox.GroupItem value="option3">Option 3</Checkbox.GroupItem>
+</Checkbox.Group>
+<Checkbox.Group defaultValue={['option2']} label='Uncontrolled'>
+	<Checkbox.GroupItem value="option1">Option 1</Checkbox.GroupItem>
+	<Checkbox.GroupItem value="option2">Option 2</Checkbox.GroupItem>
+	<Checkbox.GroupItem value="option3">Option 3</Checkbox.GroupItem>
+</Checkbox.Group>
+</Container>)
+}
+`
+
 	return (
 		<PageLayout>
 			<div className='flex flex-col gap-6'>
@@ -49,11 +84,6 @@ const TogglePage: NextPage = () => {
 					Checkboxes can be focused with <KBD>Tab</KBD> and be checked and
 					unchecked with <KBD>Space</KBD> key.
 				</h3>
-				<CheckboxGroup defaultValue={['opp']} label='Checkbox Group'>
-					<Checkbox value={'opp'}>Small</Checkbox>
-					<Checkbox value={'option2small'}>Medium</Checkbox>
-					<Checkbox value={'option3small'}>Large</Checkbox>
-				</CheckboxGroup>
 
 				{/* Section */}
 				<div className='mt-16 flex flex-col gap-8'>
@@ -81,6 +111,25 @@ const TogglePage: NextPage = () => {
 						can be focused with <KBD>Tab</KBD> key
 					</h3>
 					<IDE code={groupCode} scope={groupScope} />
+				</div>
+
+				{/* Section */}
+				<div className='mt-16 flex flex-col gap-8'>
+					<h2 className='text-4xl font-bold'>Orientation</h2>
+					<IDE code={grouporientationCode} scope={grouporientationScope} />
+				</div>
+
+				{/* Section */}
+				<div className='mt-16 flex flex-col gap-8'>
+					<h2 className='text-4xl font-bold'>Controlled & Uncontrolled</h2>
+					<IDE code={controlledCode} scope={controlledScope}>
+						<p>
+							Selected Options:{' '}
+							<span className='font-semibold'>
+								{selected.map((item) => item + ' ')}
+							</span>
+						</p>
+					</IDE>
 				</div>
 			</div>
 		</PageLayout>

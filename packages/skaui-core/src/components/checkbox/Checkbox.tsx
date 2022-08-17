@@ -24,7 +24,9 @@ const Checkbox = forwardRef<HTMLInputElement, PropsWithChildren<CheckboxProps>>(
 		}
 
 		return (
-			<label className={clsx(styles.checkbox, [size && sizes[size]])}>
+			<label
+				className={clsx(styles.checkbox, [size && sizes[size]], className)}
+			>
 				<input
 					{...inputProps}
 					{...focusProps}

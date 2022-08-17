@@ -47,7 +47,7 @@ const LiveComponent = withLive(Live)
 
 const IDE = ({ code: codeInit, ...props }: IDEProps) => {
 	const toast = useToast()
-	const { heading, children } = props
+	const { children } = props
 	const [error, setError] = React.useState(false)
 	const [code, setCode] = React.useState(codeInit)
 	const [isCopied, setIsCopied] = React.useState(false)
@@ -79,8 +79,6 @@ const IDE = ({ code: codeInit, ...props }: IDEProps) => {
 
 	return (
 		<div className={styles.wrapper}>
-			<h1 className={styles.heading}>{heading}</h1>
-			<p className={styles.description}>{children}</p>
 			<div className={styles.provider}>
 				{
 					<LiveProvider {...props} code={code} theme={theme}>
@@ -98,6 +96,12 @@ const IDE = ({ code: codeInit, ...props }: IDEProps) => {
 												error && styles.previewErrored,
 											])}
 										/>
+										{children && (
+											<div className={styles.console}>
+												<div className='mb-2 text-sm font-bold'>Console</div>
+												<div className={styles.console_output}>{children}</div>
+											</div>
+										)}
 									</motion.div>
 								)}
 							</AnimatePresence>

@@ -1,4 +1,5 @@
 import {
+	AriaCheckboxGroupItemProps,
 	AriaCheckboxGroupProps,
 	AriaCheckboxProps,
 } from '@react-types/checkbox'
@@ -14,6 +15,11 @@ export interface CheckboxGroupProps extends AriaCheckboxGroupProps {
 	className?: string
 	size?: CheckboxSizes
 	row?: boolean
+}
+
+export interface CheckboxGroupItemProps extends AriaCheckboxGroupItemProps {
+	size?: CheckboxSizes
+	className?: string
 }
 
 type CheckboxSizes = 'sm' | 'md' | 'lg'

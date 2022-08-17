@@ -1,5 +1,6 @@
 import { KBD, Toggle } from '@skaui/core'
 import { NextPage } from 'next'
+import { useState } from 'react'
 import { Container } from '../../components/container'
 import { IDE } from '../../components/ide'
 import PageLayout from '../../layouts/PageLayout'
@@ -21,6 +22,19 @@ const variantCode = `<Container>
 const variantScope = { Toggle, Container }
 
 const TogglePage: NextPage = () => {
+	const [toggled, setToggled] = useState(false)
+	const controlledScope = { Toggle, Container, toggled, setToggled }
+	const controlledCode = `() => (
+<Container>
+	<Toggle isSelected={toggled} onChange={setToggled}>
+		Controlled
+	</Toggle>
+	<Toggle>
+		Uncontrolled
+	</Toggle>
+</Container>)
+`
+
 	return (
 		<PageLayout>
 			<div className='flex flex-col gap-6'>
@@ -32,12 +46,6 @@ const TogglePage: NextPage = () => {
 					Toggles can be focused with <KBD>Tab</KBD> and be switched on and off
 					with <KBD>Space</KBD> key.
 				</h3>
-				{/* 
-				<Toggle size='md' type=''>
-					Medium Toggle
-				</Toggle> */}
-
-				{/* Section */}
 				<div className='mt-16 flex flex-col gap-8'>
 					<h2 className='text-4xl font-bold'>Sizes</h2>
 					<h3 className='text-lg text-neutral-400'>
@@ -53,6 +61,20 @@ const TogglePage: NextPage = () => {
 						Toggles with different types.
 					</h3>
 					<IDE code={variantCode} scope={variantScope} />
+				</div>
+
+				{/* Section */}
+				<div className='mt-16 flex flex-col gap-8'>
+					<h2 className='text-4xl font-bold'>Controlled & Uncontrolled</h2>
+					<h3 className='text-lg text-neutral-400'>
+						Controlled & Uncontrolled Toggles.
+					</h3>
+					<IDE code={controlledCode} scope={controlledScope}>
+						<p>
+							Toggled:{' '}
+							<span className='font-bold'>{toggled ? 'true' : 'false'}</span>
+						</p>
+					</IDE>
 				</div>
 			</div>
 		</PageLayout>

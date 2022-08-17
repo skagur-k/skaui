@@ -5,7 +5,7 @@ import { useToggleState } from 'react-stately'
 import styles from './Toggle.module.css'
 import { ToggleProps } from './Toggle.types'
 
-const Toggle = (props: ToggleProps): JSX.Element => {
+const Toggle = (props: ToggleProps) => {
 	const {
 		size = 'md',
 		labelPosition = 'right',
