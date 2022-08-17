@@ -34,20 +34,30 @@ const IconButton = React.forwardRef<HTMLButtonElement, IIconButtonProps>(
 		}
 
 		const sizes = {
+			xs: styles.iconbutton_xs,
 			sm: styles.iconbutton_sm,
 			md: styles.iconbutton_md,
 			lg: styles.iconbutton_lg,
+			xl: styles.iconbutton_xl,
+		}
+
+		const iconSizes = {
+			xs: styles.iconbutton_icon_xs,
+			sm: styles.iconbutton_icon_sm,
+			md: styles.iconbutton_icon_md,
+			lg: styles.iconbutton_icon_lg,
+			xl: styles.iconbutton_icon_xl,
 		}
 
 		const iconbuttonClasses = clsx(
 			styles.button_base,
 			styles.iconbutton,
-			[variant && variants[variant], type && types[type]],
+			[variant && variants[variant], type && types[type], size && sizes[size]],
 			className
 		)
 
 		const styledChildren = React.cloneElement(children, {
-			className: clsx(size && sizes[size]),
+			className: clsx(size && iconSizes[size]),
 		})
 
 		const mergedRefs = mergeRefs(ref, externalRef)

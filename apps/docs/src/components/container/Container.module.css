@@ -1,0 +1,10 @@
+.container {
+	@apply flex;
+	@apply w-full;
+	@apply justify-between;
+}
+
+.container_col {
+	@apply w-full flex-col;
+	@apply gap-12;
+}

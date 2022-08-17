@@ -15,7 +15,7 @@ export interface IButtonProps extends Omit<AriaButtonProps, 'type'> {
 
 export interface IIconButtonProps extends Omit<AriaButtonProps, 'type'> {
 	children: React.ReactElement
-	size?: 'sm' | 'md' | 'lg'
+	size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 	variant?: IIconButtonVariant
 	type?: IButtonType
 	onClick?: () => void

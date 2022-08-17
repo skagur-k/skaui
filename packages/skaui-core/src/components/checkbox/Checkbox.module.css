@@ -9,7 +9,7 @@
 	}
 
 	& .checkbox_text {
-		@apply text-xs;
+		@apply text-sm;
 	}
 
 	& .checkbox_button_check {
@@ -22,7 +22,7 @@
 	}
 
 	& .checkbox_text {
-		@apply text-sm;
+		@apply text-base;
 	}
 
 	& .checkbox_button_check {
@@ -35,7 +35,7 @@
 	}
 
 	& .checkbox_text {
-		@apply text-sm;
+		@apply text-base;
 	}
 
 	& .checkbox_button_check {
@@ -45,12 +45,12 @@
 
 .checkbox_disabled {
 	@apply cursor-not-allowed;
-	@apply opacity-50;
+	@apply opacity-30;
 }
 
 .checkbox_button {
 	@apply flex shrink-0 justify-center items-center;
-	@apply w-4 h-4 rounded-sm mr-2;
+	@apply w-4 h-4 rounded-sm mr-4;
 	@apply bg-neutral-100;
 	@apply ring-1 ring-neutral-300;
 	@apply transition-all ease-in-out duration-200;

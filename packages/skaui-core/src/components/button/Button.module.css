@@ -1,5 +1,5 @@
 .button_base {
-	@apply relative inline-flex overflow-hidden;
+	@apply relative inline-flex overflow-hidden h-fit;
 	@apply items-center justify-center;
 	@apply outline-none;
 	@apply select-none;
@@ -107,9 +107,10 @@
 }
 
 .button_text {
-	@apply rounded-md;
+	@apply rounded-r-md;
 	&.button_default {
 		@apply bg-transparent text-neutral-800;
+		@apply focus:bg-neutral-100;
 		@apply hover:bg-neutral-100;
 		@apply active:bg-neutral-200;
 		@apply border-neutral-500;
@@ -118,6 +119,7 @@
 	&.button_success {
 		@apply text-blue-500;
 		@apply bg-transparent;
+		@apply focus:bg-blue-100;
 		@apply hover:bg-blue-100;
 		@apply active:bg-blue-200;
 		@apply border-blue-500;
@@ -126,6 +128,7 @@
 	&.button_error {
 		@apply text-red-500;
 		@apply bg-transparent;
+		@apply focus:bg-red-100;
 		@apply hover:bg-red-100;
 		@apply active:bg-red-200;
 		@apply border-red-500;
@@ -134,6 +137,7 @@
 	&.button_secondary {
 		@apply text-neutral-800;
 		@apply bg-transparent;
+		@apply focus:bg-neutral-100;
 		@apply hover:bg-neutral-300;
 		@apply active:bg-neutral-200;
 		@apply border-neutral-800;
@@ -174,7 +178,7 @@
 }
 .button_md {
 	@apply text-[0.875rem];
-	@apply w-fit px-4 py-1;
+	@apply w-fit px-3 py-[4px];
 	@apply rounded-sm;
 }
 .button_lg {
@@ -183,26 +187,20 @@
 	@apply rounded-sm;
 }
 .button_block {
-	@apply inline-flex min-h-[28px] max-w-2xl;
+	@apply inline-flex min-h-[28px] max-w-full;
 	@apply text-[0.875rem] rounded-sm;
 	@apply px-2 py-1;
 }
 
 .button_prefix {
 	@apply flex justify-center items-center;
-	@apply w-6 h-6;
+	@apply w-5 h-5;
 	@apply mr-2;
 }
 
 .button_suffix {
 	@apply flex justify-center items-center;
-	@apply w-6 h-6;
-	@apply ml-2;
-}
-
-.button_suffix {
-	@apply flex justify-center items-center;
-	@apply w-6 h-6;
+	@apply w-5 h-5;
 	@apply ml-2;
 }
 
@@ -228,16 +226,39 @@
 .iconbutton {
 	@apply rounded-md overflow-hidden;
 	@apply w-fit h-fit;
+}
+
+.iconbutton_xs {
+	@apply p-1;
+}
+.iconbutton_sm {
+	@apply p-1;
+}
+.iconbutton_md {
+	@apply p-[6px];
+}
+.iconbutton_lg {
 	@apply p-2;
 }
 
-.iconbutton_sm {
+.iconbutton_xl {	
+	@apply p-2;
+}
+
+.iconbutton_icon_xs {
+	@apply w-3 h-3;
+}
+
+.iconbutton_icon_sm {
+	@apply w-4 h-4;
+}
+.iconbutton_icon_md {
 	@apply w-5 h-5;
 }
-.iconbutton_md {
+.iconbutton_icon_lg {
 	@apply w-6 h-6;
 }
-.iconbutton_lg {
+.iconbutton_icon_xl {
 	@apply w-7 h-7;
 }
 

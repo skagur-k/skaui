@@ -37,6 +37,10 @@ const buttons: IComponents = [
 		title: 'Button',
 	},
 	{
+		key: '/component/iconbutton',
+		title: 'Icon Button',
+	},
+	{
 		key: '/component/toggle',
 		title: 'Toggle',
 	},
@@ -142,6 +146,10 @@ const ui: IComponents = [
 ]
 
 const components: IAllComponents[] = [
+	{
+		heading: 'Buttons',
+		components: buttons,
+	},
 	{
 		heading: 'Forms',
 		components: forms,

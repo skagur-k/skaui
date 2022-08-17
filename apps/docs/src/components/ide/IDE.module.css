@@ -4,17 +4,17 @@
 }
 
 .provider {
-	@apply flex flex-col;
+	@apply flex w-full flex-col;
 }
 
 .previewWrapper {
 	@apply relative px-6 py-12;
 	@apply border border-neutral-200;
-	@apply rounded-none rounded-t-md;
+	@apply w-full rounded-none rounded-t-md;
 }
 
 .preview {
-	@apply h-fit w-fit;
+	@apply w-full;
 }
 
 .previewLoader {
