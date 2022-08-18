@@ -23,7 +23,8 @@
 }
 
 .listbox_option_disabled {
-	@apply text-neutral-200;
+	@apply text-neutral-300;
+	@apply cursor-not-allowed;
 }
 
 .listbox_option_selected {
@@ -38,4 +39,12 @@
 	@apply text-sm text-neutral-800;
 	@apply font-bold;
 	@apply px-1 py-2;
+}
+
+.listbox_section {
+	@apply border-b border-b-neutral-100 py-2;
+
+	.listbox_section_item {
+		@apply pl-1;
+	}
 }

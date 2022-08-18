@@ -1,5 +1,5 @@
 .combobox {
-	@apply relative;
+	@apply relative w-full;
 	@apply inline-flex flex-col;
 }
 .combobox_label {
@@ -7,8 +7,17 @@
 	@apply text-neutral-800;
 }
 
-.combobox_label_disabled {
-	@apply text-neutral-400;
+.combobox_disabled {
+	.combobox_label {
+		@apply text-neutral-400;
+	}
+	.combobox_button {
+		@apply opacity-60;
+	}
+
+	.combobox_input {
+		@apply cursor-not-allowed;
+	}
 }
 
 .combobox_button {
@@ -43,10 +52,6 @@
 }
 .combobox_input_button_icon_opened {
 	@apply -rotate-180;
-}
-
-.combobox_button_disabled {
-	@apply opacity-50;
 }
 
 .combobox_popover {

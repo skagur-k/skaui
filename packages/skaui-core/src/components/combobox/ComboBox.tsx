@@ -10,7 +10,7 @@ import { ComboBoxProps } from './ComboBox.types'
 import styles from './ComboBox.module.css'
 
 const ComboBox = <T extends object>(props: ComboBoxProps<T>) => {
-	const { label, isDisabled } = props
+	const { isDisabled } = props
 	const { contains } = useFilter({ sensitivity: 'base' })
 	const state = useComboBoxState({
 		...props,
@@ -43,19 +43,17 @@ const ComboBox = <T extends object>(props: ComboBoxProps<T>) => {
 	const { hoverProps, isHovered } = useHover(props)
 
 	return (
-		<div className={styles.combobox}>
-			<label
-				{...labelProps}
-				className={clsx(styles.combobox_label, [
-					isDisabled && styles.combobox_label_disabled,
-				])}
-			>
-				{label}
+		<div
+			className={clsx(styles.combobox, [
+				isDisabled && styles.combobox_disabled,
+			])}
+		>
+			<label className={clsx(styles.combobox_label, [])} {...labelProps}>
+				{props.label}
 			</label>
 			<div
 				{...hoverProps}
 				className={clsx(styles.combobox_button, [
-					isDisabled && styles.combobox_button_disabled,
 					isHovered && styles.combobox_button_hovered,
 					state.isFocused && styles.combobox_button_focused,
 				])}

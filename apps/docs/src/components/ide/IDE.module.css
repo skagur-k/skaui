@@ -83,6 +83,8 @@
 	@apply transition-all duration-200;
 	@apply text-sm lg:text-sm;
 
+	tab-size: 2;
+
 	& textarea {
 		@apply outline-none;
 		@apply transition-all duration-200;

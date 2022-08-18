@@ -1,7 +1,7 @@
 .container {
 	@apply flex;
 	@apply w-full;
-	@apply justify-between;
+	@apply justify-evenly;
 }
 
 .container_col {

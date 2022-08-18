@@ -16,7 +16,7 @@ import styles from './Select.module.css'
 import { SelectProps } from './Select.types'
 
 const Select = <T extends object>(props: SelectProps<T>) => {
-	const { isDisabled } = props
+	const { isDisabled, placeholder = 'Select an Option' } = props
 	const state = useSelectState(props)
 	const ref = React.useRef(null)
 	const { labelProps, triggerProps, valueProps, menuProps } = useSelect(
@@ -30,13 +30,10 @@ const Select = <T extends object>(props: SelectProps<T>) => {
 	const { hoverProps, isHovered } = useHover(props)
 
 	return (
-		<div className={styles.select}>
-			<div
-				className={clsx(styles.select_label, [
-					isDisabled && styles.select_label_disabled,
-				])}
-				{...labelProps}
-			>
+		<div
+			className={clsx(styles.select, [isDisabled && styles.select_disabled])}
+		>
+			<div className={clsx(styles.select_label, [])} {...labelProps}>
 				{props.label}
 			</div>
 			<HiddenSelect
@@ -52,14 +49,11 @@ const Select = <T extends object>(props: SelectProps<T>) => {
 				className={clsx(styles.select_button, [
 					isHovered && styles.select_button_hovered,
 					isFocused && styles.select_button_focused,
-					isDisabled && styles.select_button_disabled,
 					state.isOpen && styles.select_button_opened,
 				])}
 			>
 				<div className={styles.select_button_content} {...valueProps}>
-					{state.selectedItem
-						? state.selectedItem.rendered
-						: 'Select an Option'}
+					{state.selectedItem ? state.selectedItem.rendered : placeholder}
 				</div>
 				<ChevronDownIcon
 					className={clsx(styles.select_button_icon, [

@@ -63,11 +63,11 @@ const overlays: IComponents = [
 
 const pickers: IComponents = [
 	{
-		key: '/component/combobox',
+		key: '/pickers/combobox',
 		title: 'Combobox',
 	},
 	{
-		key: '/component/select',
+		key: '/pickers/select',
 		title: 'Select',
 	},
 ]
@@ -93,15 +93,15 @@ const misc: IComponents = []
 
 const sections: IComponents = [
 	{
-		key: '/component/accordion',
+		key: '/sections/accordion',
 		title: 'Accordion',
 	},
 	{
-		key: '/component/collapsible',
+		key: '/sections/collapsible',
 		title: 'Collapsible',
 	},
 	{
-		key: '/component/tabs',
+		key: '/sections/tabs',
 		title: 'Tabs',
 	},
 ]

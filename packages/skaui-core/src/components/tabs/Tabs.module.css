@@ -1,29 +1,47 @@
 .tabs {
+	@apply flex flex-col;
 	@apply relative rounded-md;
-	@apply w-fit max-w-[100%];
+	@apply w-full max-w-[100%];
 	@apply rounded-md overflow-hidden;
 	@apply p-4;
 	@apply transition-all duration-500;
 }
 
+.tabs_vertical {
+	@apply flex-row gap-2;
+
+	.tabs_list {
+		@apply flex-col space-y-2 space-x-0;
+	}
+
+	.tabs_list_tab {
+		@apply border-b-0 border-l border-l-neutral-300;
+	}
+
+	.tabs_list_tab_selected {
+		@apply mx-0;
+		@apply border-l-neutral-500;
+	}
+}
+
 .tabs_list {
-	@apply flex mb-2 py-2 justify-center;
+	@apply flex mb-2 py-2 justify-center space-x-2;
 }
 
 .tabs_list_tab {
-	@apply text-sm truncate;
+	@apply text-sm truncate w-full;
 	@apply text-neutral-500;
 	@apply outline-none cursor-pointer;
 	@apply px-2 py-1;
 	@apply transition-all duration-300;
-	@apply border-2 border-transparent border-b-neutral-300;
+	@apply border border-transparent border-b-neutral-300;
 }
 
 .tabs_list_tab_selected {
-	/* text-shadow: 0px 0px 1px black; */
+	text-shadow: 0px 0px 0.5px black;
 	@apply mx-2 px-4;
 	@apply text-neutral-800;
-	@apply border-b-2 border-b-neutral-500;
+	@apply border-b border-b-neutral-500;
 	@apply flex-nowrap overflow-visible;
 }
 
@@ -35,16 +53,18 @@
 .tabs_panel {
 	@apply px-4 py-4;
 	@apply transition-all duration-300;
+	@apply outline-none;
 
-	animation: fadein 0.5s;
+	animation: fadein 1s;
 }
 
 .tabs_panel_focused {
-	@apply ring-1 ring-neutral-500 ring-inset;
+	@apply ring-1 ring-neutral-300 ring-inset;
+	@apply outline-none;
 }
 
 .tabs_list_tab_focused {
-	@apply ring-1 ring-neutral-500 ring-inset;
+	@apply ring-1 ring-neutral-300 ring-inset;
 }
 
 @keyframes fadein {

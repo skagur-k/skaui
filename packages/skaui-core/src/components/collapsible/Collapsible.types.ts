@@ -5,6 +5,6 @@ export interface CollapsibleProps
 	transition?: boolean
 	open?: boolean
 	title: React.ReactElement | string
-	onToggle?: () => void
+	onToggle?: (open: boolean) => void
 	children?: React.ReactElement | string
 }

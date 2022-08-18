@@ -1,15 +1,23 @@
 .select {
 	@apply inline-flex flex-col relative;
+	@apply w-full;
 	@apply outline-none;
+}
+
+.select_disabled {
+	.select_label {
+		@apply text-neutral-400;
+	}
+
+	.select_button {
+		@apply cursor-not-allowed;
+		@apply opacity-50;
+	}
 }
 
 .select_label {
 	@apply block mb-2;
 	@apply text-neutral-800;
-}
-
-.select_label_disabled {
-	@apply text-neutral-400;
 }
 
 .select_button {
@@ -34,10 +42,6 @@
 }
 .select_button_icon_opened {
 	@apply -rotate-180;
-}
-
-.select_button_disabled {
-	@apply opacity-50;
 }
 
 .select_button_content {

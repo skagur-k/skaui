@@ -5,14 +5,19 @@ import { useTabListState } from 'react-stately'
 import type { TabPanelProps, TabProps, TabsProps } from './Tabs.types'
 import styles from './Tabs.module.css'
 
-const Tabs = <T extends object>(props: TabsProps<T>): JSX.Element => {
+const Tabs = <T extends object>(props: TabsProps<T>) => {
+	const { orientation } = props
 	const state = useTabListState(props)
 	const ref = React.useRef<HTMLDivElement>(null)
 	const { tabListProps } = useTabList(props, state, ref)
 	const { focusProps, isFocusVisible } = useFocusRing({ within: true })
 
 	return (
-		<div className={clsx(styles.tabs)}>
+		<div
+			className={clsx(styles.tabs, [
+				orientation === 'vertical' && styles.tabs_vertical,
+			])}
+		>
 			<div
 				{...tabListProps}
 				{...focusProps}
@@ -86,5 +91,6 @@ const TabPanel = ({
 		</div>
 	)
 }
+Tabs.displayName = 'SKA UI - Tabs'
 
 export default Tabs

@@ -10,6 +10,7 @@ const Collapsible = (props: CollapsibleProps): JSX.Element => {
 		children,
 		open: _open = false,
 		title,
+		onToggle,
 		transition,
 		...rest
 	} = props
@@ -18,6 +19,9 @@ const Collapsible = (props: CollapsibleProps): JSX.Element => {
 		open ? undefined : 0
 	)
 	function handleToggle() {
+		if (onToggle) {
+			onToggle(!open)
+		}
 		setOpen(!open)
 	}
 

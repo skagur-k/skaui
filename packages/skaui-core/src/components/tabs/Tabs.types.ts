@@ -3,7 +3,7 @@ import { Node } from '@react-types/shared'
 import { TabListState } from 'react-stately'
 import React from 'react'
 
-export interface TabProps<T> {
+export interface TabProps<T extends object> {
 	item: Node<T>
 	state: TabListState<T>
 	focused?: boolean
