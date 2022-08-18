@@ -46,7 +46,7 @@ const Toast = (props: IToast) => {
 		},
 		transition: {
 			y: {
-				duration: 0.1,
+				duration: 0.3,
 				ease: 'easeInOut',
 			},
 			x: {

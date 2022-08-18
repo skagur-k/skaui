@@ -49,7 +49,6 @@ const useToast = (props?: useToastProps) => {
 		(type: ToastType): ToastHandler =>
 		(message, options) => {
 			const toast = generateToast({ message, type, options })
-			console.log(toast)
 
 			dispatch({ type: ActionType.ADD_TOAST, toast })
 			return toast.id

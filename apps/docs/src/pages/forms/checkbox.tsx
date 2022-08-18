@@ -22,17 +22,17 @@ const disabledCode = `<Container>
 const disabledScope = { Checkbox, Container }
 
 const groupCode = `<Container>
-<Checkbox.Group size='sm' label='Checkbox Group'>
+<Checkbox.Group size='sm' label='Small'>
 	<Checkbox.GroupItem value="option1">Option 1</Checkbox.GroupItem>
 	<Checkbox.GroupItem value="option2">Option 2</Checkbox.GroupItem>
 	<Checkbox.GroupItem value="option3">Option 3</Checkbox.GroupItem>
 </Checkbox.Group>
-<Checkbox.Group size='md' label='Checkbox Group'>
+<Checkbox.Group size='md' label='Medium'>
 	<Checkbox.GroupItem value="option1">Option 1</Checkbox.GroupItem>
 	<Checkbox.GroupItem value="option2">Option 2</Checkbox.GroupItem>
 	<Checkbox.GroupItem value="option3">Option 3</Checkbox.GroupItem>
 </Checkbox.Group>
-<Checkbox.Group size='lg' label='Checkbox Group'>
+<Checkbox.Group size='lg' label='Large'>
 	<Checkbox.GroupItem value="option1">Option 1</Checkbox.GroupItem>
 	<Checkbox.GroupItem value="option2">Option 2</Checkbox.GroupItem>
 	<Checkbox.GroupItem value="option3">Option 3</Checkbox.GroupItem>

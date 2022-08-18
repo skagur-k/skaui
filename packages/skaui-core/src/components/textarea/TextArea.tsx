@@ -1,35 +1,47 @@
 import clsx from 'clsx'
-import { useFocusRing } from 'react-aria'
+import React from 'react'
+import { mergeProps, useTextField } from 'react-aria'
 import { useTextAreaClass } from './styles'
+import styles from './TextArea.module.css'
 import { TextAreaProps } from './TextArea.types'
 
-const TextArea = (props: TextAreaProps) => {
+const TextArea = (props: TextAreaProps<'textarea'>) => {
 	const {
+		label,
 		placeholder,
-		defaultText,
-		disabled = false,
+		isDisabled,
 		rows = 5,
 		error = false,
 		className,
-		...rest
 	} = props
 
-	const { focusProps, isFocused } = useFocusRing()
+	const ref = React.useRef(null)
+	const { labelProps, inputProps } = useTextField(
+		{
+			...props,
+			inputElementType: 'textarea',
+		},
+		ref
+	)
+
 	const textAreaClasses = useTextAreaClass({
-		disabled,
+		isDisabled,
 		error,
-		isFocused,
 	})
 	return (
-		<textarea
-			className={clsx(textAreaClasses, className)}
-			placeholder={placeholder}
-			defaultValue={defaultText}
-			disabled={disabled}
-			rows={rows}
-			{...rest}
-			{...focusProps}
-		/>
+		<div className={styles.textarea_wrapper}>
+			<label {...labelProps} className={styles.textarea_label}>
+				{label}
+			</label>
+			<textarea
+				className={clsx(textAreaClasses, className)}
+				placeholder={placeholder}
+				rows={rows}
+				disabled={isDisabled}
+				ref={ref}
+				{...mergeProps(inputProps)}
+			/>
+		</div>
 	)
 }
 

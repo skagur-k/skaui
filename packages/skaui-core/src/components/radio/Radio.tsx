@@ -8,18 +8,26 @@ import { RadioContext } from './RadioGroup'
 import styles from './Radio.module.css'
 
 const Radio = (props: RadioProps) => {
-	const { children, isDisabled } = props
+	const { children, isDisabled, size = 'md' } = props
 	const state = React.useContext(RadioContext)
 	const ref = React.useRef(null)
 	const { inputProps } = useRadio(props, state, ref)
-
 	const { isFocused, focusProps } = useFocusRing()
 
 	const isSelected = state.selectedValue === props.value
 
+	const sizes = {
+		sm: styles.radio_sm,
+		md: styles.radio_md,
+		lg: styles.radio_lg,
+	}
+
 	return (
 		<label
-			className={clsx(styles.radio, [isDisabled && styles.radio_disabled])}
+			className={clsx(styles.radio, [
+				isDisabled && styles.radio_disabled,
+				size && sizes[size],
+			])}
 		>
 			<input {...inputProps} {...focusProps} className={clsx(styles.sr_only)} />
 			<div
@@ -48,4 +56,4 @@ const Radio = (props: RadioProps) => {
 	)
 }
 
-export { Radio }
+export default Radio

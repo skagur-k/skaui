@@ -6,13 +6,10 @@ import { IDE } from '../../components/ide'
 import PageLayout from '../../layouts/PageLayout'
 
 const sizesCode = `<Container>
-				<Input
-					prefix='https://'
-					placeholder='Please input your text'
-					size='sm'
-					label='Small'
-					errorMessage={'This is wrong!'}
-				/>
+	<Input
+		size='sm'
+		label='Small'
+	/>
 </Container>
 `
 const sizesScope = { Input, Container }

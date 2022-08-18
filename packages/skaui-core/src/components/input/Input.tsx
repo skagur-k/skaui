@@ -15,47 +15,38 @@ const Input = forwardRef<HTMLElement, InputProps<'input'>>((props, ref) => {
 		label,
 		isDisabled,
 		invalid,
-		value,
 		as: Comp = 'input',
-		type = 'text',
 		prefix,
 		suffix,
 		className,
 		unstyled,
-		...rest
 	} = props
 
 	const _ref = React.useRef(null)
 	const { labelProps, inputProps, descriptionProps, errorMessageProps } =
 		useTextField(props, _ref)
 
+	const { focusProps, isFocused } = useFocusRing()
+
 	const inputClasses = useInputClass({
 		size,
 		unstyled,
 		invalid,
 		isDisabled,
+		isFocused,
 	})
-
-	const { focusProps, isFocused } = useFocusRing()
-
 	return (
-		<div
-			className={clsx(inputClasses, className, [
-				isFocused && styles.input_focused,
-			])}
-		>
+		<div className={clsx(inputClasses, className)}>
 			<label {...labelProps} className={styles.input_label}>
 				{label}
 			</label>
 			<div className={clsx(styles.input_wrapper)}>
 				{prefix && <div className={styles.input_prefix}>{prefix}</div>}
 				<Comp
-					aria-label={label}
 					className={clsx(styles.input_field, [
 						prefix && styles.input_field_w_prefix,
 						suffix && styles.input_field_w_suffix,
 					])}
-					{...rest}
 					ref={mergeRefs(ref, _ref)}
 					{...mergeProps(focusProps, inputProps)}
 				/>

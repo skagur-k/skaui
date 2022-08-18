@@ -1,8 +1,7 @@
 import React from 'react'
 import { AriaTextFieldOptions } from 'react-aria'
 
-export interface InputProps<T extends TextFieldIntrinsicElements>
-	extends AriaTextFieldOptions<T> {
+export interface InputProps<T extends 'input'> extends AriaTextFieldOptions<T> {
 	value?: string
 	prefix?: React.ReactNode
 	suffix?: React.ReactNode

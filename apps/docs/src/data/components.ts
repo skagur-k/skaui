@@ -10,53 +10,57 @@ export interface IAllComponents {
 	components: IComponents
 }
 
+const buttons: IComponents = [
+	{
+		key: '/buttons/button',
+		title: 'Button',
+	},
+	{
+		key: '/buttons/buttongroup',
+		title: 'Button Group',
+	},
+	{
+		key: '/buttons/iconbutton',
+		title: 'Icon Button',
+	},
+	{
+		key: '/buttons/toggle',
+		title: 'Toggle',
+	},
+]
+
 const forms: IComponents = [
 	{
-		key: '/component/checkbox',
+		key: '/forms/checkbox',
 		title: 'Checkbox',
 	},
 
 	{
-		key: '/component/input',
+		key: '/forms/input',
 		title: 'Input',
 	},
 
 	{
-		key: '/component/radio',
+		key: '/forms/radio',
 		title: 'Radio',
 	},
 	{
-		key: '/component/textarea',
+		key: '/forms/textarea',
 		title: 'Text Area',
-	},
-]
-
-const buttons: IComponents = [
-	{
-		key: '/component/button',
-		title: 'Button',
-	},
-	{
-		key: '/component/iconbutton',
-		title: 'Icon Button',
-	},
-	{
-		key: '/component/toggle',
-		title: 'Toggle',
 	},
 ]
 
 const overlays: IComponents = [
 	{
-		key: '/component/menu',
+		key: '/overlays/menu',
 		title: 'Menu',
 	},
 	{
-		key: '/component/modal',
+		key: '/overlays/modal',
 		title: 'Modal',
 	},
 	{
-		key: '/component/toast',
+		key: '/overlays/toast',
 		title: 'Toast',
 	},
 ]
@@ -74,15 +78,15 @@ const pickers: IComponents = [
 
 const status: IComponents = [
 	{
-		key: '/component/meter',
+		key: '/status/meter',
 		title: 'Meter',
 	},
 	{
-		key: '/component/progress',
+		key: '/status/progress',
 		title: 'Progress',
 	},
 	{
-		key: '/component/statusdot',
+		key: '/status/statusdot',
 		title: 'Status Dot',
 	},
 ]

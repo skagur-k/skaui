@@ -1,9 +1,6 @@
-import React from 'react'
-
-interface TextAreaNativeProps
-	extends React.HTMLAttributes<HTMLTextAreaElement> {}
-
-interface ITextAreaProps {
+import { AriaTextFieldOptions } from 'react-aria'
+export interface TextAreaProps<T extends 'textarea'>
+	extends AriaTextFieldOptions<T> {
 	placeholder?: string
 	defaultText?: string
 	error?: boolean
@@ -12,5 +9,3 @@ interface ITextAreaProps {
 	rows?: number
 	className?: string
 }
-
-export interface TextAreaProps extends ITextAreaProps, TextAreaNativeProps {}

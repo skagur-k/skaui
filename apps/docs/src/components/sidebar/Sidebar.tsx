@@ -10,8 +10,6 @@ export const Sidebar = () => {
 	const router = useRouter()
 	const path = router.asPath
 
-	console.log(path)
-
 	return (
 		<aside className='hidden lg:flex'>
 			{/* Aside */}

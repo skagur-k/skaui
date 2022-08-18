@@ -10,17 +10,25 @@ import { RadioGroupProps } from './Radio.types'
 const RadioContext = React.createContext<RadioGroupState>({} as RadioGroupState)
 
 const RadioGroup = (props: RadioGroupProps) => {
-	const { label, disabled, children, className } = props
+	const { label, children, className, size = 'md', isDisabled, row } = props
 	const state = useRadioGroupState(props)
 	const { radioGroupProps, labelProps } = useRadioGroup(props, state)
+	const sizes = {
+		sm: styles.radio_sm,
+		md: styles.radio_md,
+		lg: styles.radio_lg,
+	}
 
-	const radioGroupClasses = clsx(styles.radiogroup, className)
+	const radioGroupClasses = clsx(styles.radiogroup, className, [
+		size && sizes[size],
+		row && styles.radiogroup_row,
+	])
 
 	const validChildren = getValidChildren(children)
-
 	const copies = validChildren.map((child) => {
 		return React.cloneElement(child, {
-			disabled: child.props.disabled || disabled,
+			isDisabled: child.props.isDisabled || isDisabled,
+			size: child.props.size || sizes[size],
 		})
 	})
 

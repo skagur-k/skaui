@@ -59,10 +59,8 @@ export const ToastProvider = ({ children }: any) => {
 	const [state, dispatch] = useReducer(ToastReducer, {
 		toasts: [],
 		position: 'bottom-right',
-		maxToasts: 4,
+		maxToasts: 3,
 	})
-
-	console.log(dispatch)
 
 	return (
 		<ToastStateContext.Provider value={state}>

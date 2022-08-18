@@ -2,17 +2,14 @@ import clsx from 'clsx'
 import { TextAreaProps } from './TextArea.types'
 import styles from './TextArea.module.css'
 
-interface TextAreaClassProps extends TextAreaProps {
-	isFocused: boolean
-}
+interface TextAreaClassProps extends TextAreaProps<'textarea'> {}
 
 function useTextAreaClass(props: TextAreaClassProps) {
-	const { disabled, error, isFocused } = props
+	const { isDisabled, error } = props
 
 	const classes = clsx(styles.textarea, [
-		disabled && styles.textarea_disabled,
+		isDisabled && styles.textarea_disabled,
 		error && styles.textarea_error,
-		isFocused && styles.textarea_focused,
 	])
 
 	return classes
