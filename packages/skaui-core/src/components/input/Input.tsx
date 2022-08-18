@@ -18,8 +18,10 @@ const Input = forwardRef<HTMLElement, InputProps<'input'>>((props, ref) => {
 		as: Comp = 'input',
 		prefix,
 		suffix,
+		width = '100px',
 		className,
 		unstyled,
+		
 	} = props
 
 	const _ref = React.useRef(null)
@@ -40,7 +42,7 @@ const Input = forwardRef<HTMLElement, InputProps<'input'>>((props, ref) => {
 			<label {...labelProps} className={styles.input_label}>
 				{label}
 			</label>
-			<div className={clsx(styles.input_wrapper)}>
+			<div className={clsx(styles.input_wrapper)} style={{ minWidth: width }}>
 				{prefix && <div className={styles.input_prefix}>{prefix}</div>}
 				<Comp
 					className={clsx(styles.input_field, [

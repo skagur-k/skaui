@@ -10,7 +10,6 @@ export interface InputProps<T extends 'input'> extends AriaTextFieldOptions<T> {
 	type?: string
 	invalid?: boolean
 	className?: string
+	width?: string
 	unstyled?: boolean
 }
-
-type TextFieldIntrinsicElements = 'input' | 'textarea'

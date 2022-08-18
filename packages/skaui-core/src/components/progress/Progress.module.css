@@ -25,8 +25,9 @@
 }
 
 .progress_bar_indeterminate {
-	@apply h-full bg-neutral-800;
-	@apply opacity-80 rounded-full;
+	@apply w-full h-full bg-neutral-800;
+	@apply opacity-100 rounded-full origin-left;
+	animation: indeterminateAnimation 1s infinite linear;
 }
 
 .progress_success {
@@ -51,5 +52,17 @@
 	& .progress_bar_fill,
 	.progress_bar_indeterminate {
 		@apply bg-neutral-500;
+	}
+}
+
+@keyframes indeterminateAnimation {
+	0% {
+		transform: translateX(0) scaleX(0);
+	}
+	50% {
+		transform: translateX(0) scaleX(0.5);
+	}
+	100% {
+		transform: translateX(100%) scaleX(0.5);
 	}
 }

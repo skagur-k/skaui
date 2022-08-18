@@ -5,6 +5,6 @@
 }
 
 .container_col {
-	@apply w-full flex-col;
+	@apply w-full flex-col items-center;
 	@apply gap-12;
 }

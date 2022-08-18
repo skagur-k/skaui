@@ -6,7 +6,7 @@ import type { TabPanelProps, TabProps, TabsProps } from './Tabs.types'
 import styles from './Tabs.module.css'
 
 const Tabs = <T extends object>(props: TabsProps<T>) => {
-	const { orientation } = props
+	const { orientation, isDisabled } = props
 	const state = useTabListState(props)
 	const ref = React.useRef<HTMLDivElement>(null)
 	const { tabListProps } = useTabList(props, state, ref)
@@ -16,6 +16,7 @@ const Tabs = <T extends object>(props: TabsProps<T>) => {
 		<div
 			className={clsx(styles.tabs, [
 				orientation === 'vertical' && styles.tabs_vertical,
+				isDisabled && styles.tabs_disabled,
 			])}
 		>
 			<div

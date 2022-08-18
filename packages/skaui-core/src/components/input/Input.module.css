@@ -1,5 +1,5 @@
 .input {
-	@apply relative w-full;
+	@apply relative w-fit;
 	@apply flex flex-col;
 	@apply justify-center items-start;
 }
@@ -54,7 +54,7 @@
 	}
 
 	& .input_field {
-		@apply py-1;
+		@apply py-1 text-xs;
 	}
 }
 .input_md {
@@ -106,6 +106,7 @@
 
 .input_prefix,
 .input_suffix {
+	@apply w-fit text-sm;
 	@apply transition-all duration-300;
 	@apply bg-neutral-50 text-neutral-500;
 	@apply table-cell px-4 align-middle;
@@ -121,7 +122,7 @@
 }
 
 .input_field {
-	@apply w-full px-3 py-1 z-50;
+	@apply w-full px-3 py-0 z-50;
 	@apply border appearance-none align-middle;
 	@apply text-neutral-800 bg-neutral-50;
 	@apply outline-none;

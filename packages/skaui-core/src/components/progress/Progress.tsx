@@ -59,7 +59,7 @@ const Progress = (props: ProgressProps) => {
 				)}
 				{showValueLabel && (
 					<span className={styles.progress_labels_value}>
-						{isIndeterminate ? 'Loading' : progressBarProps['aria-valuetext']}
+						{isIndeterminate ? '' : progressBarProps['aria-valuetext']}
 					</span>
 				)}
 			</div>

@@ -20,7 +20,8 @@ const Meter = (props: MeterProps) => {
 	const { meterProps, labelProps } = useMeter(props)
 
 	let percentage = (value - minValue) / (maxValue - minValue)
-	let barWidth = `${Math.round(percentage * 100)}%`
+
+	let barWidth = `${Math.round(percentage < 0 ? 0 : percentage * 100)}%`
 
 	const types = {
 		success: styles.meter_success,

@@ -17,7 +17,7 @@
 }
 
 .meter_bar_track {
-	@apply h-full bg-neutral-100;
+	@apply h-full bg-neutral-200;
 }
 
 .meter_bar_fill {

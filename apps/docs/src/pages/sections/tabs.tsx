@@ -1,10 +1,10 @@
-import { InlineCode, KBD, Tabs, Button } from '@skaui/core'
+import { Button, Checkbox, InlineCode, KBD, Tabs } from '@skaui/core'
 import { NextPage } from 'next'
+import Link from 'next/link'
+import { Key, useState } from 'react'
+import { Container } from '../../components/container'
 import { IDE } from '../../components/ide'
 import PageLayout from '../../layouts/PageLayout'
-import { Container } from '../../components/container'
-import { useState } from 'react'
-import Link from 'next/link'
 
 const defaultCode = `
 <Tabs title="Tabs">
@@ -21,7 +21,7 @@ const defaultCode = `
 const defaultScope = { Tabs }
 
 const selectionCode = `
-<Tabs title="Tabs" defaultSelectedKey="panel2">
+<Tabs defaultSelectedKey="panel2">
 	<Tabs.Item key="panel1" title="Panel 1">
 		Panel Body 1
 	</Tabs.Item>
@@ -34,22 +34,40 @@ const selectionCode = `
 </Tabs>`
 const selectionScope = { Tabs }
 
-const disabledCode = `
-<Tabs title="Tabs" disabledKeys={['panel1']}>
-	<Tabs.Item key="panel1" title="Panel 1">
-		Panel Body 1
-	</Tabs.Item>
-	<Tabs.Item key="panel2" title="Panel 2">
-		Panel Body 2
-	</Tabs.Item>
-	<Tabs.Item key="panel3" title="Panel 3">
-		Panel Body 3
-	</Tabs.Item>
-</Tabs>`
-const disabledScope = { Tabs }
+const disabledCode = `() => {
+const [disabled, setDisabled] = React.useState(true)
+return (
+	<Container col>
+		<Checkbox isSelected={disabled} onChange={setDisabled}>Disabled</Checkbox>
+		<Tabs isDisabled={disabled}>
+			<Tabs.Item key="panel1" title="Panel 1">
+				Panel Body 1
+			</Tabs.Item>
+			<Tabs.Item key="panel2" title="Panel 2">
+				Panel Body 2
+			</Tabs.Item>
+			<Tabs.Item key="panel3" title="Panel 3">
+				Panel Body 3
+			</Tabs.Item>
+		</Tabs>
+		<Tabs disabledKeys={['panel1']}>
+			<Tabs.Item key="panel1" title="Panel 1">
+				Panel Body 1
+			</Tabs.Item>
+			<Tabs.Item key="panel2" title="Panel 2">
+				Panel Body 2
+			</Tabs.Item>
+			<Tabs.Item key="panel3" title="Panel 3">
+				Panel Body 3
+			</Tabs.Item>
+		</Tabs>
+	</Container>
+)}
+`
+const disabledScope = { Tabs, Container, Checkbox }
 
 const orientationCode = `
-<Tabs title="Tabs" orientation="vertical">
+<Tabs orientation="vertical">
 	<Tabs.Item key="panel1" title="Panel 1">
 		Panel Body 1
 	</Tabs.Item>
@@ -62,14 +80,12 @@ const orientationCode = `
 </Tabs>`
 const orientationScope = { Tabs }
 
-const CollapsiblePage: NextPage = () => {
-	const [selected, setSelected] = useState('panel1')
-	const controlledCode = `() =>
-{
-
+const TabsPage: NextPage = () => {
+	const [selected, setSelected] = useState<Key>('Panel 1')
+	const controlledCode = `() => {
 return(
 	<Container col>
-		<Tabs title="Tabs" selectedKey={selected} onSelectionChange={setSelected}>
+		<Tabs selectedKey={selected} onSelectionChange={setSelected}>
 			<Tabs.Item key="Panel 1" title="Panel 1">
 				Panel Body 1
 			</Tabs.Item>
@@ -96,9 +112,9 @@ return(
 		setTabs((tabs) => [
 			...tabs,
 			{
-				id: ${tabs.length + 1},
-				title: "${`Tab ${tabs.length + 1}`}",
-				content: "Tab Body ${tabs.length + 1}"
+				id: tabs.length + 1,
+				title: "Tab " + (tabs.length + 1),
+				content: "Tab Body " + (tabs.length + 1)
 			}
 		])
 	}
@@ -115,7 +131,7 @@ return(
 			<Button size="sm" type="success" onPress={handleAdd}>Add Tab</Button>
 			<Button size="sm" type="error" onPress={handleRemove}>Remove Tab</Button>
 		</Container>
-		<Tabs title="Tabs" items={tabs}>
+		<Tabs items={tabs}>
 			{(item) => (<Tabs.Item title={item.title}>{item.content}</Tabs.Item>)}
 		</Tabs>
 	</Container>
@@ -134,13 +150,11 @@ return(
 					Tabs can be focused with <KBD>Tab</KBD> key and its panels can be
 					nagivated with <KBD>Arrow</KBD> keys.
 				</h3>
-
 				{/* Section */}
 				<div className='mt-16 flex flex-col gap-8'>
 					<h2 className='text-4xl font-bold'>Panels</h2>
 					<IDE code={defaultCode} scope={defaultScope} />
 				</div>
-
 				{/* Section */}
 				<div className='mt-16 flex flex-col gap-8'>
 					<h2 className='text-4xl font-bold'>Default Selected</h2>
@@ -150,7 +164,6 @@ return(
 					</h3>
 					<IDE code={selectionCode} scope={selectionScope} />
 				</div>
-
 				{/* Section */}
 				<div className='mt-16 flex flex-col gap-8'>
 					<h2 className='text-4xl font-bold'>Controlled</h2>
@@ -164,7 +177,6 @@ return(
 						</p>
 					</IDE>
 				</div>
-
 				{/* Section */}
 				<div className='mt-16 flex flex-col gap-8'>
 					<h2 className='text-4xl font-bold'>Dynamic Items</h2>
@@ -182,12 +194,13 @@ return(
 						<p>
 							List of tabs:{' '}
 							{tabs.map((tab) => (
-								<span className='font-bold'>{tab.title + ' '}</span>
+								<span key={tab.id} className='font-bold'>
+									{tab.title + ' '}
+								</span>
 							))}
 						</p>
 					</IDE>
 				</div>
-
 				{/* Section */}
 				<div className='mt-16 flex flex-col gap-8'>
 					<h2 className='text-4xl font-bold'>Disabled Panel</h2>
@@ -196,8 +209,7 @@ return(
 					</h3>
 					<IDE code={disabledCode} scope={disabledScope} />
 				</div>
-
-				{/* Section */}
+				Section
 				<div className='mt-16 flex flex-col gap-8'>
 					<h2 className='text-4xl font-bold'>Orientation</h2>
 					<h3 className='text-lg text-neutral-400'>
@@ -211,4 +223,4 @@ return(
 	)
 }
 
-export default CollapsiblePage
+export default TabsPage
