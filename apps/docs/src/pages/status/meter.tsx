@@ -64,8 +64,8 @@ const controlledCode = `() => {
 	}
 
 	return (
-		<Container col>
-			<Container>
+		<Container col align="center">
+			<Container align="center">
 				<Button size="sm" onPress={handleDecrease}>-10</Button>
 				<Input
 					size="sm"

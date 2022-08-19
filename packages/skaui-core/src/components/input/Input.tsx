@@ -21,7 +21,6 @@ const Input = forwardRef<HTMLElement, InputProps<'input'>>((props, ref) => {
 		width = '100px',
 		className,
 		unstyled,
-		
 	} = props
 
 	const _ref = React.useRef(null)
@@ -50,7 +49,7 @@ const Input = forwardRef<HTMLElement, InputProps<'input'>>((props, ref) => {
 						suffix && styles.input_field_w_suffix,
 					])}
 					ref={mergeRefs(ref, _ref)}
-					{...mergeProps(focusProps, inputProps)}
+					{...mergeProps(inputProps, focusProps)}
 				/>
 				{suffix && <div className={styles.input_suffix}>{suffix}</div>}
 			</div>

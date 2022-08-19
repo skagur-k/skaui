@@ -53,15 +53,20 @@
 	@apply tracking-wide;
 }
 
+.text_mono {
+	@apply font-mono;
+}
+
 .text_inlinecode {
-	@apply bg-neutral-500 text-neutral-100 px-2;
+	@apply bg-neutral-200 text-neutral-800 px-2 mx-1;
+	@apply rounded-md font-normal;
 }
 
 .text_codeblock {
 	@apply inline-block bg-neutral-100;
 	@apply rounded-md;
 	@apply p-4 font-medium;
-	@apply text-neutral-800 text-lg;
+	@apply text-neutral-800 text-base;
 }
 
 .text_wght_100_thin {
@@ -103,11 +108,15 @@
 }
 
 .ul {
-	@apply list-outside;
+	@apply list-disc;
+	@apply list-inside;
+	@apply flex flex-col gap-2;
 }
 
 .ol {
-	@apply list-outside;
+	@apply list-decimal;
+	@apply list-inside;
+	@apply flex flex-col gap-2;
 }
 .li {
 }

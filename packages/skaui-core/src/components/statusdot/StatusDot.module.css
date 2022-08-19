@@ -1,5 +1,5 @@
 .statusdot {
-	@apply flex gap-3 p-1 items-center;
+	@apply flex gap-4 p-1 items-center;
 }
 
 .statusdot_dot {
@@ -8,7 +8,7 @@
 }
 
 .statusdot_label {
-	@apply text-sm font-medium;
+	@apply font-medium;
 }
 
 .statusdot_positive {

@@ -58,10 +58,10 @@
 	@apply text-sm py-2;
 }
 .note_md {
-	@apply text-sm py-4;
+	@apply text-base py-3;
 }
 .note_lg {
-	@apply text-base py-6;
+	@apply text-lg py-4;
 }
 
 .note_label {

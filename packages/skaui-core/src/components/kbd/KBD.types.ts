@@ -10,6 +10,7 @@ export interface KBDProps {
 	option?: boolean
 	fn?: boolean
 	enter?: boolean
+	command?: boolean
 	deletekey?: boolean
 	children?: React.ReactElement | string
 }

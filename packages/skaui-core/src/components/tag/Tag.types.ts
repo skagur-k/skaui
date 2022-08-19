@@ -1,9 +1,9 @@
 export interface TagProps {
 	id: string
-	key: string
 	children: string
-	onRemove?: (id: string) => void
+	onRemove?: (id: string) => void | null
 }
 export interface TagsProps {
 	tags: string[]
+	removable?: boolean
 }

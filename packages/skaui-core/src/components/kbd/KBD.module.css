@@ -1,5 +1,5 @@
 .kbd {
-	@apply inline-flex gap-2 px-2 py-[1px] items-center;
+	@apply inline-flex gap-2 px-2 py-[2px] items-center;
 	@apply mx-1 tracking-wide;
 	@apply rounded-sm w-fit h-fit;
 	@apply border-0 ring-1 ring-neutral-300;

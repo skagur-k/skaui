@@ -187,7 +187,7 @@
 	@apply rounded-sm;
 }
 .button_block {
-	@apply inline-flex min-h-[28px] max-w-full;
+	@apply inline-flex min-h-[28px] max-w-full w-full;
 	@apply text-[0.875rem] rounded-sm;
 	@apply px-2 py-1;
 }
@@ -241,7 +241,7 @@
 	@apply p-2;
 }
 
-.iconbutton_xl {	
+.iconbutton_xl {
 	@apply p-2;
 }
 

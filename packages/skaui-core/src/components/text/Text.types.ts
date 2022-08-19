@@ -14,6 +14,7 @@ export interface TextProps
 	align?: 'left' | 'center' | 'right'
 	truncate?: number | boolean
 	wrap?: boolean
+	mono?: boolean
 	color?: string
 	as?: React.ElementType
 }

@@ -9,6 +9,7 @@ const Note = (props: NoteProps) => {
 		label = 'Note',
 		size = 'md',
 		action,
+		actionLabel,
 		type,
 		filled,
 		contrast,
@@ -26,7 +27,11 @@ const Note = (props: NoteProps) => {
 				)}
 				{children}
 			</div>
-			{action && <Button size='sm'>Action</Button>}
+			{actionLabel && (
+				<Button onPress={action} size='sm'>
+					Action
+				</Button>
+			)}
 		</div>
 	)
 }

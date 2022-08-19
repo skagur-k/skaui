@@ -1,10 +1,32 @@
 .container {
 	@apply flex;
 	@apply w-full;
+	@apply gap-4;
 	@apply justify-evenly;
+	@apply items-start;
+
+	&.container_start {
+		@apply justify-start;
+	}
+	&.container_center {
+		@apply justify-center;
+	}
+	&.container_end {
+		@apply justify-end;
+	}
 }
 
 .container_col {
-	@apply w-full flex-col items-center;
+	@apply w-full flex-col;
 	@apply gap-12;
+
+	&.container_start {
+		@apply items-start;
+	}
+	&.container_center {
+		@apply items-center;
+	}
+	&.container_end {
+		@apply items-end;
+	}
 }

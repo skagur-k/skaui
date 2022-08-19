@@ -12,6 +12,7 @@ import {
 export const Text = ({
 	size = 'base',
 	weight,
+	mono = false,
 	transform,
 	truncate,
 	align,
@@ -26,6 +27,7 @@ export const Text = ({
 		transform,
 		truncate,
 		align,
+		mono,
 	})
 
 	return (

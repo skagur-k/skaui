@@ -1,9 +1,10 @@
 .tag {
 	@apply inline-flex w-fit;
-	@apply bg-neutral-50;
+	@apply bg-neutral-50 cursor-pointer;
 	@apply overflow-hidden rounded-md;
 	@apply ring-1 ring-neutral-200;
 	@apply flex justify-between items-center;
+	@apply hover:bg-neutral-100;
 }
 
 .tag_text {

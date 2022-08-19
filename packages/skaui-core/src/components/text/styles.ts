@@ -21,7 +21,7 @@ export enum ElementTypes {
 }
 
 function useTextClass(props: TextClassProps) {
-	const { size, weight, transform, align, truncate } = props
+	const { size, weight, transform, align, truncate, mono } = props
 
 	const sizes = {
 		xs: styles.text_xs,
@@ -65,6 +65,7 @@ function useTextClass(props: TextClassProps) {
 		weight && weights[weight],
 		transform && transformations[transform],
 		align && alignments[align],
+		mono && styles.text_mono,
 		typeof truncate === 'boolean'
 			? styles.text_truncate
 			: styles.text_lineclamp,

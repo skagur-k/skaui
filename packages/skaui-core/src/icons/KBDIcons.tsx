@@ -10,7 +10,7 @@ export const CommandIcon = ({ size, className }: IconProps) => {
 			width={size || iconSize.size}
 			height={size || iconSize.size}
 			stroke='currentColor'
-			strokeWidth='3'
+			strokeWidth='2'
 			strokeLinecap='round'
 			strokeLinejoin='round'
 			fill='none'
@@ -67,6 +67,26 @@ export const DeleteIcon = ({ size, className }: IconProps) => {
 	)
 }
 
+export const ControlIcon = ({ size, className }: IconProps) => {
+	const iconSize = useIcon()
+	return (
+		<svg
+			viewBox='0 0 24 32'
+			width={size || iconSize.size}
+			height={size || iconSize.size}
+			stroke='currentColor'
+			strokeWidth='3'
+			strokeLinecap='round'
+			strokeLinejoin='round'
+			fill='none'
+			shapeRendering='geometricPrecision'
+			className={className}
+		>
+			<polyline points='18 15 12 9 6 15'></polyline>
+		</svg>
+	)
+}
+
 export const OptionsIcon = ({ size, className }: IconProps) => {
 	const iconSize = useIcon()
 
@@ -76,7 +96,7 @@ export const OptionsIcon = ({ size, className }: IconProps) => {
 			width={size || iconSize.size}
 			height={size || iconSize.size}
 			stroke='currentColor'
-			strokeWidth='1.5'
+			strokeWidth='1'
 			strokeLinecap='round'
 			strokeLinejoin='round'
 			fill='none'
@@ -97,7 +117,7 @@ export const ShiftIcon = ({ size, className }: IconProps) => {
 			width={size || iconSize.size}
 			height={size || iconSize.size}
 			stroke='currentColor'
-			strokeWidth='2'
+			strokeWidth='1.5'
 			strokeLinecap='round'
 			strokeLinejoin='round'
 			fill='none'

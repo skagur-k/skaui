@@ -1,8 +1,10 @@
 import clsx from 'clsx'
 import React from 'react'
+import { SquarePlusIcon } from '../../icons'
 
 import {
 	CommandIcon,
+	ControlIcon,
 	DeleteIcon,
 	OptionsIcon,
 	ReturnLeftIcon,
@@ -12,10 +14,12 @@ import {
 import styles from './KBD.module.css'
 import { KBDProps } from './KBD.types'
 
+// windows: <WindowsIcon className={styles.kbd_icons} />,
 const kbdIcons = {
-	windows: <WindowsIcon className={styles.kbd_icons} />,
+	windows: 'WIN',
 	command: <CommandIcon className={styles.kbd_icons} />,
 	option: <OptionsIcon className={styles.kbd_icons} />,
+	ctrl: <ControlIcon className={styles.kbd_icons} />,
 	shift: <ShiftIcon className={styles.kbd_icons} />,
 	returnkey: <ReturnLeftIcon className={styles.kbd_icons} />,
 	deletekey: <DeleteIcon className={styles.kbd_icons} />,
@@ -25,8 +29,10 @@ const KBD = (props: KBDProps) => {
 	const {
 		mac = false,
 		meta,
+		windows,
 		shift,
 		ctrl,
+		command,
 		alt,
 		enter,
 		deletekey,
@@ -36,17 +42,11 @@ const KBD = (props: KBDProps) => {
 
 	return (
 		<div className={clsx(styles.kbd)} {...rest}>
-			{meta &&
-				(mac ? (
-					<Key>{kbdIcons['command']}</Key>
-				) : (
-					<Key>
-						<Key>{kbdIcons['windows']}</Key>
-					</Key>
-				))}
-			{ctrl && <Key>CTRL</Key>}
+			{windows && <Key>WIN</Key>}
+			{ctrl && (mac ? <Key>{kbdIcons['ctrl']}</Key> : <Key>CTRL</Key>)}
 			{shift && (mac ? <Key>{kbdIcons['shift']}</Key> : <Key>SHIFT</Key>)}
 			{alt && (mac ? <Key>{kbdIcons['option']}</Key> : <Key>ALT</Key>)}
+			{command && kbdIcons['command']}
 			{enter && kbdIcons['returnkey']}
 			{deletekey && kbdIcons['deletekey']}
 			{/* {children && !noModifiers && <span>+</span>} */}

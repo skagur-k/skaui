@@ -2,7 +2,8 @@ import React from 'react'
 
 export interface NoteProps {
 	label?: boolean | string
-	action?: string
+	action?: () => void
+	actionLabel?: string
 	type?: 'success' | 'warning' | 'error' | 'secondary'
 	size?: 'sm' | 'md' | 'lg'
 	filled?: boolean
