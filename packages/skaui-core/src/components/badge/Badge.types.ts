@@ -4,7 +4,8 @@ export interface BadgeProps {
 	value?: string
 	children?: React.ReactNode
 	outline?: boolean
-	contrast?: boolean
+	pill?: boolean
+	type?: 'success' | 'error' | 'warning' | 'info'
 	size?: 'sm' | 'md' | 'lg'
 	color?: string
 	className?: string

@@ -4,23 +4,36 @@ import styles from './Badge.module.css'
 
 interface BadgeClassProps {
 	size?: BadgeProps['size']
-	contrast?: BadgeProps['contrast']
 	outline?: BadgeProps['outline']
+	type?: BadgeProps['type']
+	pill?: BadgeProps['pill']
 }
 
-export const useBadgeClass = ({ size, contrast, outline }: BadgeClassProps) => {
+export const useBadgeClass = ({
+	size,
+	outline,
+	type,
+	pill,
+}: BadgeClassProps) => {
 	const sizes = {
 		sm: styles.badge_sm,
 		md: styles.badge_md,
 		lg: styles.badge_lg,
 	}
 
-	const classes = clsx(
-		styles.badge,
-		size && [sizes[size]],
-		contrast && styles.badge_contrast,
-		outline && styles.badge_outline
-	)
+	const types = {
+		success: styles.badge_success,
+		error: styles.badge_error,
+		warning: styles.badge_warning,
+		info: styles.badge_info,
+	}
+
+	const classes = clsx(styles.badge, [
+		size && sizes[size],
+		type && types[type],
+		outline && styles.badge_outline,
+		pill && styles.badge_pill,
+	])
 
 	return classes
 }

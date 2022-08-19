@@ -1,15 +1,28 @@
 .badge {
-	@apply relative rounded-md box-content truncate;
-	@apply max-w-[20ch] w-fit;
-	@apply inline-flex shrink-0 items-center justify-start;
-	@apply bg-neutral-800 text-neutral-100 shadow-sm;
+	@apply relative truncate;
+	@apply w-fit;
+	@apply inline-flex shrink-0 items-center justify-center;
+	@apply bg-neutral-800 text-neutral-100;
 	@apply cursor-pointer;
-	@apply font-medium;
+	@apply font-bold;
+	@apply rounded-sm tracking-wide leading-4;
 	@apply ring-1 ring-white;
 }
 
-.badge_contrast {
-	@apply bg-neutral-300 ring-neutral-800 text-neutral-800;
+.badge_pill {
+	@apply rounded-full;
+
+	&.badge_sm {
+		@apply px-2;
+	}
+
+	&.badge_md {
+		@apply px-3;
+	}
+
+	&.badge_lg {
+		@apply px-4;
+	}
 }
 
 .badge_outline {
@@ -17,11 +30,40 @@
 }
 
 .badge_sm {
-	@apply text-sm leading-4 px-1 py-0 rounded-sm;
+	@apply text-[0.5rem] px-[4px] py-[1px];
 }
 .badge_md {
-	@apply text-sm leading-4 px-2 py-[2px] rounded-sm;
+	@apply text-[0.75rem] px-2 py-[2px];
 }
 .badge_lg {
-	@apply text-base leading-4 px-2 py-[2px] rounded-sm;
+	@apply text-[0.875rem] px-3 py-[3px];
+}
+
+.badge_success {
+	@apply bg-blue-500;
+
+	&.badge_outline {
+		@apply bg-transparent ring-blue-500 text-blue-500;
+	}
+}
+.badge_error {
+	@apply bg-red-500;
+
+	&.badge_outline {
+		@apply bg-transparent ring-red-500 text-red-500;
+	}
+}
+.badge_warning {
+	@apply bg-yellow-500;
+
+	&.badge_outline {
+		@apply bg-transparent ring-yellow-500 text-yellow-500;
+	}
+}
+.badge_info {
+	@apply bg-cyan-500;
+
+	&.badge_outline {
+		@apply bg-transparent ring-cyan-500 text-cyan-500;
+	}
 }

@@ -8,8 +8,8 @@ const sizesCode = `() => {
 const sizes = ['xs', 'sm', 'base', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl']
 return (
 	<div className="flex flex-col gap-1">
-		{sizes.reverse().map((size) => (
-			<Text truncate size={size}>Lorem ipsum dolor sit amet... ({size})</Text>
+		{sizes.reverse().map((size, idx) => (
+			<Text truncate size={size} key={idx}>Lorem ipsum dolor sit amet... ({size})</Text>
 		))}
 	</div>
 	)
@@ -22,8 +22,8 @@ const weightsCode = `() => {
 const weights = [900,800,700,600,500,400,300,200,100]
 return (
 	<div className="flex flex-col gap-1">
-		{weights.map((weight) => (
-			<Text size="2xl" weight={weight}>Lorem ipsum dolor sit amet... ({weight})</Text>
+		{weights.map((weight, idx) => (
+			<Text size="2xl" weight={weight} key={idx}>Lorem ipsum dolor sit amet... ({weight})</Text>
 		))}
 	</div>
 	)

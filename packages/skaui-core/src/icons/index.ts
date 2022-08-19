@@ -1,6 +1,7 @@
 // -- APPEND EXPORTS HERE --
 export { default as CheckIcon } from './CheckIcon'
 export { default as ChevronDownIcon } from './ChevronDownIcon'
+export { default as ChevronRightIcon } from './ChevronRightIcon'
 export { default as ClipboardIcon } from './ClipboardIcon'
 export { default as EyeIcon } from './EyeIcon'
 export { default as FileIcon } from './FileIcon'

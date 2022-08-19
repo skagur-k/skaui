@@ -33,7 +33,7 @@ const promptCode = `() => {
 	]
 
 	return (
-		<Container col>
+		<Container col align="center">
 			<Snippet
 			width='600px'
 			text={code}
@@ -58,7 +58,7 @@ const darkCode = `() => {
 	]
 
 	return (
-		<Container col>
+		<Container col align="center">
 			<Snippet
 			width='600px'
 			text={code}

@@ -8,7 +8,6 @@ export interface InputProps<T extends 'input'> extends AriaTextFieldOptions<T> {
 	size?: 'sm' | 'md' | 'lg'
 	as?: React.ElementType
 	type?: string
-	invalid?: boolean
 	className?: string
 	width?: string
 	unstyled?: boolean

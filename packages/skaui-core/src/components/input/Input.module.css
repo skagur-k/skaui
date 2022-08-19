@@ -5,12 +5,27 @@
 }
 
 .input_disabled {
-	& .input_wrapper {
-		@apply opacity-50;
+	&.input {
+		@apply opacity-60;
 	}
 
 	& .input_field {
 		@apply cursor-not-allowed;
+		@apply bg-neutral-100;
+	}
+
+	& .input_prefix,
+	.input_suffix {
+		@apply cursor-not-allowed;
+		@apply bg-neutral-100;
+	}
+
+	&.input_unstyled {
+		& .input_prefix,
+		.input_suffix {
+			@apply cursor-not-allowed;
+			@apply bg-neutral-100;
+		}
 	}
 }
 
@@ -54,36 +69,36 @@
 	}
 
 	& .input_field {
-		@apply py-1 text-xs;
+		@apply py-[3px] text-xs;
 	}
 }
 .input_md {
 	& .input_label {
-		@apply text-base;
+		@apply text-sm;
 	}
 
 	& .input_field {
-		@apply py-[5px];
+		@apply py-[4px] text-sm;
 	}
 }
 .input_lg {
 	& .input_label {
-		@apply text-base;
+		@apply text-sm;
 	}
 
 	& .input_field {
-		@apply py-[8px];
+		@apply py-[5px] text-base;
 	}
 }
 
 .input_label {
-	@apply block mb-2;
+	@apply block mb-1;
 	@apply font-medium text-neutral-800;
 }
 
 .input_wrapper {
 	@apply transition-all duration-300;
-	@apply table justify-center mb-2;
+	@apply flex justify-center mb-2;
 }
 
 .input_focused .input_wrapper {
@@ -96,21 +111,21 @@
 	}
 
 	& .input_label {
-		@apply text-red-400;
+		@apply text-red-500;
 	}
 }
 
 .input_invalid.input_focused .input_wrapper {
-	@apply ring-red-500 rounded-sm;
+	@apply ring-red-500;
 }
 
 .input_prefix,
 .input_suffix {
 	@apply w-fit text-sm;
+	@apply flex items-center justify-center;
 	@apply transition-all duration-300;
-	@apply bg-neutral-50 text-neutral-500;
-	@apply table-cell px-4 align-middle;
-	@apply border px-4;
+	@apply bg-neutral-50 text-neutral-400;
+	@apply border px-2;
 }
 
 .input_prefix {
@@ -139,10 +154,11 @@
 
 .input_errormsg {
 	@apply flex items-center gap-2;
-	@apply ml-1 text-sm text-red-500;
+	@apply ml-0 text-sm text-red-500;
 }
 .input_description {
-	@apply ml-1 text-sm text-neutral-400;
+	@apply ml-0 text-sm text-neutral-400;
 }
 .input_erricon {
+	@apply w-4 h-4;
 }

@@ -32,11 +32,11 @@ export const Text = ({
 
 	return (
 		<Comp
-			{...rest}
 			className={clsx(textClasses, className)}
 			style={{
-				WebkitLineClamp: typeof truncate === 'number' ? truncate : 'none',
+				WebkitLineClamp: typeof truncate === 'number' ? truncate : undefined,
 			}}
+			{...rest}
 		>
 			{children}
 		</Comp>

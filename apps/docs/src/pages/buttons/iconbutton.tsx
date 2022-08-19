@@ -25,8 +25,8 @@ const sizesCode = `<Container>
 `
 const sizesScope = { IconButton, Container, SettingsIcon }
 
-const variantCode = `<Container>
-	<Container col>
+const variantCode = `<Container >
+	<Container col align="center">
 		<IconButton variant='solid'>
 			<SettingsIcon />
 		</IconButton>
@@ -34,7 +34,7 @@ const variantCode = `<Container>
 			<SettingsIcon />
 		</IconButton>
 	</Container>
-	<Container col>
+	<Container col align="center">
 		<IconButton variant='solid' type='success'>
 			<SettingsIcon />
 		</IconButton>
@@ -42,7 +42,7 @@ const variantCode = `<Container>
 			<SettingsIcon />
 		</IconButton>
 	</Container>
-	<Container col>
+	<Container col align="center">
 		<IconButton variant='solid' type='error'>
 			<SettingsIcon />
 		</IconButton>
@@ -50,7 +50,7 @@ const variantCode = `<Container>
 			<SettingsIcon />
 		</IconButton>
 	</Container>
-	<Container col>
+	<Container col align="center">
 		<IconButton variant='solid' type='secondary'>
 			<SettingsIcon />
 		</IconButton>

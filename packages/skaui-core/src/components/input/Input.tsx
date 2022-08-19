@@ -9,16 +9,16 @@ import { useInputClass } from './styles'
 
 const Input = forwardRef<HTMLElement, InputProps<'input'>>((props, ref) => {
 	const {
-		size,
+		size = 'md',
 		description,
 		errorMessage,
 		label,
 		isDisabled,
-		invalid,
+		validationState,
 		as: Comp = 'input',
 		prefix,
 		suffix,
-		width = '100px',
+		width = 'fit-content',
 		className,
 		unstyled,
 	} = props
@@ -32,7 +32,7 @@ const Input = forwardRef<HTMLElement, InputProps<'input'>>((props, ref) => {
 	const inputClasses = useInputClass({
 		size,
 		unstyled,
-		invalid,
+		validationState,
 		isDisabled,
 		isFocused,
 	})
@@ -41,7 +41,7 @@ const Input = forwardRef<HTMLElement, InputProps<'input'>>((props, ref) => {
 			<label {...labelProps} className={styles.input_label}>
 				{label}
 			</label>
-			<div className={clsx(styles.input_wrapper)} style={{ minWidth: width }}>
+			<div className={clsx(styles.input_wrapper)} style={{ width }}>
 				{prefix && <div className={styles.input_prefix}>{prefix}</div>}
 				<Comp
 					className={clsx(styles.input_field, [
@@ -53,7 +53,7 @@ const Input = forwardRef<HTMLElement, InputProps<'input'>>((props, ref) => {
 				/>
 				{suffix && <div className={styles.input_suffix}>{suffix}</div>}
 			</div>
-			{errorMessage && (
+			{validationState === 'invalid' && errorMessage && (
 				<div {...errorMessageProps} className={styles.input_errormsg}>
 					<XIcon className={styles.input_erricon} />
 					{errorMessage}

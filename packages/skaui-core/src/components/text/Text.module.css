@@ -1,6 +1,7 @@
 .text {
 	@apply leading-6 tracking-normal;
-	@apply inline-block overflow-hidden;
+	@apply inline-flex overflow-hidden;
+	@apply items-center;
 }
 
 .text_truncate {

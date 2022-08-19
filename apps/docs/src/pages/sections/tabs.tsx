@@ -37,7 +37,7 @@ const selectionScope = { Tabs }
 const disabledCode = `() => {
 const [disabled, setDisabled] = React.useState(true)
 return (
-	<Container col>
+	<Container col align="center">
 		<Checkbox isSelected={disabled} onChange={setDisabled}>Disabled</Checkbox>
 		<Tabs isDisabled={disabled}>
 			<Tabs.Item key="panel1" title="Panel 1">

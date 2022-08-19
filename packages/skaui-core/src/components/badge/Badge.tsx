@@ -4,22 +4,19 @@ import { useBadgeClass } from './styles'
 
 const Badge = ({
 	value,
-	color,
-	size = 'md',
+	size = 'sm',
 	outline,
-	contrast,
 	className,
 	children,
+	type,
+	pill,
 	...rest
 }: BadgeProps) => {
-	const BadgeClasses = useBadgeClass({ size, outline, contrast })
+	const BadgeClasses = useBadgeClass({ size, outline, type, pill })
 	return (
-		<div
-			data-color={color}
-			className={clsx(BadgeClasses, className)}
-			{...rest}>
+		<span className={clsx(BadgeClasses, className)} {...rest}>
 			{children}
-		</div>
+		</span>
 	)
 }
 

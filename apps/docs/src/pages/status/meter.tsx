@@ -19,7 +19,7 @@ const minmaxCode = `() => {
 	const [max, setMax] = React.useState(100)
 
 	return (
-		<Container col>
+		<Container col align="center">
 			<Container>
 				<Input
 					size="sm"
@@ -117,7 +117,7 @@ const colorsCode = `() => {
 	}
 
 	return (
-		<Container col>
+		<Container col align="center">
 			<Container>
 				<Button size="sm" onPress={handleDecrease}>-10</Button>
 				<Button size="sm" onPress={handleIncrease}>+10</Button>

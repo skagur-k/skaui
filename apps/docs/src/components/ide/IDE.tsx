@@ -61,7 +61,7 @@ const IDE = ({ code: codeInit, ...props }: IDEProps) => {
 
 	function handleReset() {
 		setCode(codeInit)
-		toast('Code Reset')
+		toast('Reset', { title: 'Code Editor' })
 	}
 
 	let timer: NodeJS.Timeout
@@ -70,7 +70,7 @@ const IDE = ({ code: codeInit, ...props }: IDEProps) => {
 		clearTimeout(timer)
 		navigator.clipboard.writeText(code!)
 		setIsCopied(true)
-		toast('Code Copied')
+		toast('Copied', { title: 'Code Editor' })
 
 		timer = setTimeout(() => {
 			setIsCopied(false)

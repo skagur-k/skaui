@@ -53,6 +53,7 @@ export const Sidebar = () => {
 												{component.title}
 											</a>
 										</NavLink>
+										{component.badge && component.badge}
 									</li>
 								))}
 							</ul>

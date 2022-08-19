@@ -159,6 +159,7 @@
 .fileviewoptions {
 	@apply absolute left-8;
 	@apply flex flex-row gap-2;
+	@apply text-xs;
 }
 
 .fileviewoptions_option {

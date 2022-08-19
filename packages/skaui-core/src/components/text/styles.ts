@@ -68,7 +68,9 @@ function useTextClass(props: TextClassProps) {
 		mono && styles.text_mono,
 		typeof truncate === 'boolean'
 			? styles.text_truncate
-			: styles.text_lineclamp,
+			: typeof truncate === 'number'
+			? styles.text_lineclamp
+			: undefined,
 	])
 
 	return classes

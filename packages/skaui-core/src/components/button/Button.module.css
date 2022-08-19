@@ -59,8 +59,9 @@
 	@apply ring-1 focus:ring-offset-2;
 
 	&.button_default {
-		@apply bg-transparent text-neutral-800;
-		@apply hover:bg-neutral-800 hover:text-neutral-100;
+		@apply text-neutral-800;
+		@apply bg-transparent;
+		@apply hover:bg-neutral-800 hover:text-white;
 		@apply active:bg-neutral-600;
 		@apply ring-neutral-800;
 
@@ -108,12 +109,14 @@
 
 .button_text {
 	@apply rounded-r-md;
+
 	&.button_default {
-		@apply bg-transparent text-neutral-800;
+		@apply text-neutral-800;
+		@apply bg-transparent;
 		@apply focus:bg-neutral-100;
-		@apply hover:bg-neutral-100;
+		@apply hover:bg-neutral-300;
 		@apply active:bg-neutral-200;
-		@apply border-neutral-500;
+		@apply border-neutral-800;
 	}
 
 	&.button_success {
@@ -145,7 +148,7 @@
 }
 
 .button_iconOnly {
-	@apply rounded-full overflow-hidden;
+	@apply rounded-sm overflow-hidden;
 
 	&.button_default {
 		@apply bg-transparent text-neutral-800;
@@ -224,7 +227,7 @@
 }
 
 .iconbutton {
-	@apply rounded-md overflow-hidden;
+	@apply rounded-sm overflow-hidden;
 	@apply w-fit h-fit;
 }
 

@@ -11,7 +11,7 @@ function useInputClass({
 	isDisabled,
 	isRequired,
 	isFocused,
-	invalid,
+	validationState,
 	unstyled,
 }: InputClassProps) {
 	const sizes = {
@@ -27,7 +27,7 @@ function useInputClass({
 		isRequired && styles.input_required,
 		isFocused && styles.input_focused,
 		unstyled && styles.input_unstyled,
-		invalid && styles.input_invalid
+		validationState && styles.input_invalid
 	)
 
 	return classes

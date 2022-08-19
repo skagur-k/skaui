@@ -36,6 +36,7 @@
 }
 
 .component {
+	@apply flex items-center gap-2;
 }
 
 .componentTitle {
@@ -44,7 +45,7 @@
 }
 
 .componentActive .componentTitle {
-	@apply font-bold text-blue-500 underline;
+	@apply font-bold text-blue-500;
 }
 
 .componentActive.component::before {

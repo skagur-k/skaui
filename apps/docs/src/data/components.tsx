@@ -1,6 +1,10 @@
+import { Badge } from '@skaui/core'
+import React from 'react'
+
 interface IComponent {
 	key: string
 	title: string
+	badge?: React.ReactElement
 }
 
 type IComponents = Array<IComponent>
@@ -18,6 +22,7 @@ const buttons: IComponents = [
 	{
 		key: '/buttons/buttongroup',
 		title: 'Button Group',
+		badge: <Badge>TODO</Badge>,
 	},
 	{
 		key: '/buttons/iconbutton',
@@ -47,6 +52,7 @@ const forms: IComponents = [
 	{
 		key: '/forms/textarea',
 		title: 'Text Area',
+		badge: <Badge>TODO</Badge>,
 	},
 ]
 
@@ -54,14 +60,17 @@ const overlays: IComponents = [
 	{
 		key: '/overlays/menu',
 		title: 'Menu',
+		badge: <Badge>TODO</Badge>,
 	},
 	{
 		key: '/overlays/modal',
 		title: 'Modal',
+		badge: <Badge>TODO</Badge>,
 	},
 	{
 		key: '/overlays/toast',
 		title: 'Toast',
+		badge: <Badge>TODO</Badge>,
 	},
 ]
 
@@ -116,16 +125,8 @@ const ui: IComponents = [
 		title: 'Avatar',
 	},
 	{
-		key: '/component/description',
-		title: 'Description',
-	},
-	{
 		key: '/component/fileviewer',
 		title: 'FileViewer',
-	},
-	{
-		key: '/component/image',
-		title: 'Image',
 	},
 	{
 		key: '/component/kbd',
@@ -141,7 +142,7 @@ const ui: IComponents = [
 	},
 	{
 		key: '/component/tag',
-		title: 'Tag',
+		title: 'Tag & Badge',
 	},
 	{
 		key: '/component/text',
@@ -163,6 +164,10 @@ const components: IAllComponents[] = [
 		components: pickers,
 	},
 	{
+		heading: 'Status',
+		components: status,
+	},
+	{
 		heading: 'Sections',
 		components: sections,
 	},
@@ -174,14 +179,10 @@ const components: IAllComponents[] = [
 		heading: 'Overlays',
 		components: overlays,
 	},
-	{
-		heading: 'Status',
-		components: status,
-	},
-	{
-		heading: 'Misc.',
-		components: misc,
-	},
+	// {
+	// 	heading: 'Misc.',
+	// 	components: misc,
+	// },
 ]
 
 export default components
