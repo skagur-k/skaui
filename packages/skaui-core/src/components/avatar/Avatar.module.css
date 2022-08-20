@@ -1,9 +1,9 @@
 .avatar {
 	@apply relative box-border rounded-full overflow-hidden;
 	@apply flex grow-0 items-center justify-center;
-	@apply bg-neutral-800 text-neutral-100 shadow-sm;
+	@apply bg-neutral-200 shadow-sm;
 	@apply cursor-default;
-	@apply ring-2 ring-neutral-500;
+	@apply ring-1 ring-neutral-100;
 }
 
 .avatar_image {
@@ -12,10 +12,9 @@
 
 .avatar_icon {
 	@apply absolute bg-neutral-800 text-white;
-	@apply ring-1 ring-white;
 	@apply flex justify-center items-center;
 	@apply origin-bottom-left bottom-0 right-0;
-	@apply p-[5px];
+	@apply p-[4px];
 	@apply rounded-full;
 }
 
@@ -37,8 +36,8 @@
 	@apply w-12 h-12;
 
 	& + .avatar_icon {
-		@apply w-7 h-7;
-		@apply -bottom-2 -right-4;
+		@apply w-6 h-6;
+		@apply -bottom-2 -right-3;
 	}
 }
 .avatar_lg {
@@ -59,23 +58,23 @@
 }
 
 .avatar_name {
-	@apply font-bold text-neutral-200 drop-shadow-lg shadow-neutral-100;
+	@apply font-bold text-neutral-800;
 }
 
 .avatar_name_xs {
-	@apply text-sm;
+	@apply text-xs;
 }
 .avatar_name_sm {
-	@apply text-base;
+	@apply text-sm;
 }
 .avatar_name_md {
-	@apply text-lg;
+	@apply text-base;
 }
 .avatar_name_lg {
-	@apply text-xl;
+	@apply text-lg;
 }
 .avatar_name_xl {
-	@apply text-2xl;
+	@apply text-xl;
 }
 
 .avatar_group {
@@ -91,7 +90,7 @@
 }
 
 .avatar_placeholder {
-	@apply w-full h-full fill-neutral-600 relative;
+	@apply w-full h-full fill-neutral-300 relative;
 }
 
 .avatar_placeholder_content {

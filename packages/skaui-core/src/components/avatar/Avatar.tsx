@@ -75,7 +75,7 @@ const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
 		const status = useImage({ src, onError })
 		const hasLoaded = status === 'loaded'
 		const Icon = icon
-
+		
 		const avatarClasses = useAvatarClass({ size, bordered })
 
 		const renderChildren = () => {

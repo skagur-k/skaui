@@ -61,7 +61,7 @@ const Image = forwardRef<unknown, ImageProps>((props, ref) => {
 				className={styles.image}
 				{...sharedProps}
 			/>
-			<div className={styles.image_caption}>{caption && caption}</div>
+			{caption && <div className={styles.image_caption}>{caption}</div>}
 		</div>
 	)
 })

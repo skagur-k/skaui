@@ -19,7 +19,7 @@ export const useAvatarNameClass = ({ size }: AvatarNameClassProps) => {
 		xl: styles.avatar_name_xl,
 	}
 
-	const classes = clsx(['avatar-name', size && sizes[size]])
+	const classes = clsx([styles.avatar_name, size && sizes[size]])
 
 	return classes
 }
