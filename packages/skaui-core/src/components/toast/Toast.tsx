@@ -77,6 +77,7 @@ const Toast = (props: IToast) => {
 				{action && (
 					<Button
 						size='block'
+						type='secondary'
 						className={styles.toastActionButton}
 						onPress={action.onPress}
 					>

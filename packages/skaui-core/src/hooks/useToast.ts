@@ -1,5 +1,5 @@
 import { useToastDispatchContext } from '../contexts/ToastContext'
-import { nanoid } from '../utils'
+import { nanoid } from 'nanoid'
 import {
 	ActionType,
 	IToast,
@@ -30,16 +30,19 @@ const useToast = (props?: useToastProps) => {
 		message,
 		type,
 		options,
+		duration,
 	}: {
 		message: IToast['message']
 		type: IToast['type']
 		options?: ToastOptions
+		duration?: number
 	}): IToast => {
 		const toast: IToast = {
 			id: nanoid(6),
 			message,
 			type,
 			options,
+			duration,
 		}
 
 		return toast

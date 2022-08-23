@@ -21,7 +21,7 @@
 
 :global(.dark) .button_base {
 	@apply bg-neutral-100 hover:bg-neutral-300;
-	@apply border-neutral-300 active:bg-neutral-200;
+	@apply border-neutral-600 active:bg-neutral-200;
 }
 
 .button_solid {
@@ -150,7 +150,7 @@
 
 	&.button_secondary {
 		@apply bg-transparent;
-		@apply text-neutral-400 ring-neutral-400;
+		@apply text-neutral-400;
 		@apply hover:bg-neutral-600 hover:text-neutral-100;
 		@apply active:bg-neutral-500/30;
 		@apply border-neutral-500/70;
@@ -217,7 +217,7 @@
 		@apply bg-transparent;
 		@apply text-neutral-400;
 		@apply hover:bg-neutral-400/20;
-		@apply focus:bg-neutral-400/20 focus:ring-neutral-400;
+		@apply focus:bg-neutral-400/20;
 	}
 }
 

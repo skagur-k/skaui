@@ -12,6 +12,7 @@ export interface IToast {
 export interface ToastOptions {
 	icon?: Renderable
 	title?: string
+	duration?: number
 	action?: {
 		name: string
 		onPress: () => void

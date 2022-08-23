@@ -24,3 +24,14 @@
 .title {
 	@apply text-sm font-medium;
 }
+
+:global(.dark) {
+	.navigationItem {
+		@apply bg-neutral-700 hover:bg-neutral-600;
+	}
+
+	.navigationItem.navigationItemActive {
+		@apply bg-neutral-100 font-bold text-neutral-800;
+		@apply hover:bg-neutral-200;
+	}
+}

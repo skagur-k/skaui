@@ -69,7 +69,6 @@ const overlays: IComponents = [
 	{
 		key: '/overlays/toast',
 		title: 'Toast',
-		badge: <Badge>TODO</Badge>,
 	},
 ]
 

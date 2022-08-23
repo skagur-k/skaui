@@ -1,6 +1,6 @@
 import React from 'react'
 import { createPortal } from 'react-dom'
-
+import { nanoid } from 'nanoid'
 interface PortalProps extends React.HTMLAttributes<HTMLDivElement> {
 	children: React.ReactElement
 	parent?: any
@@ -35,10 +35,13 @@ const ToastPortal = ({
 		React.useState<HTMLDivElement | null>(null)
 
 	// This snippet only runs on the client; hence the useLayoutEffect() !!ignore warning
+
+	const newId = wrapperId.concat(`-${nanoid(4)}`)
+
 	React.useEffect(() => {
-		setWrapperElement(createWrapperAndAppendToBody(wrapperId, className))
+		setWrapperElement(createWrapperAndAppendToBody(newId, className))
 		return () => {
-			createWrapperAndAppendToBody(wrapperId).remove()
+			createWrapperAndAppendToBody(newId).remove()
 		}
 	}, [wrapperId, className])
 

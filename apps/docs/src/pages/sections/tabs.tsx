@@ -128,8 +128,8 @@ function handleRemove() {
 return(
 	<Container col>
 		<Container>
-			<Button size="sm" type="success" onPress={handleAdd}>Add Tab</Button>
-			<Button size="sm" type="error" onPress={handleRemove}>Remove Tab</Button>
+			<Button type="success" onPress={handleAdd}>Add Tab</Button>
+			<Button type="error" onPress={handleRemove}>Remove Tab</Button>
 		</Container>
 		<Tabs items={tabs}>
 			{(item) => (<Tabs.Item title={item.title}>{item.content}</Tabs.Item>)}

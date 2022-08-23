@@ -1,6 +1,7 @@
 import React from 'react'
 import type { Dict } from './utils.types'
 import { ForwardedRef } from 'react'
+import crypto from 'crypto'
 
 export function getValidChildren(children: React.ReactNode) {
 	return React.Children.toArray(children).filter((child) =>
@@ -21,22 +22,6 @@ export function mergeRefs<T = any>(
 		}
 	}
 }
-
-export let nanoid = (t = 21) =>
-	crypto
-		.getRandomValues(new Uint8Array(t))
-		.reduce(
-			(t, e) =>
-				(t +=
-					(e &= 63) < 36
-						? e.toString(36)
-						: e < 62
-						? (e - 26).toString(36).toUpperCase()
-						: e > 62
-						? '-'
-						: '_'),
-			''
-		)
 
 export const isBrowser = () => typeof window !== 'undefined'
 
