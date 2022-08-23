@@ -66,3 +66,42 @@
 		transform: translateX(100%) scaleX(0.5);
 	}
 }
+
+:global(.dark) {
+	.progress_bar_track {
+		@apply bg-neutral-600;
+	}
+
+	.progress_bar_fill {
+		@apply bg-neutral-300;
+	}
+
+	.progress_bar_indeterminate {
+		@apply bg-neutral-300;
+	}
+
+	.progress_success {
+		& .progress_bar_fill,
+		.progress_bar_indeterminate {
+			@apply bg-blue-500/60;
+		}
+	}
+	.progress_warning {
+		& .progress_bar_fill,
+		.progress_bar_indeterminate {
+			@apply bg-yellow-500/60;
+		}
+	}
+	.progress_error {
+		& .progress_bar_fill,
+		.progress_bar_indeterminate {
+			@apply bg-red-500/60;
+		}
+	}
+	.progress_secondary {
+		& .progress_bar_fill,
+		.progress_bar_indeterminate {
+			@apply bg-neutral-500/60;
+		}
+	}
+}

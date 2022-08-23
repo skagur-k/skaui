@@ -56,7 +56,13 @@ const Checkbox = forwardRef<HTMLInputElement, PropsWithChildren<CheckboxProps>>(
 					</svg>
 				</div>
 				<div className={clsx(styles.checkbox_content)}>
-					<span className={styles.checkbox_text}>{children}</span>
+					<span
+						className={clsx(styles.checkbox_text, [
+							isDisabled && styles.checkbox_text_disabled,
+						])}
+					>
+						{children}
+					</span>
 				</div>
 			</label>
 		)

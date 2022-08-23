@@ -24,3 +24,9 @@
 .collapsible_chevron_open {
 	@apply -rotate-180;
 }
+
+:global(.dark) {
+	.collapsible {
+		@apply border-neutral-700;
+	}
+}

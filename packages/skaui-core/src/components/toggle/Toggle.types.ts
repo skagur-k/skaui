@@ -9,4 +9,5 @@ export interface ToggleProps extends AriaSwitchProps {
 	isDisabled?: boolean
 	labelPosition?: 'top' | 'bottom' | 'left' | 'right'
 	children?: React.ReactNode
+	className?: string
 }

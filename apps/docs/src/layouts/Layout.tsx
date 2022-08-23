@@ -8,7 +8,7 @@ export const Layout = ({ children }: { children: React.ReactElement }) => {
 	return (
 		<div
 			className={
-				'bg-neutral-50 px-6 text-gray-700 dark:bg-neutral-800 dark:text-white'
+				'bg-neutral-100 px-6 text-gray-700 dark:bg-neutral-800 dark:text-neutral-100'
 			}
 		>
 			<div className={styles.wrapper}>

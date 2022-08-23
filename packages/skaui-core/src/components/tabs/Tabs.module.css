@@ -86,3 +86,42 @@
 		opacity: 1;
 	}
 }
+
+:global(.dark) {
+	.tabs_list_tab {
+		@apply text-neutral-500;
+		@apply border-b-neutral-500;
+	}
+	.tabs_list_tab_selected {
+		@apply text-neutral-100;
+		@apply border-b-neutral-100;
+	}
+
+	.tabs_disabled {
+		.tabs_list {
+			@apply opacity-20;
+		}
+
+		.tabs_panel {
+			@apply opacity-20;
+		}
+
+		.tabs_list_tab {
+			@apply border-b-neutral-500;
+		}
+	}
+
+	.tabs_list_tab_disabled {
+		@apply border-b-neutral-700 text-neutral-700;
+	}
+
+	.tabs_vertical {
+		.tabs_list_tab {
+			@apply border-b-0 border-l border-l-neutral-700;
+		}
+
+		.tabs_list_tab_selected {
+			@apply border-l-neutral-300;
+		}
+	}
+}

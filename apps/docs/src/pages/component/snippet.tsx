@@ -62,7 +62,7 @@ const darkCode = `() => {
 			<Snippet
 			width='600px'
 			text={code}
-			dark
+			invert
 			/>
 		</Container>
 	)
@@ -98,7 +98,7 @@ const SnippetPage: NextPage = () => {
 
 				{/* Section */}
 				<div className='mt-16 flex flex-col gap-8'>
-					<h2 className='text-4xl font-bold'>Dark</h2>
+					<h2 className='text-4xl font-bold'>Invert</h2>
 					<IDE code={darkCode} scope={darkScope} />
 				</div>
 			</div>

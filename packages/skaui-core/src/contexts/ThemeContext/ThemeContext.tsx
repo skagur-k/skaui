@@ -4,12 +4,14 @@ export type ITheme = 'light' | 'dark' | 'system'
 
 export interface IThemeContext {
 	theme: ITheme
-	setTheme: (theme: ITheme) => void
+	selectTheme: (theme: ITheme) => void
+	isDarkMode: null | boolean
 }
 
 const ThemeContext = createContext<IThemeContext>({
 	theme: 'system',
-	setTheme: () => {},
+	isDarkMode: null,
+	selectTheme: () => {},
 })
 
 export const useTheme = () => {

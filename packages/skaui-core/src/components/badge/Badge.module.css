@@ -6,7 +6,7 @@
 	@apply cursor-pointer;
 	@apply font-bold;
 	@apply rounded-sm tracking-wide leading-4;
-	@apply ring-1 ring-white;
+	@apply ring-[0.5px] ring-white;
 }
 
 .badge_pill {

@@ -11,6 +11,7 @@ const Toggle = (props: ToggleProps) => {
 		labelPosition = 'right',
 		isDisabled,
 		children,
+		className,
 		type,
 	} = props
 	const state = useToggleState(props)
@@ -39,12 +40,16 @@ const Toggle = (props: ToggleProps) => {
 
 	return (
 		<label
-			className={clsx(styles.toggle, [
-				labelPosition && labelPositions[labelPosition],
-				size && toggleSizes[size],
-				type && types[type],
-				isDisabled && styles.toggle_disabled,
-			])}
+			className={clsx(
+				styles.toggle,
+				[
+					labelPosition && labelPositions[labelPosition],
+					size && toggleSizes[size],
+					type && types[type],
+					isDisabled && styles.toggle_disabled,
+				],
+				className
+			)}
 			{...labelProps}
 		>
 			<VisuallyHidden>
@@ -74,7 +79,11 @@ const Toggle = (props: ToggleProps) => {
 					size && toggleSizes[size],
 				])}
 			>
-				<div className={clsx(styles.toggle_switch_switch)}></div>
+				<div
+					className={clsx(styles.toggle_switch_switch, [
+						state.isSelected && styles.toggle_switch_switch_selected,
+					])}
+				></div>
 				<div />
 			</div>
 		</label>

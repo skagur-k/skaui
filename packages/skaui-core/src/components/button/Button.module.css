@@ -8,30 +8,32 @@
 	@apply font-semibold;
 	@apply disabled:cursor-not-allowed;
 
-	@apply focus:ring-2;
-
 	@apply text-[0.875rem];
 	@apply w-fit px-3 py-[4px];
 	@apply rounded-sm;
 
-	@apply ring-neutral-500;
-	@apply bg-neutral-50 text-neutral-800;
-	@apply hover:bg-neutral-200 hover:ring-neutral-500;
+	@apply hover:bg-neutral-200 hover:border-neutral-500;
 	@apply active:bg-neutral-300;
 	@apply disabled:opacity-20;
 	@apply disabled:hover:bg-neutral-50 disabled:hover:text-neutral-800;
-	@apply disabled:hover:ring-neutral-50;
+	@apply disabled:hover:border-neutral-50;
+}
+
+:global(.dark) .button_base {
+	@apply bg-neutral-100 hover:bg-neutral-300;
+	@apply border-neutral-300 active:bg-neutral-200;
 }
 
 .button_solid {
-	@apply ring-1;
+	@apply border;
+	@apply border-neutral-800;
 
 	&.button_success {
 		@apply text-white;
 		@apply bg-blue-500;
 		@apply hover:bg-white hover:text-blue-500;
 		@apply active:bg-neutral-100;
-		@apply ring-blue-500;
+		@apply border-blue-500;
 
 		@apply disabled:opacity-20;
 		@apply disabled:hover:bg-blue-500 disabled:hover:text-white;
@@ -41,8 +43,7 @@
 		@apply text-white;
 		@apply bg-red-500;
 		@apply hover:bg-white hover:text-red-500;
-		@apply active:bg-neutral-100 ring-red-500;
-		@apply ring-red-500;
+		@apply active:bg-neutral-100 border-red-500;
 
 		@apply disabled:opacity-20;
 		@apply disabled:hover:bg-red-500 disabled:hover:text-white;
@@ -58,19 +59,47 @@
 	}
 }
 
+:global(.dark) .button_solid {
+	@apply bg-neutral-800 text-neutral-100;
+	@apply hover:bg-neutral-700/100;
+	@apply active:bg-neutral-800;
+
+	&.button_success {
+		@apply text-neutral-100 bg-blue-500/50;
+		@apply hover:bg-blue-500/40;
+		@apply active:bg-blue-500/50;
+		@apply border-blue-500/50;
+	}
+
+	&.button_error {
+		@apply text-neutral-100 bg-red-500/50;
+		@apply hover:bg-red-500/40;
+		@apply active:bg-red-500/50;
+		@apply border-red-500/50;
+	}
+
+	&.button_secondary {
+		@apply text-neutral-100 border-neutral-500 bg-neutral-700;
+		@apply hover:bg-neutral-600;
+		@apply active:bg-neutral-700;
+		@apply border-neutral-700/50;
+	}
+}
+
 .button_ghost {
-	@apply ring-1;
 	@apply hover:bg-neutral-800 hover:text-neutral-100;
+	@apply border;
+	@apply border-neutral-800;
 
 	&.button_success {
 		@apply text-blue-500;
 		@apply bg-transparent;
 		@apply hover:bg-blue-500 hover:text-white;
 		@apply active:bg-blue-400;
-		@apply ring-blue-500;
+		@apply border-blue-500;
 
 		@apply disabled:bg-neutral-50 disabled:text-blue-300;
-		@apply disabled:ring-blue-200;
+		@apply disabled:border-blue-200;
 		@apply hover:disabled:bg-neutral-50;
 	}
 
@@ -79,10 +108,10 @@
 		@apply bg-transparent;
 		@apply hover:bg-red-500 hover:text-white;
 		@apply active:bg-red-400;
-		@apply ring-red-500;
+		@apply border-red-500;
 
 		@apply disabled:bg-neutral-50 disabled:text-red-300;
-		@apply disabled:ring-red-200;
+		@apply disabled:border-red-200;
 		@apply hover:disabled:bg-neutral-50;
 	}
 
@@ -91,22 +120,50 @@
 		@apply bg-transparent;
 		@apply hover:bg-neutral-800 hover:text-white;
 		@apply active:bg-neutral-600;
-		@apply ring-neutral-800;
+		@apply border-neutral-800;
 
 		@apply disabled:bg-neutral-50 disabled:text-neutral-300;
-		@apply disabled:ring-neutral-200;
+		@apply disabled:border-neutral-200;
 		@apply hover:disabled:bg-neutral-50;
 	}
 }
 
+:global(.dark) .button_ghost {
+	@apply bg-transparent text-neutral-300;
+	@apply hover:bg-neutral-100/70 hover:text-neutral-800;
+	@apply active:bg-neutral-100/60;
+
+	&.button_success {
+		@apply bg-transparent;
+		@apply text-blue-500 hover:text-neutral-100;
+		@apply hover:bg-blue-500/40;
+		@apply active:bg-blue-500/30;
+		@apply border-blue-500/70;
+	}
+	&.button_error {
+		@apply bg-transparent;
+		@apply text-red-500 hover:text-neutral-100;
+		@apply hover:bg-red-500/40;
+		@apply active:bg-red-500/30;
+		@apply border-red-500/70;
+	}
+
+	&.button_secondary {
+		@apply bg-transparent;
+		@apply text-neutral-400 ring-neutral-400;
+		@apply hover:bg-neutral-600 hover:text-neutral-100;
+		@apply active:bg-neutral-500/30;
+		@apply border-neutral-500/70;
+	}
+}
+
 .button_text {
-	@apply ring-0 focus:ring-1;
 	@apply text-neutral-800;
 	@apply bg-transparent;
 	@apply focus:bg-neutral-100;
 	@apply hover:bg-neutral-300;
 	@apply active:bg-neutral-200;
-	@apply ring-neutral-800;
+	@apply border-none;
 
 	&.button_success {
 		@apply text-blue-500;
@@ -114,7 +171,6 @@
 		@apply focus:bg-blue-100;
 		@apply hover:bg-blue-100;
 		@apply active:bg-blue-200;
-		@apply ring-blue-500;
 	}
 
 	&.button_error {
@@ -123,7 +179,6 @@
 		@apply focus:bg-red-100;
 		@apply hover:bg-red-100;
 		@apply active:bg-red-200;
-		@apply ring-red-500;
 	}
 
 	&.button_secondary {
@@ -132,7 +187,37 @@
 		@apply focus:bg-neutral-100;
 		@apply hover:bg-neutral-300;
 		@apply active:bg-neutral-200;
-		@apply ring-neutral-800;
+	}
+}
+
+:global(.dark) .button_text {
+	@apply border-none;
+	@apply bg-transparent text-neutral-100;
+	@apply hover:bg-neutral-700;
+	@apply active:bg-neutral-600;
+	@apply focus:bg-neutral-600;
+
+	&.button_success {
+		@apply bg-transparent;
+		@apply text-blue-500;
+		@apply hover:bg-blue-800/20;
+		@apply active:bg-blue-600/20;
+		@apply focus:bg-blue-600/20;
+	}
+
+	&.button_error {
+		@apply bg-transparent;
+		@apply text-red-500;
+		@apply hover:bg-red-800/20;
+		@apply active:bg-red-600/20;
+		@apply focus:bg-red-600/20;
+	}
+
+	&.button_secondary {
+		@apply bg-transparent;
+		@apply text-neutral-400;
+		@apply hover:bg-neutral-400/20;
+		@apply focus:bg-neutral-400/20 focus:ring-neutral-400;
 	}
 }
 

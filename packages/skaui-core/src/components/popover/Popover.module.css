@@ -7,6 +7,12 @@
 	animation: fadein 0.3s;
 }
 
+:global(.dark) {
+	.popover {
+		@apply bg-neutral-800/95 ring-neutral-400;
+	}
+}
+
 @keyframes fadein {
 	from {
 		opacity: 0;

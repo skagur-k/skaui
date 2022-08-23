@@ -2,6 +2,6 @@ export interface SnippetProps {
 	width?: string
 	prompt?: boolean
 	text: string[]
-	dark?: boolean
+	invert?: boolean
 	className?: string
 }

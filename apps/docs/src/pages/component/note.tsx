@@ -64,20 +64,6 @@ const filledCode = `() => {
 `
 const filledScope = { Note, Container }
 
-const contrastCode = `() => {
-	return (
-		<Container align="start">
-			<Note contrast>Note</Note>
-			<Note contrast type="success">Note</Note>
-			<Note contrast type="error">Note</Note>
-			<Note contrast type="warning">Note</Note>
-			<Note contrast type="secondary">Note</Note>
-		</Container>
-	)
-}
-`
-const contrastScope = { Note, Container }
-
 const NotePage: NextPage = () => {
 	const toast = useToast()
 	const actionCode = `() => {
@@ -146,12 +132,6 @@ const NotePage: NextPage = () => {
 				<div className='mt-16 flex flex-col gap-8'>
 					<h2 className='text-4xl font-bold'>Filled</h2>
 					<IDE code={filledCode} scope={filledScope} />
-				</div>
-
-				{/* Section */}
-				<div className='mt-16 flex flex-col gap-8'>
-					<h2 className='text-4xl font-bold'>Contrast</h2>
-					<IDE code={contrastCode} scope={contrastScope} />
 				</div>
 			</div>
 		</PageLayout>

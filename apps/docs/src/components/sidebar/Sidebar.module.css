@@ -59,3 +59,11 @@
 .componentList {
 	@apply ml-2 flex flex-col gap-3;
 }
+
+.navigation {
+	@apply flex flex-col;
+}
+
+.darkmode {
+	@apply flex justify-center py-8;
+}

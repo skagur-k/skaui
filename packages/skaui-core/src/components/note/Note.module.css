@@ -15,20 +15,12 @@
 	&.note_filled {
 		@apply bg-blue-600 text-white;
 	}
-
-	&.note_contrast {
-		@apply bg-blue-50 ring-blue-800 text-blue-700;
-	}
 }
 .note_warning {
 	@apply ring-yellow-500 text-yellow-600;
 
 	&.note_filled {
-		@apply bg-yellow-500 text-black;
-	}
-
-	&.note_contrast {
-		@apply bg-yellow-50 ring-yellow-800 text-yellow-800;
+		@apply bg-yellow-500 text-white;
 	}
 }
 .note_error {
@@ -37,20 +29,12 @@
 	&.note_filled {
 		@apply bg-red-600 text-white;
 	}
-
-	&.note_contrast {
-		@apply bg-red-50 ring-red-800 text-red-700;
-	}
 }
 .note_secondary {
 	@apply ring-neutral-800 text-neutral-800;
 
 	&.note_filled {
 		@apply bg-neutral-800 text-white;
-	}
-
-	&.note_contrast {
-		@apply bg-neutral-200 ring-neutral-800 text-neutral-800;
 	}
 }
 
@@ -66,4 +50,18 @@
 
 .note_label {
 	@apply mr-2 font-bold;
+}
+
+:global(.dark) {
+	.note_filled {
+		@apply bg-opacity-80;
+	}
+
+	.note_secondary {
+		@apply ring-neutral-400 text-neutral-400;
+
+		&.note_filled {
+			@apply bg-neutral-400 text-neutral-800;
+		}
+	}
 }

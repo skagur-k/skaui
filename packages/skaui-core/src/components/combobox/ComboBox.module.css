@@ -58,3 +58,41 @@
 }
 .combobox_listbox {
 }
+
+:global(.dark) {
+	.combobox_button {
+		@apply ring-neutral-600;
+	}
+	.combobox_button_hovered {
+		@apply ring-neutral-300;
+	}
+
+	.combobox_button_focused {
+		@apply ring-neutral-300;
+	}
+
+	.combobox_label {
+		@apply text-neutral-100;
+	}
+
+	.combobox_input {
+		@apply bg-neutral-800;
+
+		&::placeholder {
+			@apply text-neutral-600;
+		}
+	}
+
+	.combobox_disabled {
+		.combobox_label {
+			@apply text-neutral-600;
+		}
+		.combobox_button {
+			@apply opacity-30;
+		}
+
+		.combobox_input {
+			@apply cursor-not-allowed;
+		}
+	}
+}

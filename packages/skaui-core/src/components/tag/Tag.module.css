@@ -2,7 +2,7 @@
 	@apply inline-flex w-fit;
 	@apply bg-neutral-50 cursor-pointer;
 	@apply overflow-hidden rounded-md;
-	@apply ring-1 ring-neutral-200;
+	@apply ring-[0.5px] ring-neutral-200;
 	@apply flex justify-between items-center;
 	@apply hover:bg-neutral-100;
 }
@@ -16,10 +16,21 @@
 	@apply p-1 border-l;
 	@apply cursor-pointer;
 	@apply bg-neutral-50 hover:bg-neutral-800;
-	@apply hover:text-white hover:border-l-neutral-800;
+	@apply hover:text-neutral-100 hover:border-l-neutral-800;
 	@apply transition-colors duration-300;
 }
 
 .tags {
 	@apply flex gap-2 flex-wrap;
+}
+
+:global(.dark) {
+	.tag {
+		@apply bg-neutral-800;
+	}
+
+	.tag_remove {
+		@apply bg-neutral-800 hover:bg-neutral-100;
+		@apply hover:text-neutral-800 hover:border-l-neutral-100;
+	}
 }

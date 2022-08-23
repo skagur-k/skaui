@@ -8,14 +8,14 @@ const Snippet = ({
 	prompt = true,
 	width = '100%',
 	text,
-	dark,
+	invert,
 	className,
 }: SnippetProps) => {
 	const copyText = text.reduce((current, t) => current + '\n' + t)
 
 	const isOneLine = text.length === 1
 
-	const snippetClasses = useSnippetClass({ dark })
+	const snippetClasses = useSnippetClass({ invert })
 	return (
 		<div className={clsx(snippetClasses, className)} style={{ width }}>
 			{text?.map((text, index) => (

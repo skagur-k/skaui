@@ -8,15 +8,16 @@ import { ToastProvider } from '..'
 const STORAGE_KEY = 'theme'
 
 const ThemeProvider = ({ children }: any) => {
-	const prefersDark = useMediaQuery('(prefers-color-schemes: dark')
+	const prefersDark = useMediaQuery('(prefers-color-scheme: dark')
 
 	const [theme, setTheme] = useState<ITheme>(() => {
 		if (isBrowser()) {
-			return (window as any).__theme
+			return prefersDark ? 'dark' : 'light'
 		}
+		return 'system'
 	})
 
-	const isDarkMode = theme === 'system' ? prefersDark : theme === 'dark'
+	const isDarkMode = true
 
 	useEffect(() => {
 		if (isDarkMode) {
@@ -26,22 +27,21 @@ const ThemeProvider = ({ children }: any) => {
 		}
 	}, [isDarkMode])
 
-	useEffect(() => {
+	const selectTheme = (theme: ITheme) => {
+		console.log('SELECTING THEME')
 		setTheme(theme)
 		localStorage.setItem(STORAGE_KEY, theme)
-	}, [theme])
-
-	// use useEffect
+	}
 
 	return (
-		<ThemeContext.Provider value={{ theme, setTheme }}>
-			<SSRProvider>
+		<SSRProvider>
+			<ThemeContext.Provider value={{ theme, isDarkMode, selectTheme }}>
 				<ToastProvider>
 					<OverlayProvider>{children}</OverlayProvider>
 				</ToastProvider>
-			</SSRProvider>
-		</ThemeContext.Provider>
+			</ThemeContext.Provider>
+		</SSRProvider>
 	)
 }
 
-export default ThemeProvider
+export { ThemeProvider }

@@ -1,6 +1,7 @@
-import { Button } from '@skaui/core'
+import { Button, Toggle, useTheme } from '@skaui/core'
 import clsx from 'clsx'
 import { useRouter } from 'next/router'
+import { useEffect, useState } from 'react'
 import { components } from '../../data'
 import { Navigation } from '../navigation/Navigation'
 import { NavLink } from '../navigation/NavLink'
@@ -9,6 +10,20 @@ import styles from './Sidebar.module.css'
 export const Sidebar = () => {
 	const router = useRouter()
 	const path = router.asPath
+
+	const { theme, selectTheme, isDarkMode } = useTheme()
+	const [dark, setDark] = useState(false)
+	function handleToggle() {
+		console.log('TOGGLED: ', dark ? 'dark' : 'light')
+		setDark(!dark)
+		if (dark) {
+			selectTheme('dark')
+		} else selectTheme('light')
+	}
+
+	useEffect(() => {
+		console.log(theme, isDarkMode)
+	})
 
 	return (
 		<aside className='hidden lg:flex'>
@@ -21,16 +36,27 @@ export const Sidebar = () => {
 						<NavLink href='/'>SKA-UI</NavLink>
 					</div>
 					<div className={styles.buttonGroup}>
-						<Button size='block' className={styles.button}>
+						<Button size='sm' className={styles.button}>
 							GitHub
 						</Button>
-						<Button size='block' type='secondary' className={styles.button}>
+						<Button size='sm' type='secondary' className={styles.button}>
 							skagur.dev
 						</Button>
 					</div>
 				</div>
 
-				<Navigation />
+				<div className={styles.navigation}>
+					<div className={styles.darkmode}>
+						<Toggle
+							aria-label='dark mode'
+							className={styles.toggle}
+							onChange={() => handleToggle()}
+						>
+							{dark ? 'Dark' : 'Light'}
+						</Toggle>
+					</div>
+					<Navigation />
+				</div>
 
 				{/* Component List */}
 				<div className={styles.components}>

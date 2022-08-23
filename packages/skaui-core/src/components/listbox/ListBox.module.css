@@ -48,3 +48,38 @@
 		@apply pl-1;
 	}
 }
+
+.listbox_checkicon {
+	@apply stroke-[4px];
+}
+
+:global(.dark) {
+	.listbox_option {
+		@apply text-neutral-100;
+	}
+
+	.listbox_option_selected {
+		@apply font-bold;
+	}
+
+	.listbox_option_focused {
+		@apply bg-neutral-700;
+	}
+
+	.listbox_section_heading {
+		@apply text-neutral-50;
+	}
+
+	.listbox_section {
+		@apply border-b-neutral-700;
+	}
+
+	.listbox_option_disabled {
+		@apply text-neutral-600;
+		@apply cursor-not-allowed;
+	}
+
+	.listbox_checkicon {
+		@apply stroke-[4px];
+	}
+}

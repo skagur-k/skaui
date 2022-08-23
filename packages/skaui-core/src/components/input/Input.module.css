@@ -162,3 +162,82 @@
 .input_erricon {
 	@apply w-4 h-4;
 }
+
+:global(.dark) {
+	.input_label {
+		@apply text-neutral-100;
+	}
+
+	.input_field {
+		@apply bg-neutral-800;
+		@apply text-neutral-100;
+		@apply border-neutral-600;
+		@apply border-x-neutral-600;
+
+		&::placeholder {
+			@apply text-neutral-500 font-light;
+		}
+	}
+
+	.input_focused .input_wrapper {
+		@apply ring-1 ring-neutral-300 rounded-sm;
+	}
+
+	.input_prefix,
+	.input_suffix {
+		@apply bg-neutral-800 text-neutral-400;
+		@apply border-neutral-600;
+	}
+
+	.input_wrapper {
+		@apply ring-0;
+	}
+
+	.input_invalid.input_focused .input_wrapper {
+		@apply border-neutral-100;
+	}
+
+	.input_invalid {
+		.input_wrapper {
+			@apply border-red-500;
+		}
+
+		.input_label {
+			@apply text-red-500;
+		}
+	}
+
+	.input_unstyled {
+		& .input_field {
+			@apply focus:ring-0;
+		}
+
+		& .input_field_w_prefix {
+			@apply border-l-0;
+		}
+		& .input_field_w_suffix {
+			@apply border-r-0;
+		}
+
+		& .input_prefix {
+			@apply bg-neutral-800 text-neutral-400 pr-1;
+		}
+
+		& .input_suffix {
+			@apply bg-neutral-800 text-neutral-400;
+		}
+
+		& .input_focused .input_wrapper {
+			@apply ring-1 ring-neutral-500 rounded-sm;
+		}
+
+		& .inpput_disabled {
+			@apply cursor-not-allowed;
+
+			& .input_prefix,
+			.input_suffix {
+				@apply bg-neutral-50;
+			}
+		}
+	}
+}

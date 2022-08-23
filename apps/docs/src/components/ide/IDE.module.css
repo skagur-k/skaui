@@ -11,13 +11,34 @@
 	@apply flex flex-col;
 	@apply mt-8 p-2;
 	@apply border border-neutral-200;
-	@apply border border-neutral-200;
 }
 
 .previewWrapper {
 	@apply relative px-6 py-12;
 	@apply border border-neutral-200;
 	@apply w-full rounded-none rounded-t-md;
+}
+
+:global(.dark) {
+	.previewWrapper {
+		@apply border-neutral-600;
+	}
+
+	.previewError {
+		@apply text-neutral-100;
+	}
+
+	.editorCollapsible {
+		@apply border-neutral-600;
+	}
+
+	.editorActionButton {
+		@apply text-neutral-400;
+	}
+
+	.console {
+		@apply border-neutral-600;
+	}
 }
 
 .preview {

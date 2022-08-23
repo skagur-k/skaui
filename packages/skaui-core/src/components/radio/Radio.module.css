@@ -133,3 +133,31 @@
 .sr_only {
 	@apply sr-only;
 }
+
+:global(.dark) {
+	.radio_button {
+		@apply bg-neutral-600;
+		@apply ring-neutral-600;
+	}
+
+	.radio_button_focused {
+		@apply ring-neutral-100 ring-offset-2;
+	}
+
+	.radio_button_selected {
+		@apply bg-neutral-100;
+	}
+
+	.radio_button_check {
+		@apply text-neutral-800 stroke-current;
+	}
+
+	.radio_text {
+		@apply text-neutral-100;
+	}
+
+	.radio_disabled {
+		@apply cursor-not-allowed;
+		@apply opacity-30;
+	}
+}

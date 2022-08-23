@@ -77,7 +77,9 @@ const ListBoxOption = ({ item, state }: OptionProps) => {
 	return (
 		<li ref={ref} className={optionClasses} {...optionProps}>
 			<div className={styles.listbox_content}>{item.rendered}</div>
-			{isSelected && <CheckIcon aria-hidden='true' />}
+			{isSelected && (
+				<CheckIcon aria-hidden='true' className={styles.listbox_checkicon} />
+			)}
 		</li>
 	)
 }

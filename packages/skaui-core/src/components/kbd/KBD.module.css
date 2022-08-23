@@ -11,3 +11,9 @@
 .kbd_icons {
 	@apply w-4 h-4 flex items-center justify-center;
 }
+
+:global(.dark) {
+	.kbd {
+		@apply bg-neutral-600 ring-neutral-600;
+	}
+}

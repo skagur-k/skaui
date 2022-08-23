@@ -96,3 +96,21 @@
 .avatar_placeholder_content {
 	@apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2;
 }
+
+:global(.dark) {
+	.avatar {
+		@apply bg-neutral-700 ring-neutral-700;
+	}
+
+	.avatar_placeholder {
+		@apply fill-neutral-600;
+	}
+
+	.avatar_name {
+		@apply text-neutral-100;
+	}
+
+	.avatar_icon {
+		@apply bg-neutral-600 text-neutral-100;
+	}
+}

@@ -1,6 +1,6 @@
 .navigation {
 	@apply flex flex-col overflow-hidden;
-	@apply mt-8 mb-12 space-y-2 px-3;
+	@apply mb-8 space-y-2 px-3;
 }
 
 .navigationItem {

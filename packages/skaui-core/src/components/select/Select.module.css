@@ -51,3 +51,15 @@
 .select_popover {
 	@apply absolute;
 }
+
+:global(.dark) {
+	.select_button {
+		@apply ring-neutral-600;
+	}
+	.select_button_hovered {
+		@apply ring-neutral-100;
+	}
+	.select_button_focused {
+		@apply ring-neutral-100;
+	}
+}

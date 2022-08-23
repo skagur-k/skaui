@@ -5,11 +5,11 @@ import { IDE } from '../../components/ide'
 import PageLayout from '../../layouts/PageLayout'
 
 const sizesCode = `
-<Container col>
+<Container col align="center">
 	<Meter height={4} label="Meter 1" value={40}/>
 	<Meter height={6} label="Meter 2" value={60}/>
 	<Meter height={8} label="Meter 3" value={80}/>
-</Container>
+</Container>	
 `
 const sizesScope = { Meter, Container }
 
@@ -83,7 +83,7 @@ const controlledCode = `() => {
 const controlledScope = { Meter, Container, Input, Button }
 
 const typesCode = `
-<Container col>
+<Container col align="center">
 	<Meter label="Default" value={10}/>
 	<Meter label="Success" value={30} type="success"/>
 	<Meter label="Error" value={50} type="error"/>

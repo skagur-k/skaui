@@ -4,14 +4,12 @@
 	@apply font-mono text-sm;
 	@apply pl-4 py-4 rounded-md;
 	@apply ring-1 ring-inset ring-neutral-400;
-	@apply hover:ring-neutral-500;
 	@apply transition duration-300;
 }
 
-.snippet_dark {
+.snippet_invert {
 	@apply bg-neutral-800 text-neutral-100;
 	@apply ring-neutral-100;
-	@apply hover:ring-neutral-400;
 }
 
 .snippet_clipboard_single {
@@ -28,4 +26,11 @@
 
 .snippet_text {
 	@apply select-all;
+}
+
+:global(.dark) {
+	.snippet_invert {
+		@apply bg-neutral-50;
+		@apply text-neutral-800;
+	}
 }
