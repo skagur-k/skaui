@@ -3,9 +3,9 @@ import React from 'react'
 import { useButton } from 'react-aria'
 import { mergeRefs } from '../../utils'
 import styles from './Button.module.css'
-import { IIconButtonProps } from './Button.types'
+import { IconButtonProps } from './Button.types'
 
-const IconButton = React.forwardRef<HTMLButtonElement, IIconButtonProps>(
+const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
 	(
 		{
 			children,

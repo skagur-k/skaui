@@ -1,17 +1,17 @@
 import React from 'react'
 import { useButton } from 'react-aria'
-import { IButtonProps } from './Button.types'
+import { ButtonProps } from './Button.types'
 import styles from './Button.module.css'
 import clsx from 'clsx'
 import { mergeRefs } from '../../utils'
 
-const Button = React.forwardRef<HTMLButtonElement, IButtonProps>(
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 	(
 		{
 			children,
 			variant = 'solid',
-			type = 'default',
-			size = 'md',
+			type,
+			size,
 			prefix,
 			suffix,
 			align = 'center',
@@ -35,7 +35,6 @@ const Button = React.forwardRef<HTMLButtonElement, IButtonProps>(
 		}
 
 		const types = {
-			default: styles.button_default,
 			success: styles.button_success,
 			error: styles.button_error,
 			secondary: styles.button_secondary,

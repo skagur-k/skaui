@@ -1,20 +1,12 @@
-import { IButtonGroupProps } from './Button.types'
+import { ButtonGroupProps } from './Button.types'
 import React, { forwardRef } from 'react'
 import { getValidChildren } from '../../utils'
 import clsx from 'clsx'
 import styles from './Button.module.css'
 
-const ButtonGroup = forwardRef<HTMLDivElement, IButtonGroupProps>(
+const ButtonGroup = forwardRef<HTMLDivElement, ButtonGroupProps>(
 	(props, ref) => {
-		const {
-			size = 'md',
-			variant = 'solid',
-			type = 'default',
-			attached,
-			disabled,
-			children,
-			...rest
-		} = props
+		const { size, variant, type, attached, disabled, children, ...rest } = props
 
 		const variants = {
 			solid: styles.button_solid,
@@ -30,7 +22,6 @@ const ButtonGroup = forwardRef<HTMLDivElement, IButtonGroupProps>(
 		}
 
 		const types = {
-			default: styles.button_default,
 			success: styles.button_success,
 			error: styles.button_error,
 			secondary: styles.button_secondary,
@@ -40,9 +31,9 @@ const ButtonGroup = forwardRef<HTMLDivElement, IButtonGroupProps>(
 		const copies = validChildren.map((child) => {
 			return React.cloneElement(child, {
 				className: clsx(child.props.className, [
-					child.props.size || (size && sizes[size]),
-					child.props.variant || (variant && variants[variant]),
-					child.props.type || (type && types[type]),
+					(size && sizes[size]) || child.props.size,
+					(variant && variants[variant]) || child.props.variant,
+					(type && types[type]) || child.props.type,
 				]),
 			})
 		})

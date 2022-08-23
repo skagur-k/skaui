@@ -1,11 +1,11 @@
 import { AriaButtonProps } from '@react-types/button'
 import React from 'react'
 
-export interface IButtonProps extends Omit<AriaButtonProps, 'type'> {
+export interface ButtonProps extends Omit<AriaButtonProps, 'type'> {
 	children?: React.ReactElement | string | null
-	size?: IButtonSize
-	variant?: IButtonVariant
-	type?: IButtonType
+	size?: ButtonSize
+	variant?: ButtonVariant
+	type?: ButtonType
 	onClick?: () => void
 	className?: string
 	prefix?: React.ReactElement
@@ -13,26 +13,26 @@ export interface IButtonProps extends Omit<AriaButtonProps, 'type'> {
 	align?: 'start' | 'grow' | 'end' | 'center'
 }
 
-export interface IIconButtonProps extends Omit<AriaButtonProps, 'type'> {
+export interface IconButtonProps extends Omit<AriaButtonProps, 'type'> {
 	children: React.ReactElement
 	size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
-	variant?: IIconButtonVariant
-	type?: IButtonType
+	variant?: IconButtonVariant
+	type?: ButtonType
 	onClick?: () => void
 	className?: string
 }
 
-export interface IButtonGroupProps {
+export interface ButtonGroupProps {
 	attached?: boolean
 	disabled?: boolean
 	rounded?: boolean
-	size?: IButtonProps['size']
-	variant?: IButtonProps['variant']
-	type?: IButtonType
+	size?: ButtonProps['size']
+	variant?: ButtonProps['variant']
+	type?: ButtonType
 	children?: React.ReactNode
 }
 
-export type IButtonSize = 'sm' | 'md' | 'lg' | 'block'
-export type IButtonVariant = 'solid' | 'ghost' | 'text'
-export type IIconButtonVariant = 'solid' | 'ghost' | 'iconOnly'
-export type IButtonType = 'default' | 'success' | 'error' | 'secondary'
+export type ButtonSize = 'sm' | 'md' | 'lg' | 'block'
+export type ButtonVariant = 'solid' | 'ghost' | 'text'
+export type IconButtonVariant = 'solid' | 'ghost' | 'iconOnly'
+export type ButtonType = 'success' | 'error' | 'secondary'

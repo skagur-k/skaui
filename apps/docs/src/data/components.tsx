@@ -22,7 +22,6 @@ const buttons: IComponents = [
 	{
 		key: '/buttons/buttongroup',
 		title: 'Button Group',
-		badge: <Badge>TODO</Badge>,
 	},
 	{
 		key: '/buttons/iconbutton',
