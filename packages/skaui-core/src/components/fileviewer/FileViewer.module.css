@@ -1,10 +1,10 @@
 .fileviewer {
 	@apply relative;
-	@apply mx-2 flex flex-col gap-1 lg:mx-12 lg:flex-row lg:gap-[2px];
+	@apply flex flex-col gap-1 lg:flex-row lg:gap-[2px];
 }
 
 .filecontentWrapper {
-	@apply relative min-h-[300px] flex-1 overflow-y-hidden;
+	@apply relative min-h-[400px] flex-1 overflow-y-hidden;
 	@apply rounded-md bg-neutral-50;
 	@apply p-4 lg:pt-4 lg:pb-2 lg:px-1;
 	@apply shadow-sm;
@@ -23,7 +23,7 @@
 	}
 
 	.filecontentLanguage {
-		@apply bg-neutral-600;
+		@apply bg-neutral-800;
 		@apply text-neutral-100;
 	}
 
@@ -41,6 +41,14 @@
 
 	.codeLineNumber {
 		@apply text-neutral-600;
+	}
+
+	.codeHighlight {
+		@apply bg-neutral-100/10 hover:bg-neutral-100/10;
+
+		& .codeLineNumber {
+			@apply text-neutral-100;
+		}
 	}
 
 	.treeview_folder_label {
@@ -88,17 +96,14 @@
 }
 
 .filecontentLanguage {
-	@apply rounded-sm border border-neutral-300 bg-neutral-50 px-2 text-xs;
+	@apply rounded-sm border-[0.5px] border-neutral-300 bg-neutral-50;
+	@apply px-1 text-xs;
 	@apply cursor-pointer select-none;
 	@apply tracking-widest text-neutral-400;
 }
 
 .filecontent_renderer {
-	@apply mt-2 h-full;
-}
-
-.filecontentContentNoFile {
-	@apply flex items-center justify-center;
+	@apply mt-4 h-full;
 }
 
 .filecontentMsgWrapper {
@@ -126,7 +131,7 @@
 .codePre {
 	@apply h-full max-h-[380px] w-full;
 	@apply bg-transparent pt-0 pl-0 font-['JetBrains_Mono'];
-	@apply text-sm font-medium tracking-wide;
+	@apply text-sm font-normal tracking-wide;
 	@apply overflow-y-auto overflow-x-auto;
 }
 
@@ -144,11 +149,11 @@
 	@apply flex items-center;
 	@apply py-1 px-4;
 	@apply hover:bg-neutral-200;
-	@apply text-xs font-semibold;
+	@apply text-sm font-normal;
 }
 
 .codeHighlight {
-	@apply w-full bg-neutral-500/10 hover:bg-neutral-200;
+	@apply w-full bg-neutral-800/10 hover:bg-neutral-300;
 
 	& .codeLineNumber {
 		@apply font-medium text-neutral-500;
@@ -172,16 +177,12 @@
 }
 
 .fileviewoptions {
-	@apply absolute left-8;
+	@apply absolute left-8 bottom-0;
 	@apply flex flex-row gap-2;
 }
 
-.fileviewoptions_option {
-	@apply text-xs text-neutral-500;
-}
-.fileviewer {
-	@apply relative;
-	@apply mx-2 flex flex-col gap-1 lg:mx-12 lg:flex-row lg:gap-[2px];
+.fileviewoptions_checkboxgroup {
+	@apply flex flex-row gap-2;
 }
 
 .filetree {
@@ -281,7 +282,7 @@
 .treeview_file_selected {
 	& .treeview_file_label {
 		@apply bg-neutral-800 text-neutral-100;
-		@apply transition-all duration-200;
+		@apply transition-all duration-300;
 	}
 }
 
@@ -308,5 +309,5 @@
 	@apply w-5 h-5 stroke-[2px];
 	@apply hover:ring-2 ring-neutral-500;
 	@apply rounded-md cursor-pointer;
-	@apply transition-all duration-200;
+	@apply transition-all duration-300;
 }

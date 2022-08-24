@@ -25,14 +25,14 @@ body {
 .dark .invert {
 	--skaui-foreground: #222222;
 	--skaui-background: #fafafa;
-	--accents-1: #ffffff;
+	--accents-1: #fafafa;
 	--accents-2: #eeeeee;
 	--accents-3: #cccccc;
 	--accents-4: #999999;
 	--accents-5: #777777;
 	--accents-6: #555555;
 	--accents-7: #333333;
-	--accents-8: #111111;
+	--accents-8: #222222;
 
 	--skaui-selection: var(--skaui-cyan-light);
 
@@ -68,12 +68,12 @@ body {
 .invert {
 	--skaui-foreground: #fafafa;
 	--skaui-background: #222222;
-	--accents-1: #111111;
+	--accents-1: #222222;
 	--accents-2: #333333;
 	--accents-3: #555555;
 	--accents-4: #777777;
 	--accents-5: #999999;
 	--accents-6: #cccccc;
 	--accents-7: #eeeeee;
-	--accents-8: #ffffff;
+	--accents-8: #fafafa;
 }

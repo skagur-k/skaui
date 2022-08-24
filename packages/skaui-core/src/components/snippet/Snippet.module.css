@@ -1,6 +1,6 @@
 .snippet {
 	@apply inline-flex flex-col relative;
-	@apply outline-none max-w-[75%];
+	@apply outline-none;
 	@apply font-mono text-sm;
 	@apply pl-4 py-4 rounded-md;
 	@apply ring-1 ring-inset ring-neutral-400;

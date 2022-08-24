@@ -1,6 +1,6 @@
 import clsx from 'clsx'
 import React from 'react'
-import { useFocusRing, useLabel, useSwitch, VisuallyHidden } from 'react-aria'
+import { useFocusRing, useSwitch, VisuallyHidden } from 'react-aria'
 import { useToggleState } from 'react-stately'
 import styles from './Toggle.module.css'
 import { ToggleProps } from './Toggle.types'
@@ -17,7 +17,6 @@ const Toggle = (props: ToggleProps) => {
 	const state = useToggleState(props)
 	const ref = React.useRef(null)
 	const { inputProps } = useSwitch(props, state, ref)
-	const { labelProps } = useLabel(props)
 	const { isFocusVisible, focusProps } = useFocusRing()
 
 	const labelPositions = {
@@ -50,7 +49,6 @@ const Toggle = (props: ToggleProps) => {
 				],
 				className
 			)}
-			{...labelProps}
 		>
 			<VisuallyHidden>
 				<input

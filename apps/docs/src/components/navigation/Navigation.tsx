@@ -1,18 +1,16 @@
-import React from 'react'
-import styles from './Navigation.module.css'
-import { FiAnchor, FiHome } from 'react-icons/fi'
-import { INavigation } from './Navigation.types'
 import clsx from 'clsx'
+import styles from './Navigation.module.css'
+import { INavigation } from './Navigation.types'
 import { NavLink } from './NavLink'
 
 export const mainNavigation: INavigation[] = [
 	{
-		icon: <FiAnchor />,
+		// icon: <FiAnchor />,
 		title: 'Getting Started',
 		path: '/getting-started',
 	},
 	{
-		icon: <FiHome />,
+		// icon: <FiHome />,
 		title: 'Theming',
 		path: '/theming',
 	},
@@ -32,7 +30,9 @@ export const Navigation = () => {
 										isActive && styles.navigationItemActive
 									)}
 								>
-									<span className={styles.icon}>{item.icon}</span>
+									{item.icon && (
+										<span className={styles.icon}>{item.icon}</span>
+									)}
 									<span className={styles.title}>{item.title}</span>
 								</a>
 							)}

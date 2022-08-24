@@ -1,6 +1,5 @@
-import { KBD, Radio, RadioGroup, useToast } from '@skaui/core'
+import { KBD, Radio, useToast } from '@skaui/core'
 import { NextPage } from 'next'
-import { useState } from 'react'
 import { Container } from '../../components/container'
 import { IDE } from '../../components/ide'
 import PageLayout from '../../layouts/PageLayout'

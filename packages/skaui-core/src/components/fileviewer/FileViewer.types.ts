@@ -20,7 +20,7 @@ export type IFile = {
 }
 
 export interface FolderProps extends BaseProps {
-	children?: React.ReactElement[]
+	children: React.ReactElement | React.ReactElement[]
 	open?: boolean
 	defaultOpen?: boolean
 	slug?: string

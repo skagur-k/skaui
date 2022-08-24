@@ -7,12 +7,15 @@
 
 	&.container_start {
 		@apply justify-start;
+		@apply items-center;
 	}
 	&.container_center {
 		@apply justify-center;
+		@apply items-center;
 	}
 	&.container_end {
 		@apply justify-end;
+		@apply items-center;
 	}
 }
 

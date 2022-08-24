@@ -1,4 +1,3 @@
-import clsx from 'clsx'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useEffect } from 'react'
 import { EyeIcon, FileIcon } from '../../icons'

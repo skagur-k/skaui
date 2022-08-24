@@ -36,9 +36,8 @@ const ToastPortal = ({
 
 	// This snippet only runs on the client; hence the useLayoutEffect() !!ignore warning
 
-	const newId = wrapperId.concat(`-${nanoid(4)}`)
-
 	React.useEffect(() => {
+		const newId = wrapperId.concat(`-${nanoid(4)}`)
 		setWrapperElement(createWrapperAndAppendToBody(newId, className))
 		return () => {
 			createWrapperAndAppendToBody(newId).remove()

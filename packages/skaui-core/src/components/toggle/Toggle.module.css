@@ -55,11 +55,11 @@
 	@apply relative;
 	@apply bg-neutral-300 shadow-sm;
 	@apply rounded-full;
-	@apply transition-all duration-200;
+	@apply transition-all duration-300;
 }
 .toggle_switch_selected {
 	@apply bg-neutral-800;
-	@apply transition-all duration-200;
+	@apply transition-all duration-300;
 
 	& .toggle_switch_switch {
 		@apply translate-x-full;
@@ -97,7 +97,7 @@
 	@apply flex justify-center items-center;
 	@apply text-neutral-800;
 	@apply right-1/2 top-1/2 -translate-y-1/2;
-	@apply transition-all duration-200;
+	@apply transition-all duration-300;
 }
 
 .toggle_success {

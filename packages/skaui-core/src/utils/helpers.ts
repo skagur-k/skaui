@@ -1,7 +1,5 @@
-import React from 'react'
+import React, { ForwardedRef } from 'react'
 import type { Dict } from './utils.types'
-import { ForwardedRef } from 'react'
-import crypto from 'crypto'
 
 export function getValidChildren(children: React.ReactNode) {
 	return React.Children.toArray(children).filter((child) =>

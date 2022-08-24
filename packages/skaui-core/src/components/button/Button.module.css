@@ -3,7 +3,7 @@
 	@apply items-center justify-center;
 	@apply outline-none;
 	@apply select-none;
-	@apply transition-all duration-200;
+	@apply transition-all duration-300;
 	@apply tracking-normal;
 	@apply font-semibold;
 	@apply disabled:cursor-not-allowed;
@@ -31,8 +31,8 @@
 	&.button_success {
 		@apply text-white;
 		@apply bg-blue-500;
-		@apply hover:bg-white hover:text-blue-500;
-		@apply active:bg-neutral-100;
+		@apply hover:bg-blue-400;
+		@apply active:bg-blue-500;
 		@apply border-blue-500;
 
 		@apply disabled:opacity-20;
@@ -42,8 +42,9 @@
 	&.button_error {
 		@apply text-white;
 		@apply bg-red-500;
-		@apply hover:bg-white hover:text-red-500;
-		@apply active:bg-neutral-100 border-red-500;
+		@apply hover:bg-red-400;
+		@apply active:bg-red-500;
+		@apply border-red-500;
 
 		@apply disabled:opacity-20;
 		@apply disabled:hover:bg-red-500 disabled:hover:text-white;
@@ -224,7 +225,7 @@
 .button_iconOnly {
 	@apply rounded-sm overflow-hidden;
 	@apply bg-transparent text-neutral-800;
-	@apply border-neutral-500;
+	@apply border-neutral-800;
 
 	&.button_success {
 		@apply text-blue-500;

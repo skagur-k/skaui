@@ -2,13 +2,13 @@
 
 .navigationItem {
 	@apply bg-[color:var(--accents-2)];
-	@apply hover:bg-[color:var(--accents-2)];
+	@apply hover:bg-[color:var(--accents-3)];
 }
 
 .navigationItem.navigationItemActive {
 	@apply bg-[color:var(--accents-7)];
-	@apply text-[color:var(--accents-1)];
 	@apply hover:bg-[color:var(--accents-6)];
+	@apply text-[color:var(--accents-1)];
 }
 
 /* End of Colors */

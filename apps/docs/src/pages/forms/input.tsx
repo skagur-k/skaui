@@ -1,4 +1,4 @@
-import { Button, InlineCode, Input, KBD, Text } from '@skaui/core'
+import { InlineCode, Input, Text } from '@skaui/core'
 import { ChevronRightIcon, SettingsIcon } from '@skaui/core/src/icons'
 import { NextPage } from 'next'
 import { Container } from '../../components/container'

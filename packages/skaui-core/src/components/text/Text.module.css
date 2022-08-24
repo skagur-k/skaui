@@ -59,13 +59,13 @@
 }
 
 .text_inlinecode {
-	@apply bg-neutral-200 text-neutral-800 px-2 mx-1;
-	@apply rounded-md font-normal;
+	@apply bg-neutral-200 text-neutral-800 px-1 mx-2;
+	@apply rounded-sm font-normal;
 }
 
 .text_codeblock {
 	@apply inline-block bg-neutral-100;
-	@apply rounded-md;
+	@apply rounded-sm;
 	@apply p-4 font-medium;
 	@apply text-neutral-800 text-base;
 }

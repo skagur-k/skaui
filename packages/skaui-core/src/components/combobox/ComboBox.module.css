@@ -25,7 +25,7 @@
 	@apply inline-flex items-center;
 	@apply shadow-sm rounded-sm;
 	@apply ring-1 ring-neutral-200;
-	@apply transition-all duration-200;
+	@apply transition-all duration-300;
 }
 .combobox_button_hovered {
 	@apply ring-neutral-400;
@@ -48,7 +48,7 @@
 	@apply px-2 py-1 h-full;
 }
 .combobox_input_button_icon {
-	@apply transition-transform duration-200;
+	@apply transition-transform duration-300;
 }
 .combobox_input_button_icon_opened {
 	@apply -rotate-180;

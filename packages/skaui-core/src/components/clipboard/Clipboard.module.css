@@ -2,7 +2,7 @@
 	@apply z-10 flex items-center justify-center bg-white;
 	@apply rounded-md p-1;
 	@apply ring-[0.5px] ring-inset ring-neutral-300;
-	@apply transition-all duration-200;
+	@apply transition-all duration-300;
 }
 
 .icons {

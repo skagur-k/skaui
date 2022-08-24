@@ -30,7 +30,7 @@ const Meter = (props: MeterProps) => {
 		secondary: styles.meter_secondary,
 	}
 
-	function getColor(value: number) {
+	const barColor = React.useMemo(() => {
 		let color: string = ''
 		if (colors) {
 			Object.keys(colors).map((key) => {
@@ -38,9 +38,7 @@ const Meter = (props: MeterProps) => {
 			})
 		}
 		return color
-	}
-
-	const barColor = React.useMemo(() => getColor(value), [value])
+	}, [value, colors])
 
 	return (
 		<div

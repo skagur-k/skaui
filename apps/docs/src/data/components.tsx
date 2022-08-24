@@ -60,11 +60,11 @@ const overlays: IComponents = [
 	// 	title: 'Menu',
 	// 	badge: <Badge>TODO</Badge>,
 	// },
-	// {
-	// 	key: '/overlays/modal',
-	// 	title: 'Modal',
-	// 	badge: <Badge>TODO</Badge>,
-	// },
+	{
+		key: '/overlays/modal',
+		title: 'Modal',
+		badge: <Badge>TODO</Badge>,
+	},
 	{
 		key: '/overlays/toast',
 		title: 'Toast',
@@ -97,9 +97,9 @@ const status: IComponents = [
 	},
 ]
 
-const navigation: IComponents = []
+// const navigation: IComponents = []
 
-const misc: IComponents = []
+// const misc: IComponents = []
 
 const sections: IComponents = [
 	{

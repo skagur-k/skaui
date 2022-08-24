@@ -8,7 +8,7 @@ const Progress = (props: ProgressProps) => {
 	const {
 		label,
 		showValueLabel = !!label,
-		value,
+		value = 50,
 		minValue = 0,
 		maxValue = 100,
 		width = '300px',
@@ -33,7 +33,7 @@ const Progress = (props: ProgressProps) => {
 		secondary: styles.progress_secondary,
 	}
 
-	function getColor(value: number) {
+	const barColor = React.useMemo(() => {
 		let color: string = ''
 		if (colors) {
 			Object.keys(colors).map((key) => {
@@ -41,9 +41,7 @@ const Progress = (props: ProgressProps) => {
 			})
 		}
 		return color
-	}
-
-	const barColor = React.useMemo(() => getColor(value!), [value])
+	}, [value, colors])
 
 	return (
 		<div

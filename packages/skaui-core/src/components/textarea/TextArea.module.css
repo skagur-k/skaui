@@ -51,7 +51,7 @@
 	@apply text-base font-normal leading-6;
 	@apply ring-[2px];
 	@apply resize-none;
-	@apply transition duration-200;
+	@apply transition duration-300;
 }
 
 .textarea_label {

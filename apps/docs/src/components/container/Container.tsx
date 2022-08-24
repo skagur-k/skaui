@@ -25,7 +25,8 @@ export const Container = (props: ContainerProps) => {
 				styles.container,
 				[col && styles.container_col],
 				[align && alignments[align]],
-				className
+				className,
+				`gap-${gap}`
 			)}
 		>
 			{children}

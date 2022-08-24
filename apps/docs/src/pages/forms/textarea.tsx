@@ -5,13 +5,13 @@ import { IDE } from '../../components/ide'
 import PageLayout from '../../layouts/PageLayout'
 
 const textareaCode = `<Container>
-<TextArea/>
+<TextArea label="Text Area"/>
 </Container>
 `
 const textareaScope = { TextArea, Container }
 
 const placeholderCode = `<Container>
-<TextArea placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "/>
+<TextArea label="Text Area with Placeholder" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "/>
 </Container>
 `
 const placeholderScope = { TextArea, Container }
@@ -23,13 +23,13 @@ const labelCode = `<Container>
 const labelScope = { TextArea, Container }
 
 const defaultCode = `<Container>
-<TextArea defaultValue="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "/>
+<TextArea label="Text Area with Default Value" defaultValue="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "/>
 </Container>
 `
 const defaultScope = { TextArea, Container }
 
 const disabledCode = `<Container>
-<TextArea isDisabled placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "/>
+<TextArea isDisabled label="Disabled Text Area" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "/>
 </Container>
 `
 const disabledScope = { TextArea, Container }
@@ -42,7 +42,7 @@ const TextAreaPage: NextPage = () => {
 
 	return (
 		<Container col align="center">
-			<TextArea value={text} onChange={setText}/>
+			<TextArea label="Controlled Text Area" value={text} onChange={setText}/>
 			<Text>{text}</Text>
 		</Container>
 	)
@@ -98,7 +98,6 @@ const TextAreaPage: NextPage = () => {
 				{/* Section */}
 				<div className='mt-16 flex flex-col gap-8'>
 					<h2 className='text-4xl font-bold'>Controlled Text Area</h2>
-					<h3 className='text-lg text-neutral-400'>Controlled</h3>
 					<IDE code={controlledCode} scope={controlledScope} />
 				</div>
 			</div>

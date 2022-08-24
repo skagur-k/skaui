@@ -9,11 +9,14 @@ const STORAGE_KEY = 'mode'
 
 export const ThemeProvider = ({ children }: any) => {
 	const prefersDark = useMediaQuery('(prefers-color-scheme: dark')
+	const systemMode = prefersDark ? 'dark' : 'light'
 
 	const [mode, setMode] = useState<ITheme>(() => {
 		if (isBrowser()) {
-			return (window as any).__mode
+			return localStorage.getItem(STORAGE_KEY) || 'light'
 		}
+
+		return 'light'
 	})
 
 	const isDarkMode = mode === 'system' ? prefersDark : mode === 'dark'
@@ -32,7 +35,9 @@ export const ThemeProvider = ({ children }: any) => {
 	}
 
 	return (
-		<ThemeContext.Provider value={{ mode, isDarkMode, selectTheme }}>
+		<ThemeContext.Provider
+			value={{ mode, systemMode, isDarkMode, selectTheme }}
+		>
 			<SSRProvider>
 				<ToastProvider>
 					<OverlayProvider>{children}</OverlayProvider>

@@ -16,7 +16,7 @@ import styles from './Select.module.css'
 import { SelectProps } from './Select.types'
 
 const Select = <T extends object>(props: SelectProps<T>) => {
-	const { isDisabled, placeholder = 'Select an Option' } = props
+	const { isDisabled, placeholder = 'Select an Option', className } = props
 	const state = useSelectState(props)
 	const ref = React.useRef(null)
 	const { labelProps, triggerProps, valueProps, menuProps } = useSelect(
@@ -31,7 +31,11 @@ const Select = <T extends object>(props: SelectProps<T>) => {
 
 	return (
 		<div
-			className={clsx(styles.select, [isDisabled && styles.select_disabled])}
+			className={clsx(
+				styles.select,
+				[isDisabled && styles.select_disabled],
+				className
+			)}
 		>
 			<div className={clsx(styles.select_label, [])} {...labelProps}>
 				{props.label}

@@ -5,10 +5,11 @@ import { Container } from '../../components/container'
 import { IDE } from '../../components/ide'
 import PageLayout from '../../layouts/PageLayout'
 
-const sizesCode = `<Container>
-	<Checkbox size='sm'>Small</Checkbox>
-	<Checkbox size='md'>Medium</Checkbox>
-	<Checkbox size='lg'>Large</Checkbox>
+const sizesCode = `
+<Container>
+		<Checkbox size='sm'>Small</Checkbox>
+		<Checkbox size='md'>Medium</Checkbox>
+		<Checkbox size='lg'>Large</Checkbox>
 </Container>
 `
 const sizesScope = { Checkbox, Container }

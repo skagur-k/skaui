@@ -1,15 +1,10 @@
-import { useListBox, useListBoxSection, useOption } from 'react-aria'
 import clsx from 'clsx'
 import React from 'react'
+import { useListBox, useListBoxSection, useOption } from 'react-aria'
 import { CheckIcon } from '../../icons'
-import type {
-	ListBoxProps,
-	OptionContextValue,
-	OptionProps,
-	SectionProps,
-} from './ListBox.types'
-import { useListBoxOptionClass } from './styles'
 import styles from './ListBox.module.css'
+import type { ListBoxProps, OptionProps, SectionProps } from './ListBox.types'
+import { useListBoxOptionClass } from './styles'
 
 const ListBox = (props: ListBoxProps) => {
 	const ref = React.useRef<HTMLUListElement>(null)

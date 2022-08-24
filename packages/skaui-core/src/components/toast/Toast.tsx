@@ -28,7 +28,7 @@ const Toast = (props: IToast) => {
 		setTimeout(() => {
 			dispatch({ type: ActionType.REMOVE_TOAST, toastId: id })
 		}, duration)
-	}, [])
+	}, [dispatch, duration, id])
 
 	const transiton = {
 		initial: {

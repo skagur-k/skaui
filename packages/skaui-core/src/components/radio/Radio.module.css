@@ -91,7 +91,7 @@
 	@apply rounded-full mr-3;
 	@apply bg-neutral-100;
 	@apply ring-1 ring-neutral-300;
-	@apply transition-all ease-in-out duration-200;
+	@apply transition-all ease-in-out duration-300;
 }
 
 .radio_button_focused {

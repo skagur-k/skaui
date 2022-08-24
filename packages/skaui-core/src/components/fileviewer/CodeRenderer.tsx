@@ -34,7 +34,7 @@ const CodeRenderer = ({
 							<div
 								{...getLineProps({ line, key: i })}
 								className={clsx(styles.codeLine, [
-									highlights.includes(i) && styles.codeHighlight,
+									highlights.includes(i + 1) && styles.codeHighlight,
 								])}
 							>
 								{lineNumbers && (

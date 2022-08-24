@@ -27,7 +27,7 @@
 }
 
 .header {
-	@apply flex justify-center pt-14 pb-16;
+	@apply flex justify-center pt-20 pb-16;
 	@apply text-lg font-black;
 }
 
@@ -75,6 +75,9 @@
 	@apply flex flex-col;
 }
 
-.darkmode {
-	@apply flex justify-center py-8;
+.themeselectWrapper {
+	@apply my-8 flex justify-center px-4;
+}
+
+.themeselect {
 }

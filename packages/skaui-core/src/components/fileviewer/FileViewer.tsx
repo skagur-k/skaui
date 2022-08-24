@@ -1,5 +1,6 @@
 import clsx from 'clsx'
 import { AnimatePresence, motion } from 'framer-motion'
+import { isArray } from 'lodash'
 import React, { useEffect } from 'react'
 import {
 	ChevronDownIcon,
@@ -39,7 +40,7 @@ export const FileViewer: React.ComponentType<FileViewerProps> = React.memo(
 
 		const [optionOpened, setOptionOpened] = React.useState(false)
 		const [showContent, setShowContent] = React.useState(!nocontent)
-		const [lineNumbers, setLineNumbers] = React.useState(false)
+		const [lineNumbers, setLineNumbers] = React.useState(true)
 
 		function handleOptionToggle() {
 			setOptionOpened(!optionOpened)
@@ -103,7 +104,11 @@ export const FileViewer: React.ComponentType<FileViewerProps> = React.memo(
 											}}
 											className={clsx(styles.fileviewoptions)}
 										>
-											<CheckboxGroup size='sm' row className='gap-4'>
+											<CheckboxGroup
+												size='sm'
+												aria-label='File Viewer Options'
+												className={styles.fileviewoptions_checkboxgroup}
+											>
 												<Checkbox
 													isSelected={showContent}
 													onChange={handleShowContentToggle}
@@ -161,13 +166,17 @@ export const Folder: React.ComponentType<FolderProps> = React.memo(
 
 		let sluggedChildren
 
-		if (children) {
+		if (children && isArray(children)) {
 			sluggedChildren = children.map((child, idx) =>
 				React.cloneElement(child, {
 					slug: slug + ' / ' + child.props.name,
 					key: idx,
 				})
 			)
+		} else {
+			sluggedChildren = React.cloneElement(children, {
+				slug: slug + ' / ' + children.props.name,
+			})
 		}
 
 		return (

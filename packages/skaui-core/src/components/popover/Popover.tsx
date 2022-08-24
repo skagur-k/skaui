@@ -1,8 +1,8 @@
 import clsx from 'clsx'
 import React from 'react'
 import { DismissButton, FocusScope, useOverlay } from 'react-aria'
-import { PopoverProps } from './Popover.types'
 import styles from './Popover.module.css'
+import { PopoverProps } from './Popover.types'
 
 const Popover = (props: PopoverProps) => {
 	const ref = React.useRef<HTMLDivElement>(null)

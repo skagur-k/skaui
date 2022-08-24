@@ -1,6 +1,5 @@
 import clsx from 'clsx'
 import React from 'react'
-import { SquarePlusIcon } from '../../icons'
 
 import {
 	CommandIcon,
@@ -9,7 +8,6 @@ import {
 	OptionsIcon,
 	ReturnLeftIcon,
 	ShiftIcon,
-	WindowsIcon,
 } from '../../icons/KBDIcons'
 import styles from './KBD.module.css'
 import { KBDProps } from './KBD.types'

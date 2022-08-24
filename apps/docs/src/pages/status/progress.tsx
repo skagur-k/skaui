@@ -8,7 +8,7 @@ import PageLayout from '../../layouts/PageLayout'
 // TODO: CIRCULAR PROGRESS BAR
 
 const sizesCode = `
-<Container col>
+<Container col align="center">
 	<Progress height={4} label="Loading..." value={40}/>
 	<Progress height={6} label="Loading..." value={60}/>
 	<Progress height={8} label="Loading..." value={80}/>
@@ -17,7 +17,7 @@ const sizesCode = `
 const sizesScope = { Progress, Container }
 
 const formatCode = `
-<Container col>
+<Container col align="center">
 	<Progress 
 		value={40} 
 		label="Sending (in KRW)..." 
@@ -31,7 +31,7 @@ const formatCode = `
 const formatScope = { Progress, Container }
 
 const customformatCode = `
-<Container col>
+<Container col align="center">
 	<Progress 
 		value={30} 
 		valueLabel="3 out of 10"
@@ -41,7 +41,7 @@ const customformatCode = `
 const customformatScope = { Progress, Container }
 
 const indeterminateCode = `
-<Container col>
+<Container col align="center">
 	<Progress isIndeterminate label='Loading...' />
 </Container>
 `

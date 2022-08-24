@@ -7,14 +7,7 @@ import { IconButtonProps } from './Button.types'
 
 const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
 	(
-		{
-			children,
-			variant = 'solid',
-			type = 'default',
-			size = 'md',
-			className,
-			...props
-		},
+		{ children, variant = 'solid', type, size = 'md', className, ...props },
 		externalRef
 	) => {
 		const ref = React.useRef<HTMLButtonElement>(null)
@@ -27,7 +20,6 @@ const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
 		}
 
 		const types = {
-			default: styles.button_default,
 			success: styles.button_success,
 			error: styles.button_error,
 			secondary: styles.button_secondary,

@@ -5,7 +5,7 @@
 @layer base {
 	html {
 		box-sizing: border-box;
-		font-size: 16px;
+		font-size: 14px;
 	}
 	body {
 		font-family: Inter, sans-serif;
