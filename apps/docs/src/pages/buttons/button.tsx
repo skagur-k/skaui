@@ -6,12 +6,21 @@ import { IDE } from '../../components/ide'
 import PageLayout from '../../layouts/PageLayout'
 
 const sizesCode = `<Container>
-	<Button size='sm' onPress={() => alert('Pressed')}>Small Button</Button>
+	<Button size='sm'>Small Button</Button>
 	<Button size='md'>Medium Button</Button>
 	<Button size='lg'>Large Button</Button>
 </Container>
 `
 const sizesScope = { Button, Container }
+
+const disabledCode = `<Container>
+	<Button isDisabled type='default'>Default</Button>
+	<Button isDisabled type='secondary'>Secondary</Button>
+	<Button isDisabled type='success'>Success</Button>
+	<Button isDisabled type='error'>Error</Button>
+</Container>
+`
+const disabledScope = { Button, Container }
 
 const prefixsuffixCode = `<Container>
 	<Button prefix={<SettingsIcon />}>Prefix</Button>
@@ -95,6 +104,12 @@ const ButtonPage: NextPage = () => {
 						Different button sizes for different use cases.
 					</h3>
 					<IDE code={sizesCode} scope={sizesScope} />
+				</div>
+
+				{/* Section */}
+				<div className='mt-16 flex flex-col gap-8'>
+					<h2 className='text-4xl font-bold'>Disabled</h2>
+					<IDE code={disabledCode} scope={disabledScope} />
 				</div>
 
 				{/* Section */}

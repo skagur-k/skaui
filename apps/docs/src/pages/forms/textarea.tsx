@@ -1,6 +1,5 @@
-import { KBD, TextArea } from '@skaui/core'
+import { KBD, TextArea, Text } from '@skaui/core'
 import { NextPage } from 'next'
-import { useState } from 'react'
 import { Container } from '../../components/container'
 import { IDE } from '../../components/ide'
 import PageLayout from '../../layouts/PageLayout'
@@ -36,11 +35,18 @@ const disabledCode = `<Container>
 const disabledScope = { TextArea, Container }
 
 const TextAreaPage: NextPage = () => {
-	const [text, setText] = useState('')
-	const controlledScope = { TextArea, Container, text, setText }
-	const controlledCode = `<Container>
-<TextArea value={text} onChange={setText}/>
-</Container>
+	const controlledScope = { TextArea, Text, Container }
+	const controlledCode = `() => {
+
+	const [text, setText] = React.useState('')
+
+	return (
+		<Container col align="center">
+			<TextArea value={text} onChange={setText}/>
+			<Text>{text}</Text>
+		</Container>
+	)
+}
 `
 
 	return (
@@ -92,7 +98,7 @@ const TextAreaPage: NextPage = () => {
 				{/* Section */}
 				<div className='mt-16 flex flex-col gap-8'>
 					<h2 className='text-4xl font-bold'>Controlled Text Area</h2>
-					<h3 className='text-lg text-neutral-400'>Disabled Text Area</h3>
+					<h3 className='text-lg text-neutral-400'>Controlled</h3>
 					<IDE code={controlledCode} scope={controlledScope} />
 				</div>
 			</div>

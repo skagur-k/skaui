@@ -1,18 +1,20 @@
 import { createContext, useContext } from 'react'
 
-export type ITheme = 'light' | 'dark' | 'system'
+export type ITheme = 'light' | 'dark' | 'system' | string
 
 export interface IThemeContext {
-	theme: ITheme
 	selectTheme: (theme: ITheme) => void
 	isDarkMode: null | boolean
+	mode: ITheme
 }
 
-const ThemeContext = createContext<IThemeContext>({
-	theme: 'system',
-	isDarkMode: null,
+export const ThemeContext = createContext<IThemeContext>({
 	selectTheme: () => {},
+	isDarkMode: null,
+	mode: 'system',
 })
+
+ThemeContext.displayName = 'SKA UI - Theme Context'
 
 export const useTheme = () => {
 	const themeContext = useContext(ThemeContext)
@@ -22,6 +24,3 @@ export const useTheme = () => {
 	}
 	return themeContext
 }
-
-ThemeContext.displayName = 'SKA UI - Theme Context'
-export default ThemeContext

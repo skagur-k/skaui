@@ -6,9 +6,6 @@ html {
 html,
 body {
 	text-rendering: optimizeLegibility;
-	background-color: var(--geist-background);
-	color: var(--geist-foreground);
-	scroll-padding-top: var(--header-height);
 	font-size: 14px;
 }
 
@@ -16,4 +13,67 @@ body {
 	position: relative;
 	min-height: 100%;
 	margin: 0;
+}
+
+::selection {
+	color: #000000;
+	background: var(--skaui-success-lighter);
+}
+
+/* Colors */
+:root,
+.dark .invert {
+	--skaui-foreground: #222222;
+	--skaui-background: #fafafa;
+	--accents-1: #ffffff;
+	--accents-2: #eeeeee;
+	--accents-3: #cccccc;
+	--accents-4: #999999;
+	--accents-5: #777777;
+	--accents-6: #555555;
+	--accents-7: #333333;
+	--accents-8: #111111;
+
+	--skaui-selection: var(--skaui-cyan-light);
+
+	--skaui-error-light: #ff1a1a;
+	--skaui-error: #ee0000;
+	--skaui-error-dark: #c50000;
+	--skaui-error-lighter: #f7d4d6;
+	--skaui-success-lighter: #d3e5ff;
+	--skaui-success-light: #3291ff;
+	--skaui-success: #0070f3;
+	--skaui-success-dark: #0761d1;
+	--skaui-warning-lighter: #ffefcf;
+	--skaui-warning-light: #f7b955;
+	--skaui-warning: #f5a623;
+	--skaui-warning-dark: #ab570a;
+	--skaui-violet-lighter: #e3d7fc;
+	--skaui-violet-light: #8a63d2;
+	--skaui-violet: #7928ca;
+	--skaui-violet-dark: #4c2889;
+	--skaui-cyan-lighter: #aaffec;
+	--skaui-cyan-light: #79ffe1;
+	--skaui-cyan: #50e3c2;
+	--skaui-cyan-dark: #29bc9b;
+	--skaui-highlight-purple: #f81ce5;
+	--skaui-highlight-magenta: #eb367f;
+	--skaui-highlight-pink: #ff0080;
+	--skaui-highlight-yellow: #fff500;
+
+	--skaui-component-active: var(--skaui-success);
+}
+
+.dark,
+.invert {
+	--skaui-foreground: #fafafa;
+	--skaui-background: #222222;
+	--accents-1: #111111;
+	--accents-2: #333333;
+	--accents-3: #555555;
+	--accents-4: #777777;
+	--accents-5: #999999;
+	--accents-6: #cccccc;
+	--accents-7: #eeeeee;
+	--accents-8: #ffffff;
 }

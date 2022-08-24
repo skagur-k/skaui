@@ -1,23 +1,22 @@
 import { useEffect, useState } from 'react'
-import { useMediaQuery } from '../../hooks'
-import { isBrowser } from '../../utils'
-import ThemeContext, { ITheme } from './ThemeContext'
 import { OverlayProvider, SSRProvider } from 'react-aria'
 import { ToastProvider } from '..'
+import { useMediaQuery } from '../../hooks'
+import { isBrowser } from '../../utils'
+import { ITheme, ThemeContext } from './ThemeContext'
 
-const STORAGE_KEY = 'theme'
+const STORAGE_KEY = 'mode'
 
-const ThemeProvider = ({ children }: any) => {
+export const ThemeProvider = ({ children }: any) => {
 	const prefersDark = useMediaQuery('(prefers-color-scheme: dark')
 
-	const [theme, setTheme] = useState<ITheme>(() => {
+	const [mode, setMode] = useState<ITheme>(() => {
 		if (isBrowser()) {
-			return prefersDark ? 'dark' : 'light'
+			return (window as any).__mode
 		}
-		return 'system'
 	})
 
-	const isDarkMode = true
+	const isDarkMode = mode === 'system' ? prefersDark : mode === 'dark'
 
 	useEffect(() => {
 		if (isDarkMode) {
@@ -28,20 +27,17 @@ const ThemeProvider = ({ children }: any) => {
 	}, [isDarkMode])
 
 	const selectTheme = (theme: ITheme) => {
-		console.log('SELECTING THEME')
-		setTheme(theme)
+		setMode(theme)
 		localStorage.setItem(STORAGE_KEY, theme)
 	}
 
 	return (
-		<SSRProvider>
-			<ThemeContext.Provider value={{ theme, isDarkMode, selectTheme }}>
+		<ThemeContext.Provider value={{ mode, isDarkMode, selectTheme }}>
+			<SSRProvider>
 				<ToastProvider>
 					<OverlayProvider>{children}</OverlayProvider>
 				</ToastProvider>
-			</ThemeContext.Provider>
-		</SSRProvider>
+			</SSRProvider>
+		</ThemeContext.Provider>
 	)
 }
-
-export { ThemeProvider }

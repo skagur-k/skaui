@@ -4,7 +4,7 @@ import { useMenuTriggerState } from 'react-stately'
 import { Popover } from '../popover'
 import { MenuButtonProps } from './Menu.types'
 import styles from './Menu.module.css'
-import Menu from './Menu'
+import { Menu } from './Menu'
 import { AnimatePresence, motion } from 'framer-motion'
 
 const MenuButton = (props: MenuButtonProps) => {
@@ -46,4 +46,4 @@ const MenuButton = (props: MenuButtonProps) => {
 	)
 }
 
-export default MenuButton
+export { MenuButton }

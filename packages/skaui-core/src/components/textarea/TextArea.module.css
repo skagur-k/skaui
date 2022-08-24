@@ -1,3 +1,45 @@
+/* Colors */
+
+.textarea {
+	@apply ring-neutral-300;
+	@apply bg-neutral-50;
+	@apply hover:ring-neutral-400;
+	@apply focus:ring-neutral-800;
+	@apply disabled:ring-neutral-200;
+	@apply invalid:ring-red-500;
+
+	&::placeholder {
+		@apply text-neutral-300;
+	}
+}
+
+.textarea_error {
+	@apply ring-red-500 text-red-500;
+}
+
+.textarea_label {
+	@apply text-neutral-500;
+}
+
+:global(.dark) {
+	.textarea {
+		@apply ring-neutral-600;
+		@apply bg-neutral-800;
+		@apply hover:ring-neutral-500;
+		@apply focus:ring-neutral-400;
+		@apply disabled:ring-neutral-600;
+		@apply invalid:ring-red-500;
+
+		&::placeholder {
+			@apply text-neutral-600;
+		}
+	}
+
+	.textarea_label {
+		@apply text-neutral-100;
+	}
+}
+
 .textarea_wrapper {
 	@apply block w-full;
 	@apply flex flex-col gap-4;
@@ -7,32 +49,16 @@
 	@apply w-full outline-none;
 	@apply rounded-md px-6 py-4;
 	@apply text-base font-normal leading-6;
-	@apply ring-1 ring-neutral-300 ring-offset-2;
-	@apply bg-neutral-50;
+	@apply ring-[2px];
 	@apply resize-none;
 	@apply transition duration-200;
-	@apply hover:ring-neutral-400;
-	@apply focus:ring-neutral-800;
-	@apply invalid:ring-red-500;
-
-	&::placeholder {
-		@apply text-neutral-300;
-	}
 }
 
 .textarea_label {
-	@apply text-neutral-500 font-medium;
+	@apply font-medium;
 }
 
 .textarea_disabled {
 	@apply disabled:cursor-not-allowed;
-	@apply disabled:ring-neutral-400;
 	@apply disabled:opacity-50;
-}
-.textarea_focused {
-	@apply ring-neutral-800;
-}
-
-.textarea_error {
-	@apply ring-red-500 text-red-500;
 }

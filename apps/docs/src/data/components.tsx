@@ -51,21 +51,20 @@ const forms: IComponents = [
 	{
 		key: '/forms/textarea',
 		title: 'Text Area',
-		badge: <Badge>TODO</Badge>,
 	},
 ]
 
 const overlays: IComponents = [
-	{
-		key: '/overlays/menu',
-		title: 'Menu',
-		badge: <Badge>TODO</Badge>,
-	},
-	{
-		key: '/overlays/modal',
-		title: 'Modal',
-		badge: <Badge>TODO</Badge>,
-	},
+	// {
+	// 	key: '/overlays/menu',
+	// 	title: 'Menu',
+	// 	badge: <Badge>TODO</Badge>,
+	// },
+	// {
+	// 	key: '/overlays/modal',
+	// 	title: 'Modal',
+	// 	badge: <Badge>TODO</Badge>,
+	// },
 	{
 		key: '/overlays/toast',
 		title: 'Toast',

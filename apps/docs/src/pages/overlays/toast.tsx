@@ -1,5 +1,4 @@
 import { Button, InlineCode, useToast } from '@skaui/core'
-import { SettingsIcon } from '@skaui/core/src/icons'
 import { NextPage } from 'next'
 import { Container } from '../../components/container'
 import { IDE } from '../../components/ide'

@@ -1,3 +1,8 @@
+.layout {
+	@apply bg-[color:var(--skaui-background)];
+	@apply text-[color:var(--skaui-foreground)];
+}
+
 .wrapper {
 	@apply flex flex-col;
 	@apply mx-auto h-full min-h-screen max-w-[1248px];

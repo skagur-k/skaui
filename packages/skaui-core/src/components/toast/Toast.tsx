@@ -69,6 +69,7 @@ const Toast = (props: IToast) => {
 			<div className={styles.toastActions}>
 				<Button
 					size='block'
+					variant='solid'
 					className={styles.toastDismissButton}
 					onPress={handleClick}
 				>
@@ -77,6 +78,7 @@ const Toast = (props: IToast) => {
 				{action && (
 					<Button
 						size='block'
+						variant='solid'
 						type='secondary'
 						className={styles.toastActionButton}
 						onPress={action.onPress}

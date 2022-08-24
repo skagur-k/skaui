@@ -1,3 +1,18 @@
+/* Colors */
+
+.navigationItem {
+	@apply bg-[color:var(--accents-2)];
+	@apply hover:bg-[color:var(--accents-2)];
+}
+
+.navigationItem.navigationItemActive {
+	@apply bg-[color:var(--accents-7)];
+	@apply text-[color:var(--accents-1)];
+	@apply hover:bg-[color:var(--accents-6)];
+}
+
+/* End of Colors */
+
 .navigation {
 	@apply flex flex-col overflow-hidden;
 	@apply mb-8 space-y-2 px-3;
@@ -7,13 +22,11 @@
 	@apply flex items-center space-x-2;
 	@apply mx-1 py-2 pl-4;
 	@apply transition-colors duration-200;
-	@apply bg-neutral-100 hover:bg-neutral-200;
 	@apply overflow-hidden rounded-md;
-}
 
-.navigationItem.navigationItemActive {
-	@apply bg-neutral-800 font-bold text-neutral-200;
-	@apply hover:bg-neutral-700;
+	&.navigationItemActive {
+		@apply font-bold;
+	}
 }
 
 .icon {
@@ -23,15 +36,4 @@
 
 .title {
 	@apply text-sm font-medium;
-}
-
-:global(.dark) {
-	.navigationItem {
-		@apply bg-neutral-700 hover:bg-neutral-600;
-	}
-
-	.navigationItem.navigationItemActive {
-		@apply bg-neutral-100 font-bold text-neutral-800;
-		@apply hover:bg-neutral-200;
-	}
 }

@@ -44,17 +44,21 @@
 	@apply bg-blue-500 border-blue-500 text-neutral-100;
 
 	.toastDismissButton {
+		@apply bg-neutral-50 border-neutral-50 text-neutral-800;
 	}
 
 	.toastActionButton {
+		@apply bg-neutral-800 border-neutral-800 text-neutral-100;
 	}
 }
 .toastError {
 	@apply bg-red-500 border-red-500 text-neutral-100;
 
 	.toastDismissButton {
+		@apply bg-neutral-50 border-neutral-50 text-neutral-800;
 	}
 	.toastActionButton {
+		@apply bg-neutral-800 border-neutral-800 text-neutral-100;
 	}
 }
 

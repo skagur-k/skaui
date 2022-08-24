@@ -6,7 +6,7 @@ import { CheckIcon } from '../../icons'
 import styles from './Menu.module.css'
 import { MenuItemProps, MenuProps, MenuSectionProps } from './Menu.types'
 
-const Menu = (props: MenuProps) => {
+export const Menu = (props: MenuProps) => {
 	const state = useTreeState(props as TreeProps<object>)
 	const ref = React.useRef(null)
 	const { menuProps } = useMenu(props, state, ref)
@@ -44,7 +44,7 @@ export const MenuItem = (props: MenuItemProps) => {
 			])}
 		>
 			{item.rendered}
-			{isSelected && <CheckIcon className={styles.menu_item_check}/>}
+			{isSelected && <CheckIcon className={styles.menu_item_check} />}
 		</li>
 	)
 }
@@ -85,5 +85,3 @@ export const MenuSection = (props: MenuSectionProps) => {
 		</>
 	)
 }
-
-export default Menu

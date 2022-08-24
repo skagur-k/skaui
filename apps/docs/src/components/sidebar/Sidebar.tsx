@@ -1,7 +1,8 @@
 import { Button, Toggle, useTheme } from '@skaui/core'
 import clsx from 'clsx'
+import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { components } from '../../data'
 import { Navigation } from '../navigation/Navigation'
 import { NavLink } from '../navigation/NavLink'
@@ -11,19 +12,12 @@ export const Sidebar = () => {
 	const router = useRouter()
 	const path = router.asPath
 
-	const { theme, selectTheme, isDarkMode } = useTheme()
+	const { mode, isDarkMode, selectTheme } = useTheme()
 	const [dark, setDark] = useState(false)
 	function handleToggle() {
-		console.log('TOGGLED: ', dark ? 'dark' : 'light')
 		setDark(!dark)
-		if (dark) {
-			selectTheme('dark')
-		} else selectTheme('light')
+		selectTheme(dark ? 'dark' : 'light')
 	}
-
-	useEffect(() => {
-		console.log(theme, isDarkMode)
-	})
 
 	return (
 		<aside className='hidden lg:flex'>
@@ -36,12 +30,20 @@ export const Sidebar = () => {
 						<NavLink href='/'>SKA-UI</NavLink>
 					</div>
 					<div className={styles.buttonGroup}>
-						<Button size='sm' className={styles.button}>
-							GitHub
-						</Button>
-						<Button size='sm' type='secondary' className={styles.button}>
-							skagur.dev
-						</Button>
+						<Link
+							href='https://github.com/skagur-k/skaui'
+							target='_blank'
+							passHref
+						>
+							<Button size='sm' className={styles.button}>
+								GitHub
+							</Button>
+						</Link>
+						<Link href='https://skagur.dev' target='_blank' passHref>
+							<Button size='sm' type='secondary' className={styles.button}>
+								skagur.dev
+							</Button>
+						</Link>
 					</div>
 				</div>
 
@@ -50,9 +52,10 @@ export const Sidebar = () => {
 						<Toggle
 							aria-label='dark mode'
 							className={styles.toggle}
-							onChange={() => handleToggle()}
+							isSelected={isDarkMode ? true : false}
+							onChange={handleToggle}
 						>
-							{dark ? 'Dark' : 'Light'}
+							{mode}
 						</Toggle>
 					</div>
 					<Navigation />

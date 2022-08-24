@@ -29,6 +29,12 @@
 	@apply bg-transparent ring-neutral-800 text-neutral-800;
 }
 
+:global(.dark) {
+	.badge_outline {
+		@apply ring-neutral-100 text-neutral-100;
+	}
+}
+
 .badge_sm {
 	@apply text-[0.5rem] px-[4px] py-[1px];
 }

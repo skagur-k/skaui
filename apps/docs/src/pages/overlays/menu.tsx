@@ -1,21 +1,24 @@
-import { Button } from '@skaui/core'
+import { Button, Item, Menu } from '@skaui/core'
 import { NextPage } from 'next'
 import { Container } from '../../components/container'
 import { IDE } from '../../components/ide'
 import PageLayout from '../../layouts/PageLayout'
 
-const sizesCode = `<Container>
-	<Button size='sm'>Small Button</Button>
-	<Button size='md'>Medium Button</Button>
-	<Button size='lg'>Large Button</Button>
+const sizesCode = `<Container align="start">
+	<Menu.Trigger menuButton={<Button className="w-full">Menu</Button>}>
+		<Item key="1">Option 1</Item>
+	</Menu.Trigger>
 </Container>
 `
-const sizesScope = { Button, Container }
+const sizesScope = { Button, Menu, Item, Container }
 
 const ButtonPage: NextPage = () => {
 	return (
 		<PageLayout>
 			<div className='flex flex-col gap-6'>
+				<Menu.Trigger menuButton={<Button>Menu</Button>}>
+					<Item key='1'>Hello World</Item>
+				</Menu.Trigger>
 				<h1 className='text-5xl font-black'>Button</h1>
 				<h3 className='text-xl font-medium text-neutral-400'>
 					Simplest UI Component that triggers user events.

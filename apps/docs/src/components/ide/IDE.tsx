@@ -54,9 +54,6 @@ const IDE = ({ code: codeInit, ...props }: IDEProps) => {
 
 	const style = {
 		fontFamily: 'JetBrains Mono',
-		selection: {
-			color: '#ffffff',
-		},
 	}
 
 	function handleReset() {
@@ -172,6 +169,7 @@ const IDE = ({ code: codeInit, ...props }: IDEProps) => {
 								</div>
 								<LiveEditor
 									style={style}
+									theme={theme}
 									className={styles.editor}
 									onChange={setCode}
 								/>

@@ -1,6 +1,6 @@
 .text {
-	@apply leading-6 tracking-normal;
-	@apply inline-flex overflow-hidden;
+	@apply leading-6 tracking-normal w-fit;
+	@apply inline-flex;
 	@apply items-center;
 }
 

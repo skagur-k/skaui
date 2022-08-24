@@ -1,3 +1,23 @@
+/* Colors */
+
+.componentTitle {
+	@apply hover:text-[color:var(--accents-6)];
+}
+
+.componentActive .componentTitle {
+	@apply text-[color:var(--skaui-component-active)];
+}
+
+.components::-webkit-scrollbar {
+	@apply bg-[color:var(--accents-2)];
+}
+
+.components::-webkit-scrollbar-thumb {
+	@apply bg-[color:var(--accents-3)];
+}
+
+/* End of Colors */
+
 .aside {
 	@apply fixed flex h-full flex-col;
 }
@@ -26,13 +46,8 @@
 }
 
 .components::-webkit-scrollbar {
-	@apply w-5 bg-neutral-50;
 	width: 3px;
 	height: 3px;
-}
-
-.components::-webkit-scrollbar-thumb {
-	@apply bg-neutral-300;
 }
 
 .component {
@@ -40,16 +55,12 @@
 }
 
 .componentTitle {
-	@apply font-medium underline-offset-4 hover:text-neutral-500 hover:underline;
+	@apply font-medium underline-offset-4 hover:underline;
 	@apply text-base;
 }
 
 .componentActive .componentTitle {
-	@apply font-bold text-blue-500;
-}
-
-.componentActive.component::before {
-	@apply bg-blue-500;
+	@apply font-bold;
 }
 
 .sectionHeading {
