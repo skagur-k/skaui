@@ -15,7 +15,7 @@ const PageLayout = ({ children }: { children: React.ReactElement }) => {
 			animate='enter'
 			exit='exit'
 			transition={{ type: 'linear', duration: 0.2 }}
-			className={'flex flex-col'}
+			className={'flex max-w-4xl flex-col'}
 		>
 			{children}
 		</motion.div>

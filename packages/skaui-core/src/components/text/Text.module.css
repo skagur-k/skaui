@@ -61,6 +61,7 @@
 .text_inlinecode {
 	@apply bg-neutral-200 text-neutral-800 px-1 mx-2;
 	@apply rounded-sm font-normal;
+	@apply tracking-widest;
 }
 
 .text_codeblock {

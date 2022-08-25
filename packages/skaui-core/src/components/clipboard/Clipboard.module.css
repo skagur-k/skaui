@@ -1,22 +1,43 @@
+/* Colors */
+
 .wrapper {
-	@apply z-10 flex items-center justify-center bg-white;
+	@apply bg-[color:var(--accents-1)];
+	@apply ring-[color:var(--accents-3)];
+}
+
+.icons {
+	@apply text-[color:var(--accents-8)];
+}
+
+.copied {
+	@apply text-[color:var(--skaui-success)];
+}
+
+:global(.dark) {
+	.wrapper {
+		@apply bg-[color:var(--accents-8)];
+		@apply ring-[color:var(--accents-3)];
+	}
+
+	.icons {
+		@apply text-[color:var(--accents-1)];
+	}
+}
+
+.wrapper {
+	@apply z-10 flex items-center justify-center;
 	@apply rounded-md p-1;
-	@apply ring-[0.5px] ring-inset ring-neutral-300;
+	@apply ring-[0.5px] ring-inset;
 	@apply transition-all duration-300;
 }
 
 .icons {
 	@apply cursor-pointer;
 	@apply transition-all;
-	@apply text-neutral-800;
 }
 
 .clipboard {
 	@apply hover:animate-pulse;
-}
-
-.copied {
-	@apply text-blue-500;
 }
 
 .sm {
@@ -25,15 +46,4 @@
 
 .md {
 	@apply h-7 w-7;
-}
-
-:global(.dark) {
-	.wrapper {
-		@apply bg-neutral-800;
-		@apply ring-neutral-300;
-	}
-
-	.icons {
-		@apply text-neutral-100;
-	}
 }

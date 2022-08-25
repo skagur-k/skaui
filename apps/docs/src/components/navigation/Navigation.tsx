@@ -9,11 +9,6 @@ export const mainNavigation: INavigation[] = [
 		title: 'Getting Started',
 		path: '/getting-started',
 	},
-	{
-		// icon: <FiHome />,
-		title: 'Theming',
-		path: '/theming',
-	},
 ]
 
 export const Navigation = () => {

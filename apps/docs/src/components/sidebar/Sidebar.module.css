@@ -55,7 +55,7 @@
 }
 
 .componentTitle {
-	@apply font-medium underline-offset-4 hover:underline;
+	@apply underline-offset-4 hover:underline;
 	@apply text-base;
 }
 

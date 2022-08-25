@@ -33,7 +33,7 @@
 .progress_success {
 	& .progress_bar_fill,
 	.progress_bar_indeterminate {
-		@apply bg-blue-500;
+		@apply bg-[color:var(--skaui-success)];
 	}
 }
 .progress_warning {
@@ -45,7 +45,7 @@
 .progress_error {
 	& .progress_bar_fill,
 	.progress_bar_indeterminate {
-		@apply bg-red-500;
+		@apply bg-[color:var(--skaui-error)];
 	}
 }
 .progress_secondary {
@@ -83,25 +83,25 @@
 	.progress_success {
 		& .progress_bar_fill,
 		.progress_bar_indeterminate {
-			@apply bg-blue-500/60;
+			@apply bg-[color:var(--skaui-success)];
 		}
 	}
 	.progress_warning {
 		& .progress_bar_fill,
 		.progress_bar_indeterminate {
-			@apply bg-yellow-500/60;
+			@apply bg-yellow-500;
 		}
 	}
 	.progress_error {
 		& .progress_bar_fill,
 		.progress_bar_indeterminate {
-			@apply bg-red-500/60;
+			@apply bg-[color:var(--skaui-error)];
 		}
 	}
 	.progress_secondary {
 		& .progress_bar_fill,
 		.progress_bar_indeterminate {
-			@apply bg-neutral-500/60;
+			@apply bg-neutral-500;
 		}
 	}
 }

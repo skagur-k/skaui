@@ -97,7 +97,12 @@ const status: IComponents = [
 	},
 ]
 
-// const navigation: IComponents = []
+const styleguide: IComponents = [
+	{
+		key: '/styleguide/colors',
+		title: 'Colors',
+	},
+]
 
 // const misc: IComponents = []
 
@@ -148,6 +153,10 @@ const ui: IComponents = [
 ]
 
 const components: IAllComponents[] = [
+	{
+		heading: 'Style Guide',
+		components: styleguide,
+	},
 	{
 		heading: 'Buttons',
 		components: buttons,

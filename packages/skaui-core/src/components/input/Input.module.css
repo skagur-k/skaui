@@ -111,12 +111,12 @@
 	}
 
 	& .input_label {
-		@apply text-red-500;
+		@apply text-[color:var(--skaui-error)];
 	}
 }
 
 .input_invalid.input_focused .input_wrapper {
-	@apply ring-red-500;
+	@apply ring-[color:var(--skaui-error)];
 }
 
 .input_prefix,
@@ -154,7 +154,7 @@
 
 .input_errormsg {
 	@apply flex items-center gap-2;
-	@apply ml-0 text-sm text-red-500;
+	@apply ml-0 text-sm text-[color:var(--skaui-error)];
 }
 .input_description {
 	@apply ml-0 text-sm text-neutral-400;
@@ -199,11 +199,11 @@
 
 	.input_invalid {
 		.input_wrapper {
-			@apply border-red-500;
+			@apply border-[color:var(--skaui-error)];
 		}
 
 		.input_label {
-			@apply text-red-500;
+			@apply text-[color:var(--skaui-error)];
 		}
 	}
 

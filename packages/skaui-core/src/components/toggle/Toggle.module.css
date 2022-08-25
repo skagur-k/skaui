@@ -83,7 +83,7 @@
 	}
 
 	& .toggle_switch_selected.toggle_switch_focused {
-		@apply ring-blue-500;
+		@apply ring-[color:var(--skaui-success)];
 	}
 }
 
@@ -102,21 +102,21 @@
 
 .toggle_success {
 	& .toggle_switch_selected {
-		@apply bg-blue-500;
+		@apply bg-[color:var(--skaui-success)];
 	}
 
 	& .toggle_switch_selected.toggle_switch_focused {
-		@apply ring-blue-500;
+		@apply ring-[color:var(--skaui-success)];
 	}
 }
 
 .toggle_error {
 	& .toggle_switch_selected {
-		@apply bg-red-500;
+		@apply bg-[color:var(--skaui-error)];
 	}
 
 	& .toggle_switch_selected.toggle_switch_focused {
-		@apply ring-red-500;
+		@apply ring-[color:var(--skaui-error)];
 	}
 }
 
@@ -135,7 +135,7 @@
 
 	.toggle_success {
 		.toggle_switch_selected {
-			@apply bg-blue-500/70;
+			@apply bg-[color:var(--skaui-success)];
 		}
 
 		.toggle_switch_switch_selected {
@@ -145,7 +145,7 @@
 
 	.toggle_error {
 		.toggle_switch_selected {
-			@apply bg-red-500/70;
+			@apply bg-[color:var(--skaui-error)];
 		}
 
 		.toggle_switch_switch_selected {

@@ -1,6 +1,6 @@
 .note {
 	@apply flex items-center justify-between;
-	@apply px-4 shadow-md;
+	@apply px-4;
 	@apply rounded-md h-fit w-full;
 	@apply ring-1 ring-neutral-500;
 }

@@ -11,7 +11,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 			children,
 			variant = 'solid',
 			type,
-			size,
+			size = 'md',
 			prefix,
 			suffix,
 			align = 'center',

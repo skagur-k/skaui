@@ -46,17 +46,17 @@
 }
 
 .badge_success {
-	@apply bg-blue-500;
+	@apply bg-[color:var(--skaui-success)];
 
 	&.badge_outline {
-		@apply bg-transparent ring-blue-500 text-blue-500;
+		@apply bg-transparent ring-[color:var(--skaui-success)] text-[color:var(--skaui-success)];
 	}
 }
 .badge_error {
-	@apply bg-red-500;
+	@apply bg-[color:var(--skaui-error)];
 
 	&.badge_outline {
-		@apply bg-transparent ring-red-500 text-red-500;
+		@apply bg-transparent ring-[color:var(--skaui-error)] text-[color:var(--skaui-error)];
 	}
 }
 .badge_warning {

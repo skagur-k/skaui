@@ -13,12 +13,12 @@
 
 .statusdot_positive {
 	& .statusdot_dot {
-		@apply bg-blue-500;
+		@apply bg-[color:var(--skaui-success)];
 	}
 }
 .statusdot_negative {
 	& .statusdot_dot {
-		@apply bg-red-500;
+		@apply bg-[color:var(--skaui-error)];
 	}
 }
 .statusdot_info {

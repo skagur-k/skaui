@@ -1,0 +1,35 @@
+.paletteWrapper {
+	@apply flex flex-col;
+	@apply gap-0;
+	@apply overflow-hidden rounded-md;
+	@apply border border-[color:var(--accents-2)];
+}
+
+.colorWrapper {
+	@apply grid grid-cols-3;
+	@apply items-center justify-between;
+	@apply h-24 p-4;
+	@apply hover:opacity-90;
+}
+
+.colorWrapper:not(:first-child),
+.colorWrapper:not(:last-child) {
+}
+
+.name {
+	@apply grid text-lg font-bold;
+}
+
+.varName {
+	@apply grid;
+	@apply font-mono;
+	@apply tracking-wide;
+	@apply cursor-pointer;
+}
+
+.hexCode {
+	@apply grid justify-end;
+	@apply text-lg;
+	@apply tracking-wide;
+	@apply cursor-pointer;
+}

@@ -43,7 +43,7 @@
 }
 
 .toastSuccess {
-	@apply bg-blue-500 border-blue-500 text-neutral-100;
+	@apply bg-[color:var(--skaui-success)] border-[color:var(--skaui-success)] text-neutral-100;
 
 	.toastDismissButton {
 		@apply bg-neutral-50 border-neutral-50 text-neutral-800;
@@ -54,7 +54,7 @@
 	}
 }
 .toastError {
-	@apply bg-red-500 border-red-500 text-neutral-100;
+	@apply bg-[color:var(--skaui-error)] border-[color:var(--skaui-error)] text-neutral-100;
 
 	.toastDismissButton {
 		@apply bg-neutral-50 border-neutral-50 text-neutral-800;
@@ -71,11 +71,11 @@
 	}
 
 	.toastSuccess {
-		@apply bg-blue-500/80;
+		@apply bg-[color:rgba(var(--skaui-success),0.8)];
 	}
 
 	.toastError {
-		@apply bg-red-500/80;
+		@apply bg-[color:rgba(var(--skaui-error),0.8)];
 	}
 }
 
