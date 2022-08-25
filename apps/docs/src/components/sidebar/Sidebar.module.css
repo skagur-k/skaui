@@ -1,6 +1,7 @@
 /* Colors */
 
 .componentTitle {
+	@apply text-[color:var(--accents-4)];
 	@apply hover:text-[color:var(--accents-6)];
 }
 
@@ -32,17 +33,16 @@
 }
 
 .buttonGroup {
-	@apply grid grid-cols-2 px-4;
+	@apply flex justify-between;
+	@apply gap-2;
 }
 
 .button {
-	@apply grid justify-center;
-	@apply mx-1 text-sm;
 }
 
 .components {
 	@apply relative mb-8 flex flex-[1_1_auto] overflow-y-scroll;
-	@apply flex-col space-y-10 px-6;
+	@apply flex-col space-y-10 px-0;
 }
 
 .components::-webkit-scrollbar {
@@ -64,11 +64,11 @@
 }
 
 .sectionHeading {
-	@apply mb-6 text-base font-bold;
+	@apply mb-4 text-base font-bold;
 }
 
 .componentList {
-	@apply ml-2 flex flex-col gap-3;
+	@apply ml-4 flex flex-col gap-3;
 }
 
 .navigation {
@@ -76,7 +76,7 @@
 }
 
 .themeselectWrapper {
-	@apply my-8 flex justify-center px-4;
+	@apply my-8 flex justify-center;
 }
 
 .themeselect {

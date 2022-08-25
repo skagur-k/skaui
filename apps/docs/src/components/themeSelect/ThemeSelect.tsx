@@ -1,7 +1,8 @@
 import { Select, useTheme, useToast } from '@skaui/core'
+import clsx from 'clsx'
 import React from 'react'
 import { FiMonitor, FiMoon, FiSun } from 'react-icons/fi'
-
+import styles from './ThemeSelect.module.css'
 interface ThemeSelectProps {
 	className?: string
 }
@@ -31,7 +32,7 @@ const ThemeSelect = (props: ThemeSelectProps) => {
 	return (
 		<Select
 			aria-label='Theme Select'
-			className={className}
+			className={clsx(styles.select, className)}
 			onSelectionChange={handleSelect}
 			defaultSelectedKey={'system'}
 		>

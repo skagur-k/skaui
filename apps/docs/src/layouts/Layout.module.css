@@ -8,6 +8,7 @@
 	@apply mx-auto h-full min-h-screen max-w-[1248px];
 	@apply overflow-x-hidden;
 	@apply relative;
+	@apply px-0 lg:px-2;
 }
 
 .main {

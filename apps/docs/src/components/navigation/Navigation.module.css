@@ -2,7 +2,8 @@
 
 .navigationItem {
 	@apply bg-[color:var(--accents-2)];
-	@apply hover:bg-[color:var(--accents-3)];
+	@apply border-[color:var(--accents-1)];
+	@apply hover:border-[color:var(--accents-3)];
 }
 
 .navigationItem.navigationItemActive {
@@ -15,14 +16,15 @@
 
 .navigation {
 	@apply flex flex-col overflow-hidden;
-	@apply mb-8 space-y-2 px-3;
+	@apply mb-8 space-y-2;
 }
 
 .navigationItem {
 	@apply flex items-center space-x-2;
-	@apply mx-1 py-2 pl-4;
+	@apply py-2 pl-4;
+	@apply border;
 	@apply transition-colors duration-200;
-	@apply overflow-hidden rounded-md;
+	@apply overflow-hidden rounded-sm;
 
 	&.navigationItemActive {
 		@apply font-bold;

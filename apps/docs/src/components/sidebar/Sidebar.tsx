@@ -1,6 +1,7 @@
 import { Button } from '@skaui/core'
 import clsx from 'clsx'
 import { useRouter } from 'next/router'
+import { FaGithub } from 'react-icons/fa'
 import { components } from '../../data'
 import { Navigation } from '../navigation/Navigation'
 import { NavLink } from '../navigation/NavLink'
@@ -27,12 +28,12 @@ export const Sidebar = () => {
 							target='_blank'
 							rel='noreferrer'
 						>
-							<Button size='sm' className={styles.button}>
-								GitHub
+							<Button size='md' className={styles.button} variant='ghost'>
+								<div className='flex items-center gap-2'>GitHub</div>
 							</Button>
 						</a>
 						<a href='https://skagur.dev' target='_blank' rel='noreferrer'>
-							<Button size='sm' type='secondary' className={styles.button}>
+							<Button size='md' variant='ghost' className={styles.button}>
 								skagur.dev
 							</Button>
 						</a>

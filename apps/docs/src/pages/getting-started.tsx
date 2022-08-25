@@ -56,14 +56,12 @@ const GettingStarted: NextPage = () => {
 					</h3>
 
 					<FileViewer title='SKA UI - Installation'>
-						<Folder name='src'>
-							<File
-								name='next.config.js'
-								content={nextconfigjs}
-								language={'javascript'}
-								highlight={'1, 3'}
-							/>
-						</Folder>
+						<File
+							name='next.config.js'
+							content={nextconfigjs}
+							language={'javascript'}
+							highlight={'1, 3'}
+						/>
 						<File
 							name='tailwind.config.js'
 							content={tailwindconfigjs}
