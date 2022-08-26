@@ -1,0 +1,23 @@
+.link {
+	@apply text-base;
+	@apply text-[color:var(--themed-fg)];
+	@apply underline;
+	@apply transition-colors duration-200;
+
+	--themed-fg: var(--accents-5);
+
+	&:hover {
+		--themed-fg: var(--accents-8);
+	}
+}
+
+.link_disabled {
+	@apply no-underline;
+	@apply no-underline cursor-not-allowed;
+
+	--themed-fg: var(--accents-4);
+
+	&:hover {
+		--themed-fg: var(--accents-4);
+	}
+}

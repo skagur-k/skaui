@@ -1,5 +1,4 @@
 export { default as IconButton } from './IconButton'
-export { Button }
 
 import React from 'react'
 import _Button from './Button'
@@ -13,3 +12,5 @@ interface Button extends React.ExoticComponent<ButtonProps> {
 const Button = _Button as Button
 
 Button.Group = ButtonGroup
+
+export { Button }

@@ -1,20 +1,26 @@
 .modal_underlay {
 	@apply flex justify-center items-center;
 	@apply fixed top-0 left-0 bottom-0 right-0 z-50;
-	@apply bg-neutral-500/20;
+	@apply bg-neutral-800/70;
 }
 
 .modal_overlay {
+	@apply flex flex-col gap-4;
 	@apply relative outline-none;
 	@apply shadow-lg z-50;
-	@apply max-w-md lg:max-w-xl max-h-[70vh];
-	@apply bg-white/90 px-8 py-10 mb-40;
-	@apply flex flex-col gap-4;
+	@apply min-w-[90vw] lg:min-w-[600px];
+	@apply max-w-md lg:max-w-2xl max-h-[70vh];
+
+	@apply px-8 py-10 mb-40;
+	@apply bg-[color:var(--themed-bg)] text-[color:var(--themed-fg)];
+
+	--themed-bg: var(--accents-2);
+	--themed-fg: var(--accents-8);
 }
 
 .modal_buttons {
 	@apply flex items-center gap-4;
-	@apply self-end mt-4;
+	@apply self-end mt-6;
 }
 
 .modal_title {

@@ -1,6 +1,7 @@
 export * from './components/accordion' // Accordion
 export * from './components/avatar' // Avatar
 export * from './components/badge' // Badge
+export * from './components/breadcrumbs' // Breadcrumbs
 export * from './components/button' // Button
 export * from './components/checkbox' // Checkbox
 export * from './components/clipboard' // Clipboard
@@ -11,13 +12,14 @@ export * from './components/fileviewer' // FileViewer
 export * from './components/image' // Image
 export * from './components/input' // Input
 export * from './components/kbd' // KBD
+export * from './components/link' // Link
+export * from './components/menu' // Menu
 export * from './components/meter' // Meter
 export * from './components/modal' // Modal
 export * from './components/note' // Note
 export * from './components/popover' // Popover
 export * from './components/progress' // Progress
 export * from './components/radio' // Radio
-export * from './components/menu' // Menu
 export * from './components/select' // Select
 export * from './components/shared' // Shared
 export * from './components/snippet' // Snippet

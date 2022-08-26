@@ -63,7 +63,6 @@ const overlays: IComponents = [
 	{
 		key: '/overlays/modal',
 		title: 'Modal',
-		badge: <Badge>TODO</Badge>,
 	},
 	{
 		key: '/overlays/toast',
@@ -104,7 +103,7 @@ const styleguide: IComponents = [
 	},
 ]
 
-// const misc: IComponents = []
+const navigation: IComponents = []
 
 const sections: IComponents = [
 	{
@@ -149,6 +148,10 @@ const ui: IComponents = [
 	{
 		key: '/component/text',
 		title: 'Text',
+	},
+	{
+		key: '/component/navigation',
+		title: 'Navigation',
 	},
 ]
 

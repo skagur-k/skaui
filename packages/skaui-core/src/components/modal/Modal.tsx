@@ -15,19 +15,7 @@ import { ModalProps } from './Modal.types'
 
 const Modal = (props: ModalProps) => {
 	const [isBrowser, setIsBrowser] = React.useState(false)
-	const { title, children, onClose, confirmLabel, confirmAction, isOpen } =
-		props
-	const ref = React.useRef(null)
-	const { overlayProps, underlayProps } = useOverlay(
-		{
-			...props,
-			isDismissable: true,
-		},
-		ref
-	)
-	usePreventScroll()
-	const { modalProps } = useModal()
-	const { dialogProps, titleProps } = useDialog(props, ref)
+	const { children, isOpen } = props
 
 	React.useEffect(() => {
 		setIsBrowser(typeof window !== 'undefined')
@@ -36,47 +24,67 @@ const Modal = (props: ModalProps) => {
 	return isBrowser ? (
 		<OverlayContainer>
 			<AnimatePresence exitBeforeEnter>
-				{isOpen && (
-					<motion.div
-						key={'modal'}
-						initial={{ opacity: 0 }}
-						animate={{ opacity: 1 }}
-						exit={{ opacity: 0 }}
-					>
-						<div className={styles.modal_underlay} {...underlayProps}>
-							<FocusScope contain restoreFocus autoFocus>
-								<motion.div
-									initial={{ y: 5 }}
-									animate={{ y: 0 }}
-									exit={{ y: 5 }}
-									transition={{ ease: 'easeInOut' }}
-								>
-									<div
-										className={styles.modal_overlay}
-										{...mergeProps(overlayProps, dialogProps, modalProps)}
-										ref={ref}
-									>
-										<h3 className={styles.modal_title} {...titleProps}>
-											{title}
-										</h3>
-										<div className={styles.modal_content}>{children}</div>
-										<div className={styles.modal_buttons}>
-											<Button onPress={onClose} type='secondary'>
-												Close
-											</Button>
-											{confirmLabel && (
-												<Button onPress={confirmAction}>{confirmLabel}</Button>
-											)}
-										</div>
-									</div>
-								</motion.div>
-							</FocusScope>
-						</div>
-					</motion.div>
-				)}
+				{isOpen && <ModalDialog {...props}>{children}</ModalDialog>}
 			</AnimatePresence>
 		</OverlayContainer>
 	) : null
 }
 
 export default Modal
+
+const ModalDialog = (props: ModalProps) => {
+	const { title, children, onClose, confirmLabel, confirmAction } = props
+	const ref = React.useRef(null)
+	const { overlayProps, underlayProps } = useOverlay(
+		{
+			...props,
+			isDismissable: true,
+		},
+		ref
+	)
+	// usePreventScroll()
+	const { modalProps } = useModal()
+	const { dialogProps, titleProps } = useDialog(props, ref)
+	usePreventScroll()
+
+	return (
+		<motion.div
+			key={'modal'}
+			initial={{ opacity: 0 }}
+			animate={{ opacity: 1 }}
+			exit={{ opacity: 0 }}
+		>
+			<div className={styles.modal_underlay} {...underlayProps}>
+				<FocusScope contain restoreFocus autoFocus>
+					<motion.div
+						initial={{ y: 5 }}
+						animate={{ y: 0 }}
+						exit={{ y: 5 }}
+						transition={{ ease: 'easeInOut' }}
+					>
+						<div
+							className={styles.modal_overlay}
+							{...mergeProps(overlayProps, dialogProps, modalProps)}
+							ref={ref}
+						>
+							<h3 className={styles.modal_title} {...titleProps}>
+								{title}
+							</h3>
+							<div className={styles.modal_content}>{children}</div>
+							<div className={styles.modal_buttons}>
+								<Button onPress={onClose} type='secondary'>
+									Close
+								</Button>
+								{confirmLabel && (
+									<Button type='success' onPress={confirmAction}>
+										{confirmLabel}
+									</Button>
+								)}
+							</div>
+						</div>
+					</motion.div>
+				</FocusScope>
+			</div>
+		</motion.div>
+	)
+}
