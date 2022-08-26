@@ -1,23 +1,29 @@
 .link {
-	@apply text-base;
+	@apply text-base px-1;
+	@apply font-bold;
 	@apply text-[color:var(--themed-fg)];
-	@apply underline;
+	@apply bg-[color:var(--themed-bg)];
+	/* @apply underline; */
 	@apply transition-colors duration-200;
 
-	--themed-fg: var(--accents-5);
+	--themed-bg: var(--accents-2);
+	--themed-fg: var(--accents-8);
 
 	&:hover {
-		--themed-fg: var(--accents-8);
+		--themed-bg: var(--accents-8);
+		--themed-fg: var(--accents-1);
 	}
 }
 
 .link_disabled {
-	@apply no-underline;
 	@apply no-underline cursor-not-allowed;
+	@apply font-normal;
 
+	--themed-bg: transparent;
 	--themed-fg: var(--accents-4);
 
 	&:hover {
+		--themed-bg: transparent;
 		--themed-fg: var(--accents-4);
 	}
 }

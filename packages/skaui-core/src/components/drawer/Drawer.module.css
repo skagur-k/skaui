@@ -1,0 +1,41 @@
+.drawer_underlay {
+	@apply flex justify-center items-center;
+	@apply fixed top-0 left-0 bottom-0 right-0 z-50;
+	@apply bg-neutral-800/70;
+}
+
+.drawer_overlay {
+	@apply fixed outline-none;
+	@apply bg-[color:var(--themed-bg)] text-[color:var(--themed-fg)];
+
+	--themed-bg: var(--accents-2);
+	--themed-fg: var(--accents-8);
+}
+
+.drawer_overlay_content {
+	@apply relative h-full w-full;
+}
+
+.drawer_position_right {
+	@apply right-0;
+	@apply w-72;
+	@apply h-screen;
+}
+
+.drawer_position_left {
+	@apply left-0;
+	@apply w-72;
+	@apply h-screen;
+}
+
+.drawer_position_top {
+	@apply top-0;
+	@apply h-72;
+	@apply w-screen;
+}
+
+.drawer_position_bottom {
+	@apply bottom-0;
+	@apply h-72;
+	@apply w-screen;
+}

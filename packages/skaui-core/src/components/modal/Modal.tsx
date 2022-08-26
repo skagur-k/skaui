@@ -53,6 +53,7 @@ const ModalDialog = (props: ModalProps) => {
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
 			exit={{ opacity: 0 }}
+			transition={{ ease: 'easeInOut', duration: 0.2 }}
 		>
 			<div className={styles.modal_underlay} {...underlayProps}>
 				<FocusScope contain restoreFocus autoFocus>

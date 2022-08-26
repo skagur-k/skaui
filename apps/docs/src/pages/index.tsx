@@ -8,7 +8,7 @@ const HomePage: NextPage = () => {
 
 	return (
 		<PageLayout>
-			<div className='flex h-[600px] max-w-4xl flex-col items-center justify-center gap-6'>
+			<div className='flex h-full w-full min-w-full flex-col items-center justify-center gap-6'>
 				<h1 className='text-5xl font-black'>SKA UI</h1>
 				<h1 className='text-xl font-bold text-neutral-500'>
 					Simple & Intuitive UI Component for React

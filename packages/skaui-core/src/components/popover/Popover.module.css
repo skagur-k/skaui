@@ -1,6 +1,6 @@
 .popover {
 	@apply absolute;
-	@apply w-full top-full;
+	@apply w-full min-w-fit top-full;
 	@apply bg-neutral-50 outline-none rounded-sm;
 	@apply ring-1 ring-inset ring-neutral-300;
 	@apply p-2 mt-2 z-50;

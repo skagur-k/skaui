@@ -8,14 +8,14 @@
 	@apply mx-auto h-full min-h-screen max-w-[1248px];
 	@apply overflow-x-hidden;
 	@apply relative;
-	@apply px-0 lg:px-2;
-}
-
-.main {
-	@apply w-full;
-	@apply block px-4 pt-12 lg:pr-0 lg:pl-80 lg:pt-32;
+	@apply px-2;
 }
 
 .contentWrapper {
-	@apply flex min-h-screen flex-col justify-between;
+	@apply flex flex-[1_1_auto] flex-col justify-between;
+}
+
+.main {
+	@apply flex flex-[1_1_auto] justify-center lg:justify-start;
+	@apply px-4 pt-12 lg:pr-0 lg:pl-72 lg:pt-32;
 }

@@ -1,0 +1,51 @@
+.wrapper {
+	@apply flex flex-col gap-4;
+	@apply overflow-y-scroll;
+	@apply mb-8;
+
+	&::-webkit-scrollbar {
+		width: 3px;
+		height: 3px;
+	}
+
+	&::-webkit-scrollbar {
+		@apply bg-[color:var(--accents-2)];
+	}
+
+	&::-webkit-scrollbar-thumb {
+		@apply bg-[color:var(--accents-3)];
+	}
+}
+
+.components {
+	@apply flex flex-col gap-4;
+}
+
+.section_heading {
+	@apply mb-4 text-sm;
+	@apply text-[color:var(--accents-6)];
+}
+
+.section_components {
+	@apply flex flex-col;
+	@apply mr-2 gap-2;
+}
+
+.component_heading {
+	@apply flex items-center gap-2;
+}
+
+.component {
+	@apply bg-transparent;
+	@apply hover:bg-[color:var(--accents-8)];
+	@apply hover:text-[color:var(--accents-1)];
+	@apply cursor-pointer;
+	@apply py-1 px-4;
+	@apply transition-colors duration-200;
+}
+
+.component_active {
+	@apply bg-[color:var(--accents-8)];
+	@apply hover:bg-[color:var(--accents-6)];
+	@apply text-[color:var(--accents-1)];
+}

@@ -1,0 +1,47 @@
+.wrapper {
+	@apply cursor-pointer p-1;
+	@apply ring-[color:var(--accents-5)] hover:ring-1;
+	@apply rounded-sm  focus:outline-none;
+	@apply transition duration-200;
+}
+
+.drawer_icon {
+	@apply h-6 w-6;
+	@apply stroke-[3px];
+}
+
+.drawer_content {
+	@apply flex flex-col;
+	@apply w-full;
+	@apply px-4;
+	@apply pb-2;
+	@apply gap-6;
+	@apply h-screen;
+}
+
+.drawer_header {
+	@apply flex w-full justify-center;
+	@apply mb-4 mt-16 text-xl font-black;
+	@apply outline-none;
+}
+
+.drawer_pagelink {
+	@apply flex justify-center;
+	@apply font-bold;
+	@apply transition duration-200;
+	@apply py-2;
+	@apply bg-[color:var(--accents-3)];
+	@apply hover:bg-[color:var(--accents-8)];
+	@apply hover:text-[color:var(--accents-1)];
+}
+
+.drawer_heading {
+	@apply flex w-full;
+	@apply text-base font-black;
+	@apply outline-none;
+}
+
+.drawer_pagelink_active {
+	@apply bg-[color:var(--accents-8)];
+	@apply text-[color:var(--accents-1)];
+}

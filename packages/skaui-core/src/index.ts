@@ -8,6 +8,7 @@ export * from './components/clipboard' // Clipboard
 export * from './components/collapsible' // Collapsible
 export * from './components/combobox' // Combobox
 export * from './components/description' // Description
+export * from './components/drawer' // Drawer
 export * from './components/fileviewer' // FileViewer
 export * from './components/image' // Image
 export * from './components/input' // Input

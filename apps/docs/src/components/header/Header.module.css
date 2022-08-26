@@ -1,17 +1,19 @@
 .header {
 	@apply grid grid-cols-3 lg:hidden;
-	@apply py-8 px-8;
+	@apply py-8 px-4;
 	@apply justify-between;
 }
 
 .logo .text {
 	@apply grid justify-center text-2xl font-black;
+	@apply bg-[color:var(--skaui-foreground)];
+	@apply text-[color:var(--skaui-background)];
 }
 
 .select,
 .logo,
 .menu {
-	@apply grid cursor-pointer items-center;
+	@apply grid items-center;
 }
 
 .select {

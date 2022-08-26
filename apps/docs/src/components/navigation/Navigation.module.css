@@ -2,12 +2,12 @@
 
 .navigationItem {
 	@apply bg-[color:var(--accents-2)];
-	@apply border-[color:var(--accents-1)];
-	@apply hover:border-[color:var(--accents-3)];
+	@apply hover:bg-[color:var(--accents-8)];
+	@apply hover:text-[color:var(--accents-1)];
 }
 
 .navigationItem.navigationItemActive {
-	@apply bg-[color:var(--accents-7)];
+	@apply bg-[color:var(--accents-8)];
 	@apply hover:bg-[color:var(--accents-6)];
 	@apply text-[color:var(--accents-1)];
 }
@@ -20,14 +20,12 @@
 }
 
 .navigationItem {
-	@apply flex items-center space-x-2;
-	@apply py-2 pl-4;
-	@apply border;
+	@apply flex items-center justify-center;
+	@apply py-2;
 	@apply transition-colors duration-200;
 	@apply overflow-hidden rounded-sm;
 
 	&.navigationItemActive {
-		@apply font-bold;
 	}
 }
 

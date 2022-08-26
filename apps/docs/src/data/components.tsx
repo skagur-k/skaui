@@ -55,14 +55,19 @@ const forms: IComponents = [
 ]
 
 const overlays: IComponents = [
-	// {
-	// 	key: '/overlays/menu',
-	// 	title: 'Menu',
-	// 	badge: <Badge>TODO</Badge>,
-	// },
+	{
+		key: '/overlays/drawer',
+		title: 'Drawer',
+		badge: <Badge>NEW</Badge>,
+	},
 	{
 		key: '/overlays/modal',
 		title: 'Modal',
+	},
+	{
+		key: '/overlays/menu',
+		title: 'Menu',
+		badge: <Badge>TODO</Badge>,
 	},
 	{
 		key: '/overlays/toast',
@@ -102,8 +107,6 @@ const styleguide: IComponents = [
 		title: 'Colors',
 	},
 ]
-
-const navigation: IComponents = []
 
 const sections: IComponents = [
 	{
@@ -169,6 +172,10 @@ const components: IAllComponents[] = [
 		components: forms,
 	},
 	{
+		heading: 'Overlays',
+		components: overlays,
+	},
+	{
 		heading: 'Pickers',
 		components: pickers,
 	},
@@ -183,10 +190,6 @@ const components: IAllComponents[] = [
 	{
 		heading: 'UI Components',
 		components: ui,
-	},
-	{
-		heading: 'Overlays',
-		components: overlays,
 	},
 	// {
 	// 	heading: 'Misc.',

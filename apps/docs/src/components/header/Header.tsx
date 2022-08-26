@@ -1,17 +1,17 @@
-import { FiMenu } from 'react-icons/fi'
-import ThemeSelect from '../themeSelect/ThemeSelect'
+import Link from 'next/link'
+import Drawer from '../drawer/Drawer'
 import styles from './Header.module.css'
 export const Header = () => {
 	return (
 		<header className={styles.header}>
-			<div className={styles.select}>
-				<ThemeSelect />
-			</div>
+			<div className={styles.select}></div>
 			<div className={styles.logo}>
-				<h1 className={styles.text}>SKA UI</h1>
+				<Link href='/'>
+					<a className={styles.text}>SKA UI</a>
+				</Link>
 			</div>
 			<div className={styles.menu}>
-				<FiMenu className={styles.icon} />
+				<Drawer />
 			</div>
 		</header>
 	)

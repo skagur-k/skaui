@@ -1,26 +1,5 @@
-/* Colors */
-
-.componentTitle {
-	@apply text-[color:var(--accents-4)];
-	@apply hover:text-[color:var(--accents-6)];
-}
-
-.componentActive .componentTitle {
-	@apply text-[color:var(--skaui-component-active)];
-}
-
-.components::-webkit-scrollbar {
-	@apply bg-[color:var(--accents-2)];
-}
-
-.components::-webkit-scrollbar-thumb {
-	@apply bg-[color:var(--accents-3)];
-}
-
-/* End of Colors */
-
 .aside {
-	@apply fixed flex h-full flex-col;
+	@apply fixed flex h-full flex-col px-2;
 }
 
 .content {
@@ -28,8 +7,12 @@
 }
 
 .header {
-	@apply flex justify-center pt-20 pb-16;
-	@apply text-lg font-black;
+	@apply font-black;
+	@apply py-1 text-lg;
+	@apply mb-16 mt-20 flex justify-center;
+
+	@apply bg-[color:var(--skaui-foreground)];
+	@apply text-[color:var(--skaui-background)];
 }
 
 .buttonGroup {
@@ -37,42 +20,8 @@
 	@apply gap-2;
 }
 
-.button {
-}
-
-.components {
-	@apply relative mb-8 flex flex-[1_1_auto] overflow-y-scroll;
-	@apply flex-col space-y-10 px-0;
-}
-
-.components::-webkit-scrollbar {
-	width: 3px;
-	height: 3px;
-}
-
-.component {
-	@apply flex items-center gap-2;
-}
-
-.componentTitle {
-	@apply underline-offset-4 hover:underline;
-	@apply text-base;
-}
-
-.componentActive .componentTitle {
-	@apply font-bold;
-}
-
-.sectionHeading {
-	@apply mb-4 text-base font-bold;
-}
-
-.componentList {
-	@apply ml-4 flex flex-col gap-3;
-}
-
-.navigation {
-	@apply flex flex-col;
+.heading {
+	@apply pb-4 font-bold;
 }
 
 .themeselectWrapper {
