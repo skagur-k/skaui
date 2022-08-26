@@ -52,25 +52,35 @@
 }
 
 .toggle_switch {
+	@apply bg-neutral-300;
+	&.toggle_switch_selected {
+		@apply bg-neutral-800;
+	}
+	&.toggle_switch_selected.toggle_switch_focused {
+		@apply ring-neutral-800;
+	}
+	&.toggle_switch_switch {
+		@apply bg-white;
+		@apply text-neutral-800;
+	}
+}
+
+.toggle_switch {
 	@apply relative;
-	@apply bg-neutral-300 shadow-sm;
-	@apply rounded-full;
+	@apply rounded-full shadow-sm;
 	@apply transition-all duration-300;
 }
+
 .toggle_switch_selected {
-	@apply bg-neutral-800;
 	@apply transition-all duration-300;
 
 	& .toggle_switch_switch {
 		@apply translate-x-full;
 	}
 }
+
 .toggle_switch_focused {
 	@apply ring-[2px] ring-neutral-300 ring-offset-1;
-}
-
-.toggle_switch_selected.toggle_switch_focused {
-	@apply ring-neutral-800;
 }
 
 .toggle_disabled {
@@ -95,7 +105,6 @@
 	@apply absolute bg-white;
 	@apply rounded-full;
 	@apply flex justify-center items-center;
-	@apply text-neutral-800;
 	@apply right-1/2 top-1/2 -translate-y-1/2;
 	@apply transition-all duration-300;
 }

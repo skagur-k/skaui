@@ -28,8 +28,8 @@
 }
 
 .hexCode {
-	@apply grid justify-end;
-	@apply text-lg;
+	@apply grid justify-end justify-self-end;
+	@apply font-mono text-lg;
 	@apply tracking-wide;
 	@apply cursor-pointer;
 }

@@ -27,7 +27,7 @@
 	@apply flex justify-between items-center gap-2;
 	@apply w-[90vw] md:w-[600px];
 	@apply shadow-lg px-6 py-5;
-	@apply border rounded-xl;
+	@apply border rounded-sm;
 }
 
 .toastInfo {
@@ -66,16 +66,16 @@
 
 :global(.dark) {
 	.toastInfo {
-		@apply bg-neutral-600/80 text-neutral-100;
+		@apply bg-neutral-600 text-neutral-100;
 		@apply border-neutral-600;
 	}
 
 	.toastSuccess {
-		@apply bg-[color:rgba(var(--skaui-success),0.8)];
+		@apply bg-[color:var(--skaui-success)];
 	}
 
 	.toastError {
-		@apply bg-[color:rgba(var(--skaui-error),0.8)];
+		@apply bg-[color:var(--skaui-error)];
 	}
 }
 

@@ -1,75 +1,26 @@
-import { File, FileViewer, Folder, InlineCode, Snippet } from '@skaui/core'
+import { Button, InlineCode } from '@skaui/core'
 import { NextPage } from 'next'
+import { useRouter } from 'next/router'
 import PageLayout from '../layouts/PageLayout'
 
-const tailwindconfigjs = `/** @type {import('tailwindcss').Config} */
-
-module.exports = {
-	darkMode: 'class',
-	content: [],
-}
-
-`
-
-const nextconfigjs = `const skaui = ['@skaui/core']
-
-const withTM = require('next-transpile-modules')(skaui)
-
-module.exports = withTM({
-	reactStrictMode: false,
-})
-`
-
 const HomePage: NextPage = () => {
+	const router = useRouter()
+
 	return (
 		<PageLayout>
-			<div className='flex h-full max-w-4xl flex-col gap-6'>
-				<h1 className='text-5xl font-black'>Getting Started</h1>
-				<h3 className='text-lg text-neutral-800 dark:text-neutral-100'>
-					Quickest way to enjoy <InlineCode>@skaui/core</InlineCode>
-				</h3>
-
-				{/* Section */}
-				<div className='mt-16 flex flex-col gap-8'>
-					<h2 className='text-4xl font-bold'>Installation</h2>
-					<h3 className='text-lg text-neutral-800 dark:text-neutral-100'>
-						1. Install <InlineCode>@skaui/core</InlineCode> package.
-					</h3>
-					<Snippet text={['npm install @skaui/core']} />
-					<h3 className='text-lg text-neutral-800 dark:text-neutral-100'>
-						2. Install and Configure{' '}
-						<InlineCode>
-							<a
-								href='https://tailwindcss.com/docs/installation'
-								target='_blank'
-								rel='noopener noreferrer'
-							>
-								tailwind css
-							</a>
-						</InlineCode>
-						.
-					</h3>
-					<Snippet text={['npm install -D tailwindcss']} />
-
-					<h3 className='text-lg text-neutral-800 dark:text-neutral-100'>
-						3. Add the highlighted lines to the config files.
-					</h3>
-
-					<FileViewer title='SKA UI - Installation'>
-						<File
-							name='next.config.js'
-							content={nextconfigjs}
-							language={'javascript'}
-							highlight={'1, 3'}
-						/>
-						<File
-							name='tailwind.config.js'
-							content={tailwindconfigjs}
-							language={'javascript'}
-							highlight={'4'}
-						/>
-					</FileViewer>
-				</div>
+			<div className='flex h-[600px] max-w-4xl flex-col items-center justify-center gap-6'>
+				<h1 className='text-5xl font-black'>SKA UI</h1>
+				<h1 className='text-xl font-bold text-neutral-500'>
+					Simple & Intuitive UI Component for React
+				</h1>
+				<h1 className='text-base font-medium text-neutral-500'>
+					Designed & Developed by skagur
+				</h1>
+				<Button size='lg' onPress={() => router.push('/getting-started')}>
+					<div>
+						Getting Started with<InlineCode>@skaui/core</InlineCode>
+					</div>
+				</Button>
 			</div>
 		</PageLayout>
 	)

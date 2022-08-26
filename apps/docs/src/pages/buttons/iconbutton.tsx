@@ -33,12 +33,18 @@ const variantCode = `<Container >
 		<IconButton variant='ghost'>
 			<SettingsIcon />
 		</IconButton>
+		<IconButton variant='iconOnly'>
+			<SettingsIcon />
+		</IconButton>
 	</Container>
 	<Container col align="center">
 		<IconButton variant='solid' type='success'>
 			<SettingsIcon />
 		</IconButton>
 		<IconButton variant='ghost' type='success'>
+			<SettingsIcon />
+		</IconButton>
+		<IconButton variant='iconOnly' type='success'>
 			<SettingsIcon />
 		</IconButton>
 	</Container>
@@ -49,12 +55,18 @@ const variantCode = `<Container >
 		<IconButton variant='ghost' type='error'>
 			<SettingsIcon />
 		</IconButton>
+		<IconButton variant='iconOnly' type='error'>
+			<SettingsIcon />
+		</IconButton>
 	</Container>
 	<Container col align="center">
 		<IconButton variant='solid' type='secondary'>
 			<SettingsIcon />
 		</IconButton>
 		<IconButton variant='ghost' type='secondary'>
+			<SettingsIcon />
+		</IconButton>
+		<IconButton variant='iconOnly' type='secondary'>
 			<SettingsIcon />
 		</IconButton>
 	</Container>

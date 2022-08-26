@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html {
 	height: 100%;
 	box-sizing: border-box;
@@ -36,13 +40,16 @@ body {
 
 	--skaui-selection: var(--skaui-foreground);
 
+	--skaui-brightness-hover: 0.9;
+	--skaui-brightness-active: 1;
+
 	--skaui-error-lighter: #fca5a5;
 	--skaui-error-light: #f87171;
 	--skaui-error: #ef4444;
 	--skaui-error-dark: #b91c1c;
 	--skaui-success-lighter: #93c5fd;
 	--skaui-success-light: #60a5fa;
-	--skaui-success: #3b82f6;
+	--skaui-success: rgb(59, 130, 246);
 	--skaui-success-dark: #1d4ed8;
 	--skaui-warning-lighter: #fef9c3;
 	--skaui-warning-light: #fef08a;

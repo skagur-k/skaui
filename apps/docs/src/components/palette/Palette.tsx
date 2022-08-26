@@ -33,9 +33,11 @@ const Color = ({ name, color, textColor, varName }: PaletteProps) => {
 			<span onClick={() => handleClick(varName)} className={styles.varName}>
 				{varName}
 			</span>
-			<span onClick={() => handleClick(color)} className={styles.hexCode}>
-				{color}
-			</span>
+			<div className={styles.hexCodeWrapper}>
+				<span onClick={() => handleClick(color)} className={styles.hexCode}>
+					{color}
+				</span>
+			</div>
 		</div>
 	)
 }
@@ -43,8 +45,9 @@ const Color = ({ name, color, textColor, varName }: PaletteProps) => {
 const Palette = ({ colors }: { colors: PaletteProps[] }) => {
 	return (
 		<div className={styles.paletteWrapper}>
-			{colors.map((item) => (
+			{colors.map((item, idx) => (
 				<Color
+					key={idx}
 					name={item.name}
 					color={item.color}
 					varName={item.varName}

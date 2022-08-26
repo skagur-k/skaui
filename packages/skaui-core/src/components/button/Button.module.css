@@ -1,269 +1,264 @@
 .button_base {
-	@apply relative inline-flex overflow-hidden h-fit;
+	@apply relative inline-flex;
+	@apply overflow-hidden h-fit;
 	@apply items-center justify-center;
-	@apply outline-none;
-	@apply select-none;
-	@apply transition-all duration-300;
-	@apply tracking-normal;
-	@apply font-semibold;
+
+	@apply select-none outline-none;
+	@apply transition-all duration-200;
+	@apply rounded-sm font-medium;
+
+	@apply bg-[color:var(--themed-bg)];
+	@apply text-[color:var(--themed-fg)];
+	@apply border-[color:var(--themed-border)];
+
+	@apply hover:bg-[color:var(--themed-bg-hover,var(--themed-bg))];
+	@apply hover:text-[color:var(--themed-fg-hover,var(--themed-fg))];
+	@apply hover:border-[color:var(--themed-border-hover,var(--themed-border))];
+
+	@apply active:bg-[color:var(--themed-bg-active,var(--themed-bg))];
+	@apply active:text-[color:var(--themed-fg-active,var(--themed-fg))];
+	@apply active:border-[color:var(--themed-border-active,var(--themed-border))];
+
 	@apply disabled:cursor-not-allowed;
-
-	@apply text-[0.875rem];
-	@apply w-fit px-3 py-[4px];
-	@apply rounded-sm;
-
-	@apply hover:bg-neutral-200 hover:border-neutral-500;
-	@apply active:bg-neutral-300;
 	@apply disabled:opacity-20;
-	@apply disabled:hover:bg-neutral-50 disabled:hover:text-neutral-800;
-	@apply disabled:hover:border-neutral-50;
-}
+	@apply disabled:hover:bg-[color:var(--themed-bg)];
 
-:global(.dark) .button_base {
-	@apply bg-neutral-100 hover:bg-neutral-300;
-	@apply border-neutral-600 active:bg-neutral-200;
+	&:focus:enabled {
+		@apply ring-1 ring-offset-1;
+		@apply ring-[color:var(--themed-border)];
+	}
 }
 
 .button_solid {
-	@apply border;
-	@apply border-neutral-800;
+	@apply border-[0.5px];
+	--themed-bg: var(--accents-1);
+	--themed-fg: var(--accents-8);
+	--themed-border: var(--accents-3);
+	--themed-bg-hover: var(--accents-2);
+	--themed-bg-active: var(--accents-1);
 
 	&.button_success {
-		@apply text-white;
-		@apply bg-blue-500;
-		@apply hover:bg-blue-400;
-		@apply active:bg-blue-500;
-		@apply border-blue-500;
+		--themed-bg: var(--skaui-success);
+		--themed-fg: white;
+		--themed-border: var(--skaui-success);
 
-		@apply disabled:opacity-20;
-		@apply disabled:hover:bg-blue-500 disabled:hover:text-white;
+		--themed-bg-hover: var(--skaui-success);
+		--themed-bg-active: var(--skaui-success);
 	}
-
 	&.button_error {
-		@apply text-white;
-		@apply bg-red-500;
-		@apply hover:bg-red-400;
-		@apply active:bg-red-500;
-		@apply border-red-500;
+		--themed-bg: var(--skaui-error);
+		--themed-fg: white;
+		--themed-border: var(--skaui-error);
 
-		@apply disabled:opacity-20;
-		@apply disabled:hover:bg-red-500 disabled:hover:text-white;
+		--themed-bg-hover: var(--skaui-error);
+		--themed-bg-active: var(--skaui-error);
 	}
-
 	&.button_secondary {
-		@apply bg-neutral-800 text-white;
-		@apply hover:bg-neutral-600;
-		@apply active:bg-neutral-700;
+		--themed-bg: var(--accents-8);
+		--themed-fg: var(--skaui-background);
+		--themed-border: var(--accents-8);
 
-		@apply disabled:opacity-20;
-		@apply hover:disabled:bg-neutral-800 hover:disabled:text-white;
-	}
-}
-
-:global(.dark) .button_solid {
-	@apply bg-neutral-800 text-neutral-100;
-	@apply hover:bg-neutral-700/100;
-	@apply active:bg-neutral-800;
-
-	&.button_success {
-		@apply text-neutral-100 bg-blue-500/50;
-		@apply hover:bg-blue-500/40;
-		@apply active:bg-blue-500/50;
-		@apply border-blue-500/50;
+		--themed-bg-hover: var(--accents-8);
+		--themed-bg-active: var(--accents-6);
 	}
 
-	&.button_error {
-		@apply text-neutral-100 bg-red-500/50;
-		@apply hover:bg-red-500/40;
-		@apply active:bg-red-500/50;
-		@apply border-red-500/50;
+	&:hover:enabled {
+		@apply opacity-90;
 	}
 
-	&.button_secondary {
-		@apply text-neutral-100 border-neutral-500 bg-neutral-700;
-		@apply hover:bg-neutral-600;
-		@apply active:bg-neutral-700;
-		@apply border-neutral-700/50;
+	&:active:enabled {
+		@apply opacity-100;
 	}
 }
 
 .button_ghost {
-	@apply hover:bg-neutral-800 hover:text-neutral-100;
-	@apply border;
-	@apply border-neutral-800;
+	@apply border-[0.5px];
+	--themed-bg: transparent;
+	--themed-fg: var(--accents-8);
+	--themed-border: var(--accents-3);
+
+	--themed-bg-hover: var(--accents-8);
+	--themed-bg-active: var(--accents-6);
+
+	--themed-fg-hover: var(--accents-1);
+	--themed-fg-active: var(--accents-1);
 
 	&.button_success {
-		@apply text-blue-500;
-		@apply bg-transparent;
-		@apply hover:bg-blue-500 hover:text-white;
-		@apply active:bg-blue-400;
-		@apply border-blue-500;
+		--themed-bg: transparent;
+		--themed-fg: var(--skaui-success);
 
-		@apply disabled:bg-neutral-50 disabled:text-blue-300;
-		@apply disabled:border-blue-200;
-		@apply hover:disabled:bg-neutral-50;
-	}
+		--themed-border: var(--skaui-success);
 
-	&.button_error {
-		@apply text-red-500;
-		@apply bg-transparent;
-		@apply hover:bg-red-500 hover:text-white;
-		@apply active:bg-red-400;
-		@apply border-red-500;
+		--themed-bg-hover: var(--skaui-success);
+		--themed-bg-active: var(--skaui-success);
 
-		@apply disabled:bg-neutral-50 disabled:text-red-300;
-		@apply disabled:border-red-200;
-		@apply hover:disabled:bg-neutral-50;
-	}
-
-	&.button_secondary {
-		@apply text-neutral-800;
-		@apply bg-transparent;
-		@apply hover:bg-neutral-800 hover:text-white;
-		@apply active:bg-neutral-600;
-		@apply border-neutral-800;
-
-		@apply disabled:bg-neutral-50 disabled:text-neutral-300;
-		@apply disabled:border-neutral-200;
-		@apply hover:disabled:bg-neutral-50;
-	}
-}
-
-:global(.dark) .button_ghost {
-	@apply bg-transparent text-neutral-300;
-	@apply hover:bg-neutral-100/70 hover:text-neutral-800;
-	@apply active:bg-neutral-100/60;
-
-	&.button_success {
-		@apply bg-transparent;
-		@apply text-blue-500 hover:text-neutral-100;
-		@apply hover:bg-blue-500/40;
-		@apply active:bg-blue-500/30;
-		@apply border-blue-500/70;
+		--themed-fg-hover: white;
+		--themed-fg-active: white;
 	}
 	&.button_error {
-		@apply bg-transparent;
-		@apply text-red-500 hover:text-neutral-100;
-		@apply hover:bg-red-500/40;
-		@apply active:bg-red-500/30;
-		@apply border-red-500/70;
+		--themed-bg: transparent;
+		--themed-fg: var(--skaui-error);
+
+		--themed-border: var(--skaui-error);
+
+		--themed-bg-hover: var(--skaui-error);
+		--themed-bg-active: var(--skaui-error);
+
+		--themed-fg-hover: white;
+		--themed-fg-active: white;
+	}
+	&.button_secondary {
+		--themed-bg: transparent;
+		--themed-fg: var(--accents-8);
+
+		--themed-border: var(--accents-8);
+
+		--themed-bg-hover: var(--accents-8);
+		--themed-bg-active: var(--accents-6);
 	}
 
-	&.button_secondary {
-		@apply bg-transparent;
-		@apply text-neutral-400;
-		@apply hover:bg-neutral-600 hover:text-neutral-100;
-		@apply active:bg-neutral-500/30;
-		@apply border-neutral-500/70;
+	&:hover:enabled {
+		@apply opacity-100;
+	}
+
+	&:active:enabled {
+		@apply opacity-90;
 	}
 }
 
 .button_text {
-	@apply text-neutral-800;
-	@apply bg-transparent;
-	@apply focus:bg-neutral-100;
-	@apply hover:bg-neutral-300;
-	@apply active:bg-neutral-200;
 	@apply border-none;
 
-	&.button_success {
-		@apply text-blue-500;
-		@apply bg-transparent;
-		@apply focus:bg-blue-100;
-		@apply hover:bg-blue-100;
-		@apply active:bg-blue-200;
-	}
+	--themed-bg: transparent;
+	--themed-fg: var(--accents-8);
+	--themed-border: var(--accents-3);
 
-	&.button_error {
-		@apply text-red-500;
-		@apply bg-transparent;
-		@apply focus:bg-red-100;
-		@apply hover:bg-red-100;
-		@apply active:bg-red-200;
-	}
+	--themed-bg-hover: var(--accents-8);
+	--themed-bg-active: var(--accents-6);
 
-	&.button_secondary {
-		@apply text-neutral-800;
-		@apply bg-transparent;
-		@apply focus:bg-neutral-100;
-		@apply hover:bg-neutral-300;
-		@apply active:bg-neutral-200;
-	}
-}
-
-:global(.dark) .button_text {
-	@apply border-none;
-	@apply bg-transparent text-neutral-100;
-	@apply hover:bg-neutral-700;
-	@apply active:bg-neutral-600;
-	@apply focus:bg-neutral-600;
+	--themed-fg-hover: var(--accents-1);
+	--themed-fg-active: var(--accents-1);
 
 	&.button_success {
-		@apply bg-transparent;
-		@apply text-blue-500;
-		@apply hover:bg-blue-800/20;
-		@apply active:bg-blue-600/20;
-		@apply focus:bg-blue-600/20;
-	}
+		--themed-bg: transparent;
+		--themed-fg: var(--skaui-success);
 
+		--themed-border: var(--skaui-success);
+
+		--themed-bg-hover: var(--skaui-success);
+		--themed-bg-active: var(--skaui-success);
+
+		--themed-fg-hover: white;
+		--themed-fg-active: white;
+	}
 	&.button_error {
-		@apply bg-transparent;
-		@apply text-red-500;
-		@apply hover:bg-red-800/20;
-		@apply active:bg-red-600/20;
-		@apply focus:bg-red-600/20;
+		--themed-bg: transparent;
+		--themed-fg: var(--skaui-error);
+
+		--themed-border: var(--skaui-error);
+
+		--themed-bg-hover: var(--skaui-error);
+		--themed-bg-active: var(--skaui-error);
+
+		--themed-fg-hover: white;
+		--themed-fg-active: white;
+	}
+	&.button_secondary {
+		--themed-bg: transparent;
+		--themed-fg: var(--accents-8);
+
+		--themed-border: var(--accents-8);
+
+		--themed-bg-hover: var(--accents-8);
+		--themed-bg-active: var(--accents-6);
 	}
 
-	&.button_secondary {
-		@apply bg-transparent;
-		@apply text-neutral-400;
-		@apply hover:bg-neutral-400/20;
-		@apply focus:bg-neutral-400/20;
+	&:hover:enabled {
+		@apply opacity-100;
+	}
+
+	&:active:enabled {
+		@apply opacity-90;
+	}
+
+	&:focus:enabled {
 	}
 }
 
 .button_iconOnly {
-	@apply rounded-sm overflow-hidden;
-	@apply bg-transparent text-neutral-800;
-	@apply border-neutral-800;
+	@apply border-none;
+
+	--themed-bg: transparent;
+	--themed-fg: var(--accents-8);
+	--themed-border: var(--accents-3);
+
+	--themed-bg-hover: var(--accents-8);
+	--themed-bg-active: var(--accents-6);
+
+	--themed-fg-hover: var(--accents-1);
+	--themed-fg-active: var(--accents-1);
 
 	&.button_success {
-		@apply text-blue-500;
-		@apply bg-transparent;
-		@apply border-blue-500;
-	}
+		--themed-bg: transparent;
+		--themed-fg: var(--skaui-success);
 
+		--themed-border: var(--skaui-success);
+
+		--themed-bg-hover: var(--skaui-success);
+		--themed-bg-active: var(--skaui-success);
+
+		--themed-fg-hover: white;
+		--themed-fg-active: white;
+	}
 	&.button_error {
-		@apply text-red-500;
-		@apply bg-transparent;
-		@apply border-red-500;
+		--themed-bg: transparent;
+		--themed-fg: var(--skaui-error);
+
+		--themed-border: var(--skaui-error);
+
+		--themed-bg-hover: var(--skaui-error);
+		--themed-bg-active: var(--skaui-error);
+
+		--themed-fg-hover: white;
+		--themed-fg-active: white;
+	}
+	&.button_secondary {
+		--themed-bg: transparent;
+		--themed-fg: var(--accents-8);
+
+		--themed-border: var(--accents-8);
+
+		--themed-bg-hover: var(--accents-8);
+		--themed-bg-active: var(--accents-6);
 	}
 
-	&.button_secondary {
-		@apply text-neutral-800;
-		@apply bg-transparent;
-		@apply border-neutral-500;
+	&:hover:enabled {
+		@apply opacity-100;
+	}
+
+	&:active:enabled {
+		@apply opacity-90;
+	}
+
+	&:focus:enabled {
 	}
 }
 
 .button_sm {
 	@apply text-[0.5rem];
 	@apply w-fit px-3 py-[2px];
-	@apply rounded-sm;
 }
 .button_md {
 	@apply text-[0.875rem];
 	@apply w-fit px-3 py-[4px];
-	@apply rounded-sm;
 }
 .button_lg {
 	@apply text-[1rem];
 	@apply w-fit px-4 py-[6px];
-	@apply rounded-sm;
 }
 .button_block {
 	@apply inline-flex min-h-[28px] max-w-full w-full;
-	@apply text-[0.875rem] rounded-sm;
+	@apply text-[0.875rem];
 	@apply px-2 py-1;
 }
 

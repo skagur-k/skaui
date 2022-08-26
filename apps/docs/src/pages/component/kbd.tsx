@@ -27,7 +27,7 @@ const combiCode = `<Container col align="start">
 		<KBD ctrl alt>Delete</KBD>
 		<KBD command>D</KBD>
 		<KBD windows>K</KBD>
-		<p><KBD mac ctrl alt shift/> + C</p>
+		<p><KBD mac ctrl alt shift/></p>
 	</Container>
 </Container>
 `

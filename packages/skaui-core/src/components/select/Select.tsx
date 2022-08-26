@@ -37,9 +37,11 @@ const Select = <T extends object>(props: SelectProps<T>) => {
 				className
 			)}
 		>
-			<div className={clsx(styles.select_label, [])} {...labelProps}>
-				{props.label}
-			</div>
+			{props.label && (
+				<div className={clsx(styles.select_label, [])} {...labelProps}>
+					{props.label}
+				</div>
+			)}
 			<HiddenSelect
 				state={state}
 				triggerRef={ref}

@@ -1,7 +1,6 @@
 import { Button } from '@skaui/core'
 import clsx from 'clsx'
 import { useRouter } from 'next/router'
-import { FaGithub } from 'react-icons/fa'
 import { components } from '../../data'
 import { Navigation } from '../navigation/Navigation'
 import { NavLink } from '../navigation/NavLink'

@@ -1,5 +1,6 @@
 import { InlineCode, Note } from '@skaui/core'
 import { NextPage } from 'next'
+import { useEffect, useState } from 'react'
 import Palette from '../../components/palette/Palette'
 import PageLayout from '../../layouts/PageLayout'
 import getPropertyValue from '../../utils/getVarValue'
@@ -170,14 +171,22 @@ const warningColors = [
 ]
 
 const ColorsPaage: NextPage = () => {
-	return (
+	const [mounted, setMounted] = useState(false)
+
+	useEffect(() => {
+		setMounted(true)
+	}, [])
+
+	return mounted ? (
 		<PageLayout>
 			<div className='flex flex-col gap-6'>
 				<h1 className='text-5xl font-black'>Color</h1>
-				<h3 className='text-xl font-medium text-neutral-600'>
+				<h3 className='text-xl font-medium text-neutral-400'>
 					Palette of colors used across <InlineCode>@skaui</InlineCode>
 				</h3>
-				<Note>Colors for Light & Dark Mode may be different.</Note>
+				<Note>
+					Colors for Light & Dark Mode may be different. Try switching theme.
+				</Note>
 
 				{/* Section */}
 				<div className='mt-16 flex flex-col gap-8'>
@@ -204,7 +213,7 @@ const ColorsPaage: NextPage = () => {
 				</div>
 			</div>
 		</PageLayout>
-	)
+	) : null
 }
 
 export default ColorsPaage

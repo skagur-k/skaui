@@ -15,7 +15,7 @@
 
 .listbox_option {
 	@apply flex items-center justify-between;
-	@apply px-3 py-2;
+	@apply px-1 py-2;
 	@apply text-neutral-500 text-base font-medium;
 	@apply outline-none rounded-sm;
 	@apply transition-all duration-300;
