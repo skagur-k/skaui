@@ -9,7 +9,7 @@ interface PaletteProps {
 }
 
 const Color = ({ name, color, textColor, varName }: PaletteProps) => {
-	// const toast = useToast()
+	const toast = useToast()
 	function handleClick(value?: string) {
 		const Text = (
 			<div>
@@ -18,9 +18,9 @@ const Color = ({ name, color, textColor, varName }: PaletteProps) => {
 				to clipboard.
 			</div>
 		)
-		// toast(Text, {
-		// 	title: 'Style Guide - Colors',
-		// })
+		toast(Text, {
+			title: 'Style Guide - Colors',
+		})
 		navigator.clipboard.writeText(value || '')
 	}
 
@@ -43,8 +43,6 @@ const Color = ({ name, color, textColor, varName }: PaletteProps) => {
 }
 
 const Palette = ({ colors }: { colors: PaletteProps[] }) => {
-	// const toast = useToast()
-
 	return (
 		<div className={styles.paletteWrapper}>
 			{colors.map((item, idx) => (
