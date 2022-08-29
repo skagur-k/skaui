@@ -11,7 +11,7 @@ interface ContainerProps {
 }
 
 export const Container = (props: ContainerProps) => {
-	const { children, col, gap = 4, align, className } = props
+	const { children, col, gap = 1, align, className } = props
 
 	const alignments = {
 		start: styles.container_start,
@@ -25,9 +25,9 @@ export const Container = (props: ContainerProps) => {
 				styles.container,
 				[col && styles.container_col],
 				[align && alignments[align]],
-				className,
-				`gap-${gap}`
+				className
 			)}
+			style={{ gap: `${gap}rem` }}
 		>
 			{children}
 		</div>

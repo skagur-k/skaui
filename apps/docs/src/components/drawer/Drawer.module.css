@@ -1,7 +1,6 @@
 .wrapper {
 	@apply cursor-pointer p-1;
-	@apply ring-[color:var(--accents-5)] hover:ring-1;
-	@apply rounded-sm  focus:outline-none;
+	@apply rounded-sm;
 	@apply transition duration-200;
 }
 

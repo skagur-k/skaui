@@ -13,9 +13,9 @@ export const Sidebar = () => {
 				{/* Header + Component List */}
 				<div className={styles.content}>
 					{/* Header */}
-					<div className={styles.header}>
-						<NavLink href='/'>SKA-UI</NavLink>
-					</div>
+					<NavLink href='/'>
+						<a className={styles.header}>SKA-UI</a>
+					</NavLink>
 					<div className={styles.buttonGroup}>
 						<a
 							href='https://github.com/skagur-k/skaui'

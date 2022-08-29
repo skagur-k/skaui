@@ -73,6 +73,11 @@ const overlays: IComponents = [
 		key: '/overlays/toast',
 		title: 'Toast',
 	},
+	{
+		key: '/overlays/tooltip',
+		title: 'Tooltip',
+		badge: <Badge>NEW</Badge>,
+	},
 ]
 
 const pickers: IComponents = [
@@ -105,6 +110,10 @@ const styleguide: IComponents = [
 	{
 		key: '/styleguide/colors',
 		title: 'Colors',
+	},
+	{
+		key: '/component/text',
+		title: 'Text',
 	},
 ]
 
@@ -148,10 +157,7 @@ const ui: IComponents = [
 		key: '/component/tag',
 		title: 'Tag & Badge',
 	},
-	{
-		key: '/component/text',
-		title: 'Text',
-	},
+
 	{
 		key: '/component/navigation',
 		title: 'Navigation',

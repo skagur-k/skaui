@@ -2,11 +2,11 @@ import { AriaButtonProps } from '@react-types/button'
 import React from 'react'
 
 export interface ButtonProps extends Omit<AriaButtonProps, 'type'> {
-	children?: React.ReactElement | string | null
+	children?: React.ReactElement | string | React.ReactNode | null
 	size?: ButtonSize
 	variant?: ButtonVariant
+	ref?: React.LegacyRef<HTMLButtonElement>
 	type?: ButtonType
-	onClick?: () => void
 	className?: string
 	prefix?: React.ReactElement
 	suffix?: React.ReactElement

@@ -1,4 +1,4 @@
-import { Drawer } from '@skaui/core'
+import { Drawer, IconButton } from '@skaui/core'
 import clsx from 'clsx'
 import { useState } from 'react'
 import { FiMenu } from 'react-icons/fi'
@@ -11,7 +11,9 @@ const DrawerTrigger = () => {
 
 	return (
 		<div className={styles.wrapper}>
-			<FiMenu onClick={() => setOpen(true)} className={styles.drawer_icon} />
+			<IconButton onPress={() => setOpen(true)} variant='iconOnly'>
+				<FiMenu className={styles.drawer_icon} />
+			</IconButton>
 			<Drawer isOpen={isOpen} onClose={() => setOpen(false)}>
 				<div className={styles.drawer_content}>
 					<h1 className={styles.drawer_header}>SKA UI</h1>

@@ -1,0 +1,35 @@
+.tooltip {
+	@apply absolute;
+	@apply z-10;
+	@apply px-2 py-1;
+	@apply bg-[color:var(--accents-8)];
+	@apply text-[color:var(--accents-1)];
+	@apply text-sm;
+	@apply shadow-sm;
+}
+
+.trigger {
+	@apply relative;
+}
+
+.tooltip_top {
+	@apply mb-2;
+	@apply -translate-x-1/2;
+	@apply left-1/2 bottom-full;
+}
+.tooltip_bottom {
+	@apply mt-2;
+	@apply -translate-x-1/2;
+	@apply left-1/2 top-full;
+}
+
+.tooltip_left {
+	@apply mr-2;
+	@apply -translate-y-1/2;
+	@apply top-1/2 right-full;
+}
+.tooltip_right {
+	@apply ml-2;
+	@apply -translate-y-1/2;
+	@apply top-1/2 left-full;
+}

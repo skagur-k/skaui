@@ -31,5 +31,6 @@ export * from './components/text' // Text
 export * from './components/textarea' // Tag
 export * from './components/toast' // Toast
 export * from './components/toggle' // Toggle
+export * from './components/tooltip' // Tooltip
 export * from './contexts'
 export * from './hooks'
