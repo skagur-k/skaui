@@ -3,6 +3,22 @@ export default {
 	titleTemplate: '%s | SKA UI',
 	description: 'UI Component & Design system developed by skagur.dev',
 	canonical: 'skaui.skagur.dev',
+	additionalMetaTags: [
+		{
+			name: 'theme-color',
+			content: '#000000',
+		},
+	],
+	additionalLinkTags: [
+		{
+			rel: 'icon',
+			href: '/favicon.ico',
+		},
+		{
+			rel: 'manifest',
+			href: '/site.webmanifest',
+		},
+	],
 	openGraph: {
 		type: 'website',
 		site_name: 'SKA UI | skagur.dev',
