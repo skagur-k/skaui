@@ -11,7 +11,7 @@
 		"clean": "rm -rf .turbo && rm -rf .next && rm -rf node_modules"
 	},
 	"dependencies": {
-		"@skagur-k/react-live": "^2.4.2",
+		"@skagur/react-live": "^1.0.0",
 		"@skaui/core": "workspace:*",
 		"framer-motion": "^6.5.1",
 		"immer": "^9.0.15",

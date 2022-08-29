@@ -31,7 +31,7 @@ importers:
   apps/docs:
     specifiers:
       '@babel/core': ^7.0.0
-      '@skagur-k/react-live': ^2.4.2
+      '@skagur/react-live': ^1.0.0
       '@skaui/core': workspace:*
       autoprefixer: ^10.4.7
       clsx: ^1.2.1
@@ -52,7 +52,7 @@ importers:
       tsconfig: workspace:*
       typescript: ^4.5.3
     dependencies:
-      '@skagur-k/react-live': 2.4.2_biqbaboplfbrettd7655fr4n2y
+      '@skagur/react-live': 1.0.0_biqbaboplfbrettd7655fr4n2y
       '@skaui/core': link:../../packages/skaui-core
       framer-motion: 6.5.1_biqbaboplfbrettd7655fr4n2y
       immer: 9.0.15
@@ -2163,8 +2163,8 @@ packages:
     resolution: {integrity: sha512-RNiOoTPkptFtSVzQevY/yWtZwf/RxyVnPy/OcA9HBM3MlGDnBEYL5B41H0MTn0Uec8Hi+2qUtTfG2WWZBmMejQ==}
     dev: true
 
-  /@skagur-k/react-live/2.4.2_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-Mv972vOpZEM4gm0Rs+tHanjRGw40CH7BU9PjZ8MCzbmzovIJihuVEEvAN7EtL5knlT7AVZvzsFCZ98oeikBBQA==, tarball: download/@skagur-k/react-live/2.4.2/8b35e5f8f298a5d31056b632ca7fc402f485b059bcac21cc77c6b690cd09084d}
+  /@skagur/react-live/1.0.0_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-wzfyTQUi8HTtYT2KFBV0loHj9559+GauHHPm7KJETvQ22i3favsv2ObYuv397JAASJTOtmspzQCgfkJuecyLTg==}
     engines: {node: '>= 0.12.0', npm: '>= 2.0.0'}
     dependencies:
       '@types/buble': 0.20.1
