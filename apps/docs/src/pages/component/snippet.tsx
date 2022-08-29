@@ -15,7 +15,6 @@ const snippetCode = `() => {
 	return (
 		<Container>
 			<Snippet
-			width='600px'
 			text={code}
 			/>
 		</Container>
@@ -35,11 +34,9 @@ const promptCode = `() => {
 	return (
 		<Container col align="center">
 			<Snippet
-			width='600px'
 			text={code}
 			/>
 			<Snippet
-			width='600px'
 			text={code}
 			prompt={false}
 			/>
@@ -60,7 +57,6 @@ const darkCode = `() => {
 	return (
 		<Container col align="center">
 			<Snippet
-			width='600px'
 			text={code}
 			invert
 			/>

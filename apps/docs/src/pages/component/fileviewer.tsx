@@ -143,7 +143,7 @@ const FileViewerPage: NextPage = () => {
 
 				{/* Section */}
 				<div className='mt-16 flex flex-col gap-8'>
-					<h2 className='text-4xl font-bold'>Tree View</h2>
+					<h2 className='text-4xl font-bold'>File Viewer</h2>
 					<h3 className='text-lg text-neutral-400'>
 						Line numbers can be toggled by checking Line Numbers{' '}
 						<SettingsIcon className='inline-flex h-5 w-5 align-middle' />{' '}
