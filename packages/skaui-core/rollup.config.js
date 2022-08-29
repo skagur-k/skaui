@@ -15,12 +15,12 @@ export default [
 		input: './index.ts',
 		output: [
 			{
-				dir: './dist/cjs/index.js',
+				dir: pkg.main,
 				format: 'cjs',
 				sourcemap: devMode ? 'inline' : false,
 			},
 			{
-				file: './dist/esm/index.mjs',
+				file: pkg.module,
 				format: 'es',
 				sourcemap: devMode ? 'inline' : false,
 			},
