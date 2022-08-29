@@ -8,7 +8,7 @@ import {
 	LivePreview,
 	LiveProvider,
 	withLive,
-} from '@skagur-k/react-live'
+} from '@skagur/react-live'
 import styles from './IDE.module.css'
 import { IDEProps } from './IDE.types'
 import theme from '../../styles/prism'
