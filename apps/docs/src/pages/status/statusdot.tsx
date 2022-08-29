@@ -24,9 +24,9 @@ const sizesCode = `
 `
 const sizesScope = { StatusDot, Container }
 
-const ButtonPage: NextPage = () => {
+const StatusDotPage: NextPage = () => {
 	return (
-		<PageLayout>
+		<PageLayout title='Status Dot'>
 			<div className='flex flex-col gap-6'>
 				<h1 className='text-5xl font-black'>Status Dot</h1>
 				<h3 className='text-xl font-medium text-neutral-400'>
@@ -46,4 +46,4 @@ const ButtonPage: NextPage = () => {
 	)
 }
 
-export default ButtonPage
+export default StatusDotPage

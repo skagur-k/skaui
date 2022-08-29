@@ -9,7 +9,13 @@ import { useListBoxOptionClass } from './styles'
 const ListBox = (props: ListBoxProps) => {
 	const ref = React.useRef<HTMLUListElement>(null)
 	const { listBoxRef = ref, state, className } = props
-	const { listBoxProps } = useListBox(props, state, listBoxRef)
+	const { listBoxProps } = useListBox(
+		{
+			...props,
+		},
+		state,
+		listBoxRef
+	)
 
 	return (
 		<ul

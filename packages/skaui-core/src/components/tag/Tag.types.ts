@@ -5,5 +5,6 @@ export interface TagProps {
 }
 export interface TagsProps {
 	tags: string[]
+	className?: string
 	removable?: boolean
 }

@@ -50,7 +50,7 @@ const TextAreaPage: NextPage = () => {
 `
 
 	return (
-		<PageLayout>
+		<PageLayout title='Text Area'>
 			<div className='flex flex-col gap-6'>
 				<h1 className='text-5xl font-black'>Text Area</h1>
 				<h3 className='text-xl font-medium text-neutral-400'>Text Area</h3>

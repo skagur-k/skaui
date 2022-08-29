@@ -57,7 +57,7 @@ const grouporientationCode = `<Container>
 `
 const grouporientationScope = { Checkbox, Container }
 
-const TogglePage: NextPage = () => {
+const CheckboxPage: NextPage = () => {
 	const [selected, setSelected] = useState([])
 	const controlledScope = { Checkbox, Container, selected, setSelected }
 	const controlledCode = `() => {
@@ -78,7 +78,7 @@ return (
 `
 
 	return (
-		<PageLayout>
+		<PageLayout title='Checkbox'>
 			<div className='flex flex-col gap-6'>
 				<h1 className='text-5xl font-black'>Checkbox</h1>
 				<h3 className='text-base text-neutral-400'>
@@ -137,4 +137,4 @@ return (
 	)
 }
 
-export default TogglePage
+export default CheckboxPage

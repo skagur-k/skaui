@@ -1,20 +1,25 @@
 import React from 'react'
-import { Sidebar } from '../components/sidebar'
-import { Header } from '../components/header'
-import styles from './Layout.module.css'
 import { Footer } from '../components/footer/Footer'
+import { Header } from '../components/header'
+import { Sidebar } from '../components/sidebar'
+import styles from './Layout.module.css'
+import SEO from '../../next-seo.config'
+import { DefaultSeo } from 'next-seo'
 
 export const Layout = ({ children }: { children: React.ReactElement }) => {
 	return (
-		<div className={styles.layout}>
-			<div className={styles.wrapper}>
-				<Sidebar />
-				<Header />
-				<div className={styles.contentWrapper}>
-					<main className={styles.main}>{children}</main>
-					<Footer />
+		<>
+			<DefaultSeo {...SEO} />
+			<div className={styles.layout}>
+				<div className={styles.wrapper}>
+					<Sidebar />
+					<Header />
+					<div className={styles.contentWrapper}>
+						<main className={styles.main}>{children}</main>
+						<Footer />
+					</div>
 				</div>
 			</div>
-		</div>
+		</>
 	)
 }

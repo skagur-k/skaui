@@ -32,7 +32,14 @@ export const TooltipTrigger = (props: TooltipTriggerProps) => {
 	const state = useTooltipTriggerState(props)
 	const ref = React.useRef(null)
 	const { position, tooltip, children } = props
-	const { triggerProps, tooltipProps } = useTooltipTrigger(props, state, ref)
+	const { triggerProps, tooltipProps } = useTooltipTrigger(
+		{
+			...props,
+			delay: 1,
+		},
+		state,
+		ref
+	)
 
 	return (
 		<span className={styles.trigger}>

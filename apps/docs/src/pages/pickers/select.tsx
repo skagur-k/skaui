@@ -97,7 +97,7 @@ return (
 	const dynamicScope = { Select, Container, transportation, setTransportation }
 
 	return (
-		<PageLayout>
+		<PageLayout title='Select'>
 			<div className='flex flex-col gap-6'>
 				<h1 className='text-5xl font-black'>Select</h1>
 				<h3 className='text-xl font-medium text-neutral-400'>

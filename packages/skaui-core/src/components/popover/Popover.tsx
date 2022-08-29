@@ -13,7 +13,7 @@ const Popover = (props: PopoverProps) => {
 			isOpen,
 			onClose,
 			shouldCloseOnBlur: true,
-			isDismissable: false,
+			isDismissable: true,
 		},
 		popoverRef
 	)

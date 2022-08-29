@@ -75,9 +75,9 @@ const unstyledCode = `
 `
 const unstyledScope = { Input, Container, SettingsIcon }
 
-const TogglePage: NextPage = () => {
+const InputPage: NextPage = () => {
 	return (
-		<PageLayout>
+		<PageLayout title='Input'>
 			<div className='flex flex-col gap-6'>
 				<h1 className='text-5xl font-black'>Input</h1>
 				<h3 className='text-xl font-medium text-neutral-400'>
@@ -159,4 +159,4 @@ const TogglePage: NextPage = () => {
 	)
 }
 
-export default TogglePage
+export default InputPage

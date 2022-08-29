@@ -139,7 +139,7 @@ return(
 	const dynamicScope = { Tabs, Container, tabs, setTabs, Button }
 
 	return (
-		<PageLayout>
+		<PageLayout title='Tabs'>
 			<div className='flex flex-col gap-6'>
 				<h1 className='text-5xl font-black'>Tabs</h1>
 				<h3 className='text-xl font-medium text-neutral-400'>

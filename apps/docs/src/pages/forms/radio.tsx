@@ -102,7 +102,7 @@ return (
 	const controlledScope = { Radio, Container, toast }
 
 	return (
-		<PageLayout>
+		<PageLayout title='Radio'>
 			<div className='flex flex-col gap-6'>
 				<h1 className='text-5xl font-black'>Radio</h1>
 				<h3 className='text-xl font-medium text-neutral-400'>TODO</h3>

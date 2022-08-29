@@ -1,19 +1,19 @@
 .menu_popover {
-	@apply max-w-[200px] px-2;
+	@apply min-w-max max-w-xs px-2;
 	@apply rounded-sm shadow-md;
 }
 
 .menu_item {
 	@apply flex rounded-sm;
 	@apply justify-between items-center;
-	@apply px-2 py-1 my-1;
+	@apply px-2 py-2;
 	@apply text-sm select-none;
 	@apply cursor-pointer;
 	@apply outline-none;
 }
 
 .menu_item_focused {
-	@apply bg-neutral-300;
+	@apply bg-neutral-300 text-neutral-800;
 }
 
 .menu_item_selected {

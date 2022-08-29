@@ -82,7 +82,7 @@ const NotePage: NextPage = () => {
 	const actionScope = { Note, Container, toast }
 
 	return (
-		<PageLayout>
+		<PageLayout title='Note'>
 			<div className='flex flex-col gap-6'>
 				<h1 className='text-5xl font-black'>Note</h1>
 				<h3 className='text-xl font-medium text-neutral-400'>

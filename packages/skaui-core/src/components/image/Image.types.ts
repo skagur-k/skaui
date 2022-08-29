@@ -1,4 +1,5 @@
 import React from 'react'
+import { AriaOverlayProps } from 'react-aria'
 import { UseImageProps } from '../../hooks/'
 
 interface INativeImageProps {
@@ -16,9 +17,12 @@ interface IImageProps extends Omit<NativeImageProps, 'onError'> {
 	loading?: 'eager' | 'lazy'
 	ignoreFallback?: boolean
 	caption?: string
+	tags?: string[]
 	as?: React.ElementType
 }
 
 interface ImageProps extends UseImageProps, IImageProps {}
+
+export interface ImageViewerProps extends IImageProps, AriaOverlayProps {}
 
 export type { NativeImageProps, ImageProps }

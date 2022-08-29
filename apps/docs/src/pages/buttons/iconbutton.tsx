@@ -76,7 +76,7 @@ const variantScope = { IconButton, Container, SettingsIcon }
 
 const ButtonPage: NextPage = () => {
 	return (
-		<PageLayout>
+		<PageLayout title='Icon Button'>
 			<div className='flex flex-col gap-6'>
 				<h1 className='text-5xl font-black'>Icon Button</h1>
 

@@ -4,12 +4,11 @@ import React from 'react'
 import { FiMonitor, FiMoon, FiSun } from 'react-icons/fi'
 import styles from './ThemeSelect.module.css'
 interface ThemeSelectProps {
-	width?: string
 	className?: string
 }
 
 const ThemeSelect = (props: ThemeSelectProps) => {
-	const { className, width } = props
+	const { className } = props
 	const { selectTheme, systemMode } = useTheme()
 	const toast = useToast()
 

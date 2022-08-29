@@ -1,38 +1,30 @@
 .tag {
-	@apply inline-flex w-fit;
-	@apply bg-neutral-50 cursor-pointer;
+	@apply inline-flex w-fit h-fit;
+	@apply cursor-pointer;
 	@apply overflow-hidden rounded-sm;
-	@apply ring-[0.5px] ring-neutral-800;
+	@apply ring-[0.5px];
 	@apply flex justify-between items-center;
+	@apply bg-[color:var(--skaui-background)];
+	@apply ring-[color:var(--skaui-foreground)];
 }
 
 .tag_text {
 	@apply mr-0 px-2 py-[2px];
 	@apply text-sm truncate;
+	@apply text-[color:var(--skaui-foreground)];
 }
 
 .tag_remove {
 	@apply p-1 border-l;
-	@apply border-l-neutral-800;
+
+	@apply border-l-[color:var(--skaui-foreground)];
+	@apply text-[color:var(--skaui-foreground)];
+	@apply hover:bg-[color:var(--skaui-foreground)];
+	@apply hover:text-[color:var(--skaui-background)];
 	@apply cursor-pointer;
-	@apply bg-neutral-50 hover:bg-neutral-800;
-	@apply hover:text-neutral-100 hover:border-l-neutral-800;
 	@apply transition-colors duration-300;
 }
 
 .tags {
 	@apply flex gap-2 flex-wrap;
-}
-
-:global(.dark) {
-	.tag {
-		@apply bg-neutral-800;
-		@apply ring-neutral-100;
-	}
-
-	.tag_remove {
-		@apply bg-neutral-800 hover:bg-neutral-100;
-		@apply border-neutral-100 hover:bg-neutral-100;
-		@apply hover:text-neutral-800 hover:border-l-neutral-100;
-	}
 }

@@ -61,9 +61,9 @@ const positionCode = `() => {
 `
 const positionScope = { Button, Drawer, Container }
 
-const ButtonPage: NextPage = () => {
+const DrawerPage: NextPage = () => {
 	return (
-		<PageLayout>
+		<PageLayout title='Drawer'>
 			<div className='flex flex-col gap-6'>
 				<h1 className='text-5xl font-black'>Drawer</h1>
 
@@ -83,4 +83,4 @@ const ButtonPage: NextPage = () => {
 	)
 }
 
-export default ButtonPage
+export default DrawerPage

@@ -88,9 +88,9 @@ const controlledCode = `() => {
 `
 const controlledScope = { Button, Modal, Input, Container }
 
-const ButtonPage: NextPage = () => {
+const ModalPage: NextPage = () => {
 	return (
-		<PageLayout>
+		<PageLayout title='Modal'>
 			<div className='flex flex-col gap-6'>
 				<h1 className='text-5xl font-black'>Modal</h1>
 
@@ -130,4 +130,4 @@ const ButtonPage: NextPage = () => {
 	)
 }
 
-export default ButtonPage
+export default ModalPage

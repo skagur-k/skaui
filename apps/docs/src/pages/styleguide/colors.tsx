@@ -178,7 +178,7 @@ const ColorsPaage: NextPage = () => {
 	}, [])
 
 	return mounted ? (
-		<PageLayout>
+		<PageLayout title='Colors'>
 			<div className='flex flex-col gap-6'>
 				<h1 className='text-5xl font-black'>Color</h1>
 				<h3 className='text-xl font-medium text-neutral-400'>

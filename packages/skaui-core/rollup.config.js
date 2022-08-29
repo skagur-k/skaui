@@ -34,6 +34,7 @@ export default [
 			}),
 			postCSS({
 				plugins: [require('autoprefixer')],
+				extract: true,
 			}),
 			// bundleSize(),
 			analyzer(),

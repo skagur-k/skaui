@@ -7,21 +7,21 @@
 	@apply transition-all duration-200;
 	@apply rounded-sm font-medium;
 
-	@apply bg-[color:var(--themed-bg)];
-	@apply text-[color:var(--themed-fg)];
-	@apply border-[color:var(--themed-border)];
+	@apply bg-[color:var(--themed-bg)] !important;
+	@apply text-[color:var(--themed-fg)] !important;
+	@apply border-[color:var(--themed-border)] !important;
 
-	@apply hover:bg-[color:var(--themed-bg-hover,var(--themed-bg))];
-	@apply hover:text-[color:var(--themed-fg-hover,var(--themed-fg))];
-	@apply hover:border-[color:var(--themed-border-hover,var(--themed-border))];
+	@apply hover:bg-[color:var(--themed-bg-hover,var(--themed-bg))] !important;
+	@apply hover:text-[color:var(--themed-fg-hover,var(--themed-fg))] !important;
+	@apply hover:border-[color:var(--themed-border-hover,var(--themed-border))] !important;
 
-	@apply active:bg-[color:var(--themed-bg-active,var(--themed-bg))];
-	@apply active:text-[color:var(--themed-fg-active,var(--themed-fg))];
-	@apply active:border-[color:var(--themed-border-active,var(--themed-border))];
+	@apply active:bg-[color:var(--themed-bg-active,var(--themed-bg))] !important;
+	@apply active:text-[color:var(--themed-fg-active,var(--themed-fg))] !important;
+	@apply active:border-[color:var(--themed-border-active,var(--themed-border))] !important;
 
 	@apply disabled:cursor-not-allowed;
 	@apply disabled:opacity-20;
-	@apply disabled:hover:bg-[color:var(--themed-bg)];
+	@apply disabled:hover:bg-[color:var(--themed-bg)] !important;
 
 	&:focus:enabled {
 		@apply ring-1 ring-offset-1;

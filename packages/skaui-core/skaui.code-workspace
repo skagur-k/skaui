@@ -13,8 +13,5 @@
 			"path": "."
 		}
 	],
-	"settings": {
-		"typescript.tsdk": "📦 @skaui/core/node_modules/typescript/lib",
-		"liveServer.settings.multiRootWorkspaceName": "✨ skaui"
-	}
+	"settings": {}
 }

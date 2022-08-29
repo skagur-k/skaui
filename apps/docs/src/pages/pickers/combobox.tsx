@@ -89,7 +89,7 @@ const sectionScope = { ComboBox, Container }
 
 const ComboBoxPage: NextPage = () => {
 	return (
-		<PageLayout>
+		<PageLayout title='Combo Box'>
 			<div className='flex flex-col gap-6'>
 				<h1 className='text-5xl font-black'>ComboBox</h1>
 				<h3 className='text-xl font-medium text-neutral-400'>

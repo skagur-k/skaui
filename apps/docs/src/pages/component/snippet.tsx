@@ -72,7 +72,7 @@ const darkScope = { Snippet, Container }
 
 const SnippetPage: NextPage = () => {
 	return (
-		<PageLayout>
+		<PageLayout title='Snippet'>
 			<div className='flex flex-col gap-6'>
 				<h1 className='text-5xl font-black'>Snippet</h1>
 				<h3 className='text-xl font-medium text-neutral-400'>

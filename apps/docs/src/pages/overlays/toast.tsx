@@ -48,7 +48,7 @@ const ToastPage: NextPage = () => {
 	const typesScope = { Button, Container, useToast }
 
 	return (
-		<PageLayout>
+		<PageLayout title='Toast'>
 			<div className='flex flex-col gap-6'>
 				<h1 className='text-5xl font-black'>Toast</h1>
 				<h3 className='text-xl font-medium text-neutral-400'>

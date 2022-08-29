@@ -36,7 +36,7 @@ const TogglePage: NextPage = () => {
 `
 
 	return (
-		<PageLayout>
+		<PageLayout title='Toggle'>
 			<div className='flex flex-col gap-6'>
 				<h1 className='text-5xl font-black'>Toggle</h1>
 				<h3 className='text-xl font-medium text-neutral-400'>

@@ -23,7 +23,7 @@ const jsxScope = { Collapsible }
 
 const CollapsiblePage: NextPage = () => {
 	return (
-		<PageLayout>
+		<PageLayout title='Collapsible'>
 			<div className='flex flex-col gap-6'>
 				<h1 className='text-5xl font-black'>Collapsible</h1>
 				<h3 className='text-xl font-medium text-neutral-400'>

@@ -129,9 +129,9 @@ const colorsCode = `() => {
 `
 const colorsScope = { Meter, Container, Button }
 
-const ButtonPage: NextPage = () => {
+const MeterPage: NextPage = () => {
 	return (
-		<PageLayout>
+		<PageLayout title='Meter'>
 			<div className='flex flex-col gap-6'>
 				<h1 className='text-5xl font-black'>Meter</h1>
 				<h3 className='text-xl font-medium text-neutral-400'>
@@ -201,4 +201,4 @@ const ButtonPage: NextPage = () => {
 	)
 }
 
-export default ButtonPage
+export default MeterPage

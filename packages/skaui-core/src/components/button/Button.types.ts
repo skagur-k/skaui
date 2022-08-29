@@ -1,8 +1,8 @@
 import { AriaButtonProps } from '@react-types/button'
-import React from 'react'
+import React, { PropsWithChildren } from 'react'
 
-export interface ButtonProps extends Omit<AriaButtonProps, 'type'> {
-	children?: React.ReactElement | string | React.ReactNode | null
+export interface ButtonProps
+	extends PropsWithChildren<Omit<AriaButtonProps, 'type'>> {
 	size?: ButtonSize
 	variant?: ButtonVariant
 	ref?: React.LegacyRef<HTMLButtonElement>

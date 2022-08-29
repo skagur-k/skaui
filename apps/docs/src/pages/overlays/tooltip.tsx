@@ -18,14 +18,14 @@ const tooltipCode = `() => {
 `
 const tooltipScope = { TooltipTrigger, Container }
 
-const ButtonPage: NextPage = () => {
+const TooltipPage: NextPage = () => {
 	return (
-		<PageLayout>
+		<PageLayout title='Tooltip'>
 			<div className='flex flex-col gap-6'>
 				<h1 className='text-5xl font-black'>Tooltips</h1>
 				<h3 className='text-xl font-medium text-neutral-400'>
 					Tooltips appear when the trigger is focused. Try focusing the Trigger
-					button with <KBD>Tab</KBD>
+					button with <KBD>Tab</KBD> or by hovering over the button.
 				</h3>
 				{/* Section */}
 				<div className='mt-16 flex flex-col gap-8'>
@@ -37,4 +37,4 @@ const ButtonPage: NextPage = () => {
 	)
 }
 
-export default ButtonPage
+export default TooltipPage

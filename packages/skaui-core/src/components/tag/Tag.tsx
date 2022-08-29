@@ -25,11 +25,11 @@ export const Tag = (props: TagProps) => {
 }
 
 export const Tags = (props: TagsProps) => {
-	const { tags, removable = true } = props
+	const { tags, className, removable = true } = props
 	const [tagList, setTagsList] = React.useState([...new Set(tags)])
 
 	return (
-		<div className={styles.tags}>
+		<div className={clsx(styles.tags, className)}>
 			{tagList.map((tag) => (
 				<Tag
 					id={tag}

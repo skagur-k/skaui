@@ -35,9 +35,9 @@ const linkCode = `<Container>
 `
 const linkScope = { Breadcrumbs, Link, NextLink, Container }
 
-const ButtonPage: NextPage = () => {
+const NavigationPage: NextPage = () => {
 	return (
-		<PageLayout>
+		<PageLayout title='Navigation'>
 			<div className='flex flex-col gap-6'>
 				<h1 className='text-5xl font-black'>Navigation</h1>
 
@@ -65,4 +65,4 @@ const ButtonPage: NextPage = () => {
 	)
 }
 
-export default ButtonPage
+export default NavigationPage

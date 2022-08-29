@@ -5,5 +5,35 @@
 	@apply rounded-xl;
 }
 .image_caption {
-	@apply text-right text-sm mt-4 text-gray-500 font-medium;
+	@apply text-right text-base mt-4 font-medium;
+	@apply text-[color:var(--accents-5)];
+}
+
+.image_underlay {
+	@apply flex justify-center items-center;
+	@apply fixed top-0 left-0 bottom-0 right-0 z-50;
+	@apply bg-neutral-800/95;
+}
+
+.image_overlay {
+	@apply rounded-xl;
+	@apply fixed outline-none;
+}
+
+.image_overlay_content {
+	@apply relative h-full w-full p-4;
+}
+
+.image_overlay_caption {
+	@apply flex justify-center;
+	@apply text-base;
+	@apply text-[color:var(--accents-5)];
+}
+
+.image_overlay_tags {
+}
+
+.image_overlay_misc {
+	@apply flex justify-between items-center;
+	@apply mt-4;
 }

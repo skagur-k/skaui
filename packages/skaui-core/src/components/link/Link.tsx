@@ -12,7 +12,8 @@ export const Link = (props: LinkProps) => {
 	return (
 		<a
 			href={props.href}
-			target="_blank"
+			target='_blank'
+			rel='noreferrer'
 			className={clsx(
 				styles.link,
 				[isDisabled && styles.link_disabled],

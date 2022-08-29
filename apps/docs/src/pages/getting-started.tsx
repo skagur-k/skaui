@@ -1,4 +1,4 @@
-import { File, FileViewer, Folder, InlineCode, Snippet } from '@skaui/core'
+import { File, FileViewer, InlineCode, Snippet } from '@skaui/core'
 import { NextPage } from 'next'
 import PageLayout from '../layouts/PageLayout'
 
@@ -22,7 +22,7 @@ module.exports = withTM({
 
 const GettingStarted: NextPage = () => {
 	return (
-		<PageLayout>
+		<PageLayout title='Getting Started'>
 			<div className='flex h-full max-w-4xl flex-col gap-6'>
 				<h1 className='text-5xl font-black'>Getting Started</h1>
 				<h3 className='text-lg text-neutral-800 dark:text-neutral-100'>

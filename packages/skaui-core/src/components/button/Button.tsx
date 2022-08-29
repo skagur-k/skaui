@@ -63,7 +63,12 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 		const mergedRefs = mergeRefs(ref, externalRef)
 
 		return (
-			<button {...buttonProps} ref={mergedRefs} className={buttonClasses}>
+			<button
+				{...buttonProps}
+				ref={mergedRefs}
+				className={buttonClasses}
+				{...props}
+			>
 				{prefix && <span className={styles.button_prefix}>{prefix}</span>}
 				{children && (
 					<span className={clsx(alignments[align])}> {children}</span>

@@ -63,7 +63,7 @@ const expandedScope = { Accordion, items }
 
 const AccordionPage: NextPage = () => {
 	return (
-		<PageLayout>
+		<PageLayout title='Accordion'>
 			<div className='flex flex-col gap-6'>
 				<h1 className='text-5xl font-black'>Accordion</h1>
 				<h3 className='text-xl font-medium text-neutral-400'>

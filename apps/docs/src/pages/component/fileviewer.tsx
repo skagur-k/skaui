@@ -119,7 +119,7 @@ const fileviewerScope = { FileViewer, Container, example, Folder, File }
 
 const FileViewerPage: NextPage = () => {
 	return (
-		<PageLayout>
+		<PageLayout title='File Viewer'>
 			<div className='flex flex-col gap-6'>
 				<h1 className='text-5xl font-black'>File Viewer</h1>
 				<h3 className='text-xl font-medium text-neutral-400'>

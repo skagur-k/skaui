@@ -84,7 +84,7 @@ const minmaxScope = { Progress, Container, Input }
 
 const ProgressPage: NextPage = () => {
 	return (
-		<PageLayout>
+		<PageLayout title="Progress">
 			<div className='flex flex-col gap-6'>
 				<h1 className='text-5xl font-black'>Progress</h1>
 				<h3 className='text-xl font-medium text-neutral-400'>

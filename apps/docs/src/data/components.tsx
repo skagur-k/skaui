@@ -139,7 +139,11 @@ const ui: IComponents = [
 	},
 	{
 		key: '/component/fileviewer',
-		title: 'FileViewer',
+		title: 'File Viewer',
+	},
+	{
+		key: '/component/imageviewer',
+		title: 'Image Viewer',
 	},
 	{
 		key: '/component/kbd',
@@ -157,7 +161,6 @@ const ui: IComponents = [
 		key: '/component/tag',
 		title: 'Tag & Badge',
 	},
-
 	{
 		key: '/component/navigation',
 		title: 'Navigation',

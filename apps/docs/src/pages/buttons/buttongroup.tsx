@@ -114,7 +114,7 @@ const typesScope = { Button, Container }
 
 const ButtonGroupPage: NextPage = () => {
 	return (
-		<PageLayout>
+		<PageLayout title='Button Group'>
 			<div className='flex flex-col gap-6'>
 				<h1 className='text-5xl font-black'>Button Group</h1>
 				<h3 className='text-xl font-medium text-neutral-400'>
