@@ -9,5 +9,13 @@ export default {
 		url: 'https://skaui.skagur.dev',
 		title: 'SKA UI | skagur.dev',
 		description: 'UI Component & Design system developed by skagur.dev',
+		images: [
+			{
+				url: '/og-image.webp',
+				width: 1200,
+				height: 630,
+				alt: 'ska ui - skagur.dev',
+			},
+		],
 	},
 }
