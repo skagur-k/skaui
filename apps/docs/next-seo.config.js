@@ -16,15 +16,15 @@ export default {
 		},
 		{
 			rel: 'icon',
-			href: '/favicon-16x16.ico',
+			href: '/favicon-16x16.png',
 		},
 		{
 			rel: 'icon',
-			href: '/favicon-32x32.ico',
+			href: '/favicon-32x32.png',
 		},
 		{
 			rel: 'apple-touch-icon',
-			href: '/apple-touch-icon.pngo',
+			href: '/apple-touch-icon.png',
 		},
 		{
 			rel: 'manifest',
