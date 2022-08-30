@@ -15,6 +15,18 @@ export default {
 			href: '/favicon.ico',
 		},
 		{
+			rel: 'icon',
+			href: '/favicon-16x16.ico',
+		},
+		{
+			rel: 'icon',
+			href: '/favicon-32x32.ico',
+		},
+		{
+			rel: 'apple-touch-icon',
+			href: '/apple-touch-icon.pngo',
+		},
+		{
 			rel: 'manifest',
 			href: '/site.webmanifest',
 		},

@@ -1,6 +1,8 @@
 {
 	"name": "SKA UI | skagur.dev",
 	"short_name": "SKA UI",
+	"description": "UI Component & Design system developed by skagur.dev",
+	"start_url": "https://skaui.skagur.dev",
 	"icons": [
 		{
 			"src": "/android-chrome-192x192.png",
