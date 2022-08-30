@@ -1,13 +1,16 @@
-import { createContext, useContext, useReducer } from 'react'
-import { Action, ActionType, IToaster } from '../components/toast/Toast.types'
-import ToastContainer from '../components/toast/ToastContainer'
+import { createContext, useContext } from 'react'
+import {
+	Action,
+	ActionType,
+	IToaster,
+} from '../../components/toast/Toast.types'
 
-const ToastStateContext = createContext<IToaster | null>(null)
-const ToastDispatchContext = createContext<any>(null)
+export const ToastStateContext = createContext<IToaster | null>(null)
+export const ToastDispatchContext = createContext<any>(null)
 
 // TODO: Toast transitions
 
-function ToastReducer(state: IToaster, action: Action) {
+export function ToastReducer(state: IToaster, action: Action) {
 	switch (action.type) {
 		case ActionType.SET_POSITION: {
 			return {
@@ -53,23 +56,6 @@ function ToastReducer(state: IToaster, action: Action) {
 			throw new Error('Unhandled Toast Reducer Action')
 		}
 	}
-}
-
-export const ToastProvider = ({ children }: any) => {
-	const [state, dispatch] = useReducer(ToastReducer, {
-		toasts: [],
-		position: 'bottom-right',
-		maxToasts: 3,
-	})
-
-	return (
-		<ToastStateContext.Provider value={state}>
-			<ToastDispatchContext.Provider value={dispatch}>
-				{children}
-				<ToastContainer />
-			</ToastDispatchContext.Provider>
-		</ToastStateContext.Provider>
-	)
 }
 
 export const useToastStateContext = () => {

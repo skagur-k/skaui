@@ -25,7 +25,7 @@ const GettingStarted: NextPage = () => {
 		<PageLayout title='Getting Started'>
 			<div className='flex h-full max-w-4xl flex-col gap-6'>
 				<h1 className='text-5xl font-black'>Getting Started</h1>
-				<h3 className='text-lg text-neutral-800 dark:text-neutral-100'>
+				<h3 className='text-lg text-neutral-800 dark:nptext-neutral-100'>
 					Quickest way to enjoy <InlineCode>@skaui/core</InlineCode>
 				</h3>
 

@@ -1,6 +1,5 @@
 import clsx from 'clsx'
 import { AnimatePresence, motion } from 'framer-motion'
-import { isArray } from 'lodash'
 import React, { useEffect } from 'react'
 import {
 	ChevronDownIcon,
@@ -166,7 +165,7 @@ export const Folder: React.ComponentType<FolderProps> = React.memo(
 
 		let sluggedChildren
 
-		if (children && isArray(children)) {
+		if (children && Array.isArray(children)) {
 			sluggedChildren = children.map((child, idx) =>
 				React.cloneElement(child, {
 					slug: slug + ' / ' + child.props.name,

@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import { OverlayProvider, SSRProvider } from 'react-aria'
-import { ToastProvider } from '..'
 import { useMediaQuery } from '../../hooks'
 import { isBrowser } from '../../utils'
+import { ToastProvider } from '../ToastContext'
 import { ITheme, ThemeContext } from './ThemeContext'
 
 const STORAGE_KEY = 'mode'

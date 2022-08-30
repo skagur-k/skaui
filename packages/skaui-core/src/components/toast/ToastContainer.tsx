@@ -1,6 +1,6 @@
 import clsx from 'clsx'
 import { AnimatePresence } from 'framer-motion'
-import { useToastStateContext } from '../../contexts/ToastContext'
+import { useToastStateContext } from '../../contexts/ToastContext/ToastContext'
 import Toast from './Toast'
 import styles from './Toast.module.css'
 import ToastPortal from './ToastPortal'
