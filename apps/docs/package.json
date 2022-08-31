@@ -11,6 +11,7 @@
 		"clean": "rm -rf .turbo && rm -rf .next && rm -rf node_modules"
 	},
 	"dependencies": {
+		"@next/env": "^12.2.5",
 		"@skagur/react-live": "^1.0.0",
 		"@skaui/core": "workspace:*",
 		"framer-motion": "^6.5.1",

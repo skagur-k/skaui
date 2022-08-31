@@ -1,0 +1,10 @@
+.app {
+	@apply bg-[color:var(--accents-1)];
+	@apply min-h-screen;
+	@apply px-4 lg:px-0;
+}
+
+.wrapper {
+	@apply max-w-3xl;
+	@apply mx-auto mt-8;
+}

@@ -1,0 +1,10 @@
+{
+	"name": "skagur.dev",
+	"short_name": "SKAGUR.DEV",
+	"description": "Personal portfolio site by Nam Hyuck Kim",
+	"start_url": "https://skaui.skagur.dev",
+	"icons": [],
+	"theme_color": "#000000",
+	"background_color": "#ffffff",
+	"display": "standalone"
+}

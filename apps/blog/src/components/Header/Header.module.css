@@ -1,0 +1,32 @@
+.wrapper {
+	@apply sticky top-[0px];
+	@apply max-w-3xl flex items-center justify-between;
+	@apply py-6;
+	@apply mx-auto;
+}
+
+.nav {
+	@apply flex items-center;
+	@apply gap-6;
+	@apply text-[color:var(--accents-8)];
+}
+
+.logo {
+	@apply bg-[color:var(--accents-8)];
+	@apply hover:bg-[color:var(--accents-6)];
+	@apply text-[color:var(--accents-1)];
+	@apply font-bold;
+	@apply px-2 py-1;
+	@apply transition-colors duration-200;
+}
+
+.navLink {
+	@apply transition-colors duration-200;
+	@apply px-2 py-1;
+	@apply hover:bg-[color:var(--accents-2)];
+
+	&.navLink_active {
+		@apply bg-[color:var(--accents-8)];
+		@apply text-[color:var(--accents-1)];
+	}
+}

@@ -1,0 +1,30 @@
+html {
+	font-size: 14px;
+	font-family: Inter, 'Noto Sans KR', sans-serif;
+	scroll-behavior: smooth;
+	height: 100%;
+}
+
+@font-face {
+	font-family: 'Noto Sans KR';
+	unicode-range: U+AC00-D7A3;
+}
+
+@font-face {
+	font-family: 'Inter';
+	unicode-range: U+0000-007F;
+}
+
+body {
+	height: 100%;
+	-ms-overflow-style: none; /* IE and Edge */
+	scrollbar-width: none; /* Firefox */
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
+}
+
+::selection {
+	@apply text-[color:var(--accents-1)] bg-[color:var(--accents-8)];
+}

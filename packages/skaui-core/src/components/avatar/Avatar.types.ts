@@ -6,6 +6,8 @@ interface IAvatarProps {
 	srcSet?: string
 	icon?: any
 	bordered?: boolean
+	width?: string
+	height?: string
 	onError?: () => void
 	loading?: 'eager' | 'lazy'
 	size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'

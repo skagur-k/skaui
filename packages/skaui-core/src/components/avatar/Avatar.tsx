@@ -60,6 +60,8 @@ const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
 			size = 'md',
 			bordered = false,
 			name,
+			width,
+			height,
 			icon,
 			src,
 			srcSet,
@@ -75,12 +77,19 @@ const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
 		const status = useImage({ src, onError })
 		const hasLoaded = status === 'loaded'
 		const Icon = icon
-		
+
 		const avatarClasses = useAvatarClass({ size, bordered })
 
 		const renderChildren = () => {
 			if (src && hasLoaded) {
-				return <Image className={styles.avatar_image} src={src} alt={name} />
+				return (
+					<Image
+						className={styles.avatar_image}
+						src={src}
+						alt={name}
+						style={{ width, height }}
+					/>
+				)
 			}
 
 			if (src && !hasLoaded) {
@@ -108,7 +117,12 @@ const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
 		return (
 			<div className='inline-flex'>
 				<div className='relative'>
-					<div ref={ref} className={clsx(avatarClasses, className)} {...rest}>
+					<div
+						ref={ref}
+						className={clsx(avatarClasses, className)}
+						style={{ width, height }}
+						{...rest}
+					>
 						{renderChildren()}
 					</div>
 					{icon && <Icon className={styles.avatar_icon} />}

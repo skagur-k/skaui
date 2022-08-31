@@ -1,0 +1,37 @@
+.wrapper {
+	@apply text-[color:var(--accents-8)];
+}
+
+.hero {
+	@apply flex relative justify-between;
+}
+
+.text {
+	@apply flex flex-col gap-6;
+}
+
+.name {
+	@apply text-4xl font-black;
+}
+
+.description {
+	@apply text-lg;
+	@apply text-[color:var(--accents-5)];
+}
+
+.avatar {
+	@apply relative w-32 h-32 rounded-full overflow-hidden grayscale;
+	@apply shadow-xl select-none;
+}
+
+.link {
+	@apply flex items-center gap-2 w-fit;
+	@apply px-2 py-0 font-bold;
+	@apply transition-colors duration-200;
+	@apply bg-[color:var(--accents-8)] text-[color:var(--accents-1)];
+	@apply hover:bg-[color:var(--accents-6)] hover:text-[color:var(--accents-1)];
+}
+
+.links {
+	@apply flex gap-4;
+}
