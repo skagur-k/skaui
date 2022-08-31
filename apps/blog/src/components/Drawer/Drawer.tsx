@@ -9,7 +9,7 @@ const DrawerTrigger = () => {
 
 	return (
 		<div className={styles.wrapper}>
-			<IconButton onPress={() => setOpen(true)} variant='iconOnly'>
+			<IconButton onPress={() => setOpen(true)} variant='ghost'>
 				<FiMenu className={styles.drawer_icon} />
 			</IconButton>
 			<Drawer isOpen={isOpen} onClose={() => setOpen(false)}>

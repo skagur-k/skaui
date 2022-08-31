@@ -1,3 +1,5 @@
+import { ChevronRightIcon } from '@skaui/core/src/icons'
+import clsx from 'clsx'
 import type { NextPage } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -62,6 +64,16 @@ const Home: NextPage = () => {
 								projects.map((project) => (
 									<ProjectCard project={project} key={project!.id} />
 								))}
+							<div className={styles.checkout}>
+								<a
+									href='https://github.com/skagur-k?tab=repositories'
+									rel='noreferrer'
+									target='_blank'
+								>
+									Check out more projects
+								</a>
+								<ChevronRightIcon className='stroke-[3px]' />
+							</div>
 						</div>
 					</div>
 				</div>

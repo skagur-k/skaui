@@ -28,12 +28,12 @@
 }
 
 .links {
-	@apply flex md:justify-start justify-center gap-4 mt-6;
+	@apply flex justify-start gap-4 mt-6;
 }
 
 .link {
 	@apply flex items-center gap-2 w-fit;
-	@apply px-2 py-0 font-bold;
+	@apply px-2 py-0 font-bold text-sm;
 	@apply transition-colors duration-200;
 	@apply bg-[color:var(--accents-8)] text-[color:var(--accents-1)];
 	@apply hover:bg-[color:var(--accents-6)] hover:text-[color:var(--accents-1)];
@@ -51,4 +51,12 @@
 .featured_projects {
 	@apply flex flex-col gap-4;
 	@apply mt-8;
+}
+
+.checkout {
+	@apply flex items-end justify-end w-fit;
+	@apply gap-1 px-2 py-1 ml-auto;
+	@apply text-sm font-bold;
+	@apply hover:bg-[color:var(--accents-8)];
+	@apply hover:text-[color:var(--accents-1)];
 }

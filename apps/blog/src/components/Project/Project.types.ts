@@ -12,13 +12,16 @@ export interface IProject {
 	slug: string
 	period?: string
 	summary?: string
-	description?: React.ReactNode
+	description?: any
 	githubRepo?: string
 	projectUrl?: string
 	stacks?: ITechStack[]
+	coverimagelight?: any
+	coverimagedark?: any
 }
 
 export interface ProjectDetailProps {
-	project?: IProject
-	onClose: () => void
+	project: IProject
+	isOpen?: boolean
+	onClose?: () => void
 }

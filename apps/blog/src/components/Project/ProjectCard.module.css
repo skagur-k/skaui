@@ -17,8 +17,9 @@
 }
 
 .featured_index {
-	@apply text-lg font-bold;
+	@apply text-sm font-bold;
 	@apply mr-4;
+	@apply text-[color:var(--accents-5)];
 }
 
 .featured_title {
@@ -38,4 +39,93 @@
 
 .featured_description {
 	@apply text-[color:var(--accents-5)];
+}
+
+.underlay {
+	@apply flex justify-center items-center;
+	@apply fixed top-0 left-0 bottom-0 right-0 z-50;
+	@apply bg-neutral-700/50;
+}
+
+.overlay {
+	@apply flex flex-col gap-4;
+	@apply relative outline-none;
+	@apply shadow-lg z-50;
+	@apply max-w-4xl;
+	@apply mx-4 lg:mx-0;
+	@apply px-8 py-8;
+	@apply bg-[color:var(--themed-bg)];
+	@apply text-[color:var(--themed-fg)];
+
+	--themed-bg: var(--accents-1);
+	--themed-fg: var(--accents-8);
+}
+
+.overlay_info {
+	@apply flex justify-between items-center;
+}
+
+.overlay_name {
+	@apply text-3xl font-bold;
+}
+
+.overlay_period {
+	@apply text-sm;
+	@apply text-[color:var(--accents-5)];
+}
+
+.overlay_description {
+	@apply text-base text-[color:var(--accents-5)];
+}
+
+.overlay_content {
+	@apply flex flex-col space-y-8;
+}
+
+.overlay_techstack {
+	@apply flex flex-col space-y-2;
+}
+
+.overlay_techstack_heading {
+	@apply font-bold text-lg;
+}
+
+.overlay_techstack_techs {
+	@apply grid grid-cols-2 gap-x-4 gap-y-2;
+}
+
+.overlay_techstack_tech {
+	@apply select-none;
+	@apply text-sm;
+	@apply flex gap-4 items-center;
+	@apply px-4 py-1 rounded-md;
+	@apply ring-[color:var(--accents-2)];
+	@apply hover:ring-1;
+	@apply hover:ring-[color:var(--accents-5)];
+	@apply transition-all duration-200;
+}
+
+.overlay_backbutton {
+	@apply flex items-center gap-1 w-fit;
+	@apply focus:outline-none;
+	@apply hover:bg-[color:var(--accents-8)];
+	@apply hover:text-[color:var(--accents-1)];
+	@apply pr-2 py-1;
+	@apply font-bold;
+	@apply transition-all duration-200;
+}
+
+.overlay_links {
+	@apply flex justify-center items-center gap-12;
+	@apply mt-8;
+}
+.overlay_link {
+	@apply flex items-center gap-2;
+	@apply px-4 py-2;
+	@apply text-sm font-bold;
+	@apply bg-[color:var(--accents-2)];
+	@apply text-[color:var(--accents-7)];
+	@apply hover:bg-[color:var(--accents-8)];
+	@apply hover:text-[color:var(--accents-1)];
+	@apply transition-all duration-200;
 }
