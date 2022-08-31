@@ -13,9 +13,9 @@ import { Button } from '../button'
 import styles from './Modal.module.css'
 import { ModalProps } from './Modal.types'
 
-const Modal = (props: ModalProps) => {
+export const Modal = (props: ModalProps) => {
 	const [isBrowser, setIsBrowser] = React.useState(false)
-	const { children, isOpen } = props
+	const { children, isOpen, onExitComplete } = props
 
 	React.useEffect(() => {
 		setIsBrowser(typeof window !== 'undefined')
@@ -23,14 +23,12 @@ const Modal = (props: ModalProps) => {
 
 	return isBrowser ? (
 		<OverlayContainer>
-			<AnimatePresence exitBeforeEnter>
+			<AnimatePresence exitBeforeEnter onExitComplete={onExitComplete}>
 				{isOpen && <ModalDialog {...props}>{children}</ModalDialog>}
 			</AnimatePresence>
 		</OverlayContainer>
 	) : null
 }
-
-export default Modal
 
 const ModalDialog = (props: ModalProps) => {
 	const { title, children, onClose, confirmLabel, confirmAction } = props

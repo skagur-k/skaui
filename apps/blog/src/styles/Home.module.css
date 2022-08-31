@@ -1,4 +1,5 @@
 .wrapper {
+	@apply flex flex-col;
 	@apply text-[color:var(--accents-8)];
 }
 
@@ -20,8 +21,14 @@
 }
 
 .avatar {
-	@apply relative w-32 h-32 rounded-full overflow-hidden grayscale;
+	@apply shrink-0 w-32 h-32 rounded-full overflow-hidden;
 	@apply shadow-xl select-none;
+	@apply grayscale-[100%] hover:grayscale-[50%];
+	@apply transition-all duration-300;
+}
+
+.links {
+	@apply flex md:justify-start justify-center gap-4 mt-6;
 }
 
 .link {
@@ -32,6 +39,16 @@
 	@apply hover:bg-[color:var(--accents-6)] hover:text-[color:var(--accents-1)];
 }
 
-.links {
-	@apply flex gap-4;
+.separator {
+	@apply border-b border-[color:var(--accents-2)];
+	@apply my-8;
+}
+
+.heading {
+	@apply text-3xl font-bold;
+}
+
+.featured_projects {
+	@apply flex flex-col gap-4;
+	@apply mt-8;
 }

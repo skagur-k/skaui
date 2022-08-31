@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { NextSeo } from 'next-seo'
 import React from 'react'
+import styles from './Layout.module.css'
 
 const variants = {
 	hidden: { opacity: 0, x: 0, y: 20 },
@@ -25,7 +26,7 @@ const PageLayout = ({
 				exit='exit'
 				transition={{ ease: 'easeInOut', duration: 0.2 }}
 			>
-				{children}
+				<div className={styles.page_wrapper}>{children}</div>
 			</motion.div>
 		</>
 	)

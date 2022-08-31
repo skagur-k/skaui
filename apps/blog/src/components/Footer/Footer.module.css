@@ -1,0 +1,20 @@
+.wrapper {
+	@apply flex flex-col items-center justify-center;
+	@apply max-w-3xl w-full;
+	@apply py-2;
+	@apply space-y-1;
+	@apply mx-auto mt-auto;
+}
+
+.logo {
+	@apply bg-[color:var(--accents-8)];
+	@apply hover:bg-[color:var(--accents-6)];
+	@apply text-[color:var(--accents-1)];
+	@apply text-sm font-bold;
+	@apply px-2 py-[2px];
+	@apply transition-colors duration-200;
+}
+
+.copyright {
+	@apply text-sm text-[color:var(--accents-5)];
+}

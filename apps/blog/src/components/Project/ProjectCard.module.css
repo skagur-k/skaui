@@ -1,0 +1,41 @@
+.featured {
+	@apply ring-1 ring-[color:var(--accents-2)];
+	@apply hover:ring-[color:var(--accents-3)];
+	@apply hover:bg-[color:var(--accents-2)];
+	@apply active:bg-[color:var(--accents-1)];
+	@apply transition-all duration-200;
+	@apply flex gap-2;
+	@apply rounded-md;
+	@apply p-4;
+	@apply w-full;
+	@apply cursor-pointer;
+}
+
+.featured_details {
+	@apply flex flex-col gap-2;
+	@apply w-full;
+}
+
+.featured_index {
+	@apply text-lg font-bold;
+	@apply mr-4;
+}
+
+.featured_title {
+	@apply flex justify-between items-center;
+	@apply mb-1;
+}
+
+.featured_title_heading {
+	@apply text-lg font-bold;
+	@apply text-[color:var(--accents-8)];
+}
+
+.featured_title_techs {
+	@apply flex items-center gap-2;
+	@apply list-none;
+}
+
+.featured_description {
+	@apply text-[color:var(--accents-5)];
+}

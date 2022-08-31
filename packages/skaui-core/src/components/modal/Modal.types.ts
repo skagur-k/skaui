@@ -7,4 +7,5 @@ export interface ModalProps extends AriaOverlayProps, AriaDialogProps {
 	children?: React.ReactElement
 	confirmLabel?: string
 	confirmAction?: () => void
+	onExitComplete?: () => void
 }

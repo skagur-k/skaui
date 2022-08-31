@@ -1,7 +1,7 @@
 .wrapper {
-	@apply sticky top-[0px];
-	@apply max-w-3xl flex items-center justify-between;
-	@apply py-6;
+	@apply flex items-center justify-between;
+	@apply pt-6;
+	@apply max-w-3xl w-full;
 	@apply mx-auto;
 }
 
