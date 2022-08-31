@@ -1,5 +1,4 @@
 import { ChevronRightIcon } from '@skaui/core/src/icons'
-import clsx from 'clsx'
 import type { NextPage } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'

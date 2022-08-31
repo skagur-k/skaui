@@ -26,7 +26,7 @@ function createWrapperAndAppendToBody(wrapperId: string, className?: string) {
 	}
 }
 
-const ToastPortal = ({
+const ToastPortal: any = ({
 	children,
 	className,
 	wrapperId = 'skaui-toast-portal',

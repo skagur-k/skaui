@@ -1,5 +1,4 @@
-import { Button, Input } from '@skaui/core'
-import Modal from '@skaui/core/src/components/modal/Modal'
+import { Button, Input, Modal } from '@skaui/core'
 import { NextPage } from 'next'
 import { Container } from '../../components/container'
 import { IDE } from '../../components/ide'
