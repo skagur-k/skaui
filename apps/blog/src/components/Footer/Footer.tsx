@@ -1,8 +1,11 @@
+import { useRouter } from 'next/router'
 import { AnyLink } from '../Link'
 import styles from './Footer.module.css'
 
 const Footer = () => {
-	return (
+	const router = useRouter()
+
+	return router.asPath.startsWith('/wiki') ? null : (
 		<footer className={styles.wrapper}>
 			<AnyLink href='/' className={styles.logo}>
 				SKAGUR.DEV

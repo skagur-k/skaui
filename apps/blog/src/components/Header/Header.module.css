@@ -1,6 +1,6 @@
 .wrapper {
 	@apply flex items-center justify-between;
-	@apply pt-6;
+	@apply py-2;
 	@apply max-w-3xl w-full;
 	@apply mx-auto;
 }
@@ -17,7 +17,6 @@
 	@apply text-[color:var(--accents-1)];
 	@apply font-bold;
 	@apply px-2 py-1;
-	@apply transition-all duration-200;
 }
 
 .navLink {

@@ -1,7 +1,8 @@
+import clsx from 'clsx'
 import { motion } from 'framer-motion'
 import { NextSeo } from 'next-seo'
 import React from 'react'
-import { Sidebar } from '../components'
+import { Rightbar, Sidebar } from '../components'
 import styles from './Layout.module.css'
 
 const variants = {
@@ -29,7 +30,8 @@ export const WikiLayout = ({
 				className={styles.wiki_wrapper}
 			>
 				<Sidebar />
-				<div className={styles.wiki_content}>{children}</div>
+				<div className={clsx(styles.wiki_main, 'scrollbar')}>{children}</div>
+				<Rightbar />
 			</motion.div>
 		</>
 	)

@@ -12,7 +12,7 @@ export const AnyLink = (props: LinkProps) => {
 
 	if (isInternalLink || isAnchorLink) {
 		return (
-			<Link {...props}>
+			<Link {...props} passHref>
 				<a className={className}>{children}</a>
 			</Link>
 		)

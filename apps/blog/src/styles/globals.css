@@ -28,3 +28,16 @@ body {
 ::selection {
 	@apply text-[color:var(--accents-1)] bg-[color:var(--accents-8)];
 }
+
+.scrollbar {
+	&::-webkit-scrollbar {
+		width: 1px;
+		background-color: transparent;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		@apply invisible md:visible;
+		width: 1px;
+		background-color: var(--accents-3);
+	}
+}

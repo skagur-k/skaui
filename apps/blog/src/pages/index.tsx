@@ -33,10 +33,10 @@ const Home: NextPage = () => {
 					</div>
 					<div className={styles.links}>
 						<AnyLink href='https://github.com/skagur-k' className={styles.link}>
-							GitHub
+							GITHUB
 						</AnyLink>
 						<AnyLink href='/wiki' className={styles.link}>
-							Wiki
+							WIKI
 						</AnyLink>
 						<AnyLink href='https://skaui.skagur.dev' className={styles.link}>
 							SKA UI

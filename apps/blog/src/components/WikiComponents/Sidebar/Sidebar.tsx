@@ -1,27 +1,36 @@
+import clsx from 'clsx'
 import { AnyLink } from '../../Link'
 import styles from './Sidebar.module.css'
 export const Sidebar = () => {
 	return (
-		<aside className={styles.wrapper}>
-			<div className={styles.content}>
-				<AnyLink href='/wiki' className={styles.heading}>
-					WIKI
-				</AnyLink>
-				<WikiList />
-			</div>
+		<aside className={clsx(styles.wrapper, 'scrollbar')}>
+			<AnyLink href='/wiki' className={styles.heading}>
+				WIKI
+			</AnyLink>
+			<AnyLink href='/wiki' className={styles.category}>
+				Overview
+			</AnyLink>
+			<WikiList />
 		</aside>
 	)
 }
 
 const WikiList = () => {
 	return (
-		<div className={styles.list}>
+		<div className={clsx(styles.list, 'scrollbar')}>
 			<ul className={styles.wiki_items}>
-				<li className={styles.wiki_item}>1</li>
-				<li className={styles.wiki_item}>2</li>
-				<li className={styles.wiki_item}>3</li>
-				<li className={styles.wiki_item}>4</li>
-				<li className={styles.wiki_item}>5</li>
+				<AnyLink href='#' className={styles.wiki_item}>
+					1
+				</AnyLink>
+				<AnyLink href='#' className={styles.wiki_item}>
+					2
+				</AnyLink>
+				<AnyLink href='#' className={styles.wiki_item}>
+					3
+				</AnyLink>
+				<AnyLink href='#' className={styles.wiki_item}>
+					4
+				</AnyLink>
 			</ul>
 		</div>
 	)
