@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://skaui.skagur.dev
+
+# Sitemaps
+Sitemap: https://skaui.skagur.dev/sitemap.xml
