@@ -1,3 +1,4 @@
+import { ImageViewer } from '@skaui/core'
 import { ChevronRightIcon } from '@skaui/core/src/icons'
 import type { NextPage } from 'next'
 import Image from 'next/image'

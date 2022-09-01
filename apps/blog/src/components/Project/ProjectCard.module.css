@@ -116,7 +116,7 @@
 }
 
 .overlay_links {
-	@apply flex justify-center items-center gap-12;
+	@apply flex justify-center items-center gap-4;
 	@apply mt-8;
 }
 .overlay_link {

@@ -14,6 +14,7 @@ import {
 import { FaLink } from 'react-icons/fa'
 import { FiChevronLeft } from 'react-icons/fi'
 import { SiGithub } from 'react-icons/si'
+import { AnyLink } from '../Link'
 import { IProject, ProjectDetailProps } from './Project.types'
 import styles from './ProjectCard.module.css'
 
@@ -156,17 +157,12 @@ const DetailOverlay = (props: ProjectDetailProps) => {
 										<div className={styles.overlay_techstack_techs}>
 											{project.stacks.slice(0, 6).map((stack) => {
 												return (
-													<a
-														key={stack.name}
-														href={stack.url}
-														target='_blank'
-														rel='noreferrer'
-													>
+													<AnyLink key={stack.name} href={stack.url || ''}>
 														<div className={styles.overlay_techstack_tech}>
 															<span>{stack.icon}</span>
 															<span>{stack.name}</span>
 														</div>
-													</a>
+													</AnyLink>
 												)
 											})}
 										</div>
@@ -177,27 +173,23 @@ const DetailOverlay = (props: ProjectDetailProps) => {
 							{/* LINKS */}
 							<div className={styles.overlay_links}>
 								{project.projectUrl && (
-									<a
+									<AnyLink
 										href={project.projectUrl}
-										target='_blank'
-										rel='noreferrer'
 										className={styles.overlay_link}
 									>
 										<FaLink className='w-4 h-4' />
 										<p>Website</p>
-									</a>
+									</AnyLink>
 								)}
 
 								{project.githubRepo && (
-									<a
+									<AnyLink
 										href={project.githubRepo}
-										target='_blank'
-										rel='noreferrer'
 										className={styles.overlay_link}
 									>
 										<SiGithub className='w-5 h-5' />
 										<p>GitHub</p>
-									</a>
+									</AnyLink>
 								)}
 							</div>
 						</div>

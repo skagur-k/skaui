@@ -1,12 +1,13 @@
 import Link from 'next/link'
+import { AnyLink } from '../Link'
 import styles from './Footer.module.css'
 
 const Footer = () => {
 	return (
 		<footer className={styles.wrapper}>
-			<Link href='/'>
-				<a className={styles.logo}>SKAGUR.DEV</a>
-			</Link>
+			<AnyLink href='/' className={styles.logo}>
+				SKAGUR.DEV
+			</AnyLink>
 			<h2 className={styles.copyright}>
 				© 2022 Nam Hyuck Kim. All Rights Reserved.
 			</h2>

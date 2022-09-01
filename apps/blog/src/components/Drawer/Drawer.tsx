@@ -1,7 +1,7 @@
 import { Drawer, IconButton } from '@skaui/core'
-import Link from 'next/link'
 import { useState } from 'react'
 import { FiMenu } from 'react-icons/fi'
+import { AnyLink } from '../Link/Link'
 import ThemeSelect from '../ThemeSelect/ThemeSelect'
 import styles from './Drawer.module.css'
 const DrawerTrigger = () => {
@@ -14,9 +14,9 @@ const DrawerTrigger = () => {
 			</IconButton>
 			<Drawer isOpen={isOpen} onClose={() => setOpen(false)}>
 				<div className={styles.drawer_content}>
-					<Link href='/'>
-						<a className={styles.drawer_header}>SKAGUR.DEV</a>
-					</Link>
+					<AnyLink href='/' className={styles.drawer_header}>
+						SKAGUR.DEV
+					</AnyLink>
 					<ThemeSelect />
 				</div>
 			</Drawer>

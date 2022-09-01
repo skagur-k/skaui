@@ -8,8 +8,9 @@ interface ThemeSelectProps {
 }
 
 const ThemeSelect = (props: ThemeSelectProps) => {
+	const [mounted, setMounted] = React.useState(false)
 	const { className } = props
-	const { selectTheme, systemMode } = useTheme()
+	const { selectTheme, systemMode, mode } = useTheme()
 	const toast = useToast()
 
 	function capitalize(text: string) {
@@ -29,12 +30,14 @@ const ThemeSelect = (props: ThemeSelectProps) => {
 		selectTheme(key.toString())
 	}
 
-	return (
+	React.useEffect(() => setMounted(true), [])
+
+	return mounted ? (
 		<Select
 			aria-label='Theme Select'
 			className={clsx(styles.select, className)}
 			onSelectionChange={handleSelect}
-			defaultSelectedKey={'system'}
+			selectedKey={mode}
 		>
 			<Select.Item textValue='System' key='system'>
 				<FiMonitor className='mr-1' /> System
@@ -46,7 +49,7 @@ const ThemeSelect = (props: ThemeSelectProps) => {
 				<FiMoon className='mr-1 ' /> Dark
 			</Select.Item>
 		</Select>
-	)
+	) : null
 }
 
 export default ThemeSelect
