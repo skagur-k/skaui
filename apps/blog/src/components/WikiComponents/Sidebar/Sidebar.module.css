@@ -1,0 +1,33 @@
+.wrapper {
+	@apply hidden lg:flex flex-col;
+	@apply col-span-2;
+	@apply flex-[1_1_auto];
+	@apply w-full;
+	@apply border-r border-[color:var(--accents-3)];
+}
+
+.content {
+	@apply flex flex-col gap-4;
+	@apply px-2;
+}
+
+.heading {
+	@apply flex justify-center text-lg font-black grow-0;
+	@apply py-1 px-2;
+	@apply bg-[color:var(--accents-8)];
+	@apply text-[color:var(--accents-1)];
+}
+
+.list {
+	@apply flex flex-col gap-2;
+	@apply overflow-hidden;
+}
+
+.wiki_items {
+	@apply flex flex-col gap-2;
+}
+
+.wiki_item {
+	@apply py-1 px-2;
+	@apply bg-[color:var(--accents-5)];
+}

@@ -1,7 +1,7 @@
 import { ChevronRightIcon } from '@skaui/core/src/icons'
 import type { NextPage } from 'next'
 import Image from 'next/image'
-import Link from 'next/link'
+import { AnyLink } from '../components/Link'
 import ProjectCard from '../components/Project/ProjectCard'
 import projects from '../data/projects'
 import PageLayout from '../layouts/PageLayout'
@@ -32,25 +32,15 @@ const Home: NextPage = () => {
 						</div>
 					</div>
 					<div className={styles.links}>
-						<Link href='/about'>
-							<a className={styles.link}>Résumé</a>
-						</Link>
-						<a
-							href='https://github.com/skagur-k'
-							rel='noreferrer'
-							target='_blank'
-							className={styles.link}
-						>
+						<AnyLink href='https://github.com/skagur-k' className={styles.link}>
 							GitHub
-						</a>
-						<a
-							href='https://skaui.skagur.dev'
-							rel='noreferrer'
-							target='_blank'
-							className={styles.link}
-						>
+						</AnyLink>
+						<AnyLink href='/wiki' className={styles.link}>
+							Wiki
+						</AnyLink>
+						<AnyLink href='https://skaui.skagur.dev' className={styles.link}>
 							SKA UI
-						</a>
+						</AnyLink>
 					</div>
 
 					<div className={styles.separator} />

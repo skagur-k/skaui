@@ -6,10 +6,25 @@
 }
 
 .wrapper {
+	@apply flex flex-col h-full flex-[1_1_auto];
 	@apply w-full;
 }
 
 .page_wrapper {
 	@apply mt-12;
 	@apply max-w-3xl w-full mx-auto;
+}
+
+.wiki_wrapper {
+	@apply max-w-[1440px] w-full sticky;
+	@apply mt-4 mx-auto;
+	@apply p-4;
+	@apply flex-[1_1_auto];
+	@apply grid grid-cols-12;
+	@apply text-[color:var(--accents-8)];
+}
+
+.wiki_content {
+	@apply col-span-full lg:col-span-8;
+	@apply px-0 lg:px-4;
 }
