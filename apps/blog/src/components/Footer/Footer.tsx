@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import { AnyLink } from '../Link'
 import styles from './Footer.module.css'
 
