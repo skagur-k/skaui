@@ -1,8 +1,9 @@
 import clsx from 'clsx'
-import { motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import { NextSeo } from 'next-seo'
 import React from 'react'
 import { Rightbar, Sidebar } from '../components'
+import { IWikiPages } from '../components/WikiComponents/Wiki.types'
 import styles from './Layout.module.css'
 
 const variants = {
@@ -10,14 +11,15 @@ const variants = {
 	enter: { opacity: 1, x: 0, y: 0 },
 	exit: { opacity: 0, x: 0, y: -20 },
 }
-
-export const WikiLayout = ({
-	children,
-	title,
-}: {
+interface WikiLayoutProps {
 	children: React.ReactElement
-	title?: string
-}) => {
+	title: string
+	pages: IWikiPages
+}
+
+export const WikiLayout = (props: WikiLayoutProps) => {
+	const { children, title, pages } = props
+
 	return (
 		<>
 			<NextSeo title={title} />
@@ -29,7 +31,7 @@ export const WikiLayout = ({
 				transition={{ ease: 'easeInOut', duration: 0.2 }}
 				className={styles.wiki_wrapper}
 			>
-				<Sidebar />
+				<Sidebar pages={pages} />
 				<div className={clsx(styles.wiki_main, 'scrollbar')}>{children}</div>
 				<Rightbar />
 			</motion.div>

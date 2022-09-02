@@ -6,6 +6,13 @@ export const Rightbar = () => {
 		<aside className={clsx(styles.wrapper, 'scrollbar')}>
 			<div className={styles.content}>
 				<ThemeSelect />
+				<div>On This Page (TOC)</div>
+				<div>Back to top</div>
+				<div>tags</div>
+				<div>edit on github</div>
+				<div>date</div>
+				<div>category</div>
+				<div>category</div>
 			</div>
 		</aside>
 	)

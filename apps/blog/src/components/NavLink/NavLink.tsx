@@ -7,9 +7,12 @@ export const NavLink = ({ children, ...props }: NavLinkProps) => {
 	const router = useRouter()
 	let isActive: boolean = false
 
-	if (router.pathname === props.href) {
+	if (router.asPath === props.href) {
 		isActive = true
 	}
+
+	console.log(router.asPath)
+	console.log(props.href)
 
 	return (
 		<Link passHref {...props}>

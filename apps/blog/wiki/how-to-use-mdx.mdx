@@ -1,0 +1,34 @@
+---
+title: 'Markdown Guide'
+date: 'October 1, 2022'
+category: 'Javascript'
+description: 'This is a markdown guide.'
+---
+
+# Using MDX
+
+This article explains how to use MDX files in your project.
+It shows how you can pass props and how to import, define, or pass components. {/* more */}
+See [§ Getting started][start] for how to integrate MDX into your project.
+To understand how the MDX format works, we recommend that you start with
+[§ What is MDX][what].
+
+## Contents
+
+- [How MDX works](#how-mdx-works)
+- [MDX content](#mdx-content)
+  - [Props](#props)
+  - [Components](#components)
+  - [Layout](#layout)
+- [MDX provider](#mdx-provider)
+
+## How MDX works
+
+An integration compiles MDX syntax to JavaScript.
+Say we have an MDX document, `example.mdx`:
+
+```mdx path="input.mdx"
+export const Thing = () => <>World</
+
+>
+```

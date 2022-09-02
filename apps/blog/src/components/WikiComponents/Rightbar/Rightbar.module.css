@@ -2,11 +2,12 @@
 	@apply hidden xl:flex flex-col;
 	@apply col-span-2;
 	@apply w-full;
-	@apply px-2 py-1;
-
+	@apply py-1 pr-0 lg:pr-2 xl:pr-0;
+	@apply pl-4;
 	@apply gap-2;
 	@apply h-[var(--wiki-height)];
 	@apply overflow-y-auto;
+	@apply border-l-[1px] border-[color:var(--accents-2)];
 }
 
 .content {
