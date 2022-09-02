@@ -4,6 +4,8 @@
 	@apply flex flex-col;
 	@apply px-4 lg:px-0;
 	@apply overflow-hidden;
+
+	--wiki-height: calc(100vh - 60px);
 }
 
 .wrapper {
@@ -17,16 +19,18 @@
 }
 
 .wiki_wrapper {
-	@apply max-w-[1440px] w-full;
+	@apply max-w-full w-full;
+	@apply px-0 xl:px-[200px];
 	@apply mx-auto;
+	@apply border-t border-[color:var(--accents-3)];
 	@apply overflow-hidden;
 	@apply grid grid-cols-12 gap-x-2;
 	@apply text-[color:var(--accents-8)];
 }
 
 .wiki_main {
-	@apply col-span-full md:col-span-10 lg:col-span-8;
+	@apply col-span-full lg:col-span-10 xl:col-span-8;
 	@apply p-0 lg:p-12;
 	@apply overflow-auto;
-	@apply h-[calc(100vh-80px)];
+	@apply h-[var(--wiki-height)];
 }

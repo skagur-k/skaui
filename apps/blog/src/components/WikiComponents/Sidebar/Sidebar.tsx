@@ -1,16 +1,16 @@
 import clsx from 'clsx'
+import React from 'react'
 import { AnyLink } from '../../Link'
 import styles from './Sidebar.module.css'
 export const Sidebar = () => {
 	return (
 		<aside className={clsx(styles.wrapper, 'scrollbar')}>
-			<AnyLink href='/wiki' className={styles.heading}>
-				WIKI
-			</AnyLink>
-			<AnyLink href='/wiki' className={styles.category}>
-				Overview
-			</AnyLink>
-			<WikiList />
+			<div className={styles.content}>
+				<AnyLink href='/wiki' className={styles.heading}>
+					WIKI
+				</AnyLink>
+				<WikiList />
+			</div>
 		</aside>
 	)
 }

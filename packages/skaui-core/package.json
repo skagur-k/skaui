@@ -2,8 +2,8 @@
 	"name": "@skaui/core",
 	"version": "1.0.1",
 	"description": "SKA UI - Core",
-	"main": "./dist/cjs/index.js",
-	"module": "./dist/esm/index.ts",
+	"main": "./index.ts",
+	"module": "./index.ts",
 	"files": [
 		"./dist"
 	],

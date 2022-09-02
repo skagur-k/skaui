@@ -6,6 +6,7 @@ import styles from './Header.module.css'
 import { motion } from 'framer-motion'
 const Header = () => {
 	const router = useRouter()
+	const isWiki = router.asPath.startsWith('/wiki')
 
 	return (
 		<header className={styles.wrapper}>
@@ -14,7 +15,7 @@ const Header = () => {
 					SKAGUR.DEV
 				</AnyLink>
 
-				{router.asPath.startsWith('/wiki') && (
+				{isWiki && (
 					<motion.div
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
@@ -26,7 +27,7 @@ const Header = () => {
 				)}
 			</div>
 			<nav className={styles.nav}>
-				<ThemeSelect className='w-[120px]' />
+				{!isWiki && <ThemeSelect className='w-[120px]' />}
 
 				<DrawerTrigger></DrawerTrigger>
 			</nav>

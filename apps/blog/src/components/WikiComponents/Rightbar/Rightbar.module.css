@@ -1,20 +1,21 @@
 .wrapper {
-	@apply hidden lg:flex flex-col;
+	@apply hidden xl:flex flex-col;
 	@apply col-span-2;
 	@apply w-full;
-	@apply px-2;
+	@apply px-2 py-1;
+
 	@apply gap-2;
-	@apply h-[calc(100vh-80px)];
+	@apply h-[var(--wiki-height)];
+	@apply overflow-y-auto;
 }
 
 .content {
 	@apply flex flex-col gap-4;
+	@apply mt-4;
 }
 
 .heading {
 	@apply flex justify-center text-lg font-black grow-0;
-	@apply py-1 px-2;
-	@apply row-span-1;
-	@apply bg-[color:var(--accents-8)];
-	@apply text-[color:var(--accents-1)];
+	@apply px-2;
+	@apply text-[color:var(--accents-8)];
 }

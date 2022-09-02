@@ -5,15 +5,20 @@ import type { AppProps } from 'next/app'
 import defaultseo from '../../next-seo.config'
 import Layout from '../layouts/Layout'
 import '../styles/globals.css'
+import { NextPageWithLayout } from '../types/page'
 
-function MyApp({ Component, pageProps }: AppProps) {
+type AppPropsWithLayout = AppProps & {
+	Component: NextPageWithLayout
+}
+
+const MyApp = ({ Component, pageProps }: AppPropsWithLayout) => {
+	const getLayout = Component.getLayout ?? ((page) => page)
+
 	return (
 		<>
 			<DefaultSeo {...defaultseo} />
 			<ThemeProvider>
-				<Layout>
-					<Component {...pageProps} />
-				</Layout>
+				<Layout>{getLayout(<Component {...pageProps} />)}</Layout>
 			</ThemeProvider>
 		</>
 	)

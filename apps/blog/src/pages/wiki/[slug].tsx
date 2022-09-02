@@ -1,24 +1,38 @@
-import { useRouter } from 'next/router'
-import React from 'react'
-import fs from 'fs'
-import path from 'path'
+import { motion } from 'framer-motion'
 import matter from 'gray-matter'
+import React from 'react'
+import { getSlug } from '../../helpers/getSlug'
+import { WikiLayout } from '../../layouts/WikiLayout'
 
 const WikiPage = ({ frontmatter }: { [key: string]: any }) => {
-	const router = useRouter()
-	const { slug } = router.query
+	const variants = {
+		hidden: { opacity: 0, x: 0, y: 20 },
+		enter: { opacity: 1, x: 0, y: 0 },
+		exit: { opacity: 0, x: 0, y: -20 },
+	}
 
-	return <div>{frontmatter.title}</div>
+	return (
+		<motion.div
+			variants={variants}
+			initial='hidden'
+			animate='enter'
+			exit='exit'
+			transition={{ ease: 'easeInOut', duration: 0.2 }}
+		>
+			{frontmatter.title}
+		</motion.div>
+	)
 }
 
 export default WikiPage
 
 export const getStaticPaths = async () => {
-	const files = fs.readdirSync(path.join('wiki'))
+	const files = getSlug('wiki')
+	console.log(files)
 
 	const paths = files.map((filename) => ({
 		params: {
-			slug: filename.split('.')[0],
+			slug: filename.split('.')[0].replace('wiki/', ''),
 		},
 	}))
 
@@ -31,15 +45,13 @@ interface Props {
 }
 
 export const getStaticProps = async ({ params }: Props) => {
-	console.log(params.slug)
-
-	const mdxWithMeta = fs.readFileSync(
-		path.join('wiki', params.slug.concat('.mdx'))
-	)
-
-	const { data: frontmatter, content } = matter(mdxWithMeta)
+	const { data: frontmatter, content } = matter('mdxWithMeta')
 
 	return {
-		props: { frontmatter },
+		props: { frontmatter, content },
 	}
+}
+
+WikiPage.getLayout = function getLayout(page: React.ReactElement) {
+	return <WikiLayout>{page}</WikiLayout>
 }
