@@ -1,8 +1,8 @@
 import { Badge, useTheme } from '@skaui/core'
-import clsx from 'clsx'
+import clx from 'clsx'
 import { AnimatePresence, motion } from 'framer-motion'
 import Image from 'next/image'
-import React from 'react'
+import { useEffect, useRef, useState } from 'react'
 import {
 	FocusScope,
 	mergeProps,
@@ -19,7 +19,7 @@ import { IProject, ProjectDetailProps } from './Project.types'
 import styles from './ProjectCard.module.css'
 
 const ProjectCard = ({ project }: { project: IProject }) => {
-	const [isOpen, setOpen] = React.useState(false)
+	const [isOpen, setOpen] = useState(false)
 
 	return (
 		<>
@@ -28,10 +28,10 @@ const ProjectCard = ({ project }: { project: IProject }) => {
 				isOpen={isOpen}
 				onClose={() => setOpen(false)}
 			/>
-			<div onClick={() => setOpen(true)} className={clsx(styles.featured)}>
+			<div onClick={() => setOpen(true)} className={clx(styles.featured)}>
 				<div className={styles.featured_details}>
 					<div className={styles.featured_title}>
-						<span className={clsx(styles.featured_title_heading)}>
+						<span className={clx(styles.featured_title_heading)}>
 							{project.name}
 						</span>
 						<div className={styles.featured_title_techs}>
@@ -52,10 +52,10 @@ const ProjectCard = ({ project }: { project: IProject }) => {
 }
 
 export const ProjectDetail = (props: ProjectDetailProps) => {
-	const [isBrowser, setIsBrowser] = React.useState(false)
+	const [isBrowser, setIsBrowser] = useState(false)
 	const { isOpen } = props
 
-	React.useEffect(() => {
+	useEffect(() => {
 		setIsBrowser(typeof window !== 'undefined')
 	}, [])
 
@@ -70,7 +70,7 @@ export const ProjectDetail = (props: ProjectDetailProps) => {
 
 const DetailOverlay = (props: ProjectDetailProps) => {
 	const { project } = props
-	const ref = React.useRef(null)
+	const ref = useRef(null)
 	const { overlayProps, underlayProps } = useOverlay(
 		{
 			...props,

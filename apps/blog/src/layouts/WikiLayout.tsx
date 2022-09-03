@@ -1,9 +1,10 @@
-import clsx from 'clsx'
+import clx from 'clsx'
 import { AnimatePresence, motion } from 'framer-motion'
 import { NextSeo } from 'next-seo'
-import React from 'react'
+import { useRouter } from 'next/router'
+import { useRef } from 'react'
 import { Rightbar, Sidebar } from '../components'
-import { IWikiPages } from '../components/WikiComponents/Wiki.types'
+import { IWikiPage, IWikiPages } from '../components/WikiComponents/Wiki.types'
 import styles from './Layout.module.css'
 
 const variants = {
@@ -15,11 +16,24 @@ interface WikiLayoutProps {
 	children: React.ReactElement
 	title: string
 	pages: IWikiPages
+	frontmatter: {
+		[key: string]: any
+	}
+	content: any
 }
 
 export const WikiLayout = (props: WikiLayoutProps) => {
-	const { children, title, pages } = props
+	const { children, title, pages, frontmatter, content } = props
+	const router = useRouter()
 
+	const isIndex = router.asPath === '/wiki'
+	const ref = useRef<HTMLDivElement>(null)
+
+	function handleClick() {
+		ref.current?.scrollTo(0, 0)
+	}
+
+	const page = { frontmatter, content }
 	return (
 		<>
 			<NextSeo title={title} />
@@ -32,8 +46,12 @@ export const WikiLayout = (props: WikiLayoutProps) => {
 				className={styles.wiki_wrapper}
 			>
 				<Sidebar pages={pages} />
-				<div className={clsx(styles.wiki_main, 'scrollbar')}>{children}</div>
-				<Rightbar />
+				<div ref={ref} className={clx(styles.wiki_main, 'scrollbar')}>
+					<div>{children}</div>
+				</div>
+				<AnimatePresence exitBeforeEnter>
+					{!isIndex && <Rightbar scrollToTop={handleClick} page={page} />}
+				</AnimatePresence>
 			</motion.div>
 		</>
 	)

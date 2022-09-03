@@ -37,6 +37,7 @@ importers:
       '@types/react-dom': 18.0.6
       autoprefixer: ^10.4.7
       clsx: ^1.2.1
+      dayjs: ^1.11.5
       eslint: 8.23.0
       eslint-config-next: 12.2.5
       eslint-config-skaui: workspace:*
@@ -52,12 +53,14 @@ importers:
       react-aria: ^3.18.0
       react-dom: 18.2.0
       react-icons: ^4.4.0
+      reading-time: ^1.5.0
       tailwindcss: ^3.1.8
       tsconfig: workspace:*
       typescript: 4.8.2
     dependencies:
       '@skaui/core': link:../../packages/skaui-core
       '@types/glob': 8.0.0
+      dayjs: 1.11.5
       framer-motion: 6.5.1_biqbaboplfbrettd7655fr4n2y
       glob: 8.0.3
       gray-matter: 4.0.3
@@ -67,6 +70,7 @@ importers:
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       react-icons: 4.4.0_react@18.2.0
+      reading-time: 1.5.0
     devDependencies:
       '@types/node': 18.7.14
       '@types/react': 18.0.17
@@ -3607,6 +3611,10 @@ packages:
   /dayjs/1.11.4:
     resolution: {integrity: sha512-Zj/lPM5hOvQ1Bf7uAvewDaUcsJoI6JmNqmHhHl3nyumwe0XHwt8sWdOVAPACJzCebL8gQCi+K49w7iKWnGwX9g==}
     dev: true
+
+  /dayjs/1.11.5:
+    resolution: {integrity: sha512-CAdX5Q3YW3Gclyo5Vpqkgpj8fSdLQcRuzfX6mC6Phy0nfJ0eGYOeS7m4mt2plDWLAtA4TqTakvbboHvUxfe4iA==}
+    dev: false
 
   /debug/2.6.9:
     resolution: {integrity: sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==}
@@ -7569,6 +7577,10 @@ packages:
     dependencies:
       picomatch: 2.3.1
     dev: true
+
+  /reading-time/1.5.0:
+    resolution: {integrity: sha512-onYyVhBNr4CmAxFsKS7bz+uTLRakypIe4R+5A824vBSkQy/hB3fZepoVEf8OVAxzLvK+H/jm9TzpI3ETSm64Kg==}
+    dev: false
 
   /rechoir/0.8.0:
     resolution: {integrity: sha512-/vxpCXddiX8NGfGO/mTafwjq4aFa/71pvamip0++IQk3zG8cbCj0fifNPrjjF1XMXUne91jL9OoxmdykoEtifQ==}

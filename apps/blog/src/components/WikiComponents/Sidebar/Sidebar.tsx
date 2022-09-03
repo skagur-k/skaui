@@ -1,11 +1,13 @@
+import { Badge } from '@skaui/core'
 import { ChevronRightIcon } from '@skaui/core/src/icons'
-import clsx from 'clsx'
+import clx from 'clsx'
 import { AnimatePresence, motion } from 'framer-motion'
+import { useRouter } from 'next/router'
 import { group } from 'radash'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { AnyLink } from '../../Link'
 import { NavLink } from '../../NavLink'
-import { IWikiPages } from '../Wiki.types'
+import { IWikiPage, IWikiPages } from '../Wiki.types'
 import styles from './Sidebar.module.css'
 interface SidebarProps {
 	pages: IWikiPages
@@ -13,19 +15,22 @@ interface SidebarProps {
 
 export const Sidebar = ({ pages }: SidebarProps) => {
 	return (
-		<aside className={clsx(styles.wrapper, 'scrollbar')}>
+		<aside className={clx(styles.wrapper, 'scrollbar')}>
 			<div className={styles.content}>
-				<div className={'flex justify-evenly'}>
-					<AnyLink href='/wiki' className={styles.heading}>
-						WIKI
-					</AnyLink>
-					<AnyLink href='/wiki' className={styles.heading}>
-						Blog
-					</AnyLink>
-					<AnyLink href='/wiki' className={styles.heading}>
-						Snippets
-					</AnyLink>
+				<div className={'flex flex-col gap-4'}>
+					<NavLink href='/wiki/overview'>
+						{(isActive: boolean) => (
+							<a
+								className={clx(styles.heading, [
+									isActive && styles.heading_active,
+								])}
+							>
+								Overview
+							</a>
+						)}
+					</NavLink>
 				</div>
+
 				<WikiList pages={pages} />
 			</div>
 		</aside>
@@ -33,13 +38,56 @@ export const Sidebar = ({ pages }: SidebarProps) => {
 }
 
 const WikiList = ({ pages }: { pages: IWikiPages }) => {
-	const grouped = group(pages, (page) => page.frontmatter.category)
+	const filteredPages = pages.filter(
+		(page) =>
+			!page.slug.match('/wiki/overview') &&
+			page.frontmatter.category !== undefined
+	)
+
+	const uncategorizedPages = pages.filter(
+		(page) =>
+			!page.slug.match('/wiki/overview') &&
+			page.frontmatter.category === undefined
+	)
+
+	const grouped = group(
+		filteredPages,
+		(page) => page.frontmatter.category || 'No Category'
+	)
+
+	const [selected, setSelected] = useState<number | null>(null)
+
+	const handleToggle = (idx: number) => {
+		if (idx === selected) {
+			return setSelected(null)
+		}
+
+		setSelected(idx)
+	}
+
+	const router = useRouter()
+
+	useEffect(() => {
+		if (router.asPath === '/wiki/overview') setSelected(null)
+	}, [router.asPath])
 
 	return (
-		<div className={clsx(styles.list, 'scrollbar')}>
+		<div className={clx(styles.list, 'scrollbar')}>
 			<ul className={styles.wiki_categories}>
-				{Object.keys(grouped).map((key) => {
-					return <Category heading={key} pages={grouped[key]} />
+				{Object.keys(grouped).map((key, idx) => {
+					return (
+						<Category
+							heading={key}
+							key={key}
+							onToggle={() => handleToggle(idx)}
+							pages={grouped[key]}
+							open={selected === idx}
+						/>
+					)
+				})}
+				<div className='w-full border-b-[1px] border-[color:var(--accents-2)]' />
+				{uncategorizedPages.map((page) => {
+					return <WikiLink page={page} key={page.frontmatter.title} />
 				})}
 			</ul>
 		</div>
@@ -49,61 +97,71 @@ const WikiList = ({ pages }: { pages: IWikiPages }) => {
 interface CategoryProps {
 	heading: string
 	pages: IWikiPages
+	open: boolean
+	onToggle: () => void
 }
 
 const Category = (props: CategoryProps) => {
-	const { heading, pages } = props
+	const { heading, pages, open, onToggle } = props
 	const [isActive, setActive] = useState(false)
-	const [isOpen, setOpen] = useState(false)
-
-	console.log(heading + ':' + isActive)
 
 	function handleToggle() {
-		setOpen((isOpen) => !isOpen)
+		onToggle()
 	}
+
 	return (
 		<div
-			className={clsx(styles.wiki_category_wrapper, [
-				isOpen && styles.wiki_category_open,
+			className={clx(styles.wiki_category_wrapper, [
+				open && styles.wiki_category_open,
 				isActive && styles.wiki_category_active,
 			])}
 		>
 			<h1 onClick={handleToggle} className={styles.wiki_category_heading}>
-				{heading}
+				<div className={styles.wik_category_heading_text_and_badge}>
+					<span className={styles.wik_category_heading_text}>{heading}</span>
+					<Badge size='sm' className={styles.wik_category_heading_badge}>
+						{pages.length} Posts
+					</Badge>
+				</div>
 				<ChevronRightIcon
-					className={clsx(styles.wiki_category_heading_chevron, [])}
+					className={clx(styles.wiki_category_heading_chevron, [])}
 				/>
 			</h1>
 			<AnimatePresence exitBeforeEnter>
-				{isOpen && (
+				{open && (
 					<motion.div
 						key={heading}
-						initial={{ height: 0 }}
-						animate={{ height: 'auto' }}
-						exit={{ height: 0 }}
+						initial={{ opacity: 0, height: 0 }}
+						animate={{ opacity: 1, height: 'auto' }}
+						exit={{ opacity: 0, height: 0 }}
 						transition={{ ease: 'linear', duration: 0.1 }}
 						style={{ overflow: 'hidden' }}
 						className={styles.wiki_category}
 					>
 						{pages.map((page) => (
-							<NavLink href={page.slug}>
-								{(isActive: boolean) => {
-									setActive(isActive)
-									return (
-										<a
-											className={clsx(styles.wiki_link, [
-												isActive && styles.wiki_link_active,
-											])}
-										>
-											{page.frontmatter.title}
-										</a>
-									)
-								}}
-							</NavLink>
+							<WikiLink page={page} />
 						))}
 					</motion.div>
 				)}
 			</AnimatePresence>
 		</div>
+	)
+}
+
+const WikiLink = ({ page }: { page: IWikiPage }) => {
+	return (
+		<NavLink href={page.slug} key={page.slug}>
+			{(isActive: boolean) => {
+				return (
+					<a
+						className={clx(styles.wiki_link, [
+							isActive && styles.wiki_link_active,
+						])}
+					>
+						{page.frontmatter.title || 'Untitled'}
+					</a>
+				)
+			}}
+		</NavLink>
 	)
 }

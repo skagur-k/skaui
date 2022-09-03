@@ -27,8 +27,7 @@ const Header = () => {
 				)}
 			</div>
 			<nav className={styles.nav}>
-				{!isWiki && <ThemeSelect className='w-[120px]' />}
-
+				<ThemeSelect className='w-[120px]' />
 				<DrawerTrigger></DrawerTrigger>
 			</nav>
 		</header>

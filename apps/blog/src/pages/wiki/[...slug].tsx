@@ -1,11 +1,11 @@
 import { motion } from 'framer-motion'
+import fs from 'fs'
 import matter from 'gray-matter'
-import React from 'react'
+import path from 'path'
+import readingTime from 'reading-time'
 import getFileBySlug from '../../helpers/getFileBySlug'
 import { getSlug } from '../../helpers/getSlug'
 import { WikiLayout } from '../../layouts/WikiLayout'
-import path from 'path'
-import fs from 'fs'
 
 interface PageProps {
 	frontmatter: {
@@ -21,7 +21,7 @@ const WikiPage = ({ frontmatter, content }: PageProps) => {
 		exit: { opacity: 0, x: 0, y: -20 },
 	}
 
-	React.useEffect(() => {}, [content])
+	const readtime = readingTime(content)
 
 	return (
 		<motion.div
@@ -73,10 +73,12 @@ export const getStaticProps = async ({ params }: Props) => {
 
 	const pages = files.map((filename) => {
 		let mdxWithMeta
+		let filestats
 		try {
 			mdxWithMeta = fs.readFileSync(path.join(filename))
 		} catch (err) {
 			mdxWithMeta = ''
+			filestats = null
 		}
 
 		const { data: frontmatter } = matter(mdxWithMeta)

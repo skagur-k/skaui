@@ -5,7 +5,6 @@ module.exports = {
 	},
 	extends: [
 		'./eslint-base',
-		'plugin:tailwindcss',
 		'plugin:import/recommended',
 		'plugin:import/typescript',
 	],

@@ -1,6 +1,6 @@
 export type IWikiPages = IWikiPage[]
 
-interface IWikiPage {
+export interface IWikiPage {
 	frontmatter: { [key: string]: any }
 	slug: string
 }

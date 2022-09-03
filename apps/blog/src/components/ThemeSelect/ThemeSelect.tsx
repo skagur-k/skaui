@@ -1,6 +1,6 @@
 import { Select, useTheme, useToast } from '@skaui/core'
-import clsx from 'clsx'
-import React from 'react'
+import clx from 'clsx'
+import { useEffect, useState } from 'react'
 import { FiMonitor, FiMoon, FiSun } from 'react-icons/fi'
 import styles from './ThemeSelect.module.css'
 interface ThemeSelectProps {
@@ -8,7 +8,7 @@ interface ThemeSelectProps {
 }
 
 const ThemeSelect = (props: ThemeSelectProps) => {
-	const [mounted, setMounted] = React.useState(false)
+	const [mounted, setMounted] = useState(false)
 	const { className } = props
 	const { selectTheme, systemMode, mode } = useTheme()
 	const toast = useToast()
@@ -30,12 +30,12 @@ const ThemeSelect = (props: ThemeSelectProps) => {
 		selectTheme(key.toString())
 	}
 
-	React.useEffect(() => setMounted(true), [])
+	useEffect(() => setMounted(true), [])
 
 	return mounted ? (
 		<Select
 			aria-label='Theme Select'
-			className={clsx(styles.select, className)}
+			className={clx(styles.select, className)}
 			onSelectionChange={handleSelect}
 			selectedKey={mode}
 		>
