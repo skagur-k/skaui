@@ -44,9 +44,14 @@
 	@apply flex flex-col gap-4;
 }
 
+.wiki_category_info {
+	@apply p-2 flex items-center justify-end;
+	@apply gap-2;
+}
+
 .wiki_category_heading {
 	@apply flex items-center justify-between;
-	@apply text-[color:var(--accents-4)];
+	@apply text-[color:var(--accents-6)];
 	@apply cursor-pointer;
 	@apply py-1 pr-4 pl-2;
 	@apply text-sm;
@@ -54,6 +59,10 @@
 
 .wik_category_heading_text_and_badge {
 	@apply flex items-center gap-2;
+}
+
+.wiki_category_heading_text {
+	@apply font-bold;
 }
 
 .wiki_category_heading_chevron {
@@ -64,11 +73,13 @@
 .wiki_category {
 	@apply flex flex-col gap-2;
 	@apply pl-2 py-2;
+	@apply border-b border-[color:var(--accents-2)];
 }
 
 .wiki_link {
+	@apply flex items-center justify-between;
 	@apply text-sm;
-	@apply py-1 pl-2;
+	@apply py-1 px-2;
 	@apply transition-all duration-200;
 	@apply hover:bg-[color:var(--accents-2)];
 

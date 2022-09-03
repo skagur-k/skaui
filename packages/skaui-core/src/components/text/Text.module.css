@@ -58,9 +58,11 @@
 }
 
 .text_inlinecode {
-	@apply bg-neutral-200 text-neutral-800 px-1 mx-2;
-	@apply rounded-sm font-normal;
-	@apply tracking-widest;
+	@apply bg-[color:var(--accents-8)] text-[color:var(--accents-2)];
+	@apply rounded-sm;
+	@apply px-1 mx-1;
+	@apply tracking-wide;
+	@apply align-top;
 }
 
 .text_codeblock {

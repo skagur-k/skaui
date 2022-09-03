@@ -43,15 +43,24 @@
 }
 
 .action_heading {
-	@apply flex gap-3;
-	@apply px-2 py-1;
+	@apply flex gap-3 w-full;
+	@apply pr-2 py-2;
 	@apply text-sm;
 	@apply items-center;
+}
+
+.action_heading_clickable {
 	@apply cursor-pointer;
+	@apply hover:bg-[color:var(--accents-2)];
 }
 
 .action_icon {
 	@apply w-5 h-5;
+}
+
+.action_toc {
+	@apply flex flex-col gap-2;
+	@apply px-2;
 }
 
 .action_tags {

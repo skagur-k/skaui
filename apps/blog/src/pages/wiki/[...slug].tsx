@@ -1,38 +1,42 @@
 import { motion } from 'framer-motion'
-import fs from 'fs'
-import matter from 'gray-matter'
+import { bundleMDX } from 'mdx-bundler'
+import { getMDXComponent } from 'mdx-bundler/client'
 import path from 'path'
-import readingTime from 'reading-time'
+import { useMemo } from 'react'
+import { getAllFiles } from '../../helpers/getAllFiles'
 import getFileBySlug from '../../helpers/getFileBySlug'
 import { getSlug } from '../../helpers/getSlug'
 import { WikiLayout } from '../../layouts/WikiLayout'
-
+import remarkGfm from 'remark-gfm'
+import remarkToc from 'remark-toc'
+import rehypePrism from 'rehype-prism-plus'
+import { MDXComponents } from '../../components/WikiComponents/MDXComponents'
 interface PageProps {
 	frontmatter: {
 		[key: string]: any
 	}
-	content: any
+	code: any
 }
 
-const WikiPage = ({ frontmatter, content }: PageProps) => {
+const WikiPage = ({ frontmatter, code }: PageProps) => {
+	const MDXComponent = useMemo(() => getMDXComponent(code), [code])
 	const variants = {
 		hidden: { opacity: 0, x: 0, y: 20 },
 		enter: { opacity: 1, x: 0, y: 0 },
 		exit: { opacity: 0, x: 0, y: -20 },
 	}
 
-	const readtime = readingTime(content)
-
 	return (
 		<motion.div
-			key={content}
+			key={code}
 			variants={variants}
 			initial='hidden'
 			animate='enter'
 			exit='exit'
 			transition={{ ease: 'easeInOut', duration: 0.2 }}
+			className='flex flex-col gap-4'
 		>
-			{content}
+			<MDXComponent components={MDXComponents} />
 		</motion.div>
 	)
 }
@@ -59,40 +63,30 @@ interface Props {
 }
 
 export const getStaticProps = async ({ params }: Props) => {
-	// Frontmatter & Content for the current route
 	const { slug } = params
 
-	const mdxWithMeta = getFileBySlug(
+	const pages = getAllFiles('wiki')
+
+	const mdxSource = getFileBySlug(
 		path.join('wiki', slug.join('/').concat('.mdx'))
 	)
 
-	const { data: frontmatter, content } = matter(mdxWithMeta)
+	const { code, frontmatter } = await bundleMDX({
+		source: mdxSource.toString(),
+		mdxOptions(options, frontmatter) {
+			options.remarkPlugins = [
+				...(options.remarkPlugins ?? []),
+				remarkGfm,
+				remarkToc,
+			]
+			options.rehypePlugins = [...(options.rehypePlugins ?? []), rehypePrism]
 
-	//=========================Pages prop for sidebar
-	const files = getSlug(path.join('wiki'))
-
-	const pages = files.map((filename) => {
-		let mdxWithMeta
-		let filestats
-		try {
-			mdxWithMeta = fs.readFileSync(path.join(filename))
-		} catch (err) {
-			mdxWithMeta = ''
-			filestats = null
-		}
-
-		const { data: frontmatter } = matter(mdxWithMeta)
-		const slug = `/${filename.split('.')[0]}`
-
-		return {
-			frontmatter,
-			slug,
-		}
+			return options
+		},
 	})
-	//==========================
 
 	return {
-		props: { frontmatter, content, pages },
+		props: { frontmatter, code, pages },
 	}
 }
 

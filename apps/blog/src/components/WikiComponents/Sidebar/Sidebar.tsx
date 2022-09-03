@@ -1,11 +1,11 @@
-import { Badge } from '@skaui/core'
+import { Badge, Tag } from '@skaui/core'
 import { ChevronRightIcon } from '@skaui/core/src/icons'
 import clx from 'clsx'
+import dayjs from 'dayjs'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useRouter } from 'next/router'
 import { group } from 'radash'
 import { useEffect, useState } from 'react'
-import { AnyLink } from '../../Link'
 import { NavLink } from '../../NavLink'
 import { IWikiPage, IWikiPages } from '../Wiki.types'
 import styles from './Sidebar.module.css'
@@ -74,20 +74,18 @@ const WikiList = ({ pages }: { pages: IWikiPages }) => {
 	return (
 		<div className={clx(styles.list, 'scrollbar')}>
 			<ul className={styles.wiki_categories}>
-				{Object.keys(grouped).map((key, idx) => {
-					return (
-						<Category
-							heading={key}
-							key={key}
-							onToggle={() => handleToggle(idx)}
-							pages={grouped[key]}
-							open={selected === idx}
-						/>
-					)
-				})}
-				<div className='w-full border-b-[1px] border-[color:var(--accents-2)]' />
-				{uncategorizedPages.map((page) => {
-					return <WikiLink page={page} key={page.frontmatter.title} />
+				{Object.keys(grouped).map((key, idx) => (
+					<Category
+						heading={key}
+						key={idx}
+						onToggle={() => handleToggle(idx)}
+						pages={grouped[key]}
+						open={selected === idx}
+					/>
+				))}
+				{/* <div className='w-full border-b-[1px] border-[color:var(--accents-2)]' /> */}
+				{uncategorizedPages.map((page, idx) => {
+					return <WikiLink page={page} key={idx} />
 				})}
 			</ul>
 		</div>
@@ -119,14 +117,12 @@ const Category = (props: CategoryProps) => {
 			<h1 onClick={handleToggle} className={styles.wiki_category_heading}>
 				<div className={styles.wik_category_heading_text_and_badge}>
 					<span className={styles.wik_category_heading_text}>{heading}</span>
-					<Badge size='sm' className={styles.wik_category_heading_badge}>
-						{pages.length} Posts
-					</Badge>
 				</div>
 				<ChevronRightIcon
 					className={clx(styles.wiki_category_heading_chevron, [])}
 				/>
 			</h1>
+
 			<AnimatePresence exitBeforeEnter>
 				{open && (
 					<motion.div
@@ -139,8 +135,16 @@ const Category = (props: CategoryProps) => {
 						className={styles.wiki_category}
 					>
 						{pages.map((page) => (
-							<WikiLink page={page} />
+							<WikiLink key={page.slug} page={page} />
 						))}
+						<div className={styles.wiki_category_info}>
+							<Badge size='sm' className={styles.wik_category_heading_badge}>
+								Overview
+							</Badge>
+							<Badge size='sm' className={styles.wik_category_heading_badge}>
+								{pages.length} Posts
+							</Badge>
+						</div>
 					</motion.div>
 				)}
 			</AnimatePresence>
@@ -149,6 +153,8 @@ const Category = (props: CategoryProps) => {
 }
 
 const WikiLink = ({ page }: { page: IWikiPage }) => {
+	const isNew = dayjs(dayjs()).diff(page.frontmatter.date, 'day') < 10
+
 	return (
 		<NavLink href={page.slug} key={page.slug}>
 			{(isActive: boolean) => {
@@ -159,6 +165,11 @@ const WikiLink = ({ page }: { page: IWikiPage }) => {
 						])}
 					>
 						{page.frontmatter.title || 'Untitled'}
+						{isNew && (
+							<Tag className={'text-xs px-1 py-0'} id={'recent'}>
+								New
+							</Tag>
+						)}
 					</a>
 				)
 			}}

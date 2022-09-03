@@ -1,0 +1,28 @@
+/* Headings */
+.heading {
+}
+
+.h1 {
+	@apply text-4xl font-semibold;
+	@apply mb-4 py-2;
+	@apply border-b-[1px] border-[color:var(--accents-2)];
+}
+.h2 {
+	@apply text-3xl font-semibold;
+	@apply mb-4 py-2;
+	@apply border-b-[1px] border-[color:var(--accents-2)];
+}
+.h3 {
+	@apply text-2xl font-semibold;
+	@apply mb-4 py-2;
+	@apply border-b-[1px] border-[color:var(--accents-2)];
+}
+.h4 {
+	@apply text-xl font-semibold;
+	@apply mb-4 py-2;
+	@apply border-b-[1px] border-[color:var(--accents-2)];
+}
+
+.p {
+	@apply text-base leading-6;
+}

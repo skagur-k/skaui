@@ -3,6 +3,7 @@ import fs from 'fs'
 import matter from 'gray-matter'
 import path from 'path'
 import { IWikiPages } from '../../components/WikiComponents/Wiki.types'
+import { getAllFiles } from '../../helpers/getAllFiles'
 import { getSlug } from '../../helpers/getSlug'
 import { WikiLayout } from '../../layouts/WikiLayout'
 
@@ -34,25 +35,7 @@ const WikiPage = (props: WikiPageProps) => {
 export default WikiPage
 
 export const getStaticProps = async () => {
-	const files = getSlug(path.join('wiki'))
-
-	const pages = files.map((filename) => {
-		let mdxWithMeta
-		try {
-			mdxWithMeta = fs.readFileSync(path.join(filename))
-		} catch (err) {
-			mdxWithMeta = ''
-		}
-
-		const { data: frontmatter } = matter(mdxWithMeta)
-		const slug = `/${filename.split('.')[0]}`
-
-		return {
-			frontmatter,
-			slug,
-		}
-	})
-
+	const pages = getAllFiles('wiki')
 	return {
 		props: { pages },
 	}

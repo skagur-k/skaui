@@ -7,6 +7,7 @@ module.exports = {
 		'./eslint-base',
 		'plugin:import/recommended',
 		'plugin:import/typescript',
+		'plugin:mdx/recommended',
 	],
 	plugins: ['@typescript-eslint', 'import'],
 	settings: {

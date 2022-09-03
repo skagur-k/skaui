@@ -19,11 +19,11 @@ interface WikiLayoutProps {
 	frontmatter: {
 		[key: string]: any
 	}
-	content: any
+	code: any
 }
 
 export const WikiLayout = (props: WikiLayoutProps) => {
-	const { children, title, pages, frontmatter, content } = props
+	const { children, title, pages, frontmatter, code } = props
 	const router = useRouter()
 
 	const isIndex = router.asPath === '/wiki'
@@ -33,7 +33,7 @@ export const WikiLayout = (props: WikiLayoutProps) => {
 		ref.current?.scrollTo(0, 0)
 	}
 
-	const page = { frontmatter, content }
+	const page = { frontmatter, code }
 	return (
 		<>
 			<NextSeo title={title} />
