@@ -6,7 +6,9 @@
 	@apply flex items-center;
 	.breadcrumbs_item_heading {
 		@apply text-base;
-		@apply text-neutral-400;
+		@apply text-[color:var(--accents-5)];
+		@apply hover:text-[color:var(--accents-8)];
+		@apply transition-colors duration-200;
 		@apply underline underline-offset-1;
 		@apply cursor-pointer;
 	}

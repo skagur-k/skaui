@@ -57,7 +57,7 @@
 	@apply text-sm;
 }
 
-.wik_category_heading_text_and_badge {
+.wiki_category_heading_text_and_badge {
 	@apply flex items-center gap-2;
 }
 

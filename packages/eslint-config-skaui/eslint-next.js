@@ -35,5 +35,6 @@ module.exports = {
 
 		// next
 		'@next/next/no-html-link-for-pages': 'off',
+		'import/no-named-as-default': 0,
 	},
 }

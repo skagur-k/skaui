@@ -1,26 +1,45 @@
 /* Headings */
+
+
 .heading {
+	@apply relative;
+	@apply mt-4 mb-4 py-1;
+	@apply border-b-[1px] border-[color:var(--accents-2)];
+	@apply cursor-pointer;
+	/* @apply hover:bg-[color:var(--accents-2)]; */
+	@apply text-[color:var(--accents-7)];
+	@apply hover:border-[color:var(--accents-8)];
+	@apply hover:text-[color:var(--accents-8)];
+	@apply flex items-center;
+	@apply transition-colors duration-200;
+}
+
+.heading_content {
 }
 
 .h1 {
-	@apply text-4xl font-semibold;
-	@apply mb-4 py-2;
-	@apply border-b-[1px] border-[color:var(--accents-2)];
+	@apply text-4xl;
 }
 .h2 {
-	@apply text-3xl font-semibold;
-	@apply mb-4 py-2;
-	@apply border-b-[1px] border-[color:var(--accents-2)];
+	@apply text-3xl;
 }
 .h3 {
-	@apply text-2xl font-semibold;
-	@apply mb-4 py-2;
-	@apply border-b-[1px] border-[color:var(--accents-2)];
+	@apply text-2xl;
 }
 .h4 {
-	@apply text-xl font-semibold;
-	@apply mb-4 py-2;
-	@apply border-b-[1px] border-[color:var(--accents-2)];
+	@apply text-xl;
+}
+
+.anchor {
+	@apply absolute -left-10;
+	@apply w-6 h-6;
+	@apply stroke-[3px];
+	@apply text-transparent;
+	@apply transition-all duration-200;
+}
+
+.anchor_hover {
+	@apply grayscale;
 }
 
 .p {

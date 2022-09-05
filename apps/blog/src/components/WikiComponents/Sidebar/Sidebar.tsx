@@ -41,6 +41,9 @@ const WikiList = ({ pages }: { pages: IWikiPages }) => {
 	const filteredPages = pages.filter(
 		(page) =>
 			!page.slug.match('/wiki/overview') &&
+			!page.slug.match(
+				`/wiki/${page.frontmatter.category}/overview`.toLowerCase()
+			) &&
 			page.frontmatter.category !== undefined
 	)
 
@@ -102,9 +105,13 @@ interface CategoryProps {
 const Category = (props: CategoryProps) => {
 	const { heading, pages, open, onToggle } = props
 	const [isActive, setActive] = useState(false)
-
 	function handleToggle() {
 		onToggle()
+	}
+	const router = useRouter()
+
+	function handleClickBadge(slug: string) {
+		router.push(`/wiki/${slug.toLowerCase()}/overview`)
 	}
 
 	return (
@@ -138,10 +145,14 @@ const Category = (props: CategoryProps) => {
 							<WikiLink key={page.slug} page={page} />
 						))}
 						<div className={styles.wiki_category_info}>
-							<Badge size='sm' className={styles.wik_category_heading_badge}>
+							<Badge
+								onClick={() => handleClickBadge(heading)}
+								size='sm'
+								className={styles.wik_category_heading_badge}
+							>
 								Overview
 							</Badge>
-							<Badge size='sm' className={styles.wik_category_heading_badge}>
+							<Badge size='sm' className={styles.wiki_category_heading_badge}>
 								{pages.length} Posts
 							</Badge>
 						</div>

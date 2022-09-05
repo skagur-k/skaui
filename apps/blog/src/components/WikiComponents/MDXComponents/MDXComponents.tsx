@@ -1,64 +1,79 @@
-import { InlineCode, Note, UL, LI, Link, CodeBlock, Snippet } from '@skaui/core'
+import {
+	Avatar,
+	InlineCode,
+	LI,
+	Link,
+	Note,
+	Snippet,
+	UL,
+	useToast,
+} from '@skaui/core'
 import clx from 'clsx'
+import { useRouter } from 'next/router'
+import { useMemo } from 'react'
+import { useHover } from 'react-aria'
+import { FiLink } from 'react-icons/fi'
+import getCurrentUrl from '../../../helpers/getCurrentUrl'
+import textToSlug from '../../../helpers/textToSlug'
 import styles from './MDXComponents.module.css'
 
 interface ComponentProps {
 	[key: string]: any
 }
 
-function textToSlug(str: string) {
-	return str
-		.toLowerCase()
-		.trim()
-		.replace(/[^\w\s-]/g, '')
-		.replace(/[\s_-]+/g, '-')
-		.replace(/^-+|-+$/g, '')
+
+const Heading = (props: ComponentProps) => {
+	const { as: Comp } = props
+	const { hoverProps, isHovered } = useHover(props)
+	const toast = useToast()
+
+	const level = Comp.charAt(1)
+
+	function handleClickAnchor(title: string) {
+		const link = getCurrentUrl() + '#' + textToSlug(props.children)
+		toast(`Link to [ ${title} ] was copied to clipboard.`, { title: `Wiki` })
+		navigator.clipboard.writeText(link)
+	}
+
+	return (
+		<Comp
+			{...props}
+			{...hoverProps}
+			data-toc={level}
+			className={clx(styles[Comp], styles.heading)}
+		>
+			<FiLink
+				onClick={() => handleClickAnchor(props.children)}
+				className={clx(styles.anchor, [isHovered && styles.anchor_hover])}
+			/>
+			<span
+				onClick={() => (location.href = `#${textToSlug(props.children)}`)}
+				className={styles.heading_content}
+			>
+				{props.children}
+			</span>
+		</Comp>
+	)
 }
 
 const h1 = (props: ComponentProps) => {
-	console.log(textToSlug(props.children))
-
-	return (
-		<h1
-			{...props}
-			data-id={textToSlug(props.children)}
-			className={clx(styles.h1, styles.heading)}
-		></h1>
-	)
+	return <Heading as='h1' {...props} />
 }
 
 const h2 = (props: ComponentProps) => {
-	return (
-		<h2
-			{...props}
-			data-id={textToSlug(props.children)}
-			className={clx(styles.h2, styles.heading)}
-		></h2>
-	)
+	return <Heading as='h2' {...props} />
 }
 
 const h3 = (props: ComponentProps) => {
-	return (
-		<h3
-			{...props}
-			data-id={textToSlug(props.children)}
-			className={clx(styles.h3, styles.heading)}
-		></h3>
-	)
+	return <Heading as='h3' {...props} />
 }
 
 const h4 = (props: ComponentProps) => {
-	return (
-		<h4
-			{...props}
-			data-id={textToSlug(props.children)}
-			className={clx(styles.h4, styles.heading)}
-		></h4>
-	)
+	return <Heading as='h4' {...props} />
 }
 
 const p = (props: ComponentProps) => {
-	return <p {...props} className={clx(styles.p, styles.heading)}></p>
+	return <p {...props} className={clx(styles.p)}></p>
 }
 
 const blockquote = (props: ComponentProps) => {

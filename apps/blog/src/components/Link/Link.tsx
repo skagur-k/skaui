@@ -18,8 +18,9 @@ export const AnyLink = (props: LinkProps) => {
 		)
 	}
 
-	return (
+	return href ? (
 		<a
+			{...props}
 			target='_blank'
 			rel='noopener noreferrer'
 			href={href.toString() || undefined}
@@ -27,5 +28,7 @@ export const AnyLink = (props: LinkProps) => {
 		>
 			{children}
 		</a>
+	) : (
+		<span {...props} />
 	)
 }

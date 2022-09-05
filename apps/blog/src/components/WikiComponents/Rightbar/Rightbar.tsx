@@ -1,15 +1,16 @@
-import { Tags, useToast } from '@skaui/core'
+import { Tags } from '@skaui/core'
 import clx from 'clsx'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
 import { motion } from 'framer-motion'
-import { useEffect, useState } from 'react'
 import { BiBookContent } from 'react-icons/bi'
 import { FaGithub } from 'react-icons/fa'
 import { FiTag } from 'react-icons/fi'
 import { HiChevronDoubleUp } from 'react-icons/hi'
 import readingTime from 'reading-time'
+import { AnyLink } from '../../Link'
 import styles from './Rightbar.module.css'
+import { TOC } from './TOC'
 
 interface RightbarProps {
 	scrollToTop: () => void
@@ -21,8 +22,6 @@ interface RightbarProps {
 	}
 }
 
-// TODO: Need to set 'id' attribute for toc.
-
 export const Rightbar = ({ page, scrollToTop }: RightbarProps) => {
 	const { frontmatter, code } = page
 
@@ -30,28 +29,9 @@ export const Rightbar = ({ page, scrollToTop }: RightbarProps) => {
 	const date = dayjs(frontmatter.date).format('MMMM D, YYYY')
 	const ago = dayjs(frontmatter.date).fromNow()
 	const readTime = readingTime(code)
-	const toast = useToast()
 
-	const [headings, setHeadings] = useState<
-		{ id: string; text?: string | null }[]
-	>([])
-
-	useEffect(() => {
-		const headingArray = Array.from(document.querySelectorAll('[data-id]')).map(
-			(node) => {
-				return {
-					id: '#' + node.getAttribute('data-id'),
-					text: node.textContent,
-				}
-			}
-		)
-
-		setHeadings(headingArray)
-	}, [])
-
-	function handleClick() {
+	function handleToTop() {
 		scrollToTop()
-		toast('Scrolled back to top!', { title: 'Wiki' })
 	}
 
 	return (
@@ -69,13 +49,26 @@ export const Rightbar = ({ page, scrollToTop }: RightbarProps) => {
 							<BiBookContent className={styles.action_icon} />
 							<span>On This Page</span>
 						</div>
-						<div className={styles.action_toc}>
-							{headings.map((heading) => (
-								<a href={heading.id}>{heading.text}</a>
-							))}
+						<TOC page={page} />
+					</div>
+
+					<div className={styles.hr} />
+
+					<div onClick={handleToTop} className={styles.action}>
+						<div
+							className={clx(
+								styles.action_heading,
+								styles.action_heading_clickable
+							)}
+						>
+							<HiChevronDoubleUp className={styles.action_icon} />
+							<span>Back to Top</span>
 						</div>
 					</div>
 
+					<div className={styles.hr} />
+
+					{/* Tags */}
 					<div className={styles.action}>
 						<div className={styles.action_heading}>
 							<FiTag className={styles.action_icon} />
@@ -91,30 +84,27 @@ export const Rightbar = ({ page, scrollToTop }: RightbarProps) => {
 							</div>
 						)}
 					</div>
+
+					{/* Edit This Page On GitHub */}
 					<div className={styles.action}>
 						<div
-							className={clx(
-								styles.action_heading,
-								styles.action_heading_clickable
-							)}
+							className={clx(styles.action_heading, [
+								page.frontmatter.github && styles.action_heading_clickable,
+								!page.frontmatter.github && styles.action_heading_disabled,
+							])}
 						>
 							<FaGithub className={styles.action_icon} />
-							<span>Edit this page on GitHub</span>
+							<AnyLink href={page.frontmatter.github}>
+								Edit this page on GitHub
+							</AnyLink>
 						</div>
 					</div>
-					<button onClick={handleClick} className={styles.action}>
-						<div
-							className={clx(
-								styles.action_heading,
-								styles.action_heading_clickable
-							)}
-						>
-							<HiChevronDoubleUp className={styles.action_icon} />
-							<span>Back to Top</span>
-						</div>
-					</button>
 				</div>
 				<div className='w-full border-b-[1px] border-[color:var(--accents-2)]' />
+				<div className={styles.section}>
+					<span className={styles.section_heading}>Author</span>
+					<span className={styles.author_name}>Nam Hyuck Kim</span>
+				</div>
 				<div className={styles.section}>
 					<span className={styles.section_heading}>Date</span>
 					<span>
@@ -128,4 +118,8 @@ export const Rightbar = ({ page, scrollToTop }: RightbarProps) => {
 			</div>
 		</motion.aside>
 	)
+}
+
+export const Author = () => {
+	return <div className={clx(styles.author)}></div>
 }

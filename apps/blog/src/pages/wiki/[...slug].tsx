@@ -11,6 +11,10 @@ import remarkGfm from 'remark-gfm'
 import remarkToc from 'remark-toc'
 import rehypePrism from 'rehype-prism-plus'
 import { MDXComponents } from '../../components/WikiComponents/MDXComponents'
+import styles from '../../styles/Wiki.module.css'
+import clx from 'clsx'
+import { Breadcrumbs } from '@skaui/core'
+import { AnyLink } from '../../components'
 interface PageProps {
 	frontmatter: {
 		[key: string]: any
@@ -26,6 +30,10 @@ const WikiPage = ({ frontmatter, code }: PageProps) => {
 		exit: { opacity: 0, x: 0, y: -20 },
 	}
 
+	const categorySlug = `/wiki/${
+		frontmatter.category || ''
+	}/overview`.toLowerCase()
+
 	return (
 		<motion.div
 			key={code}
@@ -34,8 +42,29 @@ const WikiPage = ({ frontmatter, code }: PageProps) => {
 			animate='enter'
 			exit='exit'
 			transition={{ ease: 'easeInOut', duration: 0.2 }}
-			className='flex flex-col gap-4'
+			className={clx(styles.wiki_content, 'wiki_content')}
 		>
+			<div className={styles.wiki_meta}>
+				<div className={styles.wiki_breadcrumbs}>
+					<Breadcrumbs>
+						<Breadcrumbs.Item>
+							<AnyLink href='/wiki'>Wiki</AnyLink>
+						</Breadcrumbs.Item>
+						{frontmatter.category && (
+							<Breadcrumbs.Item>
+								<AnyLink href={categorySlug}>{frontmatter.category}</AnyLink>
+							</Breadcrumbs.Item>
+						)}
+						<Breadcrumbs.Item>
+							<span>{frontmatter.title}</span>
+						</Breadcrumbs.Item>
+					</Breadcrumbs>
+				</div>
+				<div className={styles.wiki_title}>{frontmatter.title}</div>
+				{frontmatter.summary && (
+					<div className={styles.wiki_summary}>{frontmatter.summary}</div>
+				)}
+			</div>
 			<MDXComponent components={MDXComponents} />
 		</motion.div>
 	)

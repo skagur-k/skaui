@@ -30,6 +30,8 @@ body {
 }
 
 .scrollbar {
+	scroll-behavior: smooth;
+
 	&::-webkit-scrollbar {
 		width: 6px;
 		background-color: transparent;
