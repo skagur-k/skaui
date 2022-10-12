@@ -89,3 +89,7 @@
 		@apply text-[color:var(--accents-1)];
 	}
 }
+
+.wiki_link_tag {
+	@apply text-xs px-1 py-0;
+}

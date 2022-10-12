@@ -1,7 +1,7 @@
 import { Collapsible, useToast } from '@skaui/core'
 import clsx from 'clsx'
 import { AnimatePresence, motion } from 'framer-motion'
-import React, { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { FiCheckSquare, FiClipboard, FiRefreshCw } from 'react-icons/fi'
 import {
 	LiveEditor,
@@ -48,9 +48,9 @@ const LiveComponent = withLive(Live)
 const IDE = ({ code: codeInit, ...props }: IDEProps) => {
 	const toast = useToast()
 	const { children } = props
-	const [error, setError] = React.useState(false)
-	const [code, setCode] = React.useState(codeInit)
-	const [isCopied, setIsCopied] = React.useState(false)
+	const [error, setError] = useState(false)
+	const [code, setCode] = useState(codeInit)
+	const [isCopied, setIsCopied] = useState(false)
 
 	const style = {
 		fontFamily: 'JetBrains Mono',

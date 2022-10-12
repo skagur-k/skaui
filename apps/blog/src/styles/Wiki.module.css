@@ -8,7 +8,8 @@
 }
 
 .wiki_title {
-	@apply text-4xl font-black flex;
+	@apply flex gap-4 items-center;
+	@apply text-4xl font-black;
 }
 
 .wiki_summary {
@@ -17,4 +18,8 @@
 
 .wiki_content {
 	@apply flex flex-col gap-4;
+}
+
+.wiki_title_tag {
+	@apply text-xs px-1 py-0;
 }

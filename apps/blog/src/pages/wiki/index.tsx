@@ -1,10 +1,6 @@
 import { motion } from 'framer-motion'
-import fs from 'fs'
-import matter from 'gray-matter'
-import path from 'path'
 import { IWikiPages } from '../../components/WikiComponents/Wiki.types'
 import { getAllFiles } from '../../helpers/getAllFiles'
-import { getSlug } from '../../helpers/getSlug'
 import { WikiLayout } from '../../layouts/WikiLayout'
 
 interface WikiPageProps {

@@ -1,4 +1,4 @@
-import { Tags } from '@skaui/core'
+import { Tag, Tags } from '@skaui/core'
 import clx from 'clsx'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
@@ -8,6 +8,7 @@ import { FaGithub } from 'react-icons/fa'
 import { FiTag } from 'react-icons/fi'
 import { HiChevronDoubleUp } from 'react-icons/hi'
 import readingTime from 'reading-time'
+import { Footer } from '../../Footer'
 import { AnyLink } from '../../Link'
 import styles from './Rightbar.module.css'
 import { TOC } from './TOC'
@@ -105,6 +106,7 @@ export const Rightbar = ({ page, scrollToTop }: RightbarProps) => {
 					<span className={styles.section_heading}>Author</span>
 					<span className={styles.author_name}>Nam Hyuck Kim</span>
 				</div>
+
 				<div className={styles.section}>
 					<span className={styles.section_heading}>Date</span>
 					<span>
@@ -115,11 +117,19 @@ export const Rightbar = ({ page, scrollToTop }: RightbarProps) => {
 					<span className={styles.section_heading}>Reading Time</span>
 					<span className={styles.section_content}>{readTime.text}</span>
 				</div>
+				<div className='w-full border-b-[1px] border-[color:var(--accents-2)]' />
+				<WikiFooter />
 			</div>
 		</motion.aside>
 	)
 }
 
-export const Author = () => {
-	return <div className={clx(styles.author)}></div>
+export const WikiFooter = () => {
+	return (
+		<div className={clx(styles.footer)}>
+			<Tag className='text-xs' id={'copyright'}>
+				WIKI - SKAGUR.DEV
+			</Tag>
+		</div>
+	)
 }

@@ -175,9 +175,9 @@ const WikiLink = ({ page }: { page: IWikiPage }) => {
 							isActive && styles.wiki_link_active,
 						])}
 					>
-						{page.frontmatter.title || 'Untitled'}
+						{<span>{page.frontmatter.title}</span> || 'Untitled'}
 						{isNew && (
-							<Tag className={'text-xs px-1 py-0'} id={'recent'}>
+							<Tag className={styles.wiki_link_tag} id={'recent'}>
 								New
 							</Tag>
 						)}

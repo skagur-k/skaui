@@ -12,7 +12,7 @@
 
 .content {
 	@apply flex flex-col gap-4;
-	@apply mt-4;
+	@apply mt-4 h-full;
 }
 
 .heading {
@@ -99,13 +99,7 @@
 	@apply text-sm;
 }
 
-.author {
-	@apply flex items-center gap-4;
-
-	& .author_name {
-	}
-
-	& .author_avatar {
-		@apply grayscale;
-	}
+.footer {
+	@apply flex items-center justify-center;
+	@apply mt-auto;
 }

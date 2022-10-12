@@ -1,16 +1,6 @@
-import {
-	Avatar,
-	InlineCode,
-	LI,
-	Link,
-	Note,
-	Snippet,
-	UL,
-	useToast,
-} from '@skaui/core'
+import { InlineCode, LI, Link, Note, Snippet, UL, useToast } from '@skaui/core'
 import clx from 'clsx'
-import { useRouter } from 'next/router'
-import { useMemo } from 'react'
+import Image from 'next/image'
 import { useHover } from 'react-aria'
 import { FiLink } from 'react-icons/fi'
 import getCurrentUrl from '../../../helpers/getCurrentUrl'
@@ -20,7 +10,6 @@ import styles from './MDXComponents.module.css'
 interface ComponentProps {
 	[key: string]: any
 }
-
 
 const Heading = (props: ComponentProps) => {
 	const { as: Comp } = props
@@ -100,6 +89,10 @@ const pre = (props: ComponentProps) => {
 	return <Snippet {...props} text={['hello']} />
 }
 
+const img = (props: ComponentProps) => {
+	return <Image alt={props.alt || 'image'} src={props.src} />
+}
+
 const MDXComponents = {
 	a,
 	h1,
@@ -113,6 +106,7 @@ const MDXComponents = {
 	ul,
 	li,
 	pre,
+	img,
 }
 
 export default MDXComponents

@@ -1,6 +1,5 @@
 /* Headings */
 
-
 .heading {
 	@apply relative;
 	@apply mt-4 mb-4 py-1;
@@ -18,28 +17,28 @@
 }
 
 .h1 {
-	@apply text-4xl;
+	@apply text-4xl font-bold;
 }
 .h2 {
-	@apply text-3xl;
+	@apply text-3xl font-semibold;
 }
 .h3 {
-	@apply text-2xl;
+	@apply text-2xl font-semibold;
 }
 .h4 {
-	@apply text-xl;
+	@apply text-xl font-semibold;
 }
 
 .anchor {
-	@apply absolute -left-10;
-	@apply w-6 h-6;
+	@apply absolute -left-8;
+	@apply w-5 h-5;
 	@apply stroke-[3px];
 	@apply text-transparent;
 	@apply transition-all duration-200;
 }
 
 .anchor_hover {
-	@apply grayscale;
+	@apply text-[color:var(--accents-8)];
 }
 
 .p {

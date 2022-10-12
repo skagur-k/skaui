@@ -19,12 +19,13 @@
 }
 
 .wiki_wrapper {
-	@apply max-w-[1280px] w-full;
+	@apply max-w-[1440px] w-full;
 	@apply mx-auto;
 	@apply border-t-0 lg:border-t border-[color:var(--accents-2)];
 	@apply overflow-hidden;
 	@apply grid grid-cols-12 gap-x-2;
 	@apply text-[color:var(--accents-8)];
+	@apply relative;
 }
 
 .wiki_main {
@@ -32,4 +33,11 @@
 	@apply p-0 lg:p-12;
 	@apply overflow-auto;
 	@apply h-[var(--wiki-height)];
+}
+
+.wiki_progress {
+	@apply h-[1px] w-full;
+	@apply bg-[color:var(--accents-3)];
+	@apply absolute left-0;
+	@apply origin-[0%];
 }

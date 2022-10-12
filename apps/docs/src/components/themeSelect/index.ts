@@ -1,1 +1,1 @@
-export * from './ThemeSelect'
+export { default as ThemeSelect } from './ThemeSelect'

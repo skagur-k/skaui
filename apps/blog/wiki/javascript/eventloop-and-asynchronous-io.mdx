@@ -1,0 +1,97 @@
+---
+title: 'Javscript Event Loop'
+date: '2022-09-03'
+category: 'Javascript'
+github: 'https://github.com/skagur-k'
+summary: 'Javascript Event Loop & Asynchronous IO.'
+tags: ['javascript', 'async', 'nodejs', 'typescript', 'eventloop', 'v8']
+---
+
+# JAVASCRIPT RUNTIME
+
+## THE PROBLEM
+
+Most backends don't need to to do complicated computations. Programs spend most of the time waiting for disk to _read & write_, or wait for the wire to transmit and receive answer _over the network_.
+
+IO operations can be orders of magnitude slower than data processing.
+
+**For example**: SSDs can have a read speed of 200-730 MB/s. Reading one `kilobyte` of data would take 1.4 microseconds. During this time, ==CPU clocked at 2GHz would have performed 28,000 of instruction processing cycles.==
+
+Take, for example, the average latecy of network communication to be 44 milliseconds (88 ms roundtrip). Just while waiting for the round trip of the packet traveling over the wire, the processor can perform **88 million cycles**.
+
+## SOLUTION
+
+Most Operating Systems provide some kind of **Asynchronous IO interface**. -> Allows you to start processing data that does not require result of the communication while the communication itself is still going on.
+
+This can be achieved several ways, but the most common method is to leverage [[multithreading]] at the cost of software complexity. - Reading a file in Java or Python is a blocking operation. The program can't do anything while waiting for the network/disk communications to finish. All you can do is to fire up a different thread to operate asynchronously.
+
+==Node.JS (or V8) is single-threaded.== The code runs only on one thread. There is only one call stack.
+
+## NODE JS EVENT LOOP
+
+What happens when we call functions like `setTimeOut()`, `http.get`, `fetch`, `nextTick` or `readFile` ? None of them are found in V8's code. But they are available in **Chrome WebAPI** and the **C++ API**.
+
+Even though `V8` is single-threaded, underlying C++ API of Node isn't. When a code calls a non-blocking operation, ==Node invokes **some code** that runs concurrently along with the JavaScript code under the hood.== When the corresponding Async Operation in the other thread receives the value, the provided callback will be invoked with necessary parameters.
+
+```javascript
+title: Some Code
+The **Some Code** is part of `libuv`. `libuv` is the open source library that handles the thread-pool doing all the magical things that make async tasks work. It was originally developed for Node.JS.
+
+```
+
+### TASK QUEUE
+
+`Javascript` is a single-threaded, event-driven language. We can attach listeners to events, and when said event fires, the listener executes the provided callback.
+
+When you call `setTimeout`, `fetch` or `fs.readFile`, Node JS sends these operations to different threads allowing `V8` to keep executing the code. The callback function provided is pushed on to the **Task Queue** (Event Queue/Message Queue).
+
+The callback will need to wait for the stack to become empty. The callbacks are called in an infinite loop whenever the main thread finishes its previous task (**_Event Loop_**)
+
+#### MICROTASKS AND MACROTASKS
+
+There are more than one task queue: **Microtasks** and **Macrotasks**
+
+| MicroTasks      | MacroTasks   |
+| --------------- | ------------ |
+| proess.nextTick | setTimeOut   |
+| Promises        | setInterval  |
+| Object.observe  | setImmediate |
+|                 | I/O          |
+
+==Exactly one (macro) task should get processed from the `macrotask` queue in one cycle.== After this macrotask has finished, all of the available `microtasks` will be processed within the same cycle. While these microtasks are being processed, more microtasks can be queued. This will all run one by one, until the microtask queue is exhausted.
+
+![[Pasted image 20220606125501.png]]
+
+#### LIBUV
+
+LibUV is an open-source library library that handles thread-pool, signaling, inter process communications and other asynchronous related tasks.
+
+- TCP and UDP sockets of the `net` package
+- Async DNS resolutions
+- Async file and file system operations (like the one we're doing here)
+- File System events
+- IPC
+- Child processes and shell control
+- Thread pool
+- Signal handling
+- High resolution clock
+
+#### V8 ENGINE
+
+Javascript is basically a dynamic typed language which is interpreted. Everything we run in JS is passed on to the engine which interacts with the environment and generates the bytecode needed for the machine to run our program.
+
+V8 is Google's open source high-performance Javascript and WebAssembly engine, written in C++. It does more than just interpreting Javascript code. It translates the code into a more efficient machine code. The engine compiles JS into machine code at runtime by implementing what is called a **JIT Compiler (Just-in-Time Compiler)**
+
+The engine runs the code the first time using a non-optimized compiler called Ignition, it compiles the code straight to how it should be read. After a few runs, another compiler (JIT Compiler) receives information on how the code should behave in most cases and ==recompiles the code so it is optimized.==
+
+V8 uses different threads to make itself more efficient and fast:
+
+- Main thread: fetches, compiles and executes JS code
+- Thread X: used for optimized compiling so the main thread continues the execution while this thread is optimizing the running code.
+- Thread Y: only used for profiling, which tells the runtime which methods need optimisation.
+- Thread Z~?: used to handle
+
+## 🔎 References
+
+- [Node JS at Scale Vol. 2](https://resources.risingstack.com/Node.js+at+Scale+Vol.+2+-+Node.js+Under+the+Hood.pdf)
+  ![[🔗assets/Node JS At Scale Vol.2 - Node JS Under the Hood.pdf]]

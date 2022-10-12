@@ -1,20 +1,21 @@
+import { Breadcrumbs, Tag } from '@skaui/core'
+import clx from 'clsx'
+import dayjs from 'dayjs'
 import { motion } from 'framer-motion'
 import { bundleMDX } from 'mdx-bundler'
 import { getMDXComponent } from 'mdx-bundler/client'
 import path from 'path'
-import { useMemo } from 'react'
+import { useEffect, useMemo, useRef } from 'react'
+import rehypePrism from 'rehype-prism-plus'
+import remarkGfm from 'remark-gfm'
+import remarkToc from 'remark-toc'
+import { AnyLink } from '../../components'
+import { MDXComponents } from '../../components/WikiComponents/MDXComponents'
 import { getAllFiles } from '../../helpers/getAllFiles'
 import getFileBySlug from '../../helpers/getFileBySlug'
 import { getSlug } from '../../helpers/getSlug'
 import { WikiLayout } from '../../layouts/WikiLayout'
-import remarkGfm from 'remark-gfm'
-import remarkToc from 'remark-toc'
-import rehypePrism from 'rehype-prism-plus'
-import { MDXComponents } from '../../components/WikiComponents/MDXComponents'
 import styles from '../../styles/Wiki.module.css'
-import clx from 'clsx'
-import { Breadcrumbs } from '@skaui/core'
-import { AnyLink } from '../../components'
 interface PageProps {
 	frontmatter: {
 		[key: string]: any
@@ -29,10 +30,16 @@ const WikiPage = ({ frontmatter, code }: PageProps) => {
 		enter: { opacity: 1, x: 0, y: 0 },
 		exit: { opacity: 0, x: 0, y: -20 },
 	}
-
 	const categorySlug = `/wiki/${
 		frontmatter.category || ''
 	}/overview`.toLowerCase()
+
+	const isNew = dayjs(dayjs()).diff(frontmatter.date, 'day') < 10
+	const ref = useRef<HTMLDivElement>(null)
+
+	useEffect(() => {
+		ref.current?.scrollTo(0, 0)
+	}, [])
 
 	return (
 		<motion.div
@@ -60,12 +67,19 @@ const WikiPage = ({ frontmatter, code }: PageProps) => {
 						</Breadcrumbs.Item>
 					</Breadcrumbs>
 				</div>
-				<div className={styles.wiki_title}>{frontmatter.title}</div>
+				<div className={styles.wiki_title}>
+					{frontmatter.title}
+					{isNew && (
+						<Tag className={styles.wiki_title_tag} id={'recent'}>
+							New
+						</Tag>
+					)}
+				</div>
 				{frontmatter.summary && (
 					<div className={styles.wiki_summary}>{frontmatter.summary}</div>
 				)}
 			</div>
-			<MDXComponent components={MDXComponents} />
+			<MDXComponent ref={ref} components={MDXComponents} />
 		</motion.div>
 	)
 }
