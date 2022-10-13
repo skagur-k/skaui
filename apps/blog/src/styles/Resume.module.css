@@ -1,0 +1,89 @@
+.wrapper {
+	@apply flex flex-col;
+	@apply gap-12;
+	@apply text-[color:var(--accents-8)];
+	@apply tracking-wide;
+}
+
+.big_heading {
+	@apply text-2xl font-bold tracking-wide;
+	@apply text-[color:var(--accents-8)];
+	@apply text-center;
+}
+
+.about {
+	@apply flex items-start justify-between;
+}
+
+.title {
+	@apply flex flex-col gap-4;
+}
+
+.name {
+	@apply flex flex-col;
+	@apply gap-4;
+	@apply text-xl font-bold;
+}
+
+.heading {
+	@apply text-base font-bold uppercase;
+}
+.subheading {
+	@apply text-base font-normal;
+	@apply text-[color:var(--accents-5)];
+}
+
+.section {
+	@apply flex flex-col gap-4;
+	@apply text-base font-normal;
+}
+
+.entries {
+	@apply flex flex-col gap-2;
+	@apply ml-2;
+}
+
+.entry {
+	@apply flex flex-col gap-2;
+	@apply px-4 py-4;
+	@apply border-l border-[color:var(--accents-3)];
+	@apply ring-1 ring-[color:var(--accents-2)] rounded-md;
+}
+
+.row {
+	@apply flex gap-2 items-center justify-between;
+	@apply font-bold;
+}
+
+.row_text_large {
+	@apply text-lg font-normal;
+}
+.row_text_normal {
+	@apply text-base font-normal;
+}
+.row_text_small {
+	@apply text-sm font-normal;
+}
+
+.contacts {
+	@apply flex flex-col gap-1;
+}
+
+.contact {
+	@apply flex gap-2 items-center;
+	@apply text-sm font-normal;
+}
+
+.contact_icon {
+	@apply w-4 h-4;
+}
+
+@media print {
+	.no-print {
+		@apply hidden;
+	}
+
+	.no-print * {
+		@apply hidden;
+	}
+}

@@ -18,6 +18,11 @@
 	@apply max-w-3xl w-full mx-auto;
 }
 
+.resume_wrapper {
+	@apply mt-4;
+	@apply max-w-5xl mx-auto;
+}
+
 .wiki_wrapper {
 	@apply max-w-full w-full;
 	@apply px-0 xl:px-[200px];

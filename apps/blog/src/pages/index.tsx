@@ -38,6 +38,9 @@ const Home: NextPage = () => {
 						<AnyLink href='/wiki' className={styles.link}>
 							WIKI
 						</AnyLink>
+						<AnyLink href='/resume' className={styles.link}>
+							Résumé
+						</AnyLink>
 						<AnyLink href='https://skaui.skagur.dev' className={styles.link}>
 							SKA UI
 						</AnyLink>

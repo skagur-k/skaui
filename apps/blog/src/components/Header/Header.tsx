@@ -7,6 +7,7 @@ import { motion } from 'framer-motion'
 const Header = () => {
 	const router = useRouter()
 	const isWiki = router.asPath.startsWith('/wiki')
+	const isResume = router.asPath.startsWith('/resume')
 
 	return (
 		<header className={styles.wrapper}>
@@ -23,6 +24,17 @@ const Header = () => {
 						className={styles.logo}
 					>
 						<AnyLink href='/wiki'>WIKI</AnyLink>
+					</motion.div>
+				)}
+
+				{isResume && (
+					<motion.div
+						initial={{ opacity: 0 }}
+						animate={{ opacity: 1 }}
+						exit={{ opacity: 0 }}
+						className={styles.logo}
+					>
+						<AnyLink href='/wiki'>Résumé</AnyLink>
 					</motion.div>
 				)}
 			</div>
