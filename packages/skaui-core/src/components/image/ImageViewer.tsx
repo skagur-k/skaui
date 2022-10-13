@@ -25,7 +25,7 @@ export const ImageViewer = (props: ImageViewerProps) => {
 
 	return isBrowser ? (
 		<>
-			<Image {...props} onClick={() => setOpen(true)} />
+			<Image alt={props.alt} onClick={() => setOpen(true)} {...props} />
 			<OverlayContainer>
 				<AnimatePresence exitBeforeEnter>
 					{isOpen && (
@@ -34,7 +34,12 @@ export const ImageViewer = (props: ImageViewerProps) => {
 							onClose={() => setOpen(false)}
 							{...props}
 						>
-							<Image {...props} loading='lazy' onClick={() => setOpen(false)} />
+							<Image
+								alt={props.alt}
+								loading='lazy'
+								onClick={() => setOpen(false)}
+								{...props}
+							/>
 						</ImageOverlay>
 					)}
 				</AnimatePresence>

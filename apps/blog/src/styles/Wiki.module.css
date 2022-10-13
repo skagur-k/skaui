@@ -1,0 +1,25 @@
+.wiki_meta {
+	@apply flex flex-col gap-4;
+	@apply mb-4;
+}
+
+.wiki_breadcrumbs {
+	@apply flex mb-8;
+}
+
+.wiki_title {
+	@apply flex gap-4 items-center;
+	@apply text-4xl font-black;
+}
+
+.wiki_summary {
+	@apply text-lg text-[color:var(--accents-4)];
+}
+
+.wiki_content {
+	@apply flex flex-col gap-4;
+}
+
+.wiki_title_tag {
+	@apply text-xs px-1 py-0;
+}

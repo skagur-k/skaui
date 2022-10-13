@@ -1,0 +1,21 @@
+{
+	"folders": [
+		{
+			"name": "✨ skaui",
+			"path": "../../../../../.."
+		},
+		{
+			"name": "🚀 blog",
+			"path": "../../../.."
+		},
+		{
+			"name": "🚀 @skaui/docs",
+			"path": "../../../../../docs"
+		},
+		{
+			"name": "📦 @skaui/core",
+			"path": "../../../../../../packages/skaui-core"
+		}
+	],
+	"settings": {}
+}

@@ -2,10 +2,11 @@
 	@apply hidden lg:flex flex-col;
 	@apply col-span-2;
 	@apply w-full;
-	@apply px-2 py-1;
+	@apply py-1 pl-0 lg:pl-2 xl:pl-0;
 	@apply gap-2;
 	@apply h-[var(--wiki-height)];
 	@apply overflow-y-auto;
+	@apply border-r-[1px] border-[color:var(--accents-2)];
 }
 
 .content {
@@ -14,26 +15,81 @@
 }
 
 .heading {
-	@apply flex justify-center text-lg font-black grow-0;
+	@apply flex justify-center text-sm font-bold grow-0;
 	@apply py-1 px-2;
-	@apply row-span-1;
-	@apply sticky top-0;
-	@apply text-[color:var(--accents-8)];
+	@apply bg-[color:var(--accents-2)];
+	@apply hover:bg-[color:var(--accents-8)];
+	@apply hover:text-[color:var(--accents-1)];
+	@apply transition-all duration-200;
 }
 
-.category {
-	@apply flex text-base grow-0 py-4;
+.heading_active {
+	@apply text-[color:var(--accents-1)];
+	@apply bg-[color:var(--accents-8)];
 }
 
-.list {
-	@apply flex flex-col gap-2;
+.wiki_category_wrapper {
 }
 
-.wiki_items {
+.wiki_category_open {
+	& .wiki_category_heading {
+		@apply text-[color:var(--accents-8)];
+	}
+	& .wiki_category_heading_chevron {
+		@apply rotate-90;
+	}
+}
+
+.wiki_categories {
 	@apply flex flex-col gap-4;
 }
 
-.wiki_item {
-	@apply px-2;
-	@apply bg-neutral-700;
+.wiki_category_info {
+	@apply p-2 flex items-center justify-end;
+	@apply gap-2;
+}
+
+.wiki_category_heading {
+	@apply flex items-center justify-between;
+	@apply text-[color:var(--accents-6)];
+	@apply cursor-pointer;
+	@apply py-1 pr-4 pl-2;
+	@apply text-sm;
+}
+
+.wiki_category_heading_text_and_badge {
+	@apply flex items-center gap-2;
+}
+
+.wiki_category_heading_text {
+	@apply font-bold;
+}
+
+.wiki_category_heading_chevron {
+	@apply stroke-[3px];
+	@apply transition-all duration-100;
+}
+
+.wiki_category {
+	@apply flex flex-col gap-2;
+	@apply pl-2 py-2;
+	@apply border-b border-[color:var(--accents-2)];
+}
+
+.wiki_link {
+	@apply flex items-center justify-between;
+	@apply text-sm;
+	@apply py-1 px-2;
+	@apply transition-all duration-200;
+	@apply hover:bg-[color:var(--accents-2)];
+
+	&.wiki_link_active {
+		@apply font-bold;
+		@apply bg-[color:var(--accents-8)];
+		@apply text-[color:var(--accents-1)];
+	}
+}
+
+.wiki_link_tag {
+	@apply text-xs px-1 py-0;
 }

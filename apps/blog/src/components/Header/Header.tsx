@@ -1,9 +1,9 @@
+import { motion } from 'framer-motion'
 import { useRouter } from 'next/router'
 import DrawerTrigger from '../Drawer/Drawer'
 import { AnyLink } from '../Link'
 import ThemeSelect from '../ThemeSelect/ThemeSelect'
 import styles from './Header.module.css'
-import { motion } from 'framer-motion'
 const Header = () => {
 	const router = useRouter()
 	const isWiki = router.asPath.startsWith('/wiki')
@@ -38,9 +38,9 @@ const Header = () => {
 					</motion.div>
 				)}
 			</div>
-			<nav className={styles.nav}>
-				{!isWiki && <ThemeSelect className='w-[120px]' />}
 
+			<nav className={styles.nav}>
+				<ThemeSelect className='w-[120px]' />
 				<DrawerTrigger></DrawerTrigger>
 			</nav>
 		</header>

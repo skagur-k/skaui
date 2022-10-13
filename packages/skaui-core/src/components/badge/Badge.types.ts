@@ -1,6 +1,6 @@
 import React from 'react'
 
-export interface BadgeProps {
+export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
 	value?: string
 	children?: React.ReactNode
 	outline?: boolean

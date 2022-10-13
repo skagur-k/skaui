@@ -1,19 +1,27 @@
-import fs from 'fs'
+import { getSlug } from './getSlug'
 import path from 'path'
+import fs from 'fs'
+import matter from 'gray-matter'
 
-const getAllFiles = function (dir: string, allFiles: string[]) {
-	const files = fs.readdirSync(dir)
+export const getAllFiles = (dir: string) => {
+	const files = getSlug(path.join(dir))
 
-	allFiles = files || []
+	const pages = files.map((filename) => {
+		let mdxSource
+		try {
+			mdxSource = fs.readFileSync(path.join(filename))
+		} catch (err) {
+			mdxSource = ''
+		}
 
-	files.forEach((file) => {
-		if (fs.statSync(path.join(dir, file)).isDirectory()) {
-			allFiles = getAllFiles(path.join(dir, file), allFiles)
-		} else {
-			allFiles.push(path.join(file))
+		const { data: frontmatter } = matter(mdxSource)
+		const slug = `/${filename.split('.')[0]}`
+
+		return {
+			frontmatter,
+			slug,
 		}
 	})
-	return allFiles
-}
 
-export default getAllFiles
+	return pages
+}

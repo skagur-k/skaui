@@ -9,7 +9,7 @@
 }
 
 .tag_text {
-	@apply mr-0 px-2 py-[2px];
+	@apply mr-0 px-2 py-[1px];
 	@apply text-sm truncate;
 	@apply text-[color:var(--skaui-foreground)];
 }

@@ -1,3 +1,4 @@
+import { Note } from '@skaui/core'
 import { ChevronRightIcon } from '@skaui/core/src/icons'
 import type { NextPage } from 'next'
 import Image from 'next/image'
@@ -46,7 +47,9 @@ const Home: NextPage = () => {
 						</AnyLink>
 					</div>
 
-					<div className={styles.separator} />
+					<Note className='my-12' label={'Disclaimer'}>
+						Website is under active construction. More to come soon.
+					</Note>
 
 					{/* FEATURED PROJECTS */}
 					<div>
@@ -68,6 +71,7 @@ const Home: NextPage = () => {
 							</div>
 						</div>
 					</div>
+					<div className={styles.separator} />
 				</div>
 			</PageLayout>
 		</>

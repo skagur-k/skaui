@@ -5,11 +5,11 @@ import styles from './Tag.module.css'
 import { TagProps, TagsProps } from './Tag.types'
 
 export const Tag = (props: TagProps) => {
-	const { children, id, onRemove } = props
+	const { children, id, onRemove, className } = props
 
 	return (
 		<div className={clsx(styles.tag)}>
-			<div className={styles.tag_text}>{children}</div>
+			<div className={clsx(styles.tag_text, className)}>{children}</div>
 			{onRemove && (
 				<div
 					className={clsx(styles.tag_remove)}
@@ -32,6 +32,7 @@ export const Tags = (props: TagsProps) => {
 		<div className={clsx(styles.tags, className)}>
 			{tagList.map((tag) => (
 				<Tag
+					className={className}
 					id={tag}
 					key={tag}
 					onRemove={

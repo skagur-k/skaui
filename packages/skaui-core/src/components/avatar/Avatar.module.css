@@ -19,14 +19,14 @@
 }
 
 .avatar_xs {
-	@apply w-8 h-8;
+	@apply w-6 h-6;
 
 	& + .avatar_icon {
 		@apply invisible;
 	}
 }
 .avatar_sm {
-	@apply w-10 h-10;
+	@apply w-8 h-8;
 
 	& + .avatar_icon {
 		@apply invisible;

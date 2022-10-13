@@ -66,8 +66,8 @@
 
 :global(.dark) {
 	.toastInfo {
-		@apply bg-neutral-600 text-neutral-100;
-		@apply border-neutral-600;
+		@apply bg-neutral-700 text-neutral-100;
+		@apply border-neutral-700;
 	}
 
 	.toastSuccess {

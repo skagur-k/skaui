@@ -1,10 +1,11 @@
-import { Drawer, IconButton } from '@skaui/core'
+import { Drawer as _Drawer, IconButton } from '@skaui/core'
 import { useState } from 'react'
 import { FiMenu } from 'react-icons/fi'
 import { AnyLink } from '../Link/Link'
 import ThemeSelect from '../ThemeSelect/ThemeSelect'
 import styles from './Drawer.module.css'
-const DrawerTrigger = () => {
+
+const Drawer = () => {
 	const [isOpen, setOpen] = useState(false)
 
 	return (
@@ -12,16 +13,16 @@ const DrawerTrigger = () => {
 			<IconButton onPress={() => setOpen(true)} variant='ghost'>
 				<FiMenu className={styles.drawer_icon} />
 			</IconButton>
-			<Drawer isOpen={isOpen} onClose={() => setOpen(false)}>
+			<_Drawer isOpen={isOpen} onClose={() => setOpen(false)}>
 				<div className={styles.drawer_content}>
 					<AnyLink href='/' className={styles.drawer_header}>
 						SKAGUR.DEV
 					</AnyLink>
 					<ThemeSelect />
 				</div>
-			</Drawer>
+			</_Drawer>
 		</div>
 	)
 }
 
-export default DrawerTrigger
+export default Drawer

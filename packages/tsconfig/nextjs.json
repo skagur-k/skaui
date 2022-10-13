@@ -16,6 +16,8 @@
 		"resolveJsonModule": true,
 		"isolatedModules": true,
 		"jsx": "preserve",
+		"noUnusedLocals": false,
+		"noUnusedParameters": false,
 		"types": ["node"]
 	},
 	"include": ["src/**/*", "next-env.d.ts"],

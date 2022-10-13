@@ -5,9 +5,9 @@ module.exports = {
 	},
 	extends: [
 		'./eslint-base',
-		'plugin:tailwindcss',
 		'plugin:import/recommended',
 		'plugin:import/typescript',
+		'plugin:mdx/recommended',
 	],
 	plugins: ['@typescript-eslint', 'import'],
 	settings: {
@@ -35,5 +35,6 @@ module.exports = {
 
 		// next
 		'@next/next/no-html-link-for-pages': 'off',
+		'import/no-named-as-default': 0,
 	},
 }

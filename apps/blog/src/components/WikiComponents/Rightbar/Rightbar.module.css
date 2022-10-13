@@ -1,21 +1,105 @@
 .wrapper {
 	@apply hidden xl:flex flex-col;
-	@apply col-span-2;
+	@apply col-span-3;
 	@apply w-full;
-	@apply px-2 py-1;
-
+	@apply py-1 pr-0 lg:pr-2;
+	@apply pl-4;
 	@apply gap-2;
 	@apply h-[var(--wiki-height)];
 	@apply overflow-y-auto;
+	@apply border-l-[1px] border-[color:var(--accents-2)];
 }
 
 .content {
 	@apply flex flex-col gap-4;
-	@apply mt-4;
+	@apply mt-4 h-full;
 }
 
 .heading {
 	@apply flex justify-center text-lg font-black grow-0;
 	@apply px-2;
 	@apply text-[color:var(--accents-8)];
+}
+
+.section {
+	@apply flex flex-col gap-1;
+	@apply text-sm;
+}
+
+.section_heading {
+	@apply text-[color:var(--accents-5)];
+}
+
+.section_content {
+	@apply text-xs;
+}
+
+.actions {
+	@apply flex flex-col gap-3;
+}
+
+.action {
+	@apply flex flex-col gap-2;
+}
+
+.action_heading {
+	@apply flex gap-2 w-full;
+	@apply px-2 py-2;
+	@apply text-sm;
+	@apply items-center;
+}
+
+.action_heading_clickable {
+	@apply cursor-pointer;
+	@apply hover:bg-[color:var(--accents-2)];
+}
+
+.action_heading_disabled {
+	@apply cursor-default;
+	@apply text-[color:var(--accents-4)];
+}
+
+.action_icon {
+	@apply w-5 h-5;
+}
+
+.action_toc {
+	@apply flex flex-col;
+	@apply text-base;
+}
+
+.action_toc_item {
+	@apply flex w-full;
+	@apply pl-2;
+	@apply hover:bg-[color:var(--accents-2)];
+}
+
+.action_toc_item_active {
+	/* @apply bg-[color:var(--accents-2)]; */
+}
+
+.action_toc_indent {
+	@apply inline-block h-full w-[12px];
+	@apply border-l-[1px] border-[color:var(--accents-2)];
+
+	&:not(:first-child) {
+	}
+}
+
+.action_toc_heading {
+	@apply py-[4px] px-0;
+}
+
+.hr {
+	@apply w-full border-b-[1px] border-[color:var(--accents-2)];
+}
+
+.action_tags {
+	@apply p-2;
+	@apply text-sm;
+}
+
+.footer {
+	@apply flex items-center justify-center;
+	@apply mt-auto;
 }

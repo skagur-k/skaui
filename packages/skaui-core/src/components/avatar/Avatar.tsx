@@ -84,7 +84,7 @@ const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
 			if (src && hasLoaded) {
 				return (
 					<Image
-						className={styles.avatar_image}
+						className={clsx(styles.avatar_image, className)}
 						src={src}
 						alt={name}
 						style={{ width, height }}

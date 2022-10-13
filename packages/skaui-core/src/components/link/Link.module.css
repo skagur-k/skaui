@@ -1,12 +1,12 @@
 .link {
-	@apply text-base px-1 py-1;
+	@apply text-base px-1 py-0;
 	@apply font-bold;
 	@apply text-[color:var(--themed-fg)];
 	@apply bg-[color:var(--themed-bg)];
 	/* @apply underline; */
 	@apply transition-colors duration-200;
 
-	--themed-bg: var(--accents-2);
+	--themed-bg: var(--accents-3);
 	--themed-fg: var(--accents-8);
 
 	&:hover {

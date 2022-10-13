@@ -1,8 +1,12 @@
 .note {
 	@apply flex items-center justify-between;
 	@apply px-4;
-	@apply rounded-md h-fit w-full;
+	@apply rounded-md h-fit;
 	@apply ring-1 ring-neutral-500;
+}
+
+.note_text {
+	@apply inline-flex;
 }
 
 .note_filled {
