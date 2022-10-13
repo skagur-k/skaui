@@ -5,7 +5,10 @@ import styles from './Footer.module.css'
 const Footer = () => {
 	const router = useRouter()
 
-	return router.asPath.startsWith('/wiki') ? null : (
+	const hasFooter =
+		router.asPath.startsWith('/wiki') || router.asPath.startsWith('/resume')
+
+	return hasFooter ? null : (
 		<footer className={styles.wrapper}>
 			<AnyLink href='/' className={styles.logo}>
 				SKAGUR.DEV

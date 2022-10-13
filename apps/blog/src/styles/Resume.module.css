@@ -1,36 +1,63 @@
 .wrapper {
 	@apply flex flex-col;
 	@apply gap-12;
+	@apply h-full lg:h-[var(--resume-height)];
 	@apply text-[color:var(--accents-8)];
 	@apply tracking-wide;
 }
 
-.big_heading {
-	@apply text-2xl font-bold tracking-wide;
-	@apply text-[color:var(--accents-8)];
-	@apply text-center;
+.resume {
+	@apply flex flex-col lg:grid lg:grid-cols-8;
+	@apply gap-4;
+	@apply h-full;
 }
 
-.about {
-	@apply flex items-start justify-between;
+.summary {
+	@apply lg:col-span-3;
+	@apply overflow-auto;
+	@apply flex flex-col gap-8;
 }
 
-.title {
-	@apply flex flex-col gap-4;
+.personal_info {
+	@apply flex flex-col gap-8;
 }
 
 .name {
-	@apply flex flex-col;
-	@apply gap-4;
-	@apply text-xl font-bold;
+	@apply text-2xl font-bold;
+	@apply uppercase;
 }
 
-.heading {
-	@apply text-base font-bold uppercase;
-}
-.subheading {
-	@apply text-base font-normal;
+.description {
 	@apply text-[color:var(--accents-5)];
+}
+
+.contacts {
+	@apply flex flex-col gap-2;
+}
+
+.contact {
+	@apply flex gap-2 items-center;
+	@apply text-sm font-normal;
+}
+
+.repo {
+	@apply flex flex-col gap-2;
+}
+
+.repo_heading {
+	@apply font-bold;
+}
+
+.repo_link {
+	@apply flex gap-2 items-center;
+}
+
+.detail {
+	@apply col-span-5;
+	@apply overflow-auto;
+
+	@apply flex flex-col;
+	@apply gap-12;
 }
 
 .section {
@@ -40,14 +67,19 @@
 
 .entries {
 	@apply flex flex-col gap-2;
-	@apply ml-2;
+	@apply mx-2;
 }
 
 .entry {
 	@apply flex flex-col gap-2;
 	@apply px-4 py-4;
 	@apply border-l border-[color:var(--accents-3)];
-	@apply ring-1 ring-[color:var(--accents-2)] rounded-md;
+	@apply ring-1 ring-[color:var(--accents-2)];
+	@apply rounded-md ring-inset;
+}
+
+.heading {
+	@apply text-lg font-bold uppercase;
 }
 
 .row {
@@ -63,27 +95,4 @@
 }
 .row_text_small {
 	@apply text-sm font-normal;
-}
-
-.contacts {
-	@apply flex flex-col gap-1;
-}
-
-.contact {
-	@apply flex gap-2 items-center;
-	@apply text-sm font-normal;
-}
-
-.contact_icon {
-	@apply w-4 h-4;
-}
-
-@media print {
-	.no-print {
-		@apply hidden;
-	}
-
-	.no-print * {
-		@apply hidden;
-	}
 }

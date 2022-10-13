@@ -6,6 +6,7 @@
 	@apply overflow-hidden;
 
 	--wiki-height: calc(100vh - 60px);
+	--resume-height: calc(100vh - 120px);
 }
 
 .wrapper {
@@ -19,8 +20,9 @@
 }
 
 .resume_wrapper {
-	@apply mt-4;
-	@apply max-w-5xl mx-auto;
+	@apply mt-12 mb-4 lg:mb-0;
+	@apply max-w-4xl mx-auto;
+	@apply relative;
 }
 
 .wiki_wrapper {
@@ -34,7 +36,7 @@
 }
 
 .wiki_main {
-	@apply col-span-full lg:col-span-10 xl:col-span-7;
+	@apply col-span-full lg:col-span-10 xl:col-span-7;	
 	@apply p-0 lg:p-12;
 	@apply overflow-auto;
 	@apply h-[var(--wiki-height)];
