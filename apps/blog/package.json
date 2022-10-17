@@ -10,6 +10,7 @@
 		"clean": "rm -rf .turbo && rm -rf .next && rm -rf node_modules"
 	},
 	"dependencies": {
+		"@react-pdf/renderer": "^3.0.0",
 		"@skaui/core": "workspace:*",
 		"@types/glob": "^8.0.0",
 		"dayjs": "^1.11.5",

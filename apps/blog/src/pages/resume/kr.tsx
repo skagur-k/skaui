@@ -1,9 +1,11 @@
-import { Link, Tags } from '@skaui/core'
+import { PDFDownloadLink } from '@react-pdf/renderer'
+import { Tags } from '@skaui/core'
 import clx from 'clsx'
 import { FaGithub } from 'react-icons/fa'
 import { FiGlobe, FiHome, FiMail } from 'react-icons/fi'
 import { SiGithub } from 'react-icons/si'
 import { AnyLink } from '../../components'
+import Resume from '../../helpers/generateResumePDF'
 import ResumeLayout from '../../layouts/ResumeLayout'
 import styles from '../../styles/Resume.module.css'
 
@@ -23,31 +25,43 @@ const ResumePage = () => {
 							<ul className={styles.contacts}>
 								<h2 className={styles.section_heading}>Contacts</h2>
 								<li className={styles.contact}>
-									<FiMail className={styles.contact_icon} />
+									<FiMail className={styles.icon} />
 									<h2>namhyuck.james@gmail.com</h2>
 								</li>
 
 								<li>
 									<AnyLink href={'/'} className={styles.contact}>
-										<FiHome className={styles.contact_icon} />
+										<FiHome className={styles.icon} />
 										<h2>skagur.dev</h2>
 									</AnyLink>
 								</li>
 							</ul>
 						</section>
 						<section className={styles.repo}>
-							<h2 className={styles.section_heading}>GitHub Repository</h2>
+							<h2 className={styles.section_heading}>GitHub Profile</h2>
 							<AnyLink
 								href={'https://github.com/skagur-k'}
 								className={styles.contact}
 							>
-								<FaGithub />
+								<FaGithub className={styles.icon} />
 								<p>skagur-k</p>
 							</AnyLink>
 						</section>
-						<AnyLink className={styles.version_link} href='/resume/en'>
-							English Resume
-						</AnyLink>
+
+						<div className={styles.summary_links}>
+							<AnyLink className={styles.version_link} href='/resume/en'>
+								English Resume
+							</AnyLink>
+							<PDFDownloadLink
+								className={styles.version_link}
+								document={<Resume />}
+								fileName='somename.pdf'
+							>
+								{({ loading }) =>
+									loading ? 'Loading PDF Document...' : 'PDF 다운로드'
+								}
+							</PDFDownloadLink>
+						</div>
 					</div>
 					<div className={clx(styles.detail, 'scrollbar')}>
 						<section className={styles.section}>
@@ -55,11 +69,11 @@ const ResumePage = () => {
 							<div className={styles.entries}>
 								<div className={styles.entry}>
 									<div className={styles.row}>
-										<h2>SKA UI</h2>
+										<h2 className={styles.project_heading}>SKA UI</h2>
 										<h2 className={styles.row_text_small}>2022 - 현재</h2>
 									</div>
 									<div className={styles.row}>
-										<div className={styles.project_description_kr}>
+										<div className={styles.project_description}>
 											<p>
 												SKA UI 는 미니멀리즘과 심플함을 추구하는 리액트 컴포넌트
 												라이브러리 / 디자인 시스템입니다. 어도비사의 React
@@ -126,11 +140,11 @@ const ResumePage = () => {
 
 								<div className={styles.entry}>
 									<div className={styles.row}>
-										<h2>skagur.dev</h2>
-										<h2 className={styles.row_text_small}>2021 - Current</h2>
+										<h2 className={styles.project_heading}>skagur.dev</h2>
+										<h2 className={styles.row_text_small}>2021 - 현재</h2>
 									</div>
 									<div className={styles.row}>
-										<div className={styles.project_description_kr}>
+										<div className={styles.project_description}>
 											<p>
 												skagur.dev 는 SKA UI를 기반으로 구축한 개인 포트폴리오
 												및 블로그 애플리케이션입니다. 서버 사이드 렌더링와 SSG를
@@ -285,7 +299,7 @@ const ResumePage = () => {
 								<div className={styles.entry}>
 									<div className={styles.row}>
 										<h2>중국어</h2>
-										<h2 className={styles.row_text_small}>수준급</h2>
+										<h2 className={styles.row_text_small}>능통</h2>
 									</div>
 								</div>
 							</div>
@@ -296,7 +310,7 @@ const ResumePage = () => {
 							<div className={styles.entries}>
 								<div className={styles.entry}>
 									<div className={styles.row}>
-										<h2>홍콩 이공 대학교</h2>
+										<h2>홍콩 이공 대학교 (Hong Kong Polytechnic University)</h2>
 										<h2 className={styles.row_text_small}>2013-2019</h2>
 									</div>
 									<div className={styles.row}>
@@ -321,7 +335,7 @@ const ResumePage = () => {
 										<h2>프리랜서</h2>
 									</div>
 									<div className={styles.row}>
-										<ul className={styles.contribution_list_kr}>
+										<ul className={styles.contribution_list}>
 											<li>
 												홍콩 및 글로벌 브랜드 행사와 한국 인플루언서들과의
 												콜라보를 기획하고 진행하였습니다.

@@ -35,7 +35,7 @@ const Header = () => {
 						exit={{ opacity: 0 }}
 						className={styles.logo}
 					>
-						<AnyLink href='/resume/en'>Résumé</AnyLink>
+						<AnyLink href='/resume/en'>RESUME</AnyLink>
 					</motion.div>
 				)}
 
@@ -46,7 +46,9 @@ const Header = () => {
 						exit={{ opacity: 0 }}
 						className={styles.logo}
 					>
-						<AnyLink href='/resume/kr'>이력서</AnyLink>
+						<AnyLink href='/resume/kr' className='tracking-widest'>
+							이력서
+						</AnyLink>
 					</motion.div>
 				)}
 			</div>

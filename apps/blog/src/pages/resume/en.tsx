@@ -1,9 +1,12 @@
-import { Tags } from '@skaui/core'
+import { PDFDownloadLink } from '@react-pdf/renderer'
+import { Button, Tags } from '@skaui/core'
+import { isBrowser } from '@skaui/core/src/utils'
 import clx from 'clsx'
 import { FaGithub } from 'react-icons/fa'
 import { FiGlobe, FiHome, FiMail } from 'react-icons/fi'
 import { SiGithub } from 'react-icons/si'
 import { AnyLink } from '../../components'
+import Resume from '../../helpers/generateResumePDF'
 import ResumeLayout from '../../layouts/ResumeLayout'
 import styles from '../../styles/Resume.module.css'
 
@@ -22,31 +25,44 @@ const ResumePage = () => {
 							<ul className={styles.contacts}>
 								<h2 className={styles.section_heading}>Contacts</h2>
 								<li className={styles.contact}>
-									<FiMail className={styles.contact_icon} />
+									<FiMail className={styles.icon} />
 									<h2>namhyuck.james@gmail.com</h2>
 								</li>
 
 								<li>
 									<AnyLink href={'/'} className={styles.contact}>
-										<FiHome className={styles.contact_icon} />
+										<FiHome className={styles.icon} />
 										<h2>skagur.dev</h2>
 									</AnyLink>
 								</li>
 							</ul>
 						</section>
 						<section className={styles.repo}>
-							<h2 className={styles.section_heading}>GitHub Repository</h2>
+							<h2 className={styles.section_heading}>GitHub Profile</h2>
 							<AnyLink
 								href={'https://github.com/skagur-k'}
 								className={styles.contact}
 							>
-								<FaGithub />
+								<FaGithub className={styles.icon} />
 								<p>skagur-k</p>
 							</AnyLink>
 						</section>
-						<AnyLink className={styles.version_link} href='/resume/kr'>
-							국문이력서
-						</AnyLink>
+
+						<div className={styles.summary_links}>
+							<AnyLink className={styles.version_link} href='/resume/kr'>
+								국문 이력서
+							</AnyLink>
+
+							<PDFDownloadLink
+								className={styles.version_link}
+								document={<Resume />}
+								fileName='somename.pdf'
+							>
+								{({ loading }) =>
+									loading ? 'Loading PDF Document...' : 'Download PDF'
+								}
+							</PDFDownloadLink>
+						</div>
 					</div>
 					<div className={clx(styles.detail, 'scrollbar')}>
 						<section className={styles.section}>
@@ -54,7 +70,7 @@ const ResumePage = () => {
 							<div className={styles.entries}>
 								<div className={styles.entry}>
 									<div className={styles.row}>
-										<h2>SKA UI</h2>
+										<h2 className={styles.project_heading}>SKA UI</h2>
 										<h2 className={styles.row_text_small}>2022 - Current</h2>
 									</div>
 									<div className={styles.row}>
@@ -102,7 +118,7 @@ const ResumePage = () => {
 
 								<div className={styles.entry}>
 									<div className={styles.row}>
-										<h2>skagur.dev</h2>
+										<h2 className={styles.project_heading}>skagur.dev</h2>
 										<h2 className={styles.row_text_small}>2021 - Current</h2>
 									</div>
 									<div className={styles.row}>

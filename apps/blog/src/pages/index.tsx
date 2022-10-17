@@ -18,10 +18,11 @@ const Home: NextPage = () => {
 					<div className={styles.hero}>
 						<div className={styles.text}>
 							<span className={styles.name}>NAM HYUCK KIM</span>
+
 							<p className={styles.description}>
-								Developer based in Seoul, Korea.
+								Versatile developer based in Seoul, Korea, with +10 years
+								development experience, striving to become an iconic engineer.
 							</p>
-							<p className={styles.description}>Description goes here.</p>
 						</div>
 						<div className={styles.avatar}>
 							<Image
@@ -33,14 +34,14 @@ const Home: NextPage = () => {
 						</div>
 					</div>
 					<div className={styles.links}>
-						<AnyLink href='https://github.com/skagur-k' className={styles.link}>
-							GITHUB
-						</AnyLink>
-						<AnyLink href='/wiki' className={styles.link}>
-							WIKI
-						</AnyLink>
 						<AnyLink href='/resume/en' className={styles.link}>
 							Résumé
+						</AnyLink>
+						<AnyLink href='https://github.com/skagur-k' className={styles.link}>
+							GitHub
+						</AnyLink>
+						<AnyLink href='/wiki' className={styles.link}>
+							WiKi
 						</AnyLink>
 						<AnyLink href='https://skaui.skagur.dev' className={styles.link}>
 							SKA UI

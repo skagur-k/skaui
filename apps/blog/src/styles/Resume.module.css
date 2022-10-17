@@ -9,7 +9,7 @@
 
 .resume {
 	@apply flex flex-col lg:grid lg:grid-cols-10;
-	@apply gap-4;
+	@apply gap-12 lg:gap-4;
 	@apply h-full;
 }
 
@@ -18,6 +18,10 @@
 	@apply overflow-auto;
 	@apply flex flex-col gap-8;
 	@apply px-2;
+}
+
+.summary_links {
+	@apply flex flex-col gap-4;
 }
 
 .personal_info {
@@ -40,6 +44,10 @@
 .contact {
 	@apply flex gap-2 items-center;
 	@apply text-sm font-normal;
+}
+
+.icon {
+	@apply w-4 h-4;
 }
 
 .repo {
@@ -73,7 +81,7 @@
 }
 
 .entry {
-	@apply flex flex-col gap-2;
+	@apply flex flex-col gap-4;
 	@apply px-4 py-4;
 	@apply border-l border-[color:var(--accents-3)];
 	@apply ring-1 ring-[color:var(--accents-2)];
@@ -81,17 +89,17 @@
 }
 
 .project_description {
-	@apply flex flex-col gap-2;
-	@apply text-sm font-normal;
-}
-
-.project_description_kr {
-	@apply flex flex-col gap-2;
+	@apply flex flex-col gap-4;
 	@apply text-base font-normal;
 }
 
+.project_heading {
+	@apply text-2xl;
+}
+
 .heading {
-	@apply text-xl font-bold uppercase;
+	@apply text-2xl font-bold uppercase;
+	@apply text-center lg:text-left;
 }
 
 .row {
@@ -111,13 +119,14 @@
 }
 
 .footer {
-	@apply flex justify-between lg:flex-col lg:gap-4;
+	@apply flex lg:flex-row flex-col lg:gap-4;
+	@apply items-center lg:items-start justify-between;
 }
 
 .footer_link {
 	@apply flex gap-2 items-center;
-	@apply px-2 py-1 h-fit;
-	@apply bg-[color:var(--accents-1)] text-[color:var(--accents-8)];
+	@apply px-4 py-2 h-fit;
+	@apply bg-[color:var(--accents-2)] text-[color:var(--accents-8)];
 	@apply hover:bg-[color:var(--accents-8)] hover:text-[color:var(--accents-1)];
 	@apply transition-colors duration-300;
 }
@@ -127,7 +136,7 @@
 }
 
 .footer_links {
-	@apply flex gap-2 justify-end;
+	@apply flex gap-2 justify-center lg:justify-end mt-8 lg:mt-0 flex-row lg:flex-col;
 	@apply text-sm;
 }
 
