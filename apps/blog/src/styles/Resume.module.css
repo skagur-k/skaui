@@ -82,7 +82,7 @@
 
 .entry {
 	@apply flex flex-col gap-4;
-	@apply px-4 py-4;
+	@apply px-4 py-4 w-full;
 	@apply border-l border-[color:var(--accents-3)];
 	@apply ring-1 ring-[color:var(--accents-2)];
 	@apply rounded-md ring-inset;
@@ -94,11 +94,11 @@
 }
 
 .project_heading {
-	@apply text-2xl;
+	@apply text-xl;
 }
 
 .heading {
-	@apply text-2xl font-bold uppercase;
+	@apply text-xl font-bold uppercase;
 	@apply text-center lg:text-left;
 }
 
@@ -141,7 +141,7 @@
 }
 
 .contribution_list {
-	@apply text-sm font-normal;
+	@apply text-base font-normal;
 	@apply list-['-_'] list-inside;
 }
 .contribution_list_kr {

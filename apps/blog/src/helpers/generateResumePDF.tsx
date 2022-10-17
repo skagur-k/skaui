@@ -2,8 +2,9 @@ import { Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer'
 
 const styles = StyleSheet.create({
 	page: {
-		flexDirection: 'row',
-		backgroundColor: '#E2E2E2',
+		flexDirection: 'column',
+		backgroundColor: '#fafafa',
+		color: '#222222',
 	},
 	section: {
 		margin: 0,
@@ -19,7 +20,7 @@ const Resume = () => {
 					<Text>Section #1</Text>
 				</View>
 				<View style={styles.section}>
-					<Text>Section #2</Text>
+					<Text>Section #3</Text>
 				</View>
 			</Page>
 		</Document>

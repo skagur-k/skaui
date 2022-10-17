@@ -306,6 +306,30 @@ const ResumePage = () => {
 										</h2>
 										<h2 className={styles.row_text_small}>Hong Kong</h2>
 									</div>
+
+									<div className={styles.row}>
+										<div className={styles.entry}>
+											<div className={styles.row}>
+												<h2>Capstone Project</h2>
+
+												<h2 className={styles.row_text_normal}>2019</h2>
+											</div>
+											<h2>
+												Performance Analysis of Cryptographic Schemes on Mobile
+												Devices
+											</h2>
+											<h2 className={styles.row_text_normal}>
+												Developed a Java Android application that adopted
+												javax.crypto library to test the temporal performance of
+												AES/DES/3DES/Blowfish algorithms.
+											</h2>
+											<h2 className={styles.row_text_normal}>
+												Derived and Analyzed the performance based on each
+												algorithm&apos;s execution time with varying file types
+												and sizes.
+											</h2>
+										</div>
+									</div>
 								</div>
 							</div>
 						</section>

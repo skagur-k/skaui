@@ -312,6 +312,28 @@ const ResumePage = () => {
 										</h2>
 										<h2 className={styles.row_text_normal}>홍콩</h2>
 									</div>
+
+									<div className={styles.row}>
+										<div className={styles.entry}>
+											<div className={styles.row}>
+												<h2>캡스톤 프로젝트</h2>
+
+												<h2 className={styles.row_text_normal}>2019</h2>
+											</div>
+											<h2>
+												모바일 디바이스에서의 암호 알고리즘 성능 비교에 대한
+												연구 (직역)
+											</h2>
+											<h2 className={styles.row_text_normal}>
+												AES/DES/3DES/Blowfish 암호화 알고리즘 성능 비교 분석.
+											</h2>
+											<h2 className={styles.row_text_normal}>
+												javax.crypto 라이브러리를 기반으로 한 안드로이드 어플
+												개발. 각 알고리즘의 수행 시간을 분석, 유의미한 결과를
+												도출해 냄.
+											</h2>
+										</div>
+									</div>
 								</div>
 							</div>
 						</section>
@@ -321,7 +343,7 @@ const ResumePage = () => {
 							<div className={styles.entries}>
 								<div className={styles.entry}>
 									<div className={styles.row}>
-										<h2>레전드 엔터테인먼트 그룹, 코리아</h2>
+										<h2>레전드 엔터테인먼트 그룹 코리아</h2>
 										<h2 className={styles.row_text_small}>2019-2021</h2>
 									</div>
 									<div className={styles.row}>
