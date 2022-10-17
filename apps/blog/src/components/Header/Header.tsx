@@ -7,7 +7,8 @@ import styles from './Header.module.css'
 const Header = () => {
 	const router = useRouter()
 	const isWiki = router.asPath.startsWith('/wiki')
-	const isResume = router.asPath.startsWith('/resume')
+	const isResume = router.asPath.startsWith('/resume/en')
+	const isResumeKR = router.asPath.startsWith('/resume/kr')
 
 	return (
 		<header className={styles.wrapper}>
@@ -34,7 +35,18 @@ const Header = () => {
 						exit={{ opacity: 0 }}
 						className={styles.logo}
 					>
-						<AnyLink href='/wiki'>Résumé</AnyLink>
+						<AnyLink href='/resume/en'>Résumé</AnyLink>
+					</motion.div>
+				)}
+
+				{isResumeKR && (
+					<motion.div
+						initial={{ opacity: 0 }}
+						animate={{ opacity: 1 }}
+						exit={{ opacity: 0 }}
+						className={styles.logo}
+					>
+						<AnyLink href='/resume/kr'>이력서</AnyLink>
 					</motion.div>
 				)}
 			</div>

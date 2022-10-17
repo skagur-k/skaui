@@ -39,7 +39,7 @@ const Home: NextPage = () => {
 						<AnyLink href='/wiki' className={styles.link}>
 							WIKI
 						</AnyLink>
-						<AnyLink href='/resume' className={styles.link}>
+						<AnyLink href='/resume/en' className={styles.link}>
 							Résumé
 						</AnyLink>
 						<AnyLink href='https://skaui.skagur.dev' className={styles.link}>
@@ -47,9 +47,11 @@ const Home: NextPage = () => {
 						</AnyLink>
 					</div>
 
-					<Note className='my-12' label={'Disclaimer'}>
-						Website is under active construction. More to come soon.
-					</Note>
+					<div className='my-12'>
+						<Note label={false} className={'flex justify-center'}>
+							Website is currently under active development. More to come soon.
+						</Note>
+					</div>
 
 					{/* FEATURED PROJECTS */}
 					<div>

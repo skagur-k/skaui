@@ -21,7 +21,7 @@ const Note = (props: NoteProps) => {
 	const noteClasses = useNoteClass({ size, type, filled, contrast })
 	return (
 		<div className={clsx(noteClasses, className)} {...rest}>
-			<div className={styles.note_text}>
+			<div className={clsx(styles.note_text, className)}>
 				{label != false && typeof label === 'string' && (
 					<span className={styles.note_label}>{label}:</span>
 				)}

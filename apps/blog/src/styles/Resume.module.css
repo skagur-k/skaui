@@ -4,10 +4,11 @@
 	@apply h-full lg:h-[var(--resume-height)];
 	@apply text-[color:var(--accents-8)];
 	@apply tracking-wide;
+	@apply ring-inset;
 }
 
 .resume {
-	@apply flex flex-col lg:grid lg:grid-cols-8;
+	@apply flex flex-col lg:grid lg:grid-cols-10;
 	@apply gap-4;
 	@apply h-full;
 }
@@ -16,6 +17,7 @@
 	@apply lg:col-span-3;
 	@apply overflow-auto;
 	@apply flex flex-col gap-8;
+	@apply px-2;
 }
 
 .personal_info {
@@ -23,7 +25,7 @@
 }
 
 .name {
-	@apply text-2xl font-bold;
+	@apply text-3xl font-black;
 	@apply uppercase;
 }
 
@@ -44,7 +46,7 @@
 	@apply flex flex-col gap-2;
 }
 
-.repo_heading {
+.section_heading {
 	@apply font-bold;
 }
 
@@ -53,7 +55,7 @@
 }
 
 .detail {
-	@apply col-span-5;
+	@apply col-span-7;
 	@apply overflow-auto;
 
 	@apply flex flex-col;
@@ -78,8 +80,18 @@
 	@apply rounded-md ring-inset;
 }
 
+.project_description {
+	@apply flex flex-col gap-2;
+	@apply text-sm font-normal;
+}
+
+.project_description_kr {
+	@apply flex flex-col gap-2;
+	@apply text-base font-normal;
+}
+
 .heading {
-	@apply text-lg font-bold uppercase;
+	@apply text-xl font-bold uppercase;
 }
 
 .row {
@@ -95,4 +107,53 @@
 }
 .row_text_small {
 	@apply text-sm font-normal;
+	@apply w-fit;
+}
+
+.footer {
+	@apply flex justify-between lg:flex-col lg:gap-4;
+}
+
+.footer_link {
+	@apply flex gap-2 items-center;
+	@apply px-2 py-1 h-fit;
+	@apply bg-[color:var(--accents-1)] text-[color:var(--accents-8)];
+	@apply hover:bg-[color:var(--accents-8)] hover:text-[color:var(--accents-1)];
+	@apply transition-colors duration-300;
+}
+
+.footer_link_icon {
+	@apply w-4 h-4;
+}
+
+.footer_links {
+	@apply flex gap-2 justify-end;
+	@apply text-sm;
+}
+
+.contribution_list {
+	@apply text-sm font-normal;
+	@apply list-['-_'] list-inside;
+}
+.contribution_list_kr {
+	@apply text-base font-normal;
+	@apply list-['-_'] list-inside;
+}
+
+.version_link {
+	@apply text-base px-1 py-1;
+	@apply font-bold text-center;
+	@apply text-[color:var(--themed-fg)];
+	@apply bg-[color:var(--themed-bg)];
+
+	/* @apply underline; */
+	@apply transition-colors duration-200;
+
+	--themed-bg: var(--accents-3);
+	--themed-fg: var(--accents-8);
+
+	&:hover {
+		--themed-bg: var(--accents-8);
+		--themed-fg: var(--accents-1);
+	}
 }
