@@ -8,6 +8,7 @@ import { AnyLink } from '../../components'
 import Resume from '../../helpers/generateResumePDF'
 import ResumeLayout from '../../layouts/ResumeLayout'
 import styles from '../../styles/Resume.module.css'
+import { PDFDownloadButton } from './en'
 
 const ResumePage = () => {
 	return (
@@ -52,15 +53,7 @@ const ResumePage = () => {
 							<AnyLink className={styles.version_link} href='/resume/en'>
 								English Resume
 							</AnyLink>
-							<PDFDownloadLink
-								className={styles.version_link}
-								document={<Resume />}
-								fileName='somename.pdf'
-							>
-								{({ loading }) =>
-									loading ? 'Loading PDF Document...' : 'PDF 다운로드'
-								}
-							</PDFDownloadLink>
+							<PDFDownloadButton />
 						</div>
 					</div>
 					<div className={clx(styles.detail, 'scrollbar')}>

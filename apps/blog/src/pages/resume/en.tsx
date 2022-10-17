@@ -1,7 +1,7 @@
 import { PDFDownloadLink } from '@react-pdf/renderer'
-import { Button, Tags } from '@skaui/core'
-import { isBrowser } from '@skaui/core/src/utils'
+import { Tags } from '@skaui/core'
 import clx from 'clsx'
+import { useEffect, useState } from 'react'
 import { FaGithub } from 'react-icons/fa'
 import { FiGlobe, FiHome, FiMail } from 'react-icons/fi'
 import { SiGithub } from 'react-icons/si'
@@ -9,6 +9,23 @@ import { AnyLink } from '../../components'
 import Resume from '../../helpers/generateResumePDF'
 import ResumeLayout from '../../layouts/ResumeLayout'
 import styles from '../../styles/Resume.module.css'
+
+export const PDFDownloadButton = () => {
+	const [isBrowser, setIsBrowser] = useState(false)
+
+	useEffect(() => {
+		setIsBrowser(typeof window !== 'undefined')
+	}, [])
+	return isBrowser ? (
+		<PDFDownloadLink
+			className={styles.version_link}
+			document={<Resume />}
+			fileName='somename.pdf'
+		>
+			{({ loading }) => (loading ? 'Loading PDF Document...' : 'Download PDF')}
+		</PDFDownloadLink>
+	) : null
+}
 
 const ResumePage = () => {
 	return (
@@ -52,16 +69,7 @@ const ResumePage = () => {
 							<AnyLink className={styles.version_link} href='/resume/kr'>
 								국문 이력서
 							</AnyLink>
-
-							<PDFDownloadLink
-								className={styles.version_link}
-								document={<Resume />}
-								fileName='somename.pdf'
-							>
-								{({ loading }) =>
-									loading ? 'Loading PDF Document...' : 'Download PDF'
-								}
-							</PDFDownloadLink>
+							<PDFDownloadButton />
 						</div>
 					</div>
 					<div className={clx(styles.detail, 'scrollbar')}>
