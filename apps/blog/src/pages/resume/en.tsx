@@ -1,31 +1,12 @@
-import { PDFDownloadLink } from '@react-pdf/renderer'
 import { Tags } from '@skaui/core'
 import clx from 'clsx'
-import { useEffect, useState } from 'react'
 import { FaGithub } from 'react-icons/fa'
 import { FiGlobe, FiHome, FiMail } from 'react-icons/fi'
 import { SiGithub } from 'react-icons/si'
 import { AnyLink } from '../../components'
-import Resume from '../../helpers/generateResumePDF'
+import Clipboard from '../../components/Clipboard/Clipboard'
 import ResumeLayout from '../../layouts/ResumeLayout'
 import styles from '../../styles/Resume.module.css'
-
-export const PDFDownloadButton = () => {
-	const [isBrowser, setIsBrowser] = useState(false)
-
-	useEffect(() => {
-		setIsBrowser(typeof window !== 'undefined')
-	}, [])
-	return isBrowser ? (
-		<PDFDownloadLink
-			className={styles.version_link}
-			document={<Resume />}
-			fileName='somename.pdf'
-		>
-			{({ loading }) => (loading ? 'Loading PDF Document...' : 'Download PDF')}
-		</PDFDownloadLink>
-	) : null
-}
 
 const ResumePage = () => {
 	return (
@@ -43,7 +24,13 @@ const ResumePage = () => {
 								<h2 className={styles.section_heading}>Contacts</h2>
 								<li className={styles.contact}>
 									<FiMail className={styles.icon} />
-									<h2>namhyuck.james@gmail.com</h2>
+									<Clipboard
+										text='namhyuck.james@gmail.com'
+										toastMessage='Email has been copied to Clipboard'
+										className={'cursor-pointer'}
+									>
+										<h2>namhyuck.james@gmail.com</h2>
+									</Clipboard>
 								</li>
 
 								<li>
@@ -69,7 +56,12 @@ const ResumePage = () => {
 							<AnyLink className={styles.version_link} href='/resume/kr'>
 								국문 이력서
 							</AnyLink>
-							<PDFDownloadButton />
+							<AnyLink
+								className={styles.version_link}
+								href='https://drive.google.com/u/0/uc?id=1--D-emx5FrPSWeWXuxvKQAe6NjIVddBt&export=download'
+							>
+								Download PDF
+							</AnyLink>
 						</div>
 					</div>
 					<div className={clx(styles.detail, 'scrollbar')}>
