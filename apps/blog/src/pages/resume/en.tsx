@@ -58,7 +58,7 @@ const ResumePage = () => {
 							</AnyLink>
 							<AnyLink
 								className={styles.version_link}
-								href='https://drive.google.com/u/0/uc?id=1--D-emx5FrPSWeWXuxvKQAe6NjIVddBt&export=download'
+								href='http://skagur.dev/resume/resume_namhyuck_kim_en.pdf'
 							>
 								Download PDF
 							</AnyLink>

@@ -7,7 +7,6 @@ import { AnyLink } from '../../components'
 import Clipboard from '../../components/Clipboard/Clipboard'
 import ResumeLayout from '../../layouts/ResumeLayout'
 import styles from '../../styles/Resume.module.css'
-import { PDFDownloadButton } from './en'
 
 const ResumePage = () => {
 	return (
@@ -58,7 +57,12 @@ const ResumePage = () => {
 							<AnyLink className={styles.version_link} href='/resume/en'>
 								English Resume
 							</AnyLink>
-							<PDFDownloadButton />
+							<AnyLink
+								className={styles.version_link}
+								href='http://skagur.dev/resume/resume_namhyuck_kim_en.pdf'
+							>
+								PDF 다운로드
+							</AnyLink>
 						</div>
 					</div>
 					<div className={clx(styles.detail, 'scrollbar')}>
