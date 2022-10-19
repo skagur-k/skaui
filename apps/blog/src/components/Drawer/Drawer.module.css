@@ -14,7 +14,7 @@
 	@apply w-full;
 	@apply px-4;
 	@apply pb-2;
-	@apply gap-6;
+	@apply gap-4;
 	@apply h-screen;
 }
 
@@ -47,4 +47,35 @@
 .drawer_pagelink_active {
 	@apply bg-[color:var(--accents-8)];
 	@apply text-[color:var(--accents-1)];
+}
+
+.links {
+	@apply flex flex-col gap-2;
+	@apply mt-4;
+	@apply h-full;
+}
+
+.link {
+	@apply bg-transparent;
+	@apply hover:bg-[color:var(--accents-8)];
+	@apply hover:text-[color:var(--accents-1)];
+	@apply cursor-pointer;
+	@apply py-1 px-4;
+	@apply flex items-center justify-between gap-2;
+	@apply transition-colors duration-200;
+}
+
+.link_active {
+	@apply font-bold;
+	@apply bg-[color:var(--accents-8)];
+	@apply text-[color:var(--accents-1)];
+}
+
+.link_external {
+	@apply flex items-center gap-2;
+}
+
+.footer {
+	@apply mt-auto;
+	@apply py-4;
 }

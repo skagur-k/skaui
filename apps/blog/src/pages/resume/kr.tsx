@@ -59,7 +59,7 @@ const ResumePage = () => {
 							</AnyLink>
 							<AnyLink
 								className={styles.version_link}
-								href='http://skagur.dev/resume/resume_namhyuck_kim_en.pdf'
+								href='http://skagur.dev/resume/resume_namhyuck_kim_kr.pdf'
 							>
 								PDF 다운로드
 							</AnyLink>
