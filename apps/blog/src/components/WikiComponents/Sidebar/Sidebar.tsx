@@ -17,19 +17,7 @@ export const Sidebar = ({ pages }: SidebarProps) => {
 	return (
 		<aside className={clx(styles.wrapper, 'scrollbar')}>
 			<div className={styles.content}>
-				<div className={'flex flex-col gap-4'}>
-					<NavLink href='/wiki/overview'>
-						{(isActive: boolean) => (
-							<a
-								className={clx(styles.heading, [
-									isActive && styles.heading_active,
-								])}
-							>
-								Overview
-							</a>
-						)}
-					</NavLink>
-				</div>
+				<div className={'flex flex-col gap-4'}></div>
 
 				<WikiList pages={pages} />
 			</div>
@@ -37,7 +25,7 @@ export const Sidebar = ({ pages }: SidebarProps) => {
 	)
 }
 
-const WikiList = ({ pages }: { pages: IWikiPages }) => {
+export const WikiList = ({ pages }: { pages: IWikiPages }) => {
 	const filteredPages = pages.filter(
 		(page) =>
 			!page.slug.match('/wiki/overview') &&
@@ -145,14 +133,7 @@ const Category = (props: CategoryProps) => {
 							<WikiLink key={page.slug} page={page} />
 						))}
 						<div className={styles.wiki_category_info}>
-							<Badge
-								onClick={() => handleClickBadge(heading)}
-								size='sm'
-								className={styles.wik_category_heading_badge}
-							>
-								Overview
-							</Badge>
-							<Badge size='sm' className={styles.wiki_category_heading_badge}>
+							<Badge size='md' className={styles.wiki_category_heading_badge}>
 								{pages.length} Posts
 							</Badge>
 						</div>

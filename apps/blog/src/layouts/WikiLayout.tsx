@@ -4,6 +4,7 @@ import { NextSeo } from 'next-seo'
 import { useRouter } from 'next/router'
 import { useEffect, useMemo, useRef } from 'react'
 import { Rightbar, Sidebar } from '../components'
+import { SubMenu } from '../components/SubMenu'
 import { IWikiPages } from '../components/WikiComponents/Wiki.types'
 import styles from './Layout.module.css'
 
@@ -54,6 +55,7 @@ export const WikiLayout = (props: WikiLayoutProps) => {
 				className={styles.wiki_wrapper}
 			>
 				<Sidebar pages={pages} />
+				<SubMenu pages={pages} />
 				<motion.div
 					className={styles.wiki_progress}
 					style={{ scaleX: scrollYProgress }}

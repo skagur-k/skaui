@@ -29,8 +29,12 @@
 }
 
 .name {
-	@apply text-3xl font-black;
+	@apply text-2xl font-black;
 	@apply uppercase;
+}
+
+.name_kr {
+	@apply text-3xl font-black;
 }
 
 .description {

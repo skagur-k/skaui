@@ -1,6 +1,6 @@
 .wrapper {
 	@apply hidden xl:flex flex-col;
-	@apply col-span-3;
+	@apply col-span-2;
 	@apply w-full;
 	@apply py-1 pr-0 lg:pr-2;
 	@apply pl-4;

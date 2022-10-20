@@ -37,14 +37,11 @@ const Home: NextPage = () => {
 						<AnyLink href='/resume/en' className={styles.link}>
 							Résumé
 						</AnyLink>
+						<AnyLink href='/wiki' className={styles.link}>
+							Wiki
+						</AnyLink>
 						<AnyLink href='https://github.com/skagur-k' className={styles.link}>
 							GitHub
-						</AnyLink>
-						<AnyLink href='/wiki' className={styles.link}>
-							WiKi
-						</AnyLink>
-						<AnyLink href='https://skaui.skagur.dev' className={styles.link}>
-							SKA UI
 						</AnyLink>
 					</div>
 

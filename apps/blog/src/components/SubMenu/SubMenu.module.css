@@ -1,0 +1,88 @@
+.wrapper {
+	@apply flex lg:hidden;
+	@apply cursor-pointer;
+}
+
+.menu_button {
+	@apply fixed left-12 bottom-12;
+	@apply p-4 rounded-full;
+	@apply bg-[color:var(--accents-3)];
+	@apply shadow-md;
+	@apply z-50;
+}
+
+.icon {
+	@apply h-6 w-6;
+	@apply stroke-[3px];
+}
+
+.drawer_content {
+	@apply flex flex-col;
+	@apply w-full;
+	@apply px-4;
+	@apply pb-2;
+	@apply gap-4;
+	@apply h-screen;
+}
+
+.drawer_header {
+	@apply flex w-full justify-center;
+	@apply mb-4 mt-16 text-xl font-black;
+	@apply py-1;
+	@apply outline-none transition-colors duration-200;
+	@apply bg-[color:var(--accents-8)];
+	@apply hover:bg-[color:var(--accents-6)];
+	@apply text-[color:var(--accents-1)];
+}
+
+.drawer_pagelink {
+	@apply flex justify-center;
+	@apply font-bold;
+	@apply transition duration-200;
+	@apply py-2;
+	@apply bg-[color:var(--accents-3)];
+	@apply hover:bg-[color:var(--accents-8)];
+	@apply hover:text-[color:var(--accents-1)];
+}
+
+.drawer_heading {
+	@apply flex w-full;
+	@apply text-base font-black;
+	@apply outline-none;
+}
+
+.drawer_pagelink_active {
+	@apply bg-[color:var(--accents-8)];
+	@apply text-[color:var(--accents-1)];
+}
+
+.links {
+	@apply flex flex-col gap-2;
+	@apply mt-4;
+	@apply h-full;
+}
+
+.link {
+	@apply bg-transparent;
+	@apply hover:bg-[color:var(--accents-8)];
+	@apply hover:text-[color:var(--accents-1)];
+	@apply cursor-pointer;
+	@apply py-1 px-4;
+	@apply flex items-center justify-between gap-2;
+	@apply transition-colors duration-200;
+}
+
+.link_active {
+	@apply font-bold;
+	@apply bg-[color:var(--accents-8)];
+	@apply text-[color:var(--accents-1)];
+}
+
+.link_external {
+	@apply flex items-center gap-2;
+}
+
+.footer {
+	@apply mt-auto;
+	@apply py-4;
+}

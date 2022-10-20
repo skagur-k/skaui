@@ -1,6 +1,6 @@
 .wrapper {
 	@apply hidden lg:flex flex-col;
-	@apply col-span-2;
+	@apply col-span-3;
 	@apply w-full;
 	@apply py-1 pl-0 lg:pl-2 xl:pl-0;
 	@apply gap-2;
@@ -15,7 +15,7 @@
 }
 
 .heading {
-	@apply flex justify-center text-sm font-bold grow-0;
+	@apply flex justify-center text-base font-bold grow-0;
 	@apply py-1 px-2;
 	@apply bg-[color:var(--accents-2)];
 	@apply hover:bg-[color:var(--accents-8)];
@@ -54,7 +54,7 @@
 	@apply text-[color:var(--accents-6)];
 	@apply cursor-pointer;
 	@apply py-1 pr-4 pl-2;
-	@apply text-sm;
+	@apply text-base font-bold;
 }
 
 .wiki_category_heading_text_and_badge {
@@ -78,7 +78,7 @@
 
 .wiki_link {
 	@apply flex items-center justify-between;
-	@apply text-sm;
+	@apply text-base;
 	@apply py-1 px-2;
 	@apply transition-all duration-200;
 	@apply hover:bg-[color:var(--accents-2)];

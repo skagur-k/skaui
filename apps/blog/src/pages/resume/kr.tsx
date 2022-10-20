@@ -15,7 +15,7 @@ const ResumePage = () => {
 				<div className={styles.resume}>
 					<div className={styles.summary}>
 						<section className={styles.personal_info}>
-							<h1 className={styles.name}>김남혁</h1>
+							<h1 className={styles.name_kr}>김남혁</h1>
 							<p className={styles.description}>
 								10년 전 조우한 첫 &apos;Hello World&apos; 의 설렘으로 시작한
 								개발 여정을 이어가고 있는 개발자, 김남혁입니다. 끝없는 배움을

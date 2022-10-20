@@ -43,8 +43,6 @@ export const useHeadsObserver = () => {
 
 	useEffect(() => {
 		const handleObserver = (entries: IntersectionObserverEntry[]) => {
-			console.log(entries)
-
 			entries.forEach((entry) => {
 				if (entry.isIntersecting && entry.intersectionRatio >= 1) {
 					setActiveId(entry.target.id)

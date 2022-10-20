@@ -6,16 +6,19 @@ import { bundleMDX } from 'mdx-bundler'
 import { getMDXComponent } from 'mdx-bundler/client'
 import path from 'path'
 import { useEffect, useMemo, useRef } from 'react'
+import { FiMenu } from 'react-icons/fi'
 import rehypePrism from 'rehype-prism-plus'
 import remarkGfm from 'remark-gfm'
 import remarkToc from 'remark-toc'
 import { AnyLink } from '../../components'
+import { SubMenu } from '../../components/SubMenu'
 import { MDXComponents } from '../../components/WikiComponents/MDXComponents'
 import { getAllFiles } from '../../helpers/getAllFiles'
 import getFileBySlug from '../../helpers/getFileBySlug'
 import { getSlug } from '../../helpers/getSlug'
 import { WikiLayout } from '../../layouts/WikiLayout'
 import styles from '../../styles/Wiki.module.css'
+
 interface PageProps {
 	frontmatter: {
 		[key: string]: any
@@ -52,21 +55,6 @@ const WikiPage = ({ frontmatter, code }: PageProps) => {
 			className={clx(styles.wiki_content, 'wiki_content')}
 		>
 			<div className={styles.wiki_meta}>
-				<div className={styles.wiki_breadcrumbs}>
-					<Breadcrumbs>
-						<Breadcrumbs.Item>
-							<AnyLink href='/wiki'>Wiki</AnyLink>
-						</Breadcrumbs.Item>
-						{frontmatter.category && (
-							<Breadcrumbs.Item>
-								<AnyLink href={categorySlug}>{frontmatter.category}</AnyLink>
-							</Breadcrumbs.Item>
-						)}
-						<Breadcrumbs.Item>
-							<span>{frontmatter.title}</span>
-						</Breadcrumbs.Item>
-					</Breadcrumbs>
-				</div>
 				<div className={styles.wiki_title}>
 					{frontmatter.title}
 					{isNew && (
