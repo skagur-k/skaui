@@ -15,10 +15,6 @@ const Drawer = () => {
 
 	const links = [
 		{
-			heading: 'Home',
-			href: '/',
-		},
-		{
 			heading: 'Resume',
 			href: '/resume/en',
 		},
@@ -45,7 +41,7 @@ const Drawer = () => {
 							return (
 								<AnyLink
 									className={clx(styles.link, [
-										link.href === path && styles.link_active,
+										path.startsWith(link.href) && styles.link_active,
 									])}
 									href={link.href}
 								>
@@ -60,9 +56,18 @@ const Drawer = () => {
 								href='https://github.com/skagur-k'
 							>
 								<div className={styles.link_external}>
-									<SiGithub />
 									GitHub
+									<SiGithub
+										className={'text-[color:var(--accents-2)] w-4 h-4'}
+									/>
 								</div>
+								<FiExternalLink />
+							</AnyLink>
+							<AnyLink
+								className={clx(styles.link)}
+								href='https://skaui.skagur.dev'
+							>
+								<div className={styles.link_external}>SKA UI</div>
 								<FiExternalLink />
 							</AnyLink>
 						</div>

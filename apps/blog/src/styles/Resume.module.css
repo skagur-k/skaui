@@ -76,7 +76,7 @@
 }
 
 .entries {
-	@apply flex flex-col gap-2;
+	@apply flex flex-col gap-4;
 	@apply mx-2;
 }
 
@@ -84,8 +84,8 @@
 	@apply flex flex-col gap-4;
 	@apply px-4 py-4 w-full;
 	@apply border-l border-[color:var(--accents-3)];
-	@apply ring-1 ring-[color:var(--accents-2)];
-	@apply rounded-md ring-inset;
+	/* @apply ring-1 ring-[color:var(--accents-2)]; */
+	@apply ring-inset;
 }
 
 .project_description {

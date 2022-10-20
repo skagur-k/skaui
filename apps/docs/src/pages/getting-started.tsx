@@ -25,18 +25,18 @@ const GettingStarted: NextPage = () => {
 		<PageLayout title='Getting Started'>
 			<div className='flex h-full max-w-4xl flex-col gap-6'>
 				<h1 className='text-5xl font-black'>Getting Started</h1>
-				<h3 className='text-lg text-neutral-800 dark:nptext-neutral-100'>
+				<h3 className='text-lg'>
 					Quickest way to enjoy <InlineCode>@skaui/core</InlineCode>
 				</h3>
 
 				{/* Section */}
 				<div className='mt-16 flex flex-col gap-8'>
 					<h2 className='text-4xl font-bold'>Installation</h2>
-					<h3 className='text-lg text-neutral-800 dark:text-neutral-100'>
+					<h3 className='text-lg'>
 						1. Install <InlineCode>@skaui/core</InlineCode> package.
 					</h3>
 					<Snippet text={['npm install @skaui/core']} />
-					<h3 className='text-lg text-neutral-800 dark:text-neutral-100'>
+					<h3 className='text-lg '>
 						2. Install and Configure{' '}
 						<InlineCode>
 							<a
@@ -51,7 +51,7 @@ const GettingStarted: NextPage = () => {
 					</h3>
 					<Snippet text={['npm install -D tailwindcss']} />
 
-					<h3 className='text-lg text-neutral-800 dark:text-neutral-100'>
+					<h3 className='text-lg '>
 						3. Add the highlighted lines to the config files.
 					</h3>
 
