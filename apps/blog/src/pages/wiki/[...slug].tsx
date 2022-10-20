@@ -1,4 +1,4 @@
-import { Breadcrumbs, Tag } from '@skaui/core'
+import { Breadcrumbs, Collapsible, Tag } from '@skaui/core'
 import clx from 'clsx'
 import dayjs from 'dayjs'
 import { motion } from 'framer-motion'
@@ -10,9 +10,10 @@ import { FiMenu } from 'react-icons/fi'
 import rehypePrism from 'rehype-prism-plus'
 import remarkGfm from 'remark-gfm'
 import remarkToc from 'remark-toc'
-import { AnyLink } from '../../components'
+import { AnyLink, Footer } from '../../components'
 import { SubMenu } from '../../components/SubMenu'
 import { MDXComponents } from '../../components/WikiComponents/MDXComponents'
+import { IWikiPage } from '../../components/WikiComponents/Wiki.types'
 import { getAllFiles } from '../../helpers/getAllFiles'
 import getFileBySlug from '../../helpers/getFileBySlug'
 import { getSlug } from '../../helpers/getSlug'
@@ -28,6 +29,7 @@ interface PageProps {
 
 const WikiPage = ({ frontmatter, code }: PageProps) => {
 	const MDXComponent = useMemo(() => getMDXComponent(code), [code])
+
 	const variants = {
 		hidden: { opacity: 0, x: 0, y: 20 },
 		enter: { opacity: 1, x: 0, y: 0 },
@@ -38,11 +40,11 @@ const WikiPage = ({ frontmatter, code }: PageProps) => {
 	}/overview`.toLowerCase()
 
 	const isNew = dayjs(dayjs()).diff(frontmatter.date, 'day') < 10
-	const ref = useRef<HTMLDivElement>(null)
+	// const ref = useRef<HTMLDivElement>(null)
 
-	useEffect(() => {
-		ref.current?.scrollTo(0, 0)
-	}, [])
+	// useEffect(() => {
+	// 	ref.current?.scrollTo(0, 0)
+	// }, [])
 
 	return (
 		<motion.div
@@ -67,7 +69,19 @@ const WikiPage = ({ frontmatter, code }: PageProps) => {
 					<div className={styles.wiki_summary}>{frontmatter.summary}</div>
 				)}
 			</div>
-			<MDXComponent ref={ref} components={MDXComponents} />
+			<Collapsible title={'About this Page'} className={styles.about_this_page}>
+				<div>Hello</div>
+			</Collapsible>
+			<MDXComponent components={MDXComponents} />
+
+			<footer className={styles.wiki_footer}>
+				<AnyLink href='/' className={styles.wiki_footer_logo}>
+					SKAGUR.DEV
+				</AnyLink>
+				<h2 className={styles.copyright}>
+					© 2022 Nam Hyuck Kim. All Rights Reserved.
+				</h2>
+			</footer>
 		</motion.div>
 	)
 }

@@ -1,6 +1,6 @@
 .wrapper {
 	@apply hidden lg:flex flex-col;
-	@apply col-span-3;
+	@apply col-span-2;
 	@apply w-full;
 	@apply py-1 pl-0 lg:pl-2 xl:pl-0;
 	@apply gap-2;
@@ -40,7 +40,7 @@
 }
 
 .wiki_categories {
-	@apply flex flex-col gap-4;
+	@apply flex flex-col gap-2;
 }
 
 .wiki_category_info {
@@ -75,10 +75,10 @@
 
 .wiki_link {
 	@apply flex items-center justify-between;
-	@apply text-base;
+	@apply text-sm;
 	@apply py-1 px-2;
 	@apply transition-all duration-200;
-	@apply hover:bg-[color:var(--accents-2)];
+	@apply hover:bg-[color:var(--accents-3)];
 
 	&.wiki_link_active {
 		@apply font-bold;

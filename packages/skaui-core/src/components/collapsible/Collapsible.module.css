@@ -1,5 +1,5 @@
 .collapsible {
-	@apply flex flex-col max-w-[95%];
+	@apply flex flex-col max-w-full;
 	@apply px-2 py-4 overflow-hidden;
 	@apply border-t border-b border-neutral-100;
 }

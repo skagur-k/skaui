@@ -35,15 +35,15 @@ const WikiPage = (props: WikiPageProps) => {
 			<div className={styles.texts}>
 				<h1 className={styles.title}>Getting Started</h1>
 				<p className={styles.text}>
-					This is my digital garden where I organized and archive things I know
+					This is my digital garden where I organize and archive things I know
 					and experienced.
 				</p>
 				<p className={styles.text}>
 					All notes published on this page are not final, and are subject to
-					continuous editing.
+					future editing.
 				</p>
 				<p className={styles.text}>
-					Please note that the contents reflect heavily my thinking style and
+					Please note that the contents reflect my thought process and personal
 					preference.
 				</p>
 			</div>

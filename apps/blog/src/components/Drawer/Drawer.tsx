@@ -44,6 +44,7 @@ const Drawer = () => {
 										path.startsWith(link.href) && styles.link_active,
 									])}
 									href={link.href}
+									key={link.href}
 								>
 									{link.heading}
 								</AnyLink>

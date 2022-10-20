@@ -26,3 +26,28 @@
 .wiki_title_tag {
 	@apply text-xs px-1 py-0;
 }
+
+.wiki_footer {
+	@apply flex flex-col items-center justify-center lg:hidden;
+	@apply max-w-3xl w-full;
+	@apply pt-12 pb-4;
+	@apply space-y-1;
+	@apply mx-auto mt-auto;
+}
+
+.wiki_footer_logo {
+	@apply bg-[color:var(--accents-8)];
+	@apply hover:bg-[color:var(--accents-6)];
+	@apply text-[color:var(--accents-1)];
+	@apply text-sm font-bold;
+	@apply px-2 py-[2px];
+	@apply transition-colors duration-200;
+}
+
+.copyright {
+	@apply text-sm text-[color:var(--accents-5)];
+}
+
+.about_this_page {
+	@apply lg:hidden flex;
+}

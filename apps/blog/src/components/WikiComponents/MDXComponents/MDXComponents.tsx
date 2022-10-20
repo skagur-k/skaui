@@ -66,7 +66,7 @@ const p = (props: ComponentProps) => {
 }
 
 const blockquote = (props: ComponentProps) => {
-	return <Note label={false} {...props} className='my-4' />
+	return <Note label={false} {...props} className='my-4 mx-2' />
 }
 
 const code = (props: ComponentProps) => {

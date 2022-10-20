@@ -2,7 +2,7 @@ import clx from 'clsx'
 import { AnimatePresence, motion, useScroll } from 'framer-motion'
 import { NextSeo } from 'next-seo'
 import { useRouter } from 'next/router'
-import { useEffect, useMemo, useRef } from 'react'
+import { cloneElement , useEffect, useMemo, useRef } from 'react'
 import { Rightbar, Sidebar } from '../components'
 import { SubMenu } from '../components/SubMenu'
 import { IWikiPages } from '../components/WikiComponents/Wiki.types'
@@ -42,6 +42,10 @@ export const WikiLayout = (props: WikiLayoutProps) => {
 		scrollToTop()
 	}, [page])
 
+	const clone = cloneElement(children, {
+		page: page,
+	})
+
 	return (
 		<>
 			<NextSeo title={title} />
@@ -61,7 +65,7 @@ export const WikiLayout = (props: WikiLayoutProps) => {
 					style={{ scaleX: scrollYProgress }}
 				/>
 				<div ref={ref} className={clx(styles.wiki_main, 'scrollbar')}>
-					{children}
+					{clone}
 				</div>
 				<AnimatePresence exitBeforeEnter>
 					{!isIndex && <Rightbar scrollToTop={scrollToTop} page={page} />}
