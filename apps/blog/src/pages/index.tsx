@@ -11,7 +11,7 @@ import styles from '../styles/Home.module.css'
 const Home: NextPage = () => {
 	return (
 		<>
-			<PageLayout title='Home'>
+			<PageLayout>
 				<div className={styles.wrapper}>
 					{/* HERO */}
 

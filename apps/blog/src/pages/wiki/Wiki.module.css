@@ -1,0 +1,36 @@
+.wrapper {
+	@apply flex flex-col gap-8;
+	@apply h-full;
+}
+
+.welcome {
+	@apply flex flex-col gap-4;
+	@apply p-4;
+	@apply items-center;
+	@apply bg-[color:var(--accents-8)];
+}
+
+.heading {
+	@apply w-full text-center;
+	@apply text-5xl font-black;
+	@apply p-4;
+	@apply text-[color:var(--accents-1)];
+}
+
+.title {
+	@apply font-bold text-2xl;
+	@apply py-4;
+}
+
+.description {
+	@apply text-xl;
+	@apply text-[color:var(--accents-3)];
+}
+
+.texts {
+	@apply flex flex-col gap-2;
+}
+
+.text {
+	@apply text-lg;
+}

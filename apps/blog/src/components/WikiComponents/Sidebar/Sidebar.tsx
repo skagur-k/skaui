@@ -52,7 +52,6 @@ export const WikiList = ({ pages }: { pages: IWikiPages }) => {
 		if (idx === selected) {
 			return setSelected(null)
 		}
-
 		setSelected(idx)
 	}
 
@@ -122,10 +121,10 @@ const Category = (props: CategoryProps) => {
 				{open && (
 					<motion.div
 						key={heading}
-						initial={{ opacity: 0, height: 0 }}
+						initial={{ opacity: 1, height: 0 }}
 						animate={{ opacity: 1, height: 'auto' }}
-						exit={{ opacity: 0, height: 0 }}
-						transition={{ ease: 'linear', duration: 0.1 }}
+						exit={{ opacity: 1, height: 0 }}
+						transition={{ ease: 'easeInOut', duration: 0.3 }}
 						style={{ overflow: 'hidden' }}
 						className={styles.wiki_category}
 					>
