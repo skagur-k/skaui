@@ -2,7 +2,7 @@
 	@apply flex items-center justify-between;
 	@apply px-4;
 	@apply rounded-md h-fit;
-	@apply ring-1 ring-neutral-500;
+	@apply ring-1 ring-neutral-500 ring-inset;
 }
 
 .note_text {

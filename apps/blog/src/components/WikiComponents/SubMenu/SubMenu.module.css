@@ -4,11 +4,18 @@
 }
 
 .menu_button {
-	@apply fixed left-12 bottom-12;
 	@apply p-4 rounded-full;
-	@apply bg-[color:var(--accents-3)];
-	@apply shadow-md;
+	@apply bg-[color:var(--accents-2)];
+	@apply shadow-xl;
 	@apply z-50;
+}
+
+.menu_left {
+	@apply fixed left-12 bottom-12;
+}
+
+.menu_right {
+	@apply fixed right-12 bottom-12;
 }
 
 .icon {

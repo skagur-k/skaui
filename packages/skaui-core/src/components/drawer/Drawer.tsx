@@ -1,4 +1,4 @@
-import clsx from 'clsx'
+import clx from 'clsx'
 import { AnimatePresence, motion } from 'framer-motion'
 import React from 'react'
 import {
@@ -90,14 +90,14 @@ const DrawerOverlay = (props: DrawerProps) => {
 					<motion.div
 						{...transitions[position]}
 						transition={{ ease: 'easeInOut' }}
-						className={clsx(styles.drawer_overlay, [
+						className={clx(styles.drawer_overlay, [
 							position && positions[position],
 						])}
 					>
 						<div
 							ref={ref}
 							{...mergeProps(overlayProps, modalProps)}
-							className={styles.drawer_overlay_content}
+							className={clx(styles.drawer_overlay_content, 'scrollbar')}
 						>
 							{children}
 						</div>

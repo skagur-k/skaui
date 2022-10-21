@@ -49,5 +49,9 @@
 }
 
 .about_this_page {
-	@apply lg:hidden flex;
+	@apply lg:hidden flex border-[color:var(--accents-3)];
+}
+
+.tags {
+	/* @apply flex justify-center; */
 }

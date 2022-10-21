@@ -1,19 +1,17 @@
-import { Breadcrumbs, Collapsible, Tag } from '@skaui/core'
+import { Collapsible, Tag, Tags } from '@skaui/core'
 import clx from 'clsx'
 import dayjs from 'dayjs'
 import { motion } from 'framer-motion'
 import { bundleMDX } from 'mdx-bundler'
 import { getMDXComponent } from 'mdx-bundler/client'
 import path from 'path'
-import { useEffect, useMemo, useRef } from 'react'
-import { FiMenu } from 'react-icons/fi'
+import { useMemo } from 'react'
 import rehypePrism from 'rehype-prism-plus'
 import remarkGfm from 'remark-gfm'
 import remarkToc from 'remark-toc'
-import { AnyLink, Footer } from '../../components'
-import { SubMenu } from '../../components/SubMenu'
+import { AnyLink } from '../../components'
 import { MDXComponents } from '../../components/WikiComponents/MDXComponents'
-import { IWikiPage } from '../../components/WikiComponents/Wiki.types'
+import { TOC } from '../../components/WikiComponents/Rightbar/TOC'
 import { getAllFiles } from '../../helpers/getAllFiles'
 import getFileBySlug from '../../helpers/getFileBySlug'
 import { getSlug } from '../../helpers/getSlug'
@@ -40,11 +38,6 @@ const WikiPage = ({ frontmatter, code }: PageProps) => {
 	}/overview`.toLowerCase()
 
 	const isNew = dayjs(dayjs()).diff(frontmatter.date, 'day') < 10
-	// const ref = useRef<HTMLDivElement>(null)
-
-	// useEffect(() => {
-	// 	ref.current?.scrollTo(0, 0)
-	// }, [])
 
 	return (
 		<motion.div
@@ -69,9 +62,26 @@ const WikiPage = ({ frontmatter, code }: PageProps) => {
 					<div className={styles.wiki_summary}>{frontmatter.summary}</div>
 				)}
 			</div>
-			<Collapsible title={'About this Page'} className={styles.about_this_page}>
-				<div>Hello</div>
+
+			<div className={styles.tags}>
+				{frontmatter.tags && (
+					<div className={styles.action_tags}>
+						<Tags
+							removable={false}
+							tags={frontmatter.tags}
+							className='text-xs'
+						/>
+					</div>
+				)}
+			</div>
+
+			<Collapsible
+				title={'Table of Contents'}
+				className={styles.about_this_page}
+			>
+				<TOC page={{ frontmatter, code }} />
 			</Collapsible>
+
 			<MDXComponent components={MDXComponents} />
 
 			<footer className={styles.wiki_footer}>

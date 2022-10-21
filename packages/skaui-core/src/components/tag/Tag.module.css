@@ -2,7 +2,7 @@
 	@apply inline-flex w-fit h-fit;
 	@apply cursor-pointer;
 	@apply overflow-hidden rounded-sm;
-	@apply ring-[0.5px];
+	@apply ring-[0.5px] ring-inset;
 	@apply flex justify-between items-center;
 	@apply bg-[color:var(--skaui-background)];
 	@apply ring-[color:var(--skaui-foreground)];

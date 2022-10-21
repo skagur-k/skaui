@@ -14,6 +14,7 @@
 
 .drawer_overlay_content {
 	@apply relative h-full w-full;
+	@apply overflow-auto;
 }
 
 .drawer_position_right {
