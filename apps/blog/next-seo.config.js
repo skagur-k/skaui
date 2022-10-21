@@ -2,7 +2,7 @@ export default {
 	defaultTitle: 'skagur.dev',
 	titleTemplate: '%s | skagur.dev',
 	description: 'Personal portfolio site by Nam Hyuck Kim',
-	canonical: 'https://skagur.dev/about',
+	canonical: 'https://skagur.dev/',
 	additionalMetaTags: [
 		{
 			name: 'theme-color',
@@ -15,6 +15,18 @@ export default {
 			href: '/favicon.ico',
 		},
 		{
+			rel: 'icon',
+			href: '/favicon-16x16.png',
+		},
+		{
+			rel: 'icon',
+			href: '/favicon-32x32.png',
+		},
+		{
+			rel: 'apple-touch-icon',
+			href: '/apple-touch-icon.png',
+		},
+		{
 			rel: 'manifest',
 			href: '/site.webmanifest',
 		},
@@ -23,7 +35,7 @@ export default {
 		type: 'website',
 		site_name: 'skagur.dev',
 		url: 'https://skagur.dev',
-		title: 'SKA UI | skagur.dev',
+		title: 'skagur.dev',
 		description: 'Personal portfolio site by Nam Hyuck Kim',
 		images: [
 			{

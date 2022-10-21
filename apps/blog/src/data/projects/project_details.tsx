@@ -1,7 +1,7 @@
 import Project1Cover from '../../../public/static/projects/skagurdev.webp'
 import Project1CoverDark from '../../../public/static/projects/skagurdev-dark.webp'
-// import Project2Cover from '../../../public/static/projects/skaui.webp'
-// import Project2CoverDark from '../../../public/static/projects/skaui-dark.webp'
+import Project2Cover from '../../../public/static/projects/skaui.webp'
+import Project2CoverDark from '../../../public/static/projects/skaui-dark.webp'
 
 import { AnyLink } from '../../components/Link'
 
@@ -54,6 +54,6 @@ const Project2Details = () => {
 
 export const Project2 = {
 	details: <Project2Details />,
-	light: Project1Cover,
-	dark: Project1CoverDark,
+	light: Project2Cover,
+	dark: Project2CoverDark,
 }

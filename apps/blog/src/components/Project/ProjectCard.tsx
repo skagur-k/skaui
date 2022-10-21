@@ -82,6 +82,7 @@ const DetailOverlay = (props: ProjectDetailProps) => {
 	usePreventScroll()
 
 	const { mode } = useTheme()
+	
 	let imgSrc
 
 	switch (mode) {
@@ -127,7 +128,7 @@ const DetailOverlay = (props: ProjectDetailProps) => {
 
 							{/* Project Cover Image */}
 							{project?.coverimagelight && (
-								<div className='relative'>
+								<div className='relative flex justify-center items-center'>
 									<Image src={imgSrc} alt='project image' />
 								</div>
 							)}
