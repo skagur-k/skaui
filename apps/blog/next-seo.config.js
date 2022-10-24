@@ -2,7 +2,7 @@ export default {
 	defaultTitle: 'skagur.dev',
 	titleTemplate: '%s | skagur.dev',
 	description: 'Personal portfolio site by Nam Hyuck Kim',
-	canonical: 'https://skagur.dev/',
+	canonical: 'skagur.dev/',
 	additionalMetaTags: [
 		{
 			name: 'theme-color',
@@ -25,10 +25,6 @@ export default {
 		{
 			rel: 'apple-touch-icon',
 			href: '/apple-touch-icon.png',
-		},
-		{
-			rel: 'manifest',
-			href: '/site.webmanifest',
 		},
 	],
 	openGraph: {
